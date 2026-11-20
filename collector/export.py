@@ -7,11 +7,15 @@ Contract (keep in step with lib/radar.ts in the app):
 {
   "generated_at": ISO timestamp,
   "window_days": 60,
-  "sources": [{"id","name","url","what","updated"}],
+  "questions": {"A": "Demand", "B": "Skills", "C": "Employers", "D": "Target group", "E": "Policy watch"},   # NEW
+  "sources": [{"id","name","url","what","updated",
+               "questions": ["A"], "type", "schedule", "status",  # NEW: from sources.json; status = ok | error | never
+               "latest_period"}],                                  # NEW: newest period of its numbers, null for ads/links
   "roles": [{
      "id", "label", "ads",                       # ads matched in the window
      "weekly": [{"week": "2026-W44", "new_ads": n}],   # by publication date
-     "skills": [{"skill", "count", "share"}],    # share of the role's ads with full text, 0..1, top 15
+     "skills": [{"skill", "count", "share",     # share of the role's ads with full text, 0..1, top 15
+                 "esco_uri", "esco_label", "esco_match"}],   # NEW, only when ESCO has a concept ("exact" | "broader")
      "barriers": {"german_required": share, ...},
      "entry_level_share": share,                 # ads that say junior / career changer / trainee / internship
      "employers": [{"company", "ads"}],          # direct employers with 2+ ads for the role (question C), top 15
@@ -21,7 +25,11 @@ Contract (keep in step with lib/radar.ts in the app):
      "reporting_obligation_share": share,         # occupations under the Swiss job-reporting duty
      "examples": [{"title","company","city","published","url"}]   # newest 8
   }],
-  "sector": [{"series", "period", "value"}],     # BFS JOBSTAT, quarterly
+  "sector": [{"series", "period", "value"}],     # BFS JOBSTAT, quarterly (the source flagged "sector" in sources.json)
+  "series": {                                    # NEW: every numeric source, grouped by question letter
+     "D": [{"source": id, "name", "url", "updated",
+            "series": [{"label", "unit", "dimension", "points": [{"period", "value"}]}]}]
+  },                                             # unit: persons | share (0..1) | % | positions; dimension: Canton ...
   "policy": [{"source","title","date","status","url","matched"}]   # newest 40
 }
 """
@@ -32,26 +40,53 @@ import sqlite3
 import sys
 from pathlib import Path
 
+from . import config
 from .roles import AGENCY, BARRIERS, ROLES
 
 ROOT = Path(__file__).resolve().parent.parent
 DB = ROOT / "data" / "radar.db"
+ESCO = Path(__file__).resolve().parent / "esco_skills.json"
 WINDOW = 60
-
-SOURCES = [
-    {"id": "jobroom", "name": "job-room.ch (SECO)", "url": "https://www.job-room.ch",
-     "what": "Swiss job ads, public service of the State Secretariat for Economic Affairs"},
-    {"id": "bfs", "name": "Federal Statistical Office (BFS), JOBSTAT", "url":
-     "https://www.bfs.admin.ch/bfs/en/home/statistics/industry-services/businesses-employment/jobstat.html",
-     "what": "Open positions by economic sector, quarterly"},
-    {"id": "curia", "name": "Swiss Parliament (Curia Vista)", "url": "https://www.parlament.ch",
-     "what": "Motions, questions and bills on asylum, status F and S, integration, skilled workers"},
-    {"id": "fedlex", "name": "Fedlex", "url": "https://www.fedlex.admin.ch", "what": "New federal law"},
-]
+MAX_SERIES = 60   # per source and dimension; override with "export_max_series" in the source entry
 
 
-def main(out: Path):
-    c = sqlite3.connect(f"file:{DB}?mode=ro", uri=True)
+
+def _latest(v):
+    return v if v is not None else -1e18
+
+
+def build_series(c, entries):
+    """stats rows of every source -> {question: [source block]} (sources can appear under several questions)."""
+    by_q = collections.defaultdict(list)
+    runs = {r[0]: r for r in c.execute("SELECT source, last_ok FROM source_runs")}
+    for e in entries:
+        rows = c.execute("SELECT series, period, value, unit, dim FROM stats WHERE source=? ORDER BY period",
+                         (e["id"],)).fetchall()
+        if not rows:
+            continue
+        grouped = collections.OrderedDict()
+        for label, period, value, unit, dim in rows:
+            g = grouped.setdefault((label, dim), {"label": label, "unit": unit, "dimension": dim, "points": []})
+            g["points"].append({"period": period, "value": value})
+        per_dim = collections.defaultdict(list)
+        for g in grouped.values():
+            per_dim[g["dimension"]].append(g)
+        cap = int(e.get("export_max_series", MAX_SERIES))
+        series = []
+        for dim, gs in per_dim.items():
+            gs.sort(key=lambda g: (-_latest(g["points"][-1]["value"]), g["label"]))
+            series += gs[:cap]
+        block = {"source": e["id"], "name": e["name"], "url": e["url"],
+                 "updated": runs.get(e["id"], (None, None))[1], "series": series}
+        for q in e["questions"]:
+            by_q[q].append(block)
+    return dict(sorted(by_q.items()))
+
+
+def main(out: Path, db=None, entries=None, esco_path=None):
+    c = sqlite3.connect(f"file:{db or DB}?mode=ro", uri=True)
+    entries = entries if entries is not None else config.load()
+    esco = json.loads(Path(esco_path or ESCO).read_text()) if Path(esco_path or ESCO).exists() else {}
     since = (dt.date.today() - dt.timedelta(days=WINDOW)).isoformat()
     rows = c.execute("""SELECT title, company, city, canton, published, url, roles, skills, barriers,
                                reporting_obligation, tagged IS NOT NULL
@@ -71,7 +106,8 @@ def main(out: Path):
         roles.append({
             "id": rid, "label": label, "ads": n,
             "weekly": [{"week": k, "new_ads": v} for k, v in sorted(weekly.items())],
-            "skills": [{"skill": k, "count": v, "share": round(v / nf, 3)} for k, v in skills.most_common(15)],
+            "skills": [dict({"skill": k, "count": v, "share": round(v / nf, 3)}, **_esco(esco, k))
+                       for k, v in skills.most_common(15)],
             "barriers": {k: round(barriers[k] / nf, 3) for k in BARRIERS if k != "entry_level"},
             "entry_level_share": round(barriers["entry_level"] / nf, 3),
             "employers": [{"company": k, "ads": v} for k, v in
@@ -85,18 +121,36 @@ def main(out: Path):
             "reporting_obligation_share": round(sum(r[9] for r in R) / max(n, 1), 3),
             "examples": [{"title": r[0], "company": r[1], "city": r[2], "published": r[4], "url": r[5]} for r in R[:8]],
         })
+    sector_id = next((e["id"] for e in entries if e.get("sector")), "bfs")
     sector = [{"series": s, "period": p, "value": v} for s, p, v in
-              c.execute("SELECT series, period, value FROM stats WHERE source='bfs_jobstat' ORDER BY period")]
+              c.execute("SELECT series, period, value FROM stats WHERE source=? ORDER BY period", (sector_id,))]
     policy = [dict(zip(["source", "title", "date", "status", "url", "matched"], r)) for r in
               c.execute("SELECT source, title, date, status, url, matched FROM policy ORDER BY date DESC LIMIT 40")]
-    last = c.execute("SELECT max(last_seen) FROM ads").fetchone()[0]
-    for s in SOURCES:
-        s["updated"] = last
+    last_ad = c.execute("SELECT max(last_seen) FROM ads").fetchone()[0]
+    runs = {r[0]: r for r in c.execute("SELECT source, last_ok, status FROM source_runs")}
+    sources = []
+    for e in entries:
+        run = runs.get(e["id"])
+        latest = c.execute("SELECT max(period) FROM stats WHERE source=?", (e["id"],)).fetchone()[0]
+        updated = run[1] if run else None
+        if updated is None and e["type"] == "jobroom_search":
+            updated = last_ad
+        sources.append({"id": e["id"], "name": e["name"], "url": e["url"], "what": e["what"], "updated": updated,
+                        "questions": e["questions"], "type": e["type"], "schedule": e["schedule"],
+                        "status": ("reference" if e["type"] == "link" else run[2] if run else "never"),
+                        "latest_period": latest})
     doc = {"generated_at": dt.datetime.now(dt.timezone.utc).isoformat(timespec="seconds"), "window_days": WINDOW,
-           "sources": SOURCES, "roles": roles, "sector": sector, "policy": policy}
+           "questions": config.QUESTIONS, "sources": sources, "roles": roles, "sector": sector, "policy": policy,
+           "series": build_series(c, entries)}
     out.parent.mkdir(parents=True, exist_ok=True)
     out.write_text(json.dumps(doc, ensure_ascii=False, indent=1))
     print(f"wrote {out} ({out.stat().st_size // 1024} KB): " + ", ".join(f"{r['id']} {r['ads']}" for r in roles))
+    return doc
+
+
+def _esco(esco, skill):
+    m = esco.get(skill)
+    return {"esco_uri": m["uri"], "esco_label": m["label"], "esco_match": m["match"]} if m else {}
 
 
 if __name__ == "__main__":
