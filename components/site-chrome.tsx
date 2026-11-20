@@ -1,6 +1,7 @@
 import { getTranslations } from "next-intl/server";
 import { Brand } from "@/components/brand";
 import { LocaleSwitch } from "@/components/locale-switch";
+import { SiteNav } from "@/components/site-nav";
 import { Link } from "@/i18n/navigation";
 
 /** Header with the one gradient rule, the page, and the footer. Used by every public page. */
@@ -15,6 +16,9 @@ export async function SiteChrome({ children }: { children: React.ReactNode }) {
           </Link>
           <LocaleSwitch />
         </div>
+        <div className="wrap">
+          <SiteNav />
+        </div>
         <div className="accent-rule" aria-hidden="true" />
       </header>
       <main id="inhalt" className="wrap main">
@@ -24,6 +28,9 @@ export async function SiteChrome({ children }: { children: React.ReactNode }) {
         <div className="wrap site-footer__row">
           <p>{f("note")}</p>
           <ul>
+            <li>
+              <Link href="/quellen">{f("sources")}</Link>
+            </li>
             <li>
               <Link href="/login">{f("login")}</Link>
             </li>

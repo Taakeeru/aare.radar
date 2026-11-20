@@ -35,10 +35,10 @@ const TOKEN_URLS = [
   // Unprefixed mail links are redirected by next-intl; the redirect carries it too.
   "/auth/passwort-neu?t=tok",
   // Any page that is handed a t= or token= parameter.
-  "/de/info?token=x",
+  "/de/politik?token=x",
   "/de?t=x",
 ];
-const DEFAULT_URLS = ["/de", "/de/info", "/de/login", "/de/passwort-vergessen", "/de/admin"];
+const DEFAULT_URLS = ["/de", "/de/politik", "/de/login", "/de/passwort-vergessen", "/de/admin"];
 
 describe("middleware: token pages send only their origin", () => {
   for (const url of TOKEN_URLS) it(url, () => expect(policyOf(url)).toBe(TOKEN_PAGE_REFERRER_POLICY));
@@ -102,7 +102,7 @@ describe("self-test: the guards say no", () => {
   it("referrerPolicyFor does not hand the token policy to a look-alike path", () => {
     expect(referrerPolicyFor("/de/auth/passwort-neux")).toBe(DEFAULT_REFERRER_POLICY);
     expect(referrerPolicyFor("/de/passwort-vergessen")).toBe(DEFAULT_REFERRER_POLICY);
-    expect(referrerPolicyFor("/de/info", new URLSearchParams("t=x"))).toBe(TOKEN_PAGE_REFERRER_POLICY);
+    expect(referrerPolicyFor("/de/politik", new URLSearchParams("t=x"))).toBe(TOKEN_PAGE_REFERRER_POLICY);
   });
 });
 
@@ -111,7 +111,7 @@ describe("logPath masks a path token", () => {
     expect(logPath("/de/auth/passwort-neu/abc")).toBe("/de/auth/passwort-neu/[token]");
   });
   it("other paths are unchanged", () => {
-    expect(logPath("/de/info")).toBe("/de/info");
+    expect(logPath("/de/politik")).toBe("/de/politik");
     expect(logPath("/de/auth/passwort-neu")).toBe("/de/auth/passwort-neu");
   });
 });

@@ -1,0 +1,5 @@
+{"title": "Job vacancies", "variables": [
+ {"code": "Quartal", "text": "Quarter", "values": ["2024Q1", "2024Q2", "2024Q3"], "valueTexts": ["2024Q1", "2024Q2", "2024Q3"], "time": true},
+ {"code": "NOGA", "text": "Economic division", "values": ["A", "62", "63"], "valueTexts": ["Total", "62 IT services", "63 Information services"]},
+ {"code": "Indikator", "text": "Indicator", "values": ["1", "2"], "valueTexts": ["Job vacancies - total", "Job vacancy rate"]},
+ {"code": "Geschlecht", "text": "Sex", "values": ["0", "1"], "valueTexts": ["Total", "Men"], "elimination": true}]}

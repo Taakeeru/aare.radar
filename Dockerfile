@@ -39,6 +39,8 @@ COPY --from=builder --chown=nextjs:nodejs /app/.next/standalone ./
 COPY --from=builder --chown=nextjs:nodejs /app/.next/static ./.next/static
 COPY --from=builder --chown=nextjs:nodejs /app/public ./public
 COPY --from=builder --chown=nextjs:nodejs /app/drizzle ./drizzle
+# The sample data file, the default of RADAR_DATA (lib/radar.ts). Production points RADAR_DATA at a mounted file.
+COPY --from=builder --chown=nextjs:nodejs /app/fixtures ./fixtures
 
 # SQLite lives here; mount a volume on it (DATABASE_URL=/app/data/local.db).
 RUN mkdir -p /app/data && chown -R nextjs:nodejs /app/data

@@ -26,9 +26,10 @@ const nextConfig: NextConfig = {
   serverExternalPackages: ["better-sqlite3"],
   // Self-contained server bundle for the Docker image (Dockerfile, runner stage).
   output: "standalone",
-  // The migration SQL files (lib/db.ts) are read at runtime: trace them into the bundle.
+  // The migration SQL files (lib/db.ts) and the sample data file (lib/radar.ts, the
+  // default of RADAR_DATA) are read at runtime: trace them into the bundle.
   outputFileTracingIncludes: {
-    "/**": ["./drizzle/migrations/**/*"],
+    "/**": ["./drizzle/migrations/**/*", "./fixtures/**/*"],
   },
   images: {
     // The app shows no photos.

@@ -1,0 +1,141 @@
+{
+ "JavaScript": {
+  "uri": "http://data.europa.eu/esco/skill/3cd569a2-4f88-4c1e-9995-8dce8c5e51a7",
+  "label": "JavaScript",
+  "match": "exact"
+ },
+ "TypeScript": {
+  "uri": "http://data.europa.eu/esco/skill/867137fb-ff1b-4ca3-99f3-cb6969aa2c68",
+  "label": "TypeScript",
+  "match": "exact"
+ },
+ "React": {
+  "uri": "http://data.europa.eu/esco/skill/9b9de2a4-d8af-4a7b-933a-a8334ae60067",
+  "label": "JavaScript Framework",
+  "match": "broader"
+ },
+ "Angular": {
+  "uri": "http://data.europa.eu/esco/skill/9b9de2a4-d8af-4a7b-933a-a8334ae60067",
+  "label": "JavaScript Framework",
+  "match": "broader"
+ },
+ "Vue": {
+  "uri": "http://data.europa.eu/esco/skill/9b9de2a4-d8af-4a7b-933a-a8334ae60067",
+  "label": "JavaScript Framework",
+  "match": "broader"
+ },
+ "Node.js": {
+  "uri": "http://data.europa.eu/esco/skill/9b9de2a4-d8af-4a7b-933a-a8334ae60067",
+  "label": "JavaScript Framework",
+  "match": "broader"
+ },
+ "HTML/CSS": {
+  "uri": "http://data.europa.eu/esco/skill/0af062de-eb43-41e9-9b96-249e2cd22d26",
+  "label": "use markup languages",
+  "match": "broader"
+ },
+ "PHP": {
+  "uri": "http://data.europa.eu/esco/skill/4350c38d-0fe9-4ca7-bab9-40ed7f72b04f",
+  "label": "PHP",
+  "match": "exact"
+ },
+ "Java": {
+  "uri": "http://data.europa.eu/esco/skill/19a8293b-8e95-4de3-983f-77484079c389",
+  "label": "Java (computer programming)",
+  "match": "exact"
+ },
+ "C#/.NET": {
+  "uri": "http://data.europa.eu/esco/skill/4c016b68-4116-468c-9dc6-42710c239e4a",
+  "label": "C#",
+  "match": "exact"
+ },
+ "Python": {
+  "uri": "http://data.europa.eu/esco/skill/ccd0a1d9-afda-43d9-b901-96344886e14d",
+  "label": "Python (computer programming)",
+  "match": "exact"
+ },
+ "SQL": {
+  "uri": "http://data.europa.eu/esco/skill/598de5b0-5b58-4ea7-8058-a4bc4d18c742",
+  "label": "SQL",
+  "match": "exact"
+ },
+ "Git": {
+  "uri": "http://data.europa.eu/esco/skill/9d2e926f-53d9-41f5-98f3-19dfaa687f3f",
+  "label": "tools for software configuration management",
+  "match": "broader"
+ },
+ "Docker": null,
+ "Kubernetes": null,
+ "Azure": null,
+ "AWS": null,
+ "Cloud": {
+  "uri": "http://data.europa.eu/esco/skill/bd14968e-e409-45af-b362-3495ed7b10e0",
+  "label": "cloud technologies",
+  "match": "exact"
+ },
+ "Linux": null,
+ "Windows": null,
+ "Microsoft 365": {
+  "uri": "http://data.europa.eu/esco/skill/f683ae1d-cb7c-4aa1-b9fe-205e1bd23535",
+  "label": "use microsoft office",
+  "match": "broader"
+ },
+ "Active Directory": {
+  "uri": "http://data.europa.eu/esco/skill/d1e954cd-d290-4d80-97c0-7969960d2928",
+  "label": "distributed directory information services",
+  "match": "broader"
+ },
+ "Intune/MDM": {
+  "uri": "http://data.europa.eu/esco/skill/cf532795-a1fd-43bd-8407-6e43f877e6e3",
+  "label": "mobile device management",
+  "match": "exact"
+ },
+ "Networking": null,
+ "ITIL": {
+  "uri": "http://data.europa.eu/esco/skill/d12e9d68-84c5-444e-aa98-d36533bf03f6",
+  "label": "apply operations for an ITIL-based environment",
+  "match": "broader"
+ },
+ "Ticketing": {
+  "uri": "http://data.europa.eu/esco/skill/118efbcd-8fc5-4668-81d1-c383a0d16070",
+  "label": "handle helpdesk problems",
+  "match": "broader"
+ },
+ "Hardware": {
+  "uri": "http://data.europa.eu/esco/skill/3497ebe1-d417-4105-a68f-f7bbcac7ee5f",
+  "label": "ICT hardware specifications",
+  "match": "broader"
+ },
+ "Power BI": {
+  "uri": "http://data.europa.eu/esco/skill/143769cb-b61e-47d8-a61e-eedfbec1016c",
+  "label": "business intelligence",
+  "match": "broader"
+ },
+ "Excel": {
+  "uri": "http://data.europa.eu/esco/skill/1973c966-f236-40c9-b2d4-5d71a89019be",
+  "label": "use spreadsheets software",
+  "match": "broader"
+ },
+ "Tableau": null,
+ "R": {
+  "uri": "http://data.europa.eu/esco/skill/51586df8-1c46-4b47-8583-773cb63bf00b",
+  "label": "R",
+  "match": "exact"
+ },
+ "SAP": {
+  "uri": "http://data.europa.eu/esco/skill/bb99af26-71ff-4dca-bde7-1eb1f6194426",
+  "label": "SAP R3",
+  "match": "broader"
+ },
+ "Security": {
+  "uri": "http://data.europa.eu/esco/skill/8088750d-8388-4170-a76f-48354c469c44",
+  "label": "cyber security",
+  "match": "exact"
+ },
+ "Scrum/Agile": {
+  "uri": "http://data.europa.eu/esco/skill/0a9acb6b-1139-4be9-b431-3a80a959f2f4",
+  "label": "Agile project management",
+  "match": "exact"
+ },
+ "API/REST": null
+}

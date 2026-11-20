@@ -1,41 +1,292 @@
 {
   "meta": {
     "siteName": "Powercoders Job Radar",
-    "description": "Ein Marktradar für das Powercoders-Team. Im Aufbau.",
+    "description": "Was der Schweizer IT-Arbeitsmarkt für Web-Entwicklung, IT-Support und Datenanalyse gerade sucht: Nachfrage, gefragte Fähigkeiten, Hürden beim Einstieg und politische Änderungen.",
     "skip": "Zum Inhalt springen",
     "testBanner": "Testumgebung: nicht öffentlich."
   },
   "nav": {
-    "language": "Sprache"
+    "label": "Hauptnavigation",
+    "dashboard": "Dashboard",
+    "policy": "Politik",
+    "sources": "Quellen",
+    "language": "Sprache",
+    "demand": "Nachfrage",
+    "skills": "Fähigkeiten",
+    "employers": "Arbeitgeber",
+    "target": "Zielgruppe"
   },
   "footer": {
-    "note": "Ein Werkzeug für das Team von Powercoders.",
-    "login": "Anmelden für das Team"
+    "note": "Ein Werkzeug für das Team von Powercoders. Die Zahlen stammen aus öffentlichen Quellen.",
+    "login": "Anmelden für das Team",
+    "sources": "Woher die Zahlen kommen"
   },
-  "home": {
-    "title": "Powercoders Job Radar",
-    "lead": "Ein Marktradar für das Powercoders-Team. Im Aufbau.",
-    "questions": "Die fünf Fragen"
+  "common": {
+    "source": "Quelle",
+    "asOf": "Stand {date}",
+    "meaning": "Was das heisst",
+    "ads": "{count, plural, one {# Inserat} other {# Inserate}}",
+    "ofHundred": "in {count} von 100 Inseraten",
+    "noData": "Keine Daten",
+    "opensNewTab": "öffnet in einem neuen Tab",
+    "back": "Zurück",
+    "noDate": "Stand unbekannt",
+    "sourceLabel": "Quelle: {name}",
+    "sources": "Quellen",
+    "sectionOf": "Frage {letter}"
   },
-  "questions": {
-    "A": "Nachfrage",
-    "B": "Fähigkeiten",
-    "C": "Arbeitgeber",
-    "D": "Zielgruppe",
-    "E": "Politik"
+  "roles": {
+    "web": "Web-Entwicklung",
+    "support": "IT-Support",
+    "data": "Datenanalyse"
+  },
+  "dash": {
+    "title": "Das sucht der IT-Markt",
+    "lead": "Für drei Berufe, in die Absolvent*innen von Powercoders gehen: Wie viele Stellen sind offen, welche Fähigkeiten werden verlangt und wo liegen die Hürden beim Einstieg?",
+    "roleLabel": "Beruf wählen",
+    "dataStale": "Die Daten sind {days, plural, one {# Tag} other {# Tage}} alt.",
+    "unavailableTitle": "Die Daten sind gerade nicht verfügbar",
+    "unavailableText": "Die Datei mit den Zahlen konnte nicht gelesen werden. Bitte später nochmals versuchen. Wenn das so bleibt, melde dich beim Team, das den Radar betreut.",
+    "demand": {
+      "title": "Offene Inserate",
+      "caption": "offene Inserate in den letzten {days} Tagen",
+      "meaning": "So viele Inserate für {role} gab es in den letzten {days} Tagen. Das sind durchschnittlich etwa {perWeek} neue Inserate pro Woche."
+    },
+    "trend": {
+      "title": "Neue Inserate pro Woche",
+      "yAxis": "Neue Inserate",
+      "xAxis": "Kalenderwoche",
+      "partial": "* Diese Woche ist nicht vollständig.",
+      "meaning": "In den letzten 3 vollständigen Wochen kamen durchschnittlich {recent} neue Inserate pro Woche dazu, in den 3 Wochen davor {before}.",
+      "meaningShort": "Für einen Vergleich über mehrere Wochen reichen die Daten noch nicht.",
+      "caveat": "Ältere Wochen können zu klein aussehen: Inserate, die schon beendet sind, können wir nicht mehr abrufen. Der Verlauf wird mit jeder Woche verlässlicher, in der wir täglich Daten holen.",
+      "week": "Woche {week}"
+    },
+    "skills": {
+      "title": "Gefragte Fähigkeiten",
+      "intro": "Wie oft eine Fähigkeit im Text der Inserate vorkommt.",
+      "meaning": "{first}, {second} und {third} kommen am häufigsten vor. Wer das zeigen kann, passt zu den meisten Inseraten.",
+      "meaningTwo": "{first} und {second} kommen am häufigsten vor.",
+      "meaningOne": "{first} kommt am häufigsten vor.",
+      "basis": "Grundlage: die Inserate, deren ganzer Text vorliegt."
+    },
+    "barriers": {
+      "title": "Hürden beim Einstieg",
+      "intro": "Was die Inserate von Bewerbenden verlangen.",
+      "german_required": "{count} von 10 Inseraten verlangen sehr gutes Deutsch.",
+      "french_required": "{count} von 10 Inseraten verlangen sehr gutes Französisch.",
+      "degree_required": "{count} von 10 Inseraten nennen einen Abschluss (Lehre, Fachhochschule oder Universität).",
+      "senior_experience": "{count} von 10 Inseraten verlangen mehrere Jahre Erfahrung (3 oder mehr).",
+      "english_ok": "In {count} von 10 Inseraten kommt Englisch vor. Das heisst nicht immer, dass Englisch reicht.",
+      "none": "Weniger als 1 von 10 Inseraten",
+      "levelLow": "kleine Hürde",
+      "levelMedium": "mittlere Hürde",
+      "levelHigh": "grosse Hürde",
+      "meaning": "Am häufigsten verlangt: {top}. Darauf lohnt es sich bei Bewerbungen besonders zu achten.",
+      "meaningNone": "Keine dieser Hürden steht in mehr als jedem fünften Inserat.",
+      "short": {
+        "german_required": "sehr gutes Deutsch",
+        "french_required": "sehr gutes Französisch",
+        "degree_required": "ein Abschluss",
+        "senior_experience": "mehrere Jahre Erfahrung"
+      },
+      "reporting": "Stellenmeldepflicht: {count} von 100 Inseraten. Bei Berufen mit Meldepflicht sehen zuerst nur Stellensuchende, die beim RAV gemeldet sind, die Stelle.",
+      "basis": "Grundlage: die Inserate, deren ganzer Text vorliegt."
+    },
+    "where": {
+      "title": "Wo die Stellen sind",
+      "unit": "Inserate",
+      "meaning": "{first}, {second} und {third} zusammen haben {share} von 100 Inseraten.",
+      "meaningOne": "{first} hat {share} von 100 Inseraten.",
+      "more": "Weitere Kantone: {list}",
+      "empty": "Zu keinem Inserat ist ein Kanton bekannt."
+    },
+    "examples": {
+      "title": "Neueste Inserate",
+      "intro": "Diese Inserate wurden zuletzt veröffentlicht.",
+      "meaning": "So sehen aktuelle Inserate für {role} aus. Ein Klick öffnet das Inserat beim Anbieter.",
+      "empty": "Keine Inserate in diesem Zeitraum.",
+      "published": "veröffentlicht am {date}"
+    },
+    "sector": {
+      "title": "Der ganze IT-Markt in der Schweiz",
+      "subtitle": "Offene Stellen in IT-Dienstleistungen, Schweiz, pro Quartal",
+      "yAxis": "Offene Stellen",
+      "xAxis": "Jahr (Beschriftung beim 1. Quartal)",
+      "latest": "offene Stellen im {quarter}. Quartal {year}",
+      "meaningUp": "Vor einem Jahr waren es {before}. Das sind {percent} Prozent mehr.",
+      "meaningDown": "Vor einem Jahr waren es {before}. Das sind {percent} Prozent weniger.",
+      "meaningSame": "Vor einem Jahr waren es {before}. Das ist etwa gleich viel.",
+      "meaningNoYear": "Ein Vergleich mit dem Vorjahr ist mit diesen Daten nicht möglich.",
+      "note": "Das Bundesamt für Statistik zählt alle offenen Stellen in IT-Dienstleistungen (Branchen 62 und 63). Das sind mehr als die Inserate für diese drei Berufe.",
+      "empty": "Für diese Reihe liegen keine Daten vor."
+    },
+    "entry": {
+      "title": "Einstieg ohne Erfahrung",
+      "intro": "Inserate, die sich an Berufseinsteigende, Quereinsteigende, Lernende oder Praktikant*innen richten.",
+      "sentence": "{count} von 100 Inseraten sprechen den Einstieg ausdrücklich an.",
+      "meaning": "Das sind Inserate, die für Menschen ohne lange Berufserfahrung offen sind. Diese Inserate stehen getrennt von den Hürden weiter unten.",
+      "meaningNone": "In diesen Inseraten kommt kein ausdrücklicher Hinweis auf Berufseinsteigende vor. Das gilt für die erkannten Stichwörter, nicht für jedes Inserat im Detail.",
+      "level": "offen für den Einstieg"
+    },
+    "employers": {
+      "title": "Arbeitgeber mit mehreren Inseraten",
+      "intro": "Firmen, die selbst mehrere Inserate für {role} geschaltet haben.",
+      "unit": "Inserate",
+      "empty": "Keine Firma hat in diesem Zeitraum mehr als ein Inserat für diesen Beruf geschaltet.",
+      "meaning": "{first} hat mit {count} die meisten Inserate. Firmen mit mehreren Inseraten für denselben Beruf sind naheliegende Adressen für ein Gespräch.",
+      "meaningOne": "Nur {first} hat mehrere Inserate."
+    },
+    "agencies": {
+      "title": "Personalvermittler",
+      "sentence": "{count} von 100 Inseraten stammen von Personalvermittlern.",
+      "intro": "Vermittler schreiben Stellen für andere Firmen aus. Die Firma dahinter ist im Inserat oft nicht genannt. Darum stehen sie getrennt von den Arbeitgebern.",
+      "empty": "Keine Personalvermittler in diesem Zeitraum."
+    }
+  },
+  "policy": {
+    "title": "Politik",
+    "lead": "Neue Geschäfte des Parlaments und neues Bundesrecht zu Asyl, Status F und S, Integration und Fachkräften. Die Liste zeigt, was sich bewegt, und bewertet nicht, was es bedeutet.",
+    "filterLabel": "Quelle filtern",
+    "all": "Alle",
+    "parliament": "Parlament",
+    "federal": "Bundesrecht",
+    "keyword": "Stichwort: {word}",
+    "status": "Stand des Geschäfts: {status}",
+    "empty": "Keine Einträge.",
+    "titlesNote": "Die Titel stehen in der Originalsprache der Quelle, meistens Deutsch.",
+    "meaning": "Das heisst für die Arbeit mit Geflüchteten: Ein Eintrag ist ein Hinweis, genauer hinzuschauen. Ob er eine Regel wirklich ändert, steht erst im verlinkten Geschäft.",
+    "sourceLine": "Quelle: Curia Vista (Parlament) und Fedlex (Bundesrecht)",
+    "count": "{count, plural, one {# Eintrag} other {# Einträge}}"
+  },
+  "sources": {
+    "title": "Quellen",
+    "lead": "Hier steht, woher jede Zahl im Radar kommt, wie aktuell sie ist und was wir bewusst nicht verwenden.",
+    "usedTitle": "Das verwenden wir",
+    "freshness": "Letzter Stand der Daten: {date}",
+    "noDate": "Kein Datum bekannt",
+    "how": "Wie oft",
+    "gives": "Was sie liefert",
+    "jobroom": {
+      "gives": "Inserate aus der ganzen Schweiz mit Volltext, Kanton und Angabe zur Stellenmeldepflicht. Daraus berechnen wir offene Inserate, neue Inserate pro Woche, gefragte Fähigkeiten und Hürden.",
+      "how": "Täglicher Abruf. job-room.ch zeigt nur die letzten 60 Tage, darum speichern wir jeden Tag den Stand."
+    },
+    "bfs": {
+      "gives": "Offene Stellen nach Wirtschaftszweig, hier in IT-Dienstleistungen. Die Reihe zeigt den ganzen Markt mit allen IT-Berufen.",
+      "how": "Neue Zahlen kommen einmal pro Quartal, mit einigen Wochen Verzögerung.",
+      "name": "Bundesamt für Statistik (BFS), JOBSTAT"
+    },
+    "curia": {
+      "gives": "Motionen, Anfragen und Gesetzesentwürfe des Parlaments zu Asyl, Status F und S, Integration und Fachkräften.",
+      "how": "Täglicher Abruf."
+    },
+    "fedlex": {
+      "gives": "Neues Bundesrecht, gefiltert nach Stichwörtern wie Asyl und Integration.",
+      "how": "Täglicher Abruf."
+    },
+    "notUsedTitle": "Das verwenden wir nicht",
+    "notUsedLead": "Diese Quellen kämen in Frage. Wir lassen sie aus, weil wir sie nicht korrekt nutzen können.",
+    "linkedin": {
+      "name": "LinkedIn",
+      "why": "Es gibt keine öffentliche Schnittstelle. Die Inserate automatisch von der Seite zu lesen, verstösst gegen die Nutzungsbedingungen."
+    },
+    "jobsch": {
+      "name": "jobs.ch",
+      "why": "Es gibt keine öffentliche Schnittstelle. Die Inserate automatisch von der Seite zu lesen, verstösst gegen die Nutzungsbedingungen. Viele Inserate von jobs.ch stehen trotzdem auch auf job-room.ch und sind so im Radar."
+    },
+    "adzuna": {
+      "name": "Adzuna",
+      "why": "Ob die Schweiz zuverlässig abgedeckt ist, haben wir nicht geprüft. Nach der Testphase von 14 Tagen bräuchten wir für die Auswertung zudem eine schriftliche Zustimmung."
+    },
+    "limitsTitle": "Was die Zahlen nicht sagen",
+    "limits": {
+      "one": "Die Zahlen beruhen auf Inseraten auf job-room.ch. Stellen, die nur auf anderen Seiten oder gar nicht ausgeschrieben werden, fehlen.",
+      "two": "Ein Inserat ist keine besetzte Stelle. Ein Beruf kann mehrfach ausgeschrieben sein.",
+      "three": "Die Berufe und Fähigkeiten werden aus dem Text der Inserate erkannt. Dabei gibt es Fehler in beide Richtungen."
+    },
+    "updatedLabel": "Letzter Stand",
+    "planned": "In Planung",
+    "plannedLead": "Diese Quellen sind für die Frage zur Zielgruppe vorgesehen. Es sind noch keine Daten angeschlossen.",
+    "generic": {
+      "how": "Siehe Quelle"
+    },
+    "rules": {
+      "title": "Regeln für die Daten",
+      "one": "Jede Zahl, jede Grafik und jede Liste nennt ihre Quelle mit Link und dem Datum des letzten Stands.",
+      "two": "Es werden nur zusammengefasste Zahlen gezeigt. Zu einzelnen Personen zeigt der Radar nichts. Bei Beispiel-Inseraten stehen nur Titel, Firma, Ort, Datum und Link."
+    },
+    "sem_erwerb": {
+      "name": "Staatssekretariat für Migration (SEM), Asylstatistik: Erwerbstätigkeit"
+    },
+    "sem_asylprozess": {
+      "name": "Staatssekretariat für Migration (SEM), Asylstatistik: Personen im Asylprozess",
+      "gives": "Wie viele Menschen im Asylprozess sind oder Status N, S oder F haben, nach Kanton und Nationalität, jeden Monat."
+    },
+    "eurostat_jvs": {
+      "name": "Eurostat, Statistik der offenen Stellen (Schweiz, Information und Kommunikation)",
+      "gives": "Offene Stellen und Quote der offenen Stellen in der Branche Information und Kommunikation in der Schweiz, pro Quartal."
+    },
+    "seco_stellenmeldepflicht": {
+      "name": "SECO, Berufe mit Stellenmeldepflicht 2026",
+      "gives": "Offizielle Liste der Berufsarten, deren offene Stellen Arbeitgeber zuerst dem RAV melden müssen."
+    },
+    "sem_erwerb_status_f": {
+      "name": "SEM, Asylstatistik: Erwerbstätigkeit mit Status F",
+      "gives": "Wie viele Personen mit Status F (vorläufig aufgenommen) im Alter von 18 bis 64 Jahren arbeiten, jeden Monat."
+    },
+    "sem_erwerb_status_b": {
+      "name": "SEM, Asylstatistik: Erwerbstätigkeit anerkannter Flüchtlinge (Ausweis B)",
+      "gives": "Wie viele anerkannte Flüchtlinge mit Ausweis B im Alter von 18 bis 64 Jahren arbeiten, jeden Monat."
+    },
+    "sem_erwerb_status_s": {
+      "name": "SEM, Asylstatistik: Erwerbstätigkeit mit Status S",
+      "gives": "Wie viele Personen mit Status S (vorübergehender Schutz) im Alter von 18 bis 64 Jahren arbeiten, jeden Monat."
+    },
+    "sem_erwerb_status_n": {
+      "name": "SEM, Asylstatistik: Erwerbstätigkeit mit Status N",
+      "gives": "Wie viele Asylsuchende (Status N) im Alter von 18 bis 64 Jahren arbeiten, jeden Monat."
+    },
+    "bfs_population_permit": {
+      "name": "Bundesamt für Statistik (BFS), Wohnbevölkerung nach Aufenthaltsstatus",
+      "gives": "Wie viele Menschen mit welchem Ausweis in der Schweiz leben, einmal pro Jahr."
+    },
+    "bfs_sozialhilfe_asyl": {
+      "name": "Bundesamt für Statistik (BFS), Sozialhilfequote im Asylbereich",
+      "gives": "Anteil der Asylsuchenden und vorläufig Aufgenommenen im Alter von 18 bis 64 Jahren, die Sozialhilfe beziehen, nach Kanton, einmal pro Jahr."
+    },
+    "sem_auslaenderstatistik": {
+      "name": "SEM, Ausländerstatistik",
+      "gives": "Ausländische Wohnbevölkerung nach Ausweis, Kanton, Nationalität und Alter, dazu Ein- und Auswanderung. Nur als Verweis, noch nicht eingelesen."
+    },
+    "sem_arbeit_asylbereich": {
+      "name": "SEM, Arbeiten mit Status F, B, S oder N",
+      "gives": "Regeln zur Arbeitsbewilligung und Pflichten der Arbeitgeber. Nur als Verweis."
+    },
+    "sem_integrationsagenda": {
+      "name": "SEM, Integrationsagenda Schweiz",
+      "gives": "Ziele von Bund und Kantonen für Sprache, Ausbildung und Arbeit von Geflüchteten. Nur als Verweis."
+    },
+    "sem_ausbildung_junge": {
+      "name": "SEM, Ausbildungssituation junger vorläufig Aufgenommener und Flüchtlinge",
+      "gives": "Bericht dazu, wie viele junge Menschen mit Status F und B in Ausbildung oder Arbeit sind. Nur als Verweis."
+    },
+    "esco": {
+      "name": "ESCO, europäische Klassifikation der Fähigkeiten",
+      "gives": "Offizielle Einteilung der Fähigkeiten durch die EU. Der Radar verlinkt jede Fähigkeit mit ihrer ESCO-Beschreibung. Nur als Verweis."
+    }
   },
   "notFound": {
     "title": "Seite nicht gefunden",
-    "text": "Diese Seite gibt es nicht.",
-    "home": "Zur Startseite"
+    "text": "Diese Seite gibt es nicht. Auf dem Dashboard findest du die aktuellen Zahlen.",
+    "home": "Zum Dashboard"
   },
   "login": {
     "title": "Anmelden",
-    "intro": "Für das Team von Powercoders: Hier meldest du dich an.",
+    "intro": "Für das Team von Powercoders: Hier meldest du dich an, um den Datenstand des Radars zu sehen.",
     "email": "E-Mail",
     "password": "Passwort",
     "submit": "Anmelden",
-    "back": "Zur Startseite",
+    "back": "Zum Dashboard",
     "forgot": "Passwort vergessen?",
     "loggedOut": "Du bist abgemeldet, auf allen Geräten.",
     "passwordChanged": "Dein neues Passwort gilt. Melde dich damit an.",
@@ -45,13 +296,43 @@
   "admin": {
     "title": "Verwaltung",
     "signedInAs": "Angemeldet als {email}",
-    "toSite": "Zur Startseite",
+    "toSite": "Zum Dashboard",
     "logout": "Abmelden",
     "security": "Sicherheit",
     "protocol": "Protokoll",
     "totpMissing": "Der zweite Schritt ist für dein Konto noch nicht eingerichtet.",
+    "stateTitle": "Datenstand",
+    "stateIntro": "Wie aktuell die Zahlen sind, die das Dashboard gerade zeigt.",
+    "generatedAt": "Datei erzeugt",
+    "windowDays": "Zeitfenster der Inserate",
+    "windowValue": "{days} Tage",
+    "file": "Datendatei",
+    "cacheNote": "Der Radar liest die Datei höchstens alle 10 Minuten neu.",
+    "adsPerRole": "Inserate pro Beruf",
+    "role": "Beruf",
+    "adsCount": "Inserate",
+    "weeks": "Wochen mit Daten",
+    "skills": "Fähigkeiten",
+    "sourcesTitle": "Quellen und Aktualität",
+    "source": "Quelle",
+    "updated": "Letzter Stand",
+    "age": "Alter",
+    "ageDays": "{days, plural, one {# Tag} other {# Tage}}",
+    "fresh": "aktuell",
+    "aging": "älter",
+    "old": "veraltet",
+    "unknown": "unbekannt",
+    "otherData": "Weitere Daten",
+    "sectorPoints": "Quartalswerte (BFS)",
+    "latestPeriod": "Neuester Quartalswert",
+    "policyItems": "Einträge zur Politik",
+    "dataError": "Die Datendatei konnte nicht gelesen werden: {error}",
+    "reportsTitle": "Berichte",
+    "reportsIntro": "Hier verwaltest du später die E-Mail-Zusammenfassungen pro Thema: wer sie bekommt und wie oft.",
+    "reportsSoon": "Diese Seite ist noch nicht in Betrieb. Es werden keine E-Mails verschickt.",
     "back": "Zur Verwaltung",
-    "areas": "Bereiche"
+    "areas": "Bereiche",
+    "sourcesFromExport": "Die Liste der Quellen kommt aus der Datendatei. Eine neue Quelle erscheint hier und auf der Seite Quellen, sobald sie dort steht."
   },
   "twofa": {
     "title": "Zweiter Schritt",
@@ -118,5 +399,76 @@
     "what": "Aktion",
     "target": "Betrifft",
     "details": "Details"
+  },
+  "questions": {
+    "A": {
+      "title": "Nachfrage",
+      "question": "Gibt es Arbeit für unsere Absolvent*innen?"
+    },
+    "B": {
+      "title": "Fähigkeiten",
+      "question": "Was sollen wir unterrichten?"
+    },
+    "C": {
+      "title": "Arbeitgeber",
+      "question": "Mit wem sollen wir reden?"
+    },
+    "D": {
+      "title": "Zielgruppe",
+      "question": "Für wen bilden wir aus?"
+    },
+    "E": {
+      "title": "Politik",
+      "question": "Was könnte uns zwingen, das Programm anzupassen?"
+    }
+  },
+  "target": {
+    "title": "Zielgruppe",
+    "lead": "Hier steht später, wie sich die Gruppe zusammensetzt, für die Powercoders ausbildet: nach Aufenthaltsstatus, Herkunft und Kanton, und wie gut sie im Arbeitsmarkt Fuss fasst.",
+    "statusTitle": "Daten folgen",
+    "statusText": "Für diese Frage sind noch keine Daten angeschlossen. Bis dahin zeigt diese Seite keine Zahlen.",
+    "plannedTitle": "Geplante Quellen",
+    "showTitle": "Das soll hier stehen",
+    "show": {
+      "status": "Personen im Asylbereich nach Aufenthaltsstatus (zum Beispiel Status F und S)",
+      "origin": "Herkunftsländer",
+      "canton": "Verteilung auf die Kantone",
+      "labour": "Erwerbsquote und Integration in den Arbeitsmarkt"
+    },
+    "sem": {
+      "name": "Staatssekretariat für Migration (SEM), Asylstatistik",
+      "what": "Monatliche und jährliche Zahlen zu Asylgesuchen, Entscheiden und Personen im Asylbereich."
+    },
+    "bfs": {
+      "name": "Bundesamt für Statistik (BFS), Bevölkerungsstatistik",
+      "what": "Wohnbevölkerung nach Migrationsstatus, Herkunft und Kanton, dazu Zahlen zur Erwerbstätigkeit."
+    },
+    "rule": "Es werden nur zusammengefasste Zahlen gezeigt, nie Angaben zu einzelnen Personen.",
+    "leadData": "Für wen bildet Powercoders aus? Hier steht, wie viele Menschen mit welchem Aufenthaltsstatus in der Schweiz leben, wie viele davon arbeiten und in welchen Kantonen sie wohnen.",
+    "status": {
+      "S": "Status S (vorübergehender Schutz)",
+      "F": "Status F (vorläufig aufgenommen)",
+      "B": "Anerkannte Flüchtlinge (Ausweis B)",
+      "N": "Status N (Asylsuchende)"
+    },
+    "people": {
+      "title": "Wie viele Menschen, welcher Status",
+      "intro": "Menschen im Asyl- und Flüchtlingsbereich in der ganzen Schweiz, Stand {month}.",
+      "value": "{count} Personen",
+      "meaning": "Die grösste Gruppe: {status} mit {count} Personen."
+    },
+    "work": {
+      "title": "Wie viele arbeiten",
+      "intro": "Von 100 Personen im Alter von 18 bis 64 Jahren haben so viele eine Stelle, Stand {month}.",
+      "value": "{count} von 100",
+      "meaning": "Mit {high} arbeiten {highCount} von 100 Personen im erwerbsfähigen Alter, mit {low} sind es {lowCount} von 100."
+    },
+    "cantons": {
+      "title": "In welchen Kantonen",
+      "intro": "Menschen im Asylprozess (Status N, S und F) nach Kanton, Stand {month}. Die {count} Kantone mit den meisten Personen.",
+      "meaning": "Am meisten Menschen im Asylprozess leben im Kanton {first}: {count} Personen."
+    },
+    "laterTitle": "Kommt später",
+    "later": "Herkunftsländer zeigt diese Seite in einer nächsten Version."
   }
 }

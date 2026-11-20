@@ -1,0 +1,5 @@
+{"id": "ad-1", "reportingObligation": false, "publication": {"startDate": "2026-11-01", "endDate": "2026-12-01"},
+ "jobContent": {"company": {"name": "Beispiel AG"}, "location": {"cantonCode": "ZH", "city": "Zürich"},
+  "employment": {"workloadPercentageMin": 80, "workloadPercentageMax": 100}, "externalUrl": "example.org/job",
+  "occupations": [{"avamOccupationCode": 1234}],
+  "jobDescriptions": [{"languageIsoCode": "de", "title": "Web Developer React (m/w)", "description": "<p>Wir suchen Junior mit JavaScript und Git. Gute Deutschkenntnisse.</p>"}]}}

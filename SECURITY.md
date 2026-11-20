@@ -52,8 +52,8 @@ aggregate data only and need no sign-in.
 - CSRF: forms post to server actions, which Next checks (Origin must match Host). Never widen
   `serverActions.allowedOrigins`. A route handler that changes state must call `isSameOrigin()` before it reads the body
   (`route-origin-ratchet.test.ts`).
-- Any link built from outside data must become a link only when it is an http(s) address, and open with
-  `rel="noopener noreferrer"`.
+- Links from the data file (ads, policy items, sources) become links only when they are http(s) addresses
+  (`safeHttpUrl` in `lib/radar-view.ts`) and open with `rel="noopener noreferrer"`.
 - Logs: errors through `logError` (addresses removed); never a password, token, cookie or reset link.
 
 ## Deployment settings (the server refuses to start without them)
