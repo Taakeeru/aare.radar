@@ -1,0 +1,1376 @@
+{
+ "generated_at": "2026-11-20T19:37:22+00:00",
+ "window_days": 60,
+ "sources": [
+  {
+   "id": "jobroom",
+   "name": "job-room.ch (SECO)",
+   "url": "https://www.job-room.ch",
+   "what": "Swiss job ads, public service of the State Secretariat for Economic Affairs",
+   "updated": "2026-11-20"
+  },
+  {
+   "id": "bfs",
+   "name": "Federal Statistical Office (BFS), JOBSTAT",
+   "url": "https://www.bfs.admin.ch/bfs/en/home/statistics/industry-services/businesses-employment/jobstat.html",
+   "what": "Open positions by economic sector, quarterly",
+   "updated": "2026-11-20"
+  },
+  {
+   "id": "curia",
+   "name": "Swiss Parliament (Curia Vista)",
+   "url": "https://www.parlament.ch",
+   "what": "Motions, questions and bills on asylum, status F and S, integration, skilled workers",
+   "updated": "2026-11-20"
+  },
+  {
+   "id": "fedlex",
+   "name": "Fedlex",
+   "url": "https://www.fedlex.admin.ch",
+   "what": "New federal law",
+   "updated": "2026-11-20"
+  }
+ ],
+ "roles": [
+  {
+   "id": "web",
+   "label": "Web developer",
+   "ads": 153,
+   "weekly": [
+    {
+     "week": "2026-W39",
+     "new_ads": 8
+    },
+    {
+     "week": "2026-W40",
+     "new_ads": 8
+    },
+    {
+     "week": "2026-W41",
+     "new_ads": 6
+    },
+    {
+     "week": "2026-W42",
+     "new_ads": 9
+    },
+    {
+     "week": "2026-W43",
+     "new_ads": 7
+    },
+    {
+     "week": "2026-W44",
+     "new_ads": 16
+    },
+    {
+     "week": "2026-W45",
+     "new_ads": 25
+    },
+    {
+     "week": "2026-W46",
+     "new_ads": 37
+    },
+    {
+     "week": "2026-W47",
+     "new_ads": 37
+    }
+   ],
+   "skills": [
+    {
+     "skill": "Microsoft 365",
+     "count": 73,
+     "share": 0.5
+    },
+    {
+     "skill": "SQL",
+     "count": 59,
+     "share": 0.404
+    },
+    {
+     "skill": "Scrum/Agile",
+     "count": 59,
+     "share": 0.404
+    },
+    {
+     "skill": "Java",
+     "count": 48,
+     "share": 0.329
+    },
+    {
+     "skill": "API/REST",
+     "count": 41,
+     "share": 0.281
+    },
+    {
+     "skill": "Cloud",
+     "count": 37,
+     "share": 0.253
+    },
+    {
+     "skill": "JavaScript",
+     "count": 37,
+     "share": 0.253
+    },
+    {
+     "skill": "TypeScript",
+     "count": 34,
+     "share": 0.233
+    },
+    {
+     "skill": "Git",
+     "count": 33,
+     "share": 0.226
+    },
+    {
+     "skill": "React",
+     "count": 32,
+     "share": 0.219
+    },
+    {
+     "skill": "Docker",
+     "count": 32,
+     "share": 0.219
+    },
+    {
+     "skill": "Networking",
+     "count": 29,
+     "share": 0.199
+    },
+    {
+     "skill": "Security",
+     "count": 29,
+     "share": 0.199
+    },
+    {
+     "skill": "Kubernetes",
+     "count": 28,
+     "share": 0.192
+    },
+    {
+     "skill": "HTML/CSS",
+     "count": 24,
+     "share": 0.164
+    }
+   ],
+   "barriers": {
+    "german_required": 0.39,
+    "french_required": 0.007,
+    "degree_required": 0.493,
+    "senior_experience": 0.568,
+    "english_ok": 0.555
+   },
+   "cantons": [
+    {
+     "canton": "ZH",
+     "count": 50
+    },
+    {
+     "canton": "BE",
+     "count": 25
+    },
+    {
+     "canton": "AG",
+     "count": 22
+    },
+    {
+     "canton": "SG",
+     "count": 13
+    },
+    {
+     "canton": "VD",
+     "count": 6
+    },
+    {
+     "canton": "BS",
+     "count": 4
+    },
+    {
+     "canton": "GE",
+     "count": 4
+    },
+    {
+     "canton": "TG",
+     "count": 3
+    },
+    {
+     "canton": "SO",
+     "count": 2
+    },
+    {
+     "canton": "BL",
+     "count": 2
+    },
+    {
+     "canton": "TI",
+     "count": 2
+    },
+    {
+     "canton": "LU",
+     "count": 2
+    },
+    {
+     "canton": "ZG",
+     "count": 1
+    },
+    {
+     "canton": "SZ",
+     "count": 1
+    }
+   ],
+   "reporting_obligation_share": 0.007,
+   "examples": [
+    {
+     "title": "Senior Java Developer - Azure",
+     "company": "EPAM Systems (Switzerland) GmbH",
+     "city": "Zürich",
+     "published": "2026-11-20",
+     "url": "https://www.job-room.ch/job-search/847d4048-65b1-4c4f-9ff1-c22d1126e118"
+    },
+    {
+     "title": "Ecommerce and Web Operations Internship",
+     "company": "Salt Mobile SA",
+     "city": "Prilly",
+     "published": "2026-11-20",
+     "url": "https://www.jobs.ch/de/stellenangebote/detail/141304db-2d43-46dd-9e70-9e22fb412c02/?utm_source=job-room.ch&inv=ppd-p&utm_medium=affiliate&utm_campaign=wb:jobs|tg:b2c|cn:ch|lg:de|ct:targeting,nonbrand,job|cd:feedonomics-jobroom|mg:job-application|pd:n|tt:organic"
+    },
+    {
+     "title": "Ecommerce and Web Operations Internship",
+     "company": "Salt Mobile SA",
+     "city": "Prilly",
+     "published": "2026-11-20",
+     "url": "https://www.jobup.ch/fr/emplois/detail/6dc97831-54f4-46fb-9f9c-fad0c9da97e2/?utm_source=job-room.ch&utm_medium=affiliate&utm_campaign=wb:jobup|tg:b2c|cn:ch|lg:fr|ct:targeting,nonbrand,job|cd:feedonomics-jobroom|mg:job-application|pd:n|tt:organic"
+    },
+    {
+     "title": "Fraud Python Software Engineer",
+     "company": "Swissquote Bank SA",
+     "city": "Gland",
+     "published": "2026-11-19",
+     "url": "https://jobs.smartrecruiters.com/Swissquote/744000162275389-fraud-python-software-engineer"
+    },
+    {
+     "title": "Software Engineer Java 80-100%",
+     "company": "Evergreen Human Resources AG",
+     "city": "BASEL",
+     "published": "2026-11-19",
+     "url": "https://www.evergreen-hr.ch/stelle/10423844361065158350/?cache=0fa69682a908b029709036d0c580188f"
+    },
+    {
+     "title": "Senior AI Software Developer",
+     "company": "DV Bern AG",
+     "city": "Bern",
+     "published": "2026-11-19",
+     "url": "https://www.jobs.ch/de/stellenangebote/detail/bec83357-3b90-4364-8b80-5384b6de19ce/?utm_source=job-room.ch&inv=ppd-p&utm_medium=affiliate&utm_campaign=wb:jobs|tg:b2c|cn:ch|lg:de|ct:targeting,nonbrand,job|cd:feedonomics-jobroom|mg:job-application|pd:n|tt:organic"
+    },
+    {
+     "title": "DevOps Software Engineer (Gitlab)",
+     "company": "SIX Group Ltd",
+     "city": "Zürich",
+     "published": "2026-11-18",
+     "url": "https://jobs.six-group.com/job/Zurich-DevOps-Software-Engineer-%28Gitlab%29/1411694233/"
+    },
+    {
+     "title": "Lead Web Application Engineer (m/w/d)",
+     "company": "Schweizerische Bundesbahnen SBB",
+     "city": "Bern",
+     "published": "2026-11-18",
+     "url": "https://jobs.sbb.ch/v2/offene-stellen/lead-web-application-engineer-m-w-d/7ec9a063-5a73-4af2-aad3-f137e00ba472"
+    }
+   ]
+  },
+  {
+   "id": "support",
+   "label": "IT support",
+   "ads": 330,
+   "weekly": [
+    {
+     "week": "2026-W39",
+     "new_ads": 8
+    },
+    {
+     "week": "2026-W40",
+     "new_ads": 8
+    },
+    {
+     "week": "2026-W41",
+     "new_ads": 5
+    },
+    {
+     "week": "2026-W42",
+     "new_ads": 17
+    },
+    {
+     "week": "2026-W43",
+     "new_ads": 33
+    },
+    {
+     "week": "2026-W44",
+     "new_ads": 38
+    },
+    {
+     "week": "2026-W45",
+     "new_ads": 76
+    },
+    {
+     "week": "2026-W46",
+     "new_ads": 65
+    },
+    {
+     "week": "2026-W47",
+     "new_ads": 80
+    }
+   ],
+   "skills": [
+    {
+     "skill": "Microsoft 365",
+     "count": 218,
+     "share": 0.679
+    },
+    {
+     "skill": "Windows",
+     "count": 127,
+     "share": 0.396
+    },
+    {
+     "skill": "Networking",
+     "count": 121,
+     "share": 0.377
+    },
+    {
+     "skill": "Hardware",
+     "count": 117,
+     "share": 0.364
+    },
+    {
+     "skill": "Ticketing",
+     "count": 98,
+     "share": 0.305
+    },
+    {
+     "skill": "Active Directory",
+     "count": 73,
+     "share": 0.227
+    },
+    {
+     "skill": "Security",
+     "count": 63,
+     "share": 0.196
+    },
+    {
+     "skill": "ITIL",
+     "count": 38,
+     "share": 0.118
+    },
+    {
+     "skill": "Intune/MDM",
+     "count": 33,
+     "share": 0.103
+    },
+    {
+     "skill": "Cloud",
+     "count": 29,
+     "share": 0.09
+    },
+    {
+     "skill": "Azure",
+     "count": 24,
+     "share": 0.075
+    },
+    {
+     "skill": "Excel",
+     "count": 16,
+     "share": 0.05
+    },
+    {
+     "skill": "Scrum/Agile",
+     "count": 12,
+     "share": 0.037
+    },
+    {
+     "skill": "SQL",
+     "count": 10,
+     "share": 0.031
+    },
+    {
+     "skill": "Linux",
+     "count": 9,
+     "share": 0.028
+    }
+   ],
+   "barriers": {
+    "german_required": 0.573,
+    "french_required": 0.022,
+    "degree_required": 0.67,
+    "senior_experience": 0.458,
+    "english_ok": 0.551
+   },
+   "cantons": [
+    {
+     "canton": "ZH",
+     "count": 75
+    },
+    {
+     "canton": "BE",
+     "count": 68
+    },
+    {
+     "canton": "AG",
+     "count": 41
+    },
+    {
+     "canton": "LU",
+     "count": 24
+    },
+    {
+     "canton": "SG",
+     "count": 16
+    },
+    {
+     "canton": "ZG",
+     "count": 14
+    },
+    {
+     "canton": "TG",
+     "count": 12
+    },
+    {
+     "canton": "VD",
+     "count": 11
+    },
+    {
+     "canton": "FL",
+     "count": 9
+    },
+    {
+     "canton": "BL",
+     "count": 8
+    },
+    {
+     "canton": "BS",
+     "count": 7
+    },
+    {
+     "canton": "GE",
+     "count": 6
+    },
+    {
+     "canton": "SO",
+     "count": 5
+    },
+    {
+     "canton": "GR",
+     "count": 4
+    },
+    {
+     "canton": "VS",
+     "count": 4
+    },
+    {
+     "canton": "GL",
+     "count": 3
+    },
+    {
+     "canton": "TI",
+     "count": 3
+    },
+    {
+     "canton": "SH",
+     "count": 2
+    },
+    {
+     "canton": "FR",
+     "count": 1
+    },
+    {
+     "canton": "AI",
+     "count": 1
+    },
+    {
+     "canton": "NE",
+     "count": 1
+    }
+   ],
+   "reporting_obligation_share": 0.006,
+   "examples": [
+    {
+     "title": "IT Supporter 1st & 2nd Level",
+     "company": "IQ Plus AG",
+     "city": "Basel",
+     "published": "2026-11-20",
+     "url": "https://www.jobs.ch/de/stellenangebote/detail/e66b798d-d65e-4443-86c7-3bf63b84ff35/?utm_source=job-room.ch&inv=ppd-p&utm_medium=affiliate&utm_campaign=wb:jobs|tg:b2c|cn:ch|lg:de|ct:targeting,nonbrand,job|cd:feedonomics-jobroom|mg:job-application|pd:n|tt:organic"
+    },
+    {
+     "title": "Coordinateur·trice de projet déménagement IT & Support IT — Mission de 12 mois",
+     "company": "SpeciTec SA",
+     "city": "Grand-Lancy",
+     "published": "2026-11-20",
+     "url": "https://www.jobup.ch/fr/emplois/detail/792f34e6-d3d9-45c2-b2f8-d92d98eef09f/?utm_source=job-room.ch&utm_medium=affiliate&utm_campaign=wb:jobup|tg:b2c|cn:ch|lg:fr|ct:targeting,nonbrand,job|cd:feedonomics-jobroom|mg:job-application|pd:n|tt:organic"
+    },
+    {
+     "title": "IT Support Techniker *in",
+     "company": "ERNE Management AG",
+     "city": "Laufenburg",
+     "published": "2026-11-20",
+     "url": "https://ohws.prospective.ch/public/v1/jobs/1f0870ff-7dfa-4b66-94f3-a548320950f5"
+    },
+    {
+     "title": "Coordinateur·trice de projet déménagement IT & Support IT — Mission de 12 mois",
+     "company": "SpeciTec SA",
+     "city": "Grand-Lancy",
+     "published": "2026-11-20",
+     "url": "https://www.jobs.ch/de/stellenangebote/detail/792f34e6-d3d9-45c2-b2f8-d92d98eef09f/?utm_source=job-room.ch&inv=ppd-p&utm_medium=affiliate&utm_campaign=wb:jobs|tg:b2c|cn:ch|lg:de|ct:targeting,nonbrand,job|cd:feedonomics-jobroom|mg:job-application|pd:n|tt:organic"
+    },
+    {
+     "title": "ICT - Systemtechniker /-in",
+     "company": "Kantonale Verwaltung Zürich",
+     "city": "Dübendorf",
+     "published": "2026-11-20",
+     "url": "https://www.jobs.ch/de/stellenangebote/detail/e49a0f89-cb59-4536-9e24-79e901dafe41/?utm_source=job-room.ch&inv=ppd-p&utm_medium=affiliate&utm_campaign=wb:jobs|tg:b2c|cn:ch|lg:de|ct:targeting,nonbrand,job|cd:feedonomics-jobroom|mg:job-application|pd:n|tt:organic"
+    },
+    {
+     "title": "IT -Onsite Technician (L2) (m/w/d) in Eschen, Liechtenstein",
+     "company": "Hemmersbach Switzerland AG",
+     "city": "Eschen",
+     "published": "2026-11-20",
+     "url": "https://www.jobscout24.ch/de/job/d8358ecd-7e55-4495-bbf6-35e505364fe3/?utm_source=job-room.ch&utm_medium=affiliate&utm_campaign=wb:jobscout24|tg:b2c|cn:ch|lg:de|ct:targeting,nonbrand,job|cd:feedonomics-jobroom|mg:job-application|pd:n|tt:organic"
+    },
+    {
+     "title": "Kundenberater:in im First Level Support 50-60%",
+     "company": "Callpoint AG",
+     "city": "Basel",
+     "published": "2026-11-20",
+     "url": "https://www.jobs.ch/de/stellenangebote/detail/dec6bda0-f9c1-4d63-a414-d0c67939635e/?utm_source=job-room.ch&inv=ppd-p&utm_medium=affiliate&utm_campaign=wb:jobs|tg:b2c|cn:ch|lg:de|ct:targeting,nonbrand,job|cd:feedonomics-jobroom|mg:job-application|pd:n|tt:organic"
+    },
+    {
+     "title": "IT - Supporter (w/m/d)",
+     "company": "Bison Schweiz AG",
+     "city": "Winterthur",
+     "published": "2026-11-20",
+     "url": "https://www.jobscout24.ch/de/job/4194003f-e2dc-46c4-b9e1-88ad049e38c8/?utm_source=job-room.ch&utm_medium=affiliate&utm_campaign=wb:jobscout24|tg:b2c|cn:ch|lg:de|ct:targeting,nonbrand,job|cd:feedonomics-jobroom|mg:job-application|pd:n|tt:organic"
+    }
+   ]
+  },
+  {
+   "id": "data",
+   "label": "Data analyst",
+   "ads": 202,
+   "weekly": [
+    {
+     "week": "2026-W39",
+     "new_ads": 5
+    },
+    {
+     "week": "2026-W40",
+     "new_ads": 7
+    },
+    {
+     "week": "2026-W41",
+     "new_ads": 2
+    },
+    {
+     "week": "2026-W42",
+     "new_ads": 6
+    },
+    {
+     "week": "2026-W43",
+     "new_ads": 10
+    },
+    {
+     "week": "2026-W44",
+     "new_ads": 27
+    },
+    {
+     "week": "2026-W45",
+     "new_ads": 38
+    },
+    {
+     "week": "2026-W46",
+     "new_ads": 62
+    },
+    {
+     "week": "2026-W47",
+     "new_ads": 45
+    }
+   ],
+   "skills": [
+    {
+     "skill": "SQL",
+     "count": 87,
+     "share": 0.608
+    },
+    {
+     "skill": "Microsoft 365",
+     "count": 61,
+     "share": 0.427
+    },
+    {
+     "skill": "Python",
+     "count": 57,
+     "share": 0.399
+    },
+    {
+     "skill": "Cloud",
+     "count": 41,
+     "share": 0.287
+    },
+    {
+     "skill": "Excel",
+     "count": 38,
+     "share": 0.266
+    },
+    {
+     "skill": "Power BI",
+     "count": 35,
+     "share": 0.245
+    },
+    {
+     "skill": "Scrum/Agile",
+     "count": 32,
+     "share": 0.224
+    },
+    {
+     "skill": "Azure",
+     "count": 27,
+     "share": 0.189
+    },
+    {
+     "skill": "Security",
+     "count": 25,
+     "share": 0.175
+    },
+    {
+     "skill": "API/REST",
+     "count": 22,
+     "share": 0.154
+    },
+    {
+     "skill": "Git",
+     "count": 19,
+     "share": 0.133
+    },
+    {
+     "skill": "Tableau",
+     "count": 15,
+     "share": 0.105
+    },
+    {
+     "skill": "AWS",
+     "count": 13,
+     "share": 0.091
+    },
+    {
+     "skill": "R",
+     "count": 11,
+     "share": 0.077
+    },
+    {
+     "skill": "Linux",
+     "count": 11,
+     "share": 0.077
+    }
+   ],
+   "barriers": {
+    "german_required": 0.287,
+    "french_required": 0.021,
+    "degree_required": 0.51,
+    "senior_experience": 0.538,
+    "english_ok": 0.622
+   },
+   "cantons": [
+    {
+     "canton": "ZH",
+     "count": 52
+    },
+    {
+     "canton": "BE",
+     "count": 31
+    },
+    {
+     "canton": "AG",
+     "count": 19
+    },
+    {
+     "canton": "LU",
+     "count": 18
+    },
+    {
+     "canton": "GE",
+     "count": 13
+    },
+    {
+     "canton": "VD",
+     "count": 11
+    },
+    {
+     "canton": "BS",
+     "count": 10
+    },
+    {
+     "canton": "SG",
+     "count": 6
+    },
+    {
+     "canton": "SZ",
+     "count": 6
+    },
+    {
+     "canton": "SO",
+     "count": 5
+    },
+    {
+     "canton": "TG",
+     "count": 3
+    },
+    {
+     "canton": "NE",
+     "count": 2
+    },
+    {
+     "canton": "ZG",
+     "count": 2
+    },
+    {
+     "canton": "VS",
+     "count": 2
+    },
+    {
+     "canton": "FR",
+     "count": 1
+    },
+    {
+     "canton": "BL",
+     "count": 1
+    },
+    {
+     "canton": "FL",
+     "count": 1
+    },
+    {
+     "canton": "GR",
+     "count": 1
+    }
+   ],
+   "reporting_obligation_share": 0.0,
+   "examples": [
+    {
+     "title": "Team Lead Data & AI Foundation , 80–100 %",
+     "company": "MS Direct AG",
+     "city": "St. Gallen",
+     "published": "2026-11-20",
+     "url": "https://www.jobs.ch/de/stellenangebote/detail/d5472aed-e556-4d69-8f45-08c40cc5cf73/?utm_source=job-room.ch&inv=ppd-p&utm_medium=affiliate&utm_campaign=wb:jobs|tg:b2c|cn:ch|lg:de|ct:targeting,nonbrand,job|cd:feedonomics-jobroom|mg:job-application|pd:n|tt:organic"
+    },
+    {
+     "title": "Data Analyst",
+     "company": "Swisslinx AG",
+     "city": "Zürich",
+     "published": "2026-11-20",
+     "url": "https://www.jobs.ch/de/stellenangebote/detail/c40f8e1f-a008-4ed6-8213-c3fad80a3aa9/?utm_source=job-room.ch&inv=ppd-p&utm_medium=affiliate&utm_campaign=wb:jobs|tg:b2c|cn:ch|lg:de|ct:targeting,nonbrand,job|cd:feedonomics-jobroom|mg:job-application|pd:n|tt:organic"
+    },
+    {
+     "title": "Senior Data Platform Engineer",
+     "company": "Swisslinx AG",
+     "city": "Horgen",
+     "published": "2026-11-20",
+     "url": "https://www.jobs.ch/de/stellenangebote/detail/4f4dc78f-694d-4f46-89ab-25c10a171139/?utm_source=job-room.ch&inv=ppd-p&utm_medium=affiliate&utm_campaign=wb:jobs|tg:b2c|cn:ch|lg:de|ct:targeting,nonbrand,job|cd:feedonomics-jobroom|mg:job-application|pd:n|tt:organic"
+    },
+    {
+     "title": "Technical Lead ( Data Applications and BI )",
+     "company": "EPAM Systems (Switzerland) GmbH",
+     "city": "Zürich",
+     "published": "2026-11-20",
+     "url": "https://www.job-room.ch/job-search/b4e7fa88-41b6-4259-96aa-dd3e99acaf0a"
+    },
+    {
+     "title": "ESG Data Analyst - Exclusive",
+     "company": "EMEA Recruitment",
+     "city": null,
+     "published": "2026-11-19",
+     "url": "https://www.emearecruitment.com/jobs/details/netherlands/emea-exclusive/data-management/health-safety/esg-data-analyst-exclusive/8928"
+    },
+    {
+     "title": "Researcher - Pretraining Data Team",
+     "company": "Microsoft",
+     "city": "Zürich",
+     "published": "2026-11-19",
+     "url": "https://apply.careers.microsoft.com/careers/job/1970393557043264"
+    },
+    {
+     "title": "Portfolio & Data Controller/in 100% (w/m/d)",
+     "company": "Mercedes-Benz Schweiz AG",
+     "city": "Schlieren",
+     "published": "2026-11-19",
+     "url": "https://ictjobs.ch/software-entwicklung/portfolio-data-controller-in-100-w-m-d/?pg=2"
+    },
+    {
+     "title": "Data Risk & Compliance Analyst",
+     "company": "MSC Cruises",
+     "city": "Gross",
+     "published": "2026-11-19",
+     "url": "https://careers.msccruises.com/gb/en/job/18036/Data-Risk-Compliance-Analyst"
+    }
+   ]
+  }
+ ],
+ "sector": [
+  {
+   "series": "Job vacancies - total / 58-63 IT and communications",
+   "period": "2020Q3",
+   "value": 4550.0
+  },
+  {
+   "series": "Job vacancies - total / 62-63 IT and other information services",
+   "period": "2020Q3",
+   "value": 3921.0
+  },
+  {
+   "series": "Job vacancies - total / 58-63 IT and communications",
+   "period": "2020Q4",
+   "value": 4665.0
+  },
+  {
+   "series": "Job vacancies - total / 62-63 IT and other information services",
+   "period": "2020Q4",
+   "value": 3980.0
+  },
+  {
+   "series": "Job vacancies - total / 58-63 IT and communications",
+   "period": "2021Q1",
+   "value": 4551.0
+  },
+  {
+   "series": "Job vacancies - total / 62-63 IT and other information services",
+   "period": "2021Q1",
+   "value": 3766.0
+  },
+  {
+   "series": "Job vacancies - total / 58-63 IT and communications",
+   "period": "2021Q2",
+   "value": 5126.0
+  },
+  {
+   "series": "Job vacancies - total / 62-63 IT and other information services",
+   "period": "2021Q2",
+   "value": 4295.0
+  },
+  {
+   "series": "Job vacancies - total / 58-63 IT and communications",
+   "period": "2021Q3",
+   "value": 6222.0
+  },
+  {
+   "series": "Job vacancies - total / 62-63 IT and other information services",
+   "period": "2021Q3",
+   "value": 5264.0
+  },
+  {
+   "series": "Job vacancies - total / 58-63 IT and communications",
+   "period": "2021Q4",
+   "value": 6688.0
+  },
+  {
+   "series": "Job vacancies - total / 62-63 IT and other information services",
+   "period": "2021Q4",
+   "value": 5475.0
+  },
+  {
+   "series": "Job vacancies - total / 58-63 IT and communications",
+   "period": "2022Q1",
+   "value": 6857.0
+  },
+  {
+   "series": "Job vacancies - total / 62-63 IT and other information services",
+   "period": "2022Q1",
+   "value": 5920.0
+  },
+  {
+   "series": "Job vacancies - total / 58-63 IT and communications",
+   "period": "2022Q2",
+   "value": 8259.0
+  },
+  {
+   "series": "Job vacancies - total / 62-63 IT and other information services",
+   "period": "2022Q2",
+   "value": 7011.0
+  },
+  {
+   "series": "Job vacancies - total / 58-63 IT and communications",
+   "period": "2022Q3",
+   "value": 7615.0
+  },
+  {
+   "series": "Job vacancies - total / 62-63 IT and other information services",
+   "period": "2022Q3",
+   "value": 6375.0
+  },
+  {
+   "series": "Job vacancies - total / 58-63 IT and communications",
+   "period": "2022Q4",
+   "value": 7129.0
+  },
+  {
+   "series": "Job vacancies - total / 62-63 IT and other information services",
+   "period": "2022Q4",
+   "value": 6250.0
+  },
+  {
+   "series": "Job vacancies - total / 58-63 IT and communications",
+   "period": "2023Q1",
+   "value": 6659.0
+  },
+  {
+   "series": "Job vacancies - total / 62-63 IT and other information services",
+   "period": "2023Q1",
+   "value": 5702.0
+  },
+  {
+   "series": "Job vacancies - total / 58-63 IT and communications",
+   "period": "2023Q2",
+   "value": 5923.0
+  },
+  {
+   "series": "Job vacancies - total / 62-63 IT and other information services",
+   "period": "2023Q2",
+   "value": 5161.0
+  },
+  {
+   "series": "Job vacancies - total / 58-63 IT and communications",
+   "period": "2023Q3",
+   "value": 5971.0
+  },
+  {
+   "series": "Job vacancies - total / 62-63 IT and other information services",
+   "period": "2023Q3",
+   "value": 5238.0
+  },
+  {
+   "series": "Job vacancies - total / 58-63 IT and communications",
+   "period": "2023Q4",
+   "value": 5104.0
+  },
+  {
+   "series": "Job vacancies - total / 62-63 IT and other information services",
+   "period": "2023Q4",
+   "value": 4350.0
+  },
+  {
+   "series": "Job vacancies - total / 58-63 IT and communications",
+   "period": "2024Q1",
+   "value": 6417.0
+  },
+  {
+   "series": "Job vacancies - total / 62-63 IT and other information services",
+   "period": "2024Q1",
+   "value": 5578.0
+  },
+  {
+   "series": "Job vacancies - total / 58-63 IT and communications",
+   "period": "2024Q2",
+   "value": 5481.0
+  },
+  {
+   "series": "Job vacancies - total / 62-63 IT and other information services",
+   "period": "2024Q2",
+   "value": 4757.0
+  },
+  {
+   "series": "Job vacancies - total / 58-63 IT and communications",
+   "period": "2024Q3",
+   "value": 4358.0
+  },
+  {
+   "series": "Job vacancies - total / 62-63 IT and other information services",
+   "period": "2024Q3",
+   "value": 3676.0
+  },
+  {
+   "series": "Job vacancies - total / 58-63 IT and communications",
+   "period": "2024Q4",
+   "value": 4398.0
+  },
+  {
+   "series": "Job vacancies - total / 62-63 IT and other information services",
+   "period": "2024Q4",
+   "value": 3762.0
+  },
+  {
+   "series": "Job vacancies - total / 58-63 IT and communications",
+   "period": "2025Q1",
+   "value": 4787.0
+  },
+  {
+   "series": "Job vacancies - total / 62-63 IT and other information services",
+   "period": "2025Q1",
+   "value": 4137.0
+  },
+  {
+   "series": "Job vacancies - total / 58-63 IT and communications",
+   "period": "2025Q2",
+   "value": 4529.0
+  },
+  {
+   "series": "Job vacancies - total / 62-63 IT and other information services",
+   "period": "2025Q2",
+   "value": 3740.0
+  },
+  {
+   "series": "Job vacancies - total / 58-63 IT and communications",
+   "period": "2025Q3",
+   "value": 4596.0
+  },
+  {
+   "series": "Job vacancies - total / 62-63 IT and other information services",
+   "period": "2025Q3",
+   "value": 3855.0
+  },
+  {
+   "series": "Job vacancies - total / 58-63 IT and communications",
+   "period": "2025Q4",
+   "value": 4329.0
+  },
+  {
+   "series": "Job vacancies - total / 62-63 IT and other information services",
+   "period": "2025Q4",
+   "value": 3681.0
+  },
+  {
+   "series": "Job vacancies - total / 58-63 IT and communications",
+   "period": "2026Q1",
+   "value": 4321.0
+  },
+  {
+   "series": "Job vacancies - total / 62-63 IT and other information services",
+   "period": "2026Q1",
+   "value": 3482.0
+  },
+  {
+   "series": "Job vacancies - total / 58-63 IT and communications",
+   "period": "2026Q2",
+   "value": 4684.0
+  },
+  {
+   "series": "Job vacancies - total / 62-63 IT and other information services",
+   "period": "2026Q2",
+   "value": 3920.0
+  }
+ ],
+ "policy": [
+  {
+   "source": "Parliament (Curia Vista)",
+   "title": "Ausländer- und Integrationsgesetz (Sonderregelung für Reisen ins Ausland für Personen aus der Ukraine mit vorübergehendem Schutz). Änderung",
+   "date": "2026-11-11",
+   "status": "Zugewiesen an die behandelnde Kommission",
+   "url": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20260083",
+   "matched": "Ausländer"
+  },
+  {
+   "source": "Parliament (Curia Vista)",
+   "title": "Übertragung des Mandats für Betreuungsdienstleistungen in Bundesasylzentren von der AOZ auf die ORS. Welche Garantien gibt es hinsichtlich der Beschäftigung und der Arbeitsbedingungen?",
+   "date": "2026-10-02",
+   "status": "Stellungnahme zum Vorstoss liegt vor",
+   "url": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20264566",
+   "matched": "Asyl"
+  },
+  {
+   "source": "Parliament (Curia Vista)",
+   "title": "Kinderrechte für alle. Auch in der Nothilfe im Asylbereich",
+   "date": "2026-10-02",
+   "status": "Stellungnahme zum Vorstoss liegt vor",
+   "url": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20264613",
+   "matched": "Asyl"
+  },
+  {
+   "source": "Parliament (Curia Vista)",
+   "title": "Rückkehrhilfeprogramm der EU. Einsparpotenzial im Asylbereich",
+   "date": "2026-10-02",
+   "status": "Stellungnahme zum Vorstoss liegt vor",
+   "url": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20264696",
+   "matched": "Asyl"
+  },
+  {
+   "source": "Parliament (Curia Vista)",
+   "title": "Schutzstatus S. Finanzielle Unterstützung gewährleisten, ohne Kantone und Gemeinden zu belasten",
+   "date": "2026-10-02",
+   "status": "In Ständerat geplant",
+   "url": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20264550",
+   "matched": "Status S"
+  },
+  {
+   "source": "Parliament (Curia Vista)",
+   "title": "Verbesserung der Integration von Personen mit Schutzstatus S durch aktive Teilhabe",
+   "date": "2026-10-02",
+   "status": "Stellungnahme zum Vorstoss liegt vor",
+   "url": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20264631",
+   "matched": "Status S"
+  },
+  {
+   "source": "Parliament (Curia Vista)",
+   "title": "Transparenz zu den interkulturellen Dolmetschern und Begleitern im Asylwesen und generell beim Bund",
+   "date": "2026-10-01",
+   "status": "Stellungnahme zum Vorstoss liegt vor",
+   "url": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20264426",
+   "matched": "Asyl"
+  },
+  {
+   "source": "Parliament (Curia Vista)",
+   "title": "Asyl nur für Schutzbedürftige. Überarbeitung Safe-Country-Konzept",
+   "date": "2026-10-01",
+   "status": "Stellungnahme zum Vorstoss liegt vor",
+   "url": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20264440",
+   "matched": "Asyl"
+  },
+  {
+   "source": "Parliament (Curia Vista)",
+   "title": "Recht des Kindes auf Anhörung in Asyl- und Ausländerrechtsangelegenheiten",
+   "date": "2026-10-01",
+   "status": "Stellungnahme zum Vorstoss liegt vor",
+   "url": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20264474",
+   "matched": "Asyl"
+  },
+  {
+   "source": "Parliament (Curia Vista)",
+   "title": "Kurzeinsätze hochspezialisierter Fachkräfte nach Ausschöpfung des 90-Tage-Meldeverfahrens vereinfachen",
+   "date": "2026-10-01",
+   "status": "Stellungnahme zum Vorstoss liegt vor",
+   "url": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20264410",
+   "matched": "Fachkräfte"
+  },
+  {
+   "source": "Parliament (Curia Vista)",
+   "title": "Ausbildungsoffensive Bund. Fachkräfte von morgen ausbilden",
+   "date": "2026-10-01",
+   "status": "Stellungnahme zum Vorstoss liegt vor",
+   "url": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20264422",
+   "matched": "Fachkräfte"
+  },
+  {
+   "source": "Parliament (Curia Vista)",
+   "title": "Besondere Zentren für sicherheitsrelevante Asylsuchende unverzüglich schaffen",
+   "date": "2026-09-30",
+   "status": "Eingereicht",
+   "url": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20264366",
+   "matched": "Asyl"
+  },
+  {
+   "source": "Parliament (Curia Vista)",
+   "title": "Kann mit einer Neuorganisation der Asylabteilungen des Bundesverwaltungsgerichts die Effizienz erhöht werden?",
+   "date": "2026-09-30",
+   "status": "In Ständerat geplant",
+   "url": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20264375",
+   "matched": "Asyl"
+  },
+  {
+   "source": "Parliament (Curia Vista)",
+   "title": "Schutzstatus S. Wer Sozialleistungen bezieht, soll einen Beitrag an die Gemeinschaft leisten",
+   "date": "2026-09-30",
+   "status": "Stellungnahme zum Vorstoss liegt vor",
+   "url": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20264350",
+   "matched": "Status S"
+  },
+  {
+   "source": "Parliament (Curia Vista)",
+   "title": "Italien. Keine Übernahme von Asylsuchenden, für die das Land zuständig ist?",
+   "date": "2026-09-29",
+   "status": "Eingereicht",
+   "url": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20264299",
+   "matched": "Asyl"
+  },
+  {
+   "source": "Parliament (Curia Vista)",
+   "title": "Keine Asylverfahren bei der Einreise aus sicherem Herkunfts-, Heimat- oder Drittstaaten",
+   "date": "2026-09-28",
+   "status": "Stellungnahme zum Vorstoss liegt vor",
+   "url": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20264281",
+   "matched": "Asyl"
+  },
+  {
+   "source": "Parliament (Curia Vista)",
+   "title": "Von Österreich lernen. Familiennachzug im Asylbereich aussetzen. Asylsystem stabilisieren. Familiennachzug für Flüchtlinge an Flüchtlingskonvention anpassen",
+   "date": "2026-09-28",
+   "status": "Stellungnahme zum Vorstoss liegt vor",
+   "url": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20264282",
+   "matched": "Asyl"
+  },
+  {
+   "source": "Parliament (Curia Vista)",
+   "title": "Bevölkerung schützen. Kein Asyl für Hochrisiko-Asylmigranten",
+   "date": "2026-09-28",
+   "status": "Stellungnahme zum Vorstoss liegt vor",
+   "url": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20264283",
+   "matched": "Asyl"
+  },
+  {
+   "source": "Parliament (Curia Vista)",
+   "title": "Folgen aktueller Regulierungsforderungen für die bezahlte Angehörigenpflege betreffend Kosten und Fachkräftemangel in der ambulanten Pflege",
+   "date": "2026-09-28",
+   "status": "Eingereicht",
+   "url": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20264276",
+   "matched": "Fachkräfte"
+  },
+  {
+   "source": "Parliament (Curia Vista)",
+   "title": "Migranten aus dem Maghreb vom Asylverfahren ausschliessen",
+   "date": "2026-09-23",
+   "status": "Stellungnahme zum Vorstoss liegt vor",
+   "url": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20264219",
+   "matched": "Asyl"
+  },
+  {
+   "source": "Parliament (Curia Vista)",
+   "title": "Asylgesuche: Was bedeutet die lange Landesgrenze für den Grenzschutz?",
+   "date": "2026-09-23",
+   "status": "Erledigt",
+   "url": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20267958",
+   "matched": "Asyl"
+  },
+  {
+   "source": "Parliament (Curia Vista)",
+   "title": "Entwicklung der minderjährigen Asylbewerber ohne Identifikationsdokumente",
+   "date": "2026-09-23",
+   "status": "Erledigt",
+   "url": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20268025",
+   "matched": "Asyl"
+  },
+  {
+   "source": "Parliament (Curia Vista)",
+   "title": "Wie viel Geld fliesst zu den Asylanwälten?",
+   "date": "2026-09-23",
+   "status": "Erledigt",
+   "url": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20268028",
+   "matched": "Asyl"
+  },
+  {
+   "source": "Parliament (Curia Vista)",
+   "title": "«Hintergrundgespräch» vom Freitag, 18. September 2026, 11 Uhr zur Grenzschutzinitiative «Asylmissbrauch stoppen!»",
+   "date": "2026-09-23",
+   "status": "Erledigt",
+   "url": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20268035",
+   "matched": "Asyl"
+  },
+  {
+   "source": "Parliament (Curia Vista)",
+   "title": "Detailliertere Statistiken zur Wegweisung straffälliger Ausländerinnen und Ausländer",
+   "date": "2026-09-23",
+   "status": "Erledigt",
+   "url": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20267990",
+   "matched": "Ausländer"
+  },
+  {
+   "source": "Parliament (Curia Vista)",
+   "title": "Integrationsreform der IV. Welche Lücke soll mit der neuen Integrationsleistung geschlossen werden?",
+   "date": "2026-09-23",
+   "status": "Stellungnahme zum Vorstoss liegt vor",
+   "url": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20264240",
+   "matched": "Integration"
+  },
+  {
+   "source": "Parliament (Curia Vista)",
+   "title": "Beschaffung von Reisedokumenten und Dauer der Administrativhaft für abgewiesene Asylsuchende aus den Maghreb-Staaten",
+   "date": "2026-09-22",
+   "status": "Stellungnahme zum Vorstoss liegt vor",
+   "url": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20264209",
+   "matched": "Asyl"
+  },
+  {
+   "source": "Parliament (Curia Vista)",
+   "title": "Vorgelagertes Asylverfahren: rechtlich haltbar und durchführbar?",
+   "date": "2026-09-22",
+   "status": "Erledigt",
+   "url": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20267923",
+   "matched": "Asyl"
+  },
+  {
+   "source": "Parliament (Curia Vista)",
+   "title": "Asylgesetz - was gibt es in klaren Fällen noch zu prüfen?",
+   "date": "2026-09-21",
+   "status": "Erledigt",
+   "url": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20267883",
+   "matched": "Asyl"
+  },
+  {
+   "source": "Parliament (Curia Vista)",
+   "title": "Asylmissbrauch stoppen! (Grenzschutzinitiative). Volksinitiative",
+   "date": "2026-09-18",
+   "status": "Beratung in Kommission des Ständerates abgeschlossen",
+   "url": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20260067",
+   "matched": "Asyl"
+  },
+  {
+   "source": "Parliament (Curia Vista)",
+   "title": "Schliessung des Bundesasylzentrums Boudry",
+   "date": "2026-09-17",
+   "status": "Stellungnahme zum Vorstoss liegt vor",
+   "url": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20264172",
+   "matched": "Asyl"
+  },
+  {
+   "source": "Parliament (Curia Vista)",
+   "title": "Ausgaben im Gesundheitsbereich für Asylsuchende, vorläufig Aufgenommene und Status S Personen",
+   "date": "2026-09-16",
+   "status": "Erledigt",
+   "url": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20267846",
+   "matched": "vorläufig"
+  },
+  {
+   "source": "Parliament (Curia Vista)",
+   "title": "Wieso werden die Herkunftsländer bei der Statistik über die Dauer von Asylverfahren nicht erfasst?",
+   "date": "2026-09-16",
+   "status": "Erledigt",
+   "url": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20267734",
+   "matched": "Asyl"
+  },
+  {
+   "source": "Parliament (Curia Vista)",
+   "title": "Fr. 18,9 Mio. Subventionen des Bundes an Caritas für den Verfahrensaufwand für Asylsuchende",
+   "date": "2026-09-16",
+   "status": "Erledigt",
+   "url": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20267761",
+   "matched": "Asyl"
+  },
+  {
+   "source": "Parliament (Curia Vista)",
+   "title": "Gutachten betreffend Altersbestimmung im Asylprozess",
+   "date": "2026-09-16",
+   "status": "Erledigt",
+   "url": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20267823",
+   "matched": "Asyl"
+  },
+  {
+   "source": "Parliament (Curia Vista)",
+   "title": "Wie viele Asylbewerber sind zur Fahndung ausgeschrieben?",
+   "date": "2026-09-16",
+   "status": "Erledigt",
+   "url": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20267838",
+   "matched": "Asyl"
+  },
+  {
+   "source": "Parliament (Curia Vista)",
+   "title": "Bundesasylzentrum Altstätten: 220 Mitarbeitende für 390 Asylsuchende?",
+   "date": "2026-09-15",
+   "status": "Erledigt",
+   "url": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20267690",
+   "matched": "Asyl"
+  },
+  {
+   "source": "Parliament (Curia Vista)",
+   "title": "Monitoringbericht zum Asylsystem 2025: Verfahrensdauer für Gesuche um Schutzstatus S",
+   "date": "2026-09-15",
+   "status": "Erledigt",
+   "url": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20267714",
+   "matched": "Asyl"
+  },
+  {
+   "source": "Parliament (Curia Vista)",
+   "title": "Einschränkung des Asyl-Antragsrechtes",
+   "date": "2026-09-14",
+   "status": "Erledigt",
+   "url": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20261036",
+   "matched": "Asyl"
+  },
+  {
+   "source": "Parliament (Curia Vista)",
+   "title": "Einschränkung des Asyl-Antragsrechtes",
+   "date": "2026-09-14",
+   "status": "Stellungnahme zum Vorstoss liegt vor",
+   "url": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20264090",
+   "matched": "Asyl"
+  }
+ ]
+}
