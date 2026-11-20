@@ -23,7 +23,7 @@
   },
   "common": {
     "source": "Source",
-    "asOf": "As of {date}",
+    "asOf": "as of {date}",
     "meaning": "What this means",
     "ads": "{count, plural, one {# ad} other {# ads}}",
     "ofHundred": "in {count} of 100 ads",
@@ -173,7 +173,8 @@
     },
     "bfs": {
       "gives": "Open positions by economic sector, here in IT services. The series shows the whole market with all IT roles.",
-      "how": "New figures arrive once per quarter, a few weeks late."
+      "how": "New figures arrive once per quarter, a few weeks late.",
+      "name": "Federal Statistical Office (BFS), JOBSTAT"
     },
     "curia": {
       "gives": "Motions, questions and bills of Parliament on asylum, status F and S, integration and skilled workers.",
@@ -213,6 +214,65 @@
       "title": "Rules for the data",
       "one": "Every number, chart and list names its source with a link and the date of the latest update.",
       "two": "Only summarised numbers are shown. The radar shows nothing about individual people. Example ads show only title, company, place, date and link."
+    },
+    "sem_erwerb": {
+      "name": "State Secretariat for Migration (SEM), asylum statistics: employment"
+    },
+    "sem_asylprozess": {
+      "name": "SEM asylum statistics: stock of persons in the asylum process (status N, S, F)",
+      "gives": "How many people are in the asylum process or hold status N, S (temporary protection) or F (provisionally admitted), by canton and nationality; monthly."
+    },
+    "eurostat_jvs": {
+      "name": "Eurostat, job vacancy statistics (Switzerland, information and communication)",
+      "gives": "Job vacancies and the job vacancy rate in information and communication (NACE J) in Switzerland, quarterly, comparable across Europe."
+    },
+    "seco_stellenmeldepflicht": {
+      "name": "SECO, occupations under the job-reporting duty (Stellenmeldepflicht) 2026",
+      "gives": "Official list of occupation groups where employers must report vacancies first to the job centres (unemployment of 5 percent or more); IT occupations are not on it, so IT ads are mostly voluntary."
+    },
+    "sem_erwerb_status_f": {
+      "name": "SEM asylum statistics: employment of persons with status F",
+      "gives": "How many persons with status F (provisionally admitted) are of working age (18-64) and in work, by canton, nationality, sex and length of stay; monthly since 2025."
+    },
+    "sem_erwerb_status_b": {
+      "name": "SEM asylum statistics: employment of persons with status B",
+      "gives": "How many persons with status B (recognised refugees with asylum) are of working age (18-64) and in work, by canton, nationality, sex and length of stay; monthly since 2025."
+    },
+    "sem_erwerb_status_s": {
+      "name": "SEM asylum statistics: employment of persons with status S",
+      "gives": "How many persons with status S (temporary protection, e.g. from Ukraine) are of working age (18-64) and in work, by canton, nationality, sex and length of stay; monthly since 2025."
+    },
+    "sem_erwerb_status_n": {
+      "name": "SEM asylum statistics: employment of persons with status N",
+      "gives": "How many persons with status N (asylum seekers) are of working age (18-64) and in work, by canton, nationality, sex and length of stay; monthly since 2025."
+    },
+    "bfs_population_permit": {
+      "name": "BFS, resident population by residence permit",
+      "gives": "Yearly count of people living in Switzerland by residence permit (B, C, Ci, L and the asylum permits F, N, S), for all of Switzerland."
+    },
+    "bfs_sozialhilfe_asyl": {
+      "name": "BFS, social assistance rate in the asylum sector (working age)",
+      "gives": "Share of working-age (18-64) asylum seekers and provisionally admitted persons who receive social assistance, by canton, yearly. The lower, the more people are in work."
+    },
+    "sem_auslaenderstatistik": {
+      "name": "SEM foreigner statistics (monthly Excel tables)",
+      "gives": "Foreign resident population by permit, canton, nationality and age; immigration, emigration, naturalisation. Reference only: the numbers are in Excel tables 2-xx to 4-xx."
+    },
+    "sem_arbeit_asylbereich": {
+      "name": "SEM, working as a refugee or provisionally admitted person",
+      "gives": "Rules for work permits and employer duties for persons with status F, B, S and N."
+    },
+    "sem_integrationsagenda": {
+      "name": "SEM, Integration Agenda Switzerland",
+      "gives": "Federal and cantonal goals for getting refugees into language, training and work, and the monitoring behind them."
+    },
+    "sem_ausbildung_junge": {
+      "name": "SEM, training situation of young provisionally admitted persons and refugees",
+      "gives": "Report on how many young people with status F and B are in training or work."
+    },
+    "esco": {
+      "name": "ESCO, European skills classification",
+      "gives": "Official EU classification of skills; the dashboard links each skill to its ESCO definition where one exists."
     }
   },
   "notFound": {
@@ -383,6 +443,32 @@
       "name": "Federal Statistical Office (BFS), population statistics",
       "what": "Resident population by migration status, origin and canton, plus figures on employment."
     },
-    "rule": "Only summarised numbers are shown, never information about individual people."
+    "rule": "Only summarised numbers are shown, never information about individual people.",
+    "leadData": "Who does Powercoders train? This page shows how many people with which residence status live in Switzerland, how many of them work and which cantons they live in.",
+    "status": {
+      "S": "Status S (temporary protection)",
+      "F": "Status F (provisionally admitted)",
+      "B": "Recognised refugees (B permit)",
+      "N": "Status N (asylum seekers)"
+    },
+    "people": {
+      "title": "How many people, which status",
+      "intro": "People in the asylum and refugee system across Switzerland, as of {month}.",
+      "value": "{count} people",
+      "meaning": "The largest group: {status} with {count} people."
+    },
+    "work": {
+      "title": "How many are in work",
+      "intro": "Out of 100 people aged 18 to 64, this many have a job, as of {month}.",
+      "value": "{count} out of 100",
+      "meaning": "With {high}, {highCount} out of 100 people of working age are in work; with {low} it is {lowCount} out of 100."
+    },
+    "cantons": {
+      "title": "Which cantons",
+      "intro": "People in the asylum process (status N, S and F) by canton, as of {month}. The {count} cantons with the most people.",
+      "meaning": "Most people in the asylum process live in the canton of {first}: {count} people."
+    },
+    "laterTitle": "Coming later",
+    "later": "Countries of origin will be shown in a later version."
   }
 }

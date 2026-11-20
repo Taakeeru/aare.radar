@@ -173,7 +173,8 @@
     },
     "bfs": {
       "gives": "Offene Stellen nach Wirtschaftszweig, hier in IT-Dienstleistungen. Die Reihe zeigt den ganzen Markt mit allen IT-Berufen.",
-      "how": "Neue Zahlen kommen einmal pro Quartal, mit einigen Wochen Verzögerung."
+      "how": "Neue Zahlen kommen einmal pro Quartal, mit einigen Wochen Verzögerung.",
+      "name": "Bundesamt für Statistik (BFS), JOBSTAT"
     },
     "curia": {
       "gives": "Motionen, Anfragen und Gesetzesentwürfe des Parlaments zu Asyl, Status F und S, Integration und Fachkräften.",
@@ -213,6 +214,65 @@
       "title": "Regeln für die Daten",
       "one": "Jede Zahl, jede Grafik und jede Liste nennt ihre Quelle mit Link und dem Datum des letzten Stands.",
       "two": "Es werden nur zusammengefasste Zahlen gezeigt. Zu einzelnen Personen zeigt der Radar nichts. Bei Beispiel-Inseraten stehen nur Titel, Firma, Ort, Datum und Link."
+    },
+    "sem_erwerb": {
+      "name": "Staatssekretariat für Migration (SEM), Asylstatistik: Erwerbstätigkeit"
+    },
+    "sem_asylprozess": {
+      "name": "Staatssekretariat für Migration (SEM), Asylstatistik: Personen im Asylprozess",
+      "gives": "Wie viele Menschen im Asylprozess sind oder Status N, S oder F haben, nach Kanton und Nationalität, jeden Monat."
+    },
+    "eurostat_jvs": {
+      "name": "Eurostat, Statistik der offenen Stellen (Schweiz, Information und Kommunikation)",
+      "gives": "Offene Stellen und Quote der offenen Stellen in der Branche Information und Kommunikation in der Schweiz, pro Quartal."
+    },
+    "seco_stellenmeldepflicht": {
+      "name": "SECO, Berufe mit Stellenmeldepflicht 2026",
+      "gives": "Offizielle Liste der Berufsarten, deren offene Stellen Arbeitgeber zuerst dem RAV melden müssen."
+    },
+    "sem_erwerb_status_f": {
+      "name": "SEM, Asylstatistik: Erwerbstätigkeit mit Status F",
+      "gives": "Wie viele Personen mit Status F (vorläufig aufgenommen) im Alter von 18 bis 64 Jahren arbeiten, jeden Monat."
+    },
+    "sem_erwerb_status_b": {
+      "name": "SEM, Asylstatistik: Erwerbstätigkeit anerkannter Flüchtlinge (Ausweis B)",
+      "gives": "Wie viele anerkannte Flüchtlinge mit Ausweis B im Alter von 18 bis 64 Jahren arbeiten, jeden Monat."
+    },
+    "sem_erwerb_status_s": {
+      "name": "SEM, Asylstatistik: Erwerbstätigkeit mit Status S",
+      "gives": "Wie viele Personen mit Status S (vorübergehender Schutz) im Alter von 18 bis 64 Jahren arbeiten, jeden Monat."
+    },
+    "sem_erwerb_status_n": {
+      "name": "SEM, Asylstatistik: Erwerbstätigkeit mit Status N",
+      "gives": "Wie viele Asylsuchende (Status N) im Alter von 18 bis 64 Jahren arbeiten, jeden Monat."
+    },
+    "bfs_population_permit": {
+      "name": "Bundesamt für Statistik (BFS), Wohnbevölkerung nach Aufenthaltsstatus",
+      "gives": "Wie viele Menschen mit welchem Ausweis in der Schweiz leben, einmal pro Jahr."
+    },
+    "bfs_sozialhilfe_asyl": {
+      "name": "Bundesamt für Statistik (BFS), Sozialhilfequote im Asylbereich",
+      "gives": "Anteil der Asylsuchenden und vorläufig Aufgenommenen im Alter von 18 bis 64 Jahren, die Sozialhilfe beziehen, nach Kanton, einmal pro Jahr."
+    },
+    "sem_auslaenderstatistik": {
+      "name": "SEM, Ausländerstatistik",
+      "gives": "Ausländische Wohnbevölkerung nach Ausweis, Kanton, Nationalität und Alter, dazu Ein- und Auswanderung. Nur als Verweis, noch nicht eingelesen."
+    },
+    "sem_arbeit_asylbereich": {
+      "name": "SEM, Arbeiten mit Status F, B, S oder N",
+      "gives": "Regeln zur Arbeitsbewilligung und Pflichten der Arbeitgeber. Nur als Verweis."
+    },
+    "sem_integrationsagenda": {
+      "name": "SEM, Integrationsagenda Schweiz",
+      "gives": "Ziele von Bund und Kantonen für Sprache, Ausbildung und Arbeit von Geflüchteten. Nur als Verweis."
+    },
+    "sem_ausbildung_junge": {
+      "name": "SEM, Ausbildungssituation junger vorläufig Aufgenommener und Flüchtlinge",
+      "gives": "Bericht dazu, wie viele junge Menschen mit Status F und B in Ausbildung oder Arbeit sind. Nur als Verweis."
+    },
+    "esco": {
+      "name": "ESCO, europäische Klassifikation der Fähigkeiten",
+      "gives": "Offizielle Einteilung der Fähigkeiten durch die EU. Der Radar verlinkt jede Fähigkeit mit ihrer ESCO-Beschreibung. Nur als Verweis."
     }
   },
   "notFound": {
@@ -383,6 +443,32 @@
       "name": "Bundesamt für Statistik (BFS), Bevölkerungsstatistik",
       "what": "Wohnbevölkerung nach Migrationsstatus, Herkunft und Kanton, dazu Zahlen zur Erwerbstätigkeit."
     },
-    "rule": "Es werden nur zusammengefasste Zahlen gezeigt, nie Angaben zu einzelnen Personen."
+    "rule": "Es werden nur zusammengefasste Zahlen gezeigt, nie Angaben zu einzelnen Personen.",
+    "leadData": "Für wen bildet Powercoders aus? Hier steht, wie viele Menschen mit welchem Aufenthaltsstatus in der Schweiz leben, wie viele davon arbeiten und in welchen Kantonen sie wohnen.",
+    "status": {
+      "S": "Status S (vorübergehender Schutz)",
+      "F": "Status F (vorläufig aufgenommen)",
+      "B": "Anerkannte Flüchtlinge (Ausweis B)",
+      "N": "Status N (Asylsuchende)"
+    },
+    "people": {
+      "title": "Wie viele Menschen, welcher Status",
+      "intro": "Menschen im Asyl- und Flüchtlingsbereich in der ganzen Schweiz, Stand {month}.",
+      "value": "{count} Personen",
+      "meaning": "Die grösste Gruppe: {status} mit {count} Personen."
+    },
+    "work": {
+      "title": "Wie viele arbeiten",
+      "intro": "Von 100 Personen im Alter von 18 bis 64 Jahren haben so viele eine Stelle, Stand {month}.",
+      "value": "{count} von 100",
+      "meaning": "Mit {high} arbeiten {highCount} von 100 Personen im erwerbsfähigen Alter, mit {low} sind es {lowCount} von 100."
+    },
+    "cantons": {
+      "title": "In welchen Kantonen",
+      "intro": "Menschen im Asylprozess (Status N, S und F) nach Kanton, Stand {month}. Die {count} Kantone mit den meisten Personen.",
+      "meaning": "Am meisten Menschen im Asylprozess leben im Kanton {first}: {count} Personen."
+    },
+    "laterTitle": "Kommt später",
+    "later": "Herkunftsländer zeigt diese Seite in einer nächsten Version."
   }
 }

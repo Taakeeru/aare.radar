@@ -1,5 +1,6 @@
 import * as fs from "node:fs";
 import * as path from "node:path";
+import * as os from "node:os";
 import { beforeEach, describe, expect, it } from "vitest";
 import { BARRIER_KEYS, CACHE_MS, clearRadarCache, dataFilePath, loadRadar, parseRadar } from "@/lib/radar";
 import { ROOT } from "./support/files";
@@ -7,7 +8,7 @@ import { ROOT } from "./support/files";
 const FIXTURE = path.join(ROOT, "fixtures", "radar.sample.json");
 const text = () => fs.readFileSync(FIXTURE, "utf8");
 const tmp = (name: string, body: string) => {
-  const dir = fs.mkdtempSync(path.join(ROOT, "node_modules", ".radar-test-"));
+  const dir = fs.mkdtempSync(path.join(os.tmpdir(), "radar-test-"));
   const file = path.join(dir, name);
   fs.writeFileSync(file, body);
   return file;

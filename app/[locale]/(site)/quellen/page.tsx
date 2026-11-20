@@ -43,16 +43,17 @@ export default async function SourcesPage({ params }: { params: Promise<{ locale
             const url = safeHttpUrl(s.url);
             const gives = t.has(`${s.id}.gives`) ? t(`${s.id}.gives`) : s.what;
             const how = t.has(`${s.id}.how`) ? t(`${s.id}.how`) : t("generic.how");
+            const name = t.has(`${s.id}.name`) ? t(`${s.id}.name`) : s.name;
             return (
               <li key={s.id} className="sources__item">
                 <h3 className="sources__name">
                   {url ? (
                     <a href={url} target="_blank" rel="noopener noreferrer">
-                      {s.name}
+                      {name}
                       <span className="sr-only"> ({c("opensNewTab")})</span>
                     </a>
                   ) : (
-                    s.name
+                    name
                   )}
                 </h3>
                 <dl className="facts">

@@ -42,6 +42,10 @@ export type RadarRole = {
   examples: ExampleAd[];
 };
 export type SectorPoint = { series: string; period: string; value: number };
+export type SeriesPoint = { period: string; value: number };
+export type Series = { label: string; unit: string; dimension: string | null; points: SeriesPoint[] };
+/** One source's time series for one question (export field `series`, keyed by question letter). */
+export type SeriesBlock = { source: string; name: string; url: string; updated: string | null; series: Series[] };
 export type PolicyItem = { source: string; title: string; date: string | null; status: string | null; url: string | null; matched: string | null };
 export type Radar = {
   generated_at: string;
@@ -50,6 +54,8 @@ export type Radar = {
   roles: RadarRole[];
   sector: SectorPoint[];
   policy: PolicyItem[];
+  /** Optional (added with sources-as-config): time series per question letter. */
+  series?: Record<string, SeriesBlock[]>;
 };
 
 export type RadarResult = { ok: true; data: Radar; file: string } | { ok: false; error: string };
@@ -117,6 +123,12 @@ export function parseRadar(text: string): Radar {
     )
   ) {
     bad("policy");
+  }
+  if (raw.series !== undefined) {
+    const isPoint = (p: unknown) => isObj(p) && isStr(p.period) && isNum(p.value);
+    const isSeries = (x: unknown) => isObj(x) && isStr(x.label) && isStr(x.unit) && isStrOrNull(x.dimension) && isArr(x.points, isPoint);
+    const isBlock = (b: unknown) => isObj(b) && isStr(b.source) && isStr(b.name) && isStr(b.url) && isStrOrNull(b.updated) && isArr(b.series, isSeries);
+    if (!isObj(raw.series) || !Object.values(raw.series).every((v) => isArr(v, isBlock))) bad("series");
   }
   return raw as unknown as Radar;
 }
