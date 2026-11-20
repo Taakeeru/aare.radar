@@ -13,6 +13,10 @@ Contract (keep in step with lib/radar.ts in the app):
      "weekly": [{"week": "2026-W44", "new_ads": n}],   # by publication date
      "skills": [{"skill", "count", "share"}],    # share of the role's ads with full text, 0..1, top 15
      "barriers": {"german_required": share, ...},
+     "entry_level_share": share,                 # ads that say junior / career changer / trainee / internship
+     "employers": [{"company", "ads"}],          # direct employers with 2+ ads for the role (question C), top 15
+     "agencies": [{"company", "ads"}],           # recruiting agencies posting for the role, top 8
+     "agency_share": share,                      # ads posted by agencies
      "cantons": [{"canton", "count"}],
      "reporting_obligation_share": share,         # occupations under the Swiss job-reporting duty
      "examples": [{"title","company","city","published","url"}]   # newest 8
@@ -28,7 +32,7 @@ import sqlite3
 import sys
 from pathlib import Path
 
-from .roles import BARRIERS, ROLES
+from .roles import AGENCY, BARRIERS, ROLES
 
 ROOT = Path(__file__).resolve().parent.parent
 DB = ROOT / "data" / "radar.db"
@@ -50,7 +54,7 @@ def main(out: Path):
     c = sqlite3.connect(f"file:{DB}?mode=ro", uri=True)
     since = (dt.date.today() - dt.timedelta(days=WINDOW)).isoformat()
     rows = c.execute("""SELECT title, company, city, canton, published, url, roles, skills, barriers,
-                               reporting_obligation, full_text IS NOT NULL
+                               reporting_obligation, tagged IS NOT NULL
                         FROM ads WHERE roles != '[]' AND published >= ? ORDER BY published DESC""", (since,)).fetchall()
     roles = []
     for rid, (label, _, _) in ROLES.items():
@@ -68,7 +72,14 @@ def main(out: Path):
             "id": rid, "label": label, "ads": n,
             "weekly": [{"week": k, "new_ads": v} for k, v in sorted(weekly.items())],
             "skills": [{"skill": k, "count": v, "share": round(v / nf, 3)} for k, v in skills.most_common(15)],
-            "barriers": {k: round(barriers[k] / nf, 3) for k in BARRIERS},
+            "barriers": {k: round(barriers[k] / nf, 3) for k in BARRIERS if k != "entry_level"},
+            "entry_level_share": round(barriers["entry_level"] / nf, 3),
+            "employers": [{"company": k, "ads": v} for k, v in
+                          collections.Counter(r[1] for r in R if r[1] and not AGENCY.search(r[1])).most_common(15)
+                          if v >= 2],
+            "agencies": [{"company": k, "ads": v} for k, v in
+                         collections.Counter(r[1] for r in R if r[1] and AGENCY.search(r[1])).most_common(8)],
+            "agency_share": round(sum(1 for r in R if r[1] and AGENCY.search(r[1])) / max(n, 1), 3),
             "cantons": [{"canton": k, "count": v} for k, v in
                         collections.Counter(r[3] for r in R if r[3]).most_common()],
             "reporting_obligation_share": round(sum(r[9] for r in R) / max(n, 1), 3),

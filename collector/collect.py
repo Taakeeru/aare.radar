@@ -57,8 +57,14 @@ def db():
     CREATE TABLE IF NOT EXISTS policy(id TEXT PRIMARY KEY, source TEXT, title TEXT, date TEXT, status TEXT, url TEXT,
       matched TEXT, first_seen TEXT);
     """)
-    if "full_text" not in [r[1] for r in c.execute("PRAGMA table_info(ads)")]:
-        c.execute("ALTER TABLE ads ADD COLUMN full_text TEXT")
+    cols = [r[1] for r in c.execute("PRAGMA table_info(ads)")]
+    if "tagged" not in cols:
+        c.execute("ALTER TABLE ads ADD COLUMN tagged INT")
+    if "full_text" in cols:  # earlier prototype stored ad text; it may name recruiters, so it goes
+        c.execute("UPDATE ads SET tagged=1 WHERE full_text IS NOT NULL")
+        c.execute("ALTER TABLE ads DROP COLUMN full_text")
+        c.commit()
+        c.execute("VACUUM")
     return c
 
 
@@ -100,9 +106,12 @@ def collect_jobs(c):
 DETAIL = "https://www.job-room.ch/jobadservice/api/jobAdvertisements/{id}"
 
 
-def fetch_full_text(c):
-    """The search only returns a ~300-char snippet; skills and barriers need the whole ad. Once per matched ad."""
-    todo = c.execute("SELECT id, title FROM ads WHERE roles!='[]' AND full_text IS NULL").fetchall()
+def fetch_full_text(c, everything=False):
+    """The search only returns a ~300-char snippet; skills and barriers need the whole ad.
+    The text is read, tagged and DROPPED: only the derived tags are stored. Job ads name recruiters (names, mails,
+    phones) and the challenge rules allow aggregate data only. `everything` re-reads all matched ads (retag)."""
+    where = "roles!='[]'" + ("" if everything else " AND tagged IS NULL")
+    todo = c.execute(f"SELECT id, title FROM ads WHERE {where}").fetchall()
     for i, (aid, title) in enumerate(todo):
         try:
             d = json.loads(http(DETAIL.format(id=aid))[0])
@@ -111,8 +120,8 @@ def fetch_full_text(c):
             continue
         desc = strip((d["jobContent"].get("jobDescriptions") or [{}])[0].get("description"))
         text = f"{title} {desc}".lower()
-        c.execute("UPDATE ads SET full_text=?, skills=?, barriers=? WHERE id=?",
-                  (desc, json.dumps([k for k, rx in SKILLS.items() if rx.search(text)]),
+        c.execute("UPDATE ads SET tagged=1, skills=?, barriers=? WHERE id=?",
+                  (json.dumps([k for k, rx in SKILLS.items() if rx.search(text)]),
                    json.dumps([k for k, rx in BARRIERS.items() if rx.search(text)]), aid))
         if i % 50 == 0:
             c.commit()
@@ -232,17 +241,14 @@ def _rssdate(s):
 
 
 def retag(c):
-    """Re-run role/skill/barrier matching on stored ads after a change in roles.py (no network)."""
-    n = 0
-    for aid, title, desc in c.execute("SELECT id, title, coalesce(full_text, '') FROM ads").fetchall():
-        text = f"{title} {desc}".lower()
-        c.execute("UPDATE ads SET roles=?, skills=?, barriers=? WHERE id=?",
-                  (json.dumps(classify(title) if IT_GUARD.search(title) else []),
-                   json.dumps([k for k, rx in SKILLS.items() if rx.search(text)]),
-                   json.dumps([k for k, rx in BARRIERS.items() if rx.search(text)]), aid))
-        n += 1
+    """After a change in roles.py: re-match roles from stored titles, then re-read every matched ad's text
+    (network, ~5 min; the text itself is never stored)."""
+    for aid, title in c.execute("SELECT id, title FROM ads").fetchall():
+        c.execute("UPDATE ads SET roles=? WHERE id=?",
+                  (json.dumps(classify(title) if IT_GUARD.search(title) else []), aid))
     c.commit()
-    print(f"retag: {n} ads")
+    fetch_full_text(c, everything=True)
+    print("retag: done")
 
 
 if __name__ == "__main__":

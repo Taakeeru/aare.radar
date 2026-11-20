@@ -67,9 +67,22 @@ BARRIERS = {
         r"(?:mindestens|min\.|mehrjährige|langjährige|\b[3-9]\+?\s*(?:-\s*\d+\s*)?jahre?|\b[3-9]\+?\s*years)"
         r"|several years|plusieurs années", re.I),
     "english_ok": re.compile(r"english|englisch|anglais", re.I),
+    # not a barrier but the opposite: the ad says it is open to beginners (question A: entry-level and junior roles)
+    "entry_level": re.compile(
+        r"\bjunior|einsteiger|berufseinst|quereinst|career chang|trainee|praktik|internship|\bintern\b"
+        r"|stagiaire|\bstage\b|lehrabgänger|young professional|graduate|débutant", re.I),
 }
 
 
 def classify(title: str) -> list[str]:
     t = title.lower()
     return [rid for rid, (_, _, rx) in ROLES.items() if re.search(rx, t, re.I)]
+
+
+# Recruiting and staffing agencies post on behalf of unnamed employers. For question C (who should we talk to)
+# they are a different kind of contact, so the dashboard lists them apart. Extend freely.
+AGENCY = re.compile(
+    r"myitjob|yellowshark|freestar|avec compétence|spotted|jobup|jobs\.ch|adecco|randstad|manpower|hays\b|michael page"
+    r"|robert walters|kelly services|universal.?job|interiman|coople|careerplus|gi group|experis|page personnel|nemensis"
+    r"|it-recruit|recruit|staffing|personal(?:beratung|dienst|vermittlung)?\s+ag|personal\b|stellenvermittlung"
+    r"|unternehmensberatung|personalberatung|coopers group|nonstop consulting|headhunt|executive search|talent", re.I)

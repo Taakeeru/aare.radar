@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-20T19:39:01+00:00",
+ "generated_at": "2026-11-20T19:45:01+00:00",
  "window_days": 60,
  "sources": [
   {
@@ -158,6 +158,100 @@
     "senior_experience": 0.575,
     "english_ok": 0.556
    },
+   "entry_level_share": 0.0,
+   "employers": [
+    {
+     "company": "Brack.Alltron AG",
+     "ads": 9
+    },
+    {
+     "company": "Consult & Pepper AG",
+     "ads": 5
+    },
+    {
+     "company": "Google",
+     "ads": 5
+    },
+    {
+     "company": "Swissquote Bank SA",
+     "ads": 3
+    },
+    {
+     "company": "Raiffeisen Schweiz",
+     "ads": 3
+    },
+    {
+     "company": "Stadler Rail AG",
+     "ads": 3
+    },
+    {
+     "company": "Salt Mobile SA",
+     "ads": 2
+    },
+    {
+     "company": "Evergreen Human Resources AG",
+     "ads": 2
+    },
+    {
+     "company": "Swisslinx AG",
+     "ads": 2
+    },
+    {
+     "company": "Pro Informatik AG",
+     "ads": 2
+    },
+    {
+     "company": "Diartis AG",
+     "ads": 2
+    },
+    {
+     "company": "Visana Services AG",
+     "ads": 2
+    },
+    {
+     "company": "INFOMANIAK NETWORK SA",
+     "ads": 2
+    },
+    {
+     "company": "Haefely AG",
+     "ads": 2
+    },
+    {
+     "company": "biwac websolutions ag",
+     "ads": 2
+    }
+   ],
+   "agencies": [
+    {
+     "company": "myitjob GmbH",
+     "ads": 17
+    },
+    {
+     "company": "Yellowshark",
+     "ads": 6
+    },
+    {
+     "company": "avec compétence GmbH",
+     "ads": 5
+    },
+    {
+     "company": "Müntener & Thomas Personal- und Unternehmensberatung AG",
+     "ads": 4
+    },
+    {
+     "company": "Jobup",
+     "ads": 2
+    },
+    {
+     "company": "Hays (Schweiz) AG",
+     "ads": 2
+    },
+    {
+     "company": "Adecco",
+     "ads": 1
+    }
+   ],
+   "agency_share": 0.242,
    "cantons": [
     {
      "canton": "ZH",
@@ -402,6 +496,104 @@
     "senior_experience": 0.464,
     "english_ok": 0.561
    },
+   "entry_level_share": 0.0,
+   "employers": [
+    {
+     "company": "DESA AUTOGLASS AG",
+     "ads": 14
+    },
+    {
+     "company": "Hirslanden AG",
+     "ads": 7
+    },
+    {
+     "company": "Rent a Person Personalberatungs AG",
+     "ads": 6
+    },
+    {
+     "company": "Selecta AG",
+     "ads": 4
+    },
+    {
+     "company": "Foppa AG",
+     "ads": 4
+    },
+    {
+     "company": "C5I",
+     "ads": 4
+    },
+    {
+     "company": "Coopers Group AG",
+     "ads": 4
+    },
+    {
+     "company": "Dottikon Exclusive Synthesis AG",
+     "ads": 4
+    },
+    {
+     "company": "IQ Plus AG",
+     "ads": 3
+    },
+    {
+     "company": "Nitrochemie Wimmis AG",
+     "ads": 3
+    },
+    {
+     "company": "Kantonale Verwaltung Basel-Landschaft",
+     "ads": 3
+    },
+    {
+     "company": "Schönenberger Partner AG",
+     "ads": 3
+    },
+    {
+     "company": "Mettler Toledo",
+     "ads": 3
+    },
+    {
+     "company": "SpeciTec SA",
+     "ads": 2
+    },
+    {
+     "company": "Hemmersbach Switzerland AG",
+     "ads": 2
+    }
+   ],
+   "agencies": [
+    {
+     "company": "Yellowshark",
+     "ads": 57
+    },
+    {
+     "company": "myitjob GmbH",
+     "ads": 27
+    },
+    {
+     "company": "Freestar-Informatik AG",
+     "ads": 16
+    },
+    {
+     "company": "Spotted",
+     "ads": 7
+    },
+    {
+     "company": "Jobup",
+     "ads": 6
+    },
+    {
+     "company": "Hays (Schweiz) AG",
+     "ads": 4
+    },
+    {
+     "company": "Adecco",
+     "ads": 4
+    },
+    {
+     "company": "Michael Page",
+     "ads": 3
+    }
+   ],
+   "agency_share": 0.397,
    "cantons": [
     {
      "canton": "ZH",
@@ -674,6 +866,104 @@
     "senior_experience": 0.564,
     "english_ok": 0.624
    },
+   "entry_level_share": 0.0,
+   "employers": [
+    {
+     "company": "ti&m AG",
+     "ads": 6
+    },
+    {
+     "company": "Zühlke Engineering AG",
+     "ads": 5
+    },
+    {
+     "company": "Coopers Group AG",
+     "ads": 4
+    },
+    {
+     "company": "OST - Ostschweizer Fachhochschule",
+     "ads": 4
+    },
+    {
+     "company": "RUAG MRO Holding AG",
+     "ads": 4
+    },
+    {
+     "company": "NonStop Consulting AG",
+     "ads": 3
+    },
+    {
+     "company": "Pictet Asset Management SA",
+     "ads": 3
+    },
+    {
+     "company": "Visana Services AG",
+     "ads": 3
+    },
+    {
+     "company": "Bundesamt für Meteorologie und Klimatologie MeteoSchweiz",
+     "ads": 3
+    },
+    {
+     "company": "Migros-Genossenschafts-Bund",
+     "ads": 3
+    },
+    {
+     "company": "Brack.Alltron AG",
+     "ads": 3
+    },
+    {
+     "company": "Schweizer Armee - Kommando Ausbildung Kdo Ausb",
+     "ads": 3
+    },
+    {
+     "company": "Swisslinx AG",
+     "ads": 2
+    },
+    {
+     "company": "Mercedes-Benz Schweiz AG",
+     "ads": 2
+    },
+    {
+     "company": "Groupe Mutuel",
+     "ads": 2
+    }
+   ],
+   "agencies": [
+    {
+     "company": "myitjob GmbH",
+     "ads": 27
+    },
+    {
+     "company": "Jobup",
+     "ads": 6
+    },
+    {
+     "company": "avec compétence GmbH",
+     "ads": 6
+    },
+    {
+     "company": "Marco R. Fuhrer Unternehmensberatung",
+     "ads": 5
+    },
+    {
+     "company": "Müntener & Thomas Personal- und Unternehmensberatung AG",
+     "ads": 3
+    },
+    {
+     "company": "Yellowshark",
+     "ads": 2
+    },
+    {
+     "company": "EMEA Recruitment",
+     "ads": 1
+    },
+    {
+     "company": "Hays (Schweiz) AG",
+     "ads": 1
+    }
+   ],
+   "agency_share": 0.262,
    "cantons": [
     {
      "canton": "ZH",
