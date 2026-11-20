@@ -11,6 +11,9 @@ export type SourceRef = { id: string; name: string; url: string | null; updated:
  */
 export async function SourceLine({ sources }: { sources: SourceRef[] }) {
   const t = await getTranslations("common");
+  const names = await getTranslations("sources");
+  // The data file names sources in English; a translated name in messages (sources.<id>.name) wins.
+  const nameOf = (s: SourceRef) => (names.has(`${s.id}.name`) ? names(`${s.id}.name`) : s.name);
   const locale = toLocale(await getLocale());
   return (
     <p className="source">
@@ -19,11 +22,11 @@ export async function SourceLine({ sources }: { sources: SourceRef[] }) {
           {i === 0 ? `${t("source")}: ` : ""}
           {s.url ? (
             <a href={s.url} target="_blank" rel="noopener noreferrer">
-              {s.name}
+              {nameOf(s)}
               <span className="sr-only"> ({t("opensNewTab")})</span>
             </a>
           ) : (
-            s.name
+            nameOf(s)
           )}
           {", "}
           {s.updated ? t("asOf", { date: formatDate(s.updated, locale) }) : t("noDate")}

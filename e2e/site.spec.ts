@@ -74,8 +74,20 @@ test("@ci policy list and sources page", async ({ page }) => {
   await page.goto("/de/quellen");
   await expect(page.getByRole("heading", { name: "Das verwenden wir nicht" })).toBeVisible();
   for (const name of ["LinkedIn", "jobs.ch", "Adzuna"]) await expect(page.getByRole("heading", { name })).toBeVisible();
+});
+
+test("@ci target group (D) shows the SEM figures with source and date", async ({ page }) => {
   await page.goto("/de/zielgruppe");
-  await expect(page.getByText("Daten folgen")).toBeVisible();
+  for (const id of ["d-people", "d-work", "d-cantons"]) {
+    const panel = page.locator(`section[aria-labelledby=${id}]`);
+    await expect(panel.locator(".rank__row").first()).toBeVisible();
+    await expect(panel.locator(".source a").first()).toHaveAttribute("href", /^https:\/\/www\.sem\.admin\.ch\//);
+    await expect(panel.locator(".source")).toContainText("Stand");
+  }
+  await expect(page.locator("section[aria-labelledby=d-people]")).toContainText(/74.937/);
+  await expect(page.locator("section[aria-labelledby=d-work]")).toContainText("47 von 100");
+  await page.goto("/en/zielgruppe");
+  await expect(page.locator("section[aria-labelledby=d-work]")).toContainText("47 out of 100");
 });
 
 test("@ci English pages", async ({ page }) => {
