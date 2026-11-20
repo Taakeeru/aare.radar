@@ -5,22 +5,38 @@ Shows a non-technical team where the Swiss IT job market is heading for the role
 
 ## Sources
 
-| Source | What | Access |
-|---|---|---|
-| job-room.ch (SECO) | Swiss job ads incl. full text, canton, reporting-duty flag | public JSON used by the site; max 60 days back, so we snapshot daily |
-| BFS JOBSTAT (PxWeb) | open positions in IT sectors (NOGA 58-63, 62-63), quarterly since 1992 | open API |
-| Curia Vista (ws.parlament.ch OData) | parliament business on asylum, status F/S, integration, skilled workers | open API |
-| Fedlex RSS | new federal law, keyword-filtered | open feed |
+Every source is one entry in `sources.json` (id, name, link, one sentence, questions A-E, type, schedule, plus a few
+settings for its type). Adding a source is a copy-and-change of an entry, no code: see
+[docs/adding-a-source.md](docs/adding-a-source.md).
+
+| Source (id) | Question | Type | What |
+|---|---|---|---|
+| job-room.ch, SECO (`jobroom`) | A B C | `jobroom_search` | Swiss job ads incl. canton and reporting-duty flag; max 60 days back, so we snapshot daily |
+| BFS JOBSTAT (`bfs`) | A | `pxweb` | open positions in IT sectors, quarterly |
+| Eurostat (`eurostat_jvs`) | A | `csv_series` (JSON-stat) | job vacancy rate, information and communication, Switzerland |
+| SECO Stellenmeldepflicht 2026 (`seco_stellenmeldepflicht`) | A E | `link` | list of occupations under the job-reporting duty (IT is not on it) |
+| Curia Vista (`curia`), Fedlex (`fedlex`) | E | `odata_search`, `rss_keywords` | parliament business and new federal law on asylum, status F/S, integration, skilled workers |
+| SEM asylum statistics (`sem_asylprozess`, `sem_erwerb_status_f/b/s/n`) | D | `xlsx_series` | stock of persons with status N, F, B, S by canton and nationality; employment rate (18-64) by status, canton, nationality, sex, length of stay; monthly |
+| BFS (`bfs_population_permit`, `bfs_sozialhilfe_asyl`) | D | `pxweb`, `xlsx_series` | residents by permit incl. F/N/S; social-assistance rate of working-age asylum persons by canton |
+| SEM pages, ESCO (`sem_*`, `esco`) | B D E | `link` | references without numbers |
+
+Skills are linked to ESCO (official EU skills classification) where it has a concept: `collector/esco_skills.json`,
+built once with `python3 -m collector.esco_lookup` (curated, because ESCO lacks React, Docker, Azure ...).
 
 Not used: LinkedIn and jobs.ch (no public API, scraping breaks their terms); Adzuna (Switzerland support unverified,
 aggregate use after the 14-day trial needs written consent).
 
 ## Run
 
-    python3 -m collector.collect            # jobs, bfs, policy -> data/radar.db
-    python3 -m collector.collect jobs       # one source
+    python3 -m collector.collect            # every source in sources.json -> data/radar.db
+    python3 -m collector.collect curia bfs  # only these ids   (old names: jobs, policy)
+    python3 -m collector.collect --due      # only what its schedule says is due
+    python3 -m collector.collect --list     # sources, schedule, last successful run
+    python3 -m collector.export             # data/radar.json for the dashboard (contract: docstring of export.py)
+    python3 -m unittest discover -s tests -t .   # tests, no network
 
-Run it from a home/office IP once a day. Python 3.10+, standard library only.
+Run it from a home/office IP (job-room must never run from a server). Servers that answer 429 are respected: the
+collector waits as long as `Retry-After` says. Python 3.10+, standard library only.
 
 ## What we extract per ad (`collector/roles.py`)
 
