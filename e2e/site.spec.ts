@@ -161,6 +161,8 @@ test("@ci rendered colours are only the palette", async ({ page }) => {
         const cs = getComputedStyle(el);
         if (cs.display === "none") continue;
         for (const prop of props) {
+          // fill/stroke paint only on SVG shapes and text; elsewhere (HTML, the <svg> root, <g>) they are the inert inherited default (black)
+          if ((prop === "fill" || prop === "stroke") && !(el instanceof SVGGeometryElement || el instanceof SVGTextContentElement)) continue;
           const v = (cs as unknown as Record<string, string>)[prop] ?? "";
           if (prop.startsWith("border") && cs.getPropertyValue(prop.replace(/Color$/, "Style").replace(/([A-Z])/g, "-$1").toLowerCase()) === "none") continue;
           if (prop === "outlineColor" && cs.outlineStyle === "none") continue;
@@ -182,7 +184,7 @@ test("@ci English pages hold no German", async ({ page }) => {
   const check = async (path: string) => {
     await page.goto(path);
     const text = await page.evaluate(() => {
-      document.querySelectorAll<HTMLElement>(".ads, .policy__title, .policy__status, #p-employers .rank, #p-agencies .rank").forEach((n) => (n.style.display = "none"));
+      document.querySelectorAll<HTMLElement>(".ads, .policy__title, .policy__status, section[aria-labelledby=p-employers] .rank, section[aria-labelledby=p-agencies] .rank").forEach((n) => (n.style.display = "none"));
       return document.body.innerText;
     });
     const hit = text.split("\n").filter((l) => GERMAN.test(l));
