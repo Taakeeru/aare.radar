@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-20T19:45:01+00:00",
+ "generated_at": "2026-11-20T19:51:51+00:00",
  "window_days": 60,
  "sources": [
   {
@@ -158,7 +158,7 @@
     "senior_experience": 0.575,
     "english_ok": 0.556
    },
-   "entry_level_share": 0.0,
+   "entry_level_share": 0.105,
    "employers": [
     {
      "company": "Brack.Alltron AG",
@@ -249,9 +249,13 @@
     {
      "company": "Adecco",
      "ads": 1
+    },
+    {
+     "company": "Coopers Group AG",
+     "ads": 1
     }
    ],
-   "agency_share": 0.242,
+   "agency_share": 0.248,
    "cantons": [
     {
      "canton": "ZH",
@@ -496,7 +500,7 @@
     "senior_experience": 0.464,
     "english_ok": 0.561
    },
-   "entry_level_share": 0.0,
+   "entry_level_share": 0.106,
    "employers": [
     {
      "company": "DESA AUTOGLASS AG",
@@ -505,10 +509,6 @@
     {
      "company": "Hirslanden AG",
      "ads": 7
-    },
-    {
-     "company": "Rent a Person Personalberatungs AG",
-     "ads": 6
     },
     {
      "company": "Selecta AG",
@@ -520,10 +520,6 @@
     },
     {
      "company": "C5I",
-     "ads": 4
-    },
-    {
-     "company": "Coopers Group AG",
      "ads": 4
     },
     {
@@ -557,6 +553,14 @@
     {
      "company": "Hemmersbach Switzerland AG",
      "ads": 2
+    },
+    {
+     "company": "Callpoint AG",
+     "ads": 2
+    },
+    {
+     "company": "Bison Schweiz AG",
+     "ads": 2
     }
    ],
    "agencies": [
@@ -577,6 +581,10 @@
      "ads": 7
     },
     {
+     "company": "Rent a Person Personalberatungs AG",
+     "ads": 6
+    },
+    {
      "company": "Jobup",
      "ads": 6
     },
@@ -587,13 +595,9 @@
     {
      "company": "Adecco",
      "ads": 4
-    },
-    {
-     "company": "Michael Page",
-     "ads": 3
     }
    ],
-   "agency_share": 0.397,
+   "agency_share": 0.43,
    "cantons": [
     {
      "canton": "ZH",
@@ -866,7 +870,7 @@
     "senior_experience": 0.564,
     "english_ok": 0.624
    },
-   "entry_level_share": 0.0,
+   "entry_level_share": 0.094,
    "employers": [
     {
      "company": "ti&m AG",
@@ -877,20 +881,12 @@
      "ads": 5
     },
     {
-     "company": "Coopers Group AG",
-     "ads": 4
-    },
-    {
      "company": "OST - Ostschweizer Fachhochschule",
      "ads": 4
     },
     {
      "company": "RUAG MRO Holding AG",
      "ads": 4
-    },
-    {
-     "company": "NonStop Consulting AG",
-     "ads": 3
     },
     {
      "company": "Pictet Asset Management SA",
@@ -927,6 +923,14 @@
     {
      "company": "Groupe Mutuel",
      "ads": 2
+    },
+    {
+     "company": "Vaudoise Assurances",
+     "ads": 2
+    },
+    {
+     "company": "Bundesamt für Landwirtschaft BLW",
+     "ads": 2
     }
    ],
    "agencies": [
@@ -947,23 +951,23 @@
      "ads": 5
     },
     {
+     "company": "Coopers Group AG",
+     "ads": 4
+    },
+    {
+     "company": "NonStop Consulting AG",
+     "ads": 3
+    },
+    {
      "company": "Müntener & Thomas Personal- und Unternehmensberatung AG",
      "ads": 3
     },
     {
      "company": "Yellowshark",
      "ads": 2
-    },
-    {
-     "company": "EMEA Recruitment",
-     "ads": 1
-    },
-    {
-     "company": "Hays (Schweiz) AG",
-     "ads": 1
     }
    ],
-   "agency_share": 0.262,
+   "agency_share": 0.297,
    "cantons": [
     {
      "canton": "ZH",
