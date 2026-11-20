@@ -231,9 +231,25 @@ def _rssdate(s):
         return None
 
 
+def retag(c):
+    """Re-run role/skill/barrier matching on stored ads after a change in roles.py (no network)."""
+    n = 0
+    for aid, title, desc in c.execute("SELECT id, title, coalesce(full_text, '') FROM ads").fetchall():
+        text = f"{title} {desc}".lower()
+        c.execute("UPDATE ads SET roles=?, skills=?, barriers=? WHERE id=?",
+                  (json.dumps(classify(title) if IT_GUARD.search(title) else []),
+                   json.dumps([k for k, rx in SKILLS.items() if rx.search(text)]),
+                   json.dumps([k for k, rx in BARRIERS.items() if rx.search(text)]), aid))
+        n += 1
+    c.commit()
+    print(f"retag: {n} ads")
+
+
 if __name__ == "__main__":
     con = db()
     want = set(sys.argv[1:]) or {"jobs", "bfs", "policy"}
+    if "retag" in want:
+        retag(con)
     for name, fn in [("jobs", collect_jobs), ("bfs", collect_bfs), ("policy", collect_policy)]:
         if name in want:
             try:

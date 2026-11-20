@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-20T19:37:22+00:00",
+ "generated_at": "2026-11-20T19:39:01+00:00",
  "window_days": 60,
  "sources": [
   {
@@ -76,87 +76,87 @@
    ],
    "skills": [
     {
-     "skill": "Microsoft 365",
-     "count": 73,
-     "share": 0.5
+     "skill": "Scrum/Agile",
+     "count": 62,
+     "share": 0.405
     },
     {
      "skill": "SQL",
-     "count": 59,
-     "share": 0.404
-    },
-    {
-     "skill": "Scrum/Agile",
-     "count": 59,
-     "share": 0.404
+     "count": 61,
+     "share": 0.399
     },
     {
      "skill": "Java",
-     "count": 48,
-     "share": 0.329
+     "count": 52,
+     "share": 0.34
     },
     {
      "skill": "API/REST",
-     "count": 41,
-     "share": 0.281
+     "count": 44,
+     "share": 0.288
     },
     {
      "skill": "Cloud",
-     "count": 37,
-     "share": 0.253
+     "count": 41,
+     "share": 0.268
     },
     {
      "skill": "JavaScript",
-     "count": 37,
-     "share": 0.253
+     "count": 39,
+     "share": 0.255
     },
     {
      "skill": "TypeScript",
-     "count": 34,
-     "share": 0.233
+     "count": 35,
+     "share": 0.229
     },
     {
      "skill": "Git",
-     "count": 33,
-     "share": 0.226
+     "count": 34,
+     "share": 0.222
+    },
+    {
+     "skill": "Docker",
+     "count": 34,
+     "share": 0.222
     },
     {
      "skill": "React",
      "count": 32,
-     "share": 0.219
-    },
-    {
-     "skill": "Docker",
-     "count": 32,
-     "share": 0.219
-    },
-    {
-     "skill": "Networking",
-     "count": 29,
-     "share": 0.199
-    },
-    {
-     "skill": "Security",
-     "count": 29,
-     "share": 0.199
+     "share": 0.209
     },
     {
      "skill": "Kubernetes",
-     "count": 28,
-     "share": 0.192
+     "count": 31,
+     "share": 0.203
+    },
+    {
+     "skill": "Networking",
+     "count": 30,
+     "share": 0.196
+    },
+    {
+     "skill": "Security",
+     "count": 30,
+     "share": 0.196
     },
     {
      "skill": "HTML/CSS",
-     "count": 24,
-     "share": 0.164
+     "count": 26,
+     "share": 0.17
+    },
+    {
+     "skill": "Angular",
+     "count": 26,
+     "share": 0.17
     }
    ],
    "barriers": {
-    "german_required": 0.39,
+    "german_required": 0.373,
     "french_required": 0.007,
-    "degree_required": 0.493,
-    "senior_experience": 0.568,
-    "english_ok": 0.555
+    "degree_required": 0.497,
+    "senior_experience": 0.575,
+    "english_ok": 0.556
    },
    "cantons": [
     {
@@ -321,86 +321,86 @@
    "skills": [
     {
      "skill": "Microsoft 365",
-     "count": 218,
-     "share": 0.679
+     "count": 136,
+     "share": 0.412
     },
     {
      "skill": "Windows",
      "count": 127,
-     "share": 0.396
+     "share": 0.385
     },
     {
      "skill": "Networking",
-     "count": 121,
-     "share": 0.377
+     "count": 123,
+     "share": 0.373
     },
     {
      "skill": "Hardware",
      "count": 117,
-     "share": 0.364
+     "share": 0.355
     },
     {
      "skill": "Ticketing",
      "count": 98,
-     "share": 0.305
+     "share": 0.297
     },
     {
      "skill": "Active Directory",
-     "count": 73,
-     "share": 0.227
+     "count": 66,
+     "share": 0.2
     },
     {
      "skill": "Security",
-     "count": 63,
-     "share": 0.196
+     "count": 65,
+     "share": 0.197
     },
     {
      "skill": "ITIL",
      "count": 38,
-     "share": 0.118
+     "share": 0.115
     },
     {
      "skill": "Intune/MDM",
      "count": 33,
-     "share": 0.103
+     "share": 0.1
     },
     {
      "skill": "Cloud",
-     "count": 29,
-     "share": 0.09
+     "count": 30,
+     "share": 0.091
     },
     {
      "skill": "Azure",
      "count": 24,
-     "share": 0.075
+     "share": 0.073
     },
     {
      "skill": "Excel",
-     "count": 16,
-     "share": 0.05
+     "count": 22,
+     "share": 0.067
     },
     {
      "skill": "Scrum/Agile",
-     "count": 12,
-     "share": 0.037
+     "count": 15,
+     "share": 0.045
     },
     {
      "skill": "SQL",
      "count": 10,
-     "share": 0.031
+     "share": 0.03
     },
     {
      "skill": "Linux",
      "count": 9,
-     "share": 0.028
+     "share": 0.027
     }
    ],
    "barriers": {
-    "german_required": 0.573,
-    "french_required": 0.022,
-    "degree_required": 0.67,
-    "senior_experience": 0.458,
-    "english_ok": 0.551
+    "german_required": 0.564,
+    "french_required": 0.021,
+    "degree_required": 0.664,
+    "senior_experience": 0.464,
+    "english_ok": 0.561
    },
    "cantons": [
     {
@@ -593,86 +593,86 @@
    "skills": [
     {
      "skill": "SQL",
-     "count": 87,
-     "share": 0.608
-    },
-    {
-     "skill": "Microsoft 365",
-     "count": 61,
-     "share": 0.427
+     "count": 119,
+     "share": 0.589
     },
     {
      "skill": "Python",
-     "count": 57,
-     "share": 0.399
+     "count": 79,
+     "share": 0.391
     },
     {
      "skill": "Cloud",
-     "count": 41,
-     "share": 0.287
+     "count": 65,
+     "share": 0.322
     },
     {
      "skill": "Excel",
-     "count": 38,
-     "share": 0.266
+     "count": 55,
+     "share": 0.272
     },
     {
      "skill": "Power BI",
-     "count": 35,
-     "share": 0.245
-    },
-    {
-     "skill": "Scrum/Agile",
-     "count": 32,
-     "share": 0.224
-    },
-    {
-     "skill": "Azure",
-     "count": 27,
-     "share": 0.189
+     "count": 49,
+     "share": 0.243
     },
     {
      "skill": "Security",
-     "count": 25,
-     "share": 0.175
+     "count": 45,
+     "share": 0.223
+    },
+    {
+     "skill": "Scrum/Agile",
+     "count": 45,
+     "share": 0.223
+    },
+    {
+     "skill": "Azure",
+     "count": 41,
+     "share": 0.203
     },
     {
      "skill": "API/REST",
-     "count": 22,
-     "share": 0.154
+     "count": 30,
+     "share": 0.149
     },
     {
      "skill": "Git",
-     "count": 19,
-     "share": 0.133
+     "count": 24,
+     "share": 0.119
+    },
+    {
+     "skill": "SAP",
+     "count": 21,
+     "share": 0.104
     },
     {
      "skill": "Tableau",
-     "count": 15,
-     "share": 0.105
+     "count": 17,
+     "share": 0.084
     },
     {
      "skill": "AWS",
-     "count": 13,
-     "share": 0.091
+     "count": 16,
+     "share": 0.079
     },
     {
      "skill": "R",
-     "count": 11,
-     "share": 0.077
+     "count": 14,
+     "share": 0.069
     },
     {
-     "skill": "Linux",
-     "count": 11,
-     "share": 0.077
+     "skill": "Ticketing",
+     "count": 13,
+     "share": 0.064
     }
    ],
    "barriers": {
-    "german_required": 0.287,
-    "french_required": 0.021,
-    "degree_required": 0.51,
-    "senior_experience": 0.538,
-    "english_ok": 0.622
+    "german_required": 0.327,
+    "french_required": 0.015,
+    "degree_required": 0.485,
+    "senior_experience": 0.564,
+    "english_ok": 0.624
    },
    "cantons": [
     {
