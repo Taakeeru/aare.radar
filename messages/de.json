@@ -1,0 +1,388 @@
+{
+  "meta": {
+    "siteName": "Powercoders Job Radar",
+    "description": "Was der Schweizer IT-Arbeitsmarkt für Web-Entwicklung, IT-Support und Datenanalyse gerade sucht: Nachfrage, gefragte Fähigkeiten, Hürden beim Einstieg und politische Änderungen.",
+    "skip": "Zum Inhalt springen",
+    "testBanner": "Testumgebung: nicht öffentlich."
+  },
+  "nav": {
+    "label": "Hauptnavigation",
+    "dashboard": "Dashboard",
+    "policy": "Politik",
+    "sources": "Quellen",
+    "language": "Sprache",
+    "demand": "Nachfrage",
+    "skills": "Fähigkeiten",
+    "employers": "Arbeitgeber",
+    "target": "Zielgruppe"
+  },
+  "footer": {
+    "note": "Ein Werkzeug für das Team von Powercoders. Die Zahlen stammen aus öffentlichen Quellen.",
+    "login": "Anmelden für das Team",
+    "sources": "Woher die Zahlen kommen"
+  },
+  "common": {
+    "source": "Quelle",
+    "asOf": "Stand {date}",
+    "meaning": "Was das heisst",
+    "ads": "{count, plural, one {# Inserat} other {# Inserate}}",
+    "ofHundred": "in {count} von 100 Inseraten",
+    "noData": "Keine Daten",
+    "opensNewTab": "öffnet in einem neuen Tab",
+    "back": "Zurück",
+    "noDate": "Stand unbekannt",
+    "sourceLabel": "Quelle: {name}",
+    "sources": "Quellen",
+    "sectionOf": "Frage {letter}"
+  },
+  "roles": {
+    "web": "Web-Entwicklung",
+    "support": "IT-Support",
+    "data": "Datenanalyse"
+  },
+  "dash": {
+    "title": "Das sucht der IT-Markt",
+    "lead": "Für drei Berufe, in die Absolvent*innen von Powercoders gehen: Wie viele Stellen sind offen, welche Fähigkeiten werden verlangt und wo liegen die Hürden beim Einstieg?",
+    "roleLabel": "Beruf wählen",
+    "dataStale": "Die Daten sind {days, plural, one {# Tag} other {# Tage}} alt.",
+    "unavailableTitle": "Die Daten sind gerade nicht verfügbar",
+    "unavailableText": "Die Datei mit den Zahlen konnte nicht gelesen werden. Bitte später nochmals versuchen. Wenn das so bleibt, melde dich beim Team, das den Radar betreut.",
+    "demand": {
+      "title": "Offene Inserate",
+      "caption": "offene Inserate in den letzten {days} Tagen",
+      "meaning": "So viele Inserate für {role} gab es in den letzten {days} Tagen. Das sind durchschnittlich etwa {perWeek} neue Inserate pro Woche."
+    },
+    "trend": {
+      "title": "Neue Inserate pro Woche",
+      "yAxis": "Neue Inserate",
+      "xAxis": "Kalenderwoche",
+      "partial": "* Diese Woche ist nicht vollständig.",
+      "meaning": "In den letzten 3 vollständigen Wochen kamen durchschnittlich {recent} neue Inserate pro Woche dazu, in den 3 Wochen davor {before}.",
+      "meaningShort": "Für einen Vergleich über mehrere Wochen reichen die Daten noch nicht.",
+      "caveat": "Ältere Wochen können zu klein aussehen: Inserate, die schon beendet sind, können wir nicht mehr abrufen. Der Verlauf wird mit jeder Woche verlässlicher, in der wir täglich Daten holen.",
+      "week": "Woche {week}"
+    },
+    "skills": {
+      "title": "Gefragte Fähigkeiten",
+      "intro": "Wie oft eine Fähigkeit im Text der Inserate vorkommt.",
+      "meaning": "{first}, {second} und {third} kommen am häufigsten vor. Wer das zeigen kann, passt zu den meisten Inseraten.",
+      "meaningTwo": "{first} und {second} kommen am häufigsten vor.",
+      "meaningOne": "{first} kommt am häufigsten vor.",
+      "basis": "Grundlage: die Inserate, deren ganzer Text vorliegt."
+    },
+    "barriers": {
+      "title": "Hürden beim Einstieg",
+      "intro": "Was die Inserate von Bewerbenden verlangen.",
+      "german_required": "{count} von 10 Inseraten verlangen sehr gutes Deutsch.",
+      "french_required": "{count} von 10 Inseraten verlangen sehr gutes Französisch.",
+      "degree_required": "{count} von 10 Inseraten nennen einen Abschluss (Lehre, Fachhochschule oder Universität).",
+      "senior_experience": "{count} von 10 Inseraten verlangen mehrere Jahre Erfahrung (3 oder mehr).",
+      "english_ok": "In {count} von 10 Inseraten kommt Englisch vor. Das heisst nicht immer, dass Englisch reicht.",
+      "none": "Weniger als 1 von 10 Inseraten",
+      "levelLow": "kleine Hürde",
+      "levelMedium": "mittlere Hürde",
+      "levelHigh": "grosse Hürde",
+      "meaning": "Am häufigsten verlangt: {top}. Darauf lohnt es sich bei Bewerbungen besonders zu achten.",
+      "meaningNone": "Keine dieser Hürden steht in mehr als jedem fünften Inserat.",
+      "short": {
+        "german_required": "sehr gutes Deutsch",
+        "french_required": "sehr gutes Französisch",
+        "degree_required": "ein Abschluss",
+        "senior_experience": "mehrere Jahre Erfahrung"
+      },
+      "reporting": "Stellenmeldepflicht: {count} von 100 Inseraten. Bei Berufen mit Meldepflicht sehen zuerst nur Stellensuchende, die beim RAV gemeldet sind, die Stelle.",
+      "basis": "Grundlage: die Inserate, deren ganzer Text vorliegt."
+    },
+    "where": {
+      "title": "Wo die Stellen sind",
+      "unit": "Inserate",
+      "meaning": "{first}, {second} und {third} zusammen haben {share} von 100 Inseraten.",
+      "meaningOne": "{first} hat {share} von 100 Inseraten.",
+      "more": "Weitere Kantone: {list}",
+      "empty": "Zu keinem Inserat ist ein Kanton bekannt."
+    },
+    "examples": {
+      "title": "Neueste Inserate",
+      "intro": "Diese Inserate wurden zuletzt veröffentlicht.",
+      "meaning": "So sehen aktuelle Inserate für {role} aus. Ein Klick öffnet das Inserat beim Anbieter.",
+      "empty": "Keine Inserate in diesem Zeitraum.",
+      "published": "veröffentlicht am {date}"
+    },
+    "sector": {
+      "title": "Der ganze IT-Markt in der Schweiz",
+      "subtitle": "Offene Stellen in IT-Dienstleistungen, Schweiz, pro Quartal",
+      "yAxis": "Offene Stellen",
+      "xAxis": "Jahr (Beschriftung beim 1. Quartal)",
+      "latest": "offene Stellen im {quarter}. Quartal {year}",
+      "meaningUp": "Vor einem Jahr waren es {before}. Das sind {percent} Prozent mehr.",
+      "meaningDown": "Vor einem Jahr waren es {before}. Das sind {percent} Prozent weniger.",
+      "meaningSame": "Vor einem Jahr waren es {before}. Das ist etwa gleich viel.",
+      "meaningNoYear": "Ein Vergleich mit dem Vorjahr ist mit diesen Daten nicht möglich.",
+      "note": "Das Bundesamt für Statistik zählt alle offenen Stellen in IT-Dienstleistungen (Branchen 62 und 63). Das sind mehr als die Inserate für diese drei Berufe.",
+      "empty": "Für diese Reihe liegen keine Daten vor."
+    },
+    "entry": {
+      "title": "Einstieg ohne Erfahrung",
+      "intro": "Inserate, die sich an Berufseinsteigende, Quereinsteigende, Lernende oder Praktikant*innen richten.",
+      "sentence": "{count} von 100 Inseraten sprechen den Einstieg ausdrücklich an.",
+      "meaning": "Das sind Inserate, die für Menschen ohne lange Berufserfahrung offen sind. Diese Inserate stehen getrennt von den Hürden weiter unten.",
+      "meaningNone": "In diesen Inseraten kommt kein ausdrücklicher Hinweis auf Berufseinsteigende vor. Das gilt für die erkannten Stichwörter, nicht für jedes Inserat im Detail.",
+      "level": "offen für den Einstieg"
+    },
+    "employers": {
+      "title": "Arbeitgeber mit mehreren Inseraten",
+      "intro": "Firmen, die selbst mehrere Inserate für {role} geschaltet haben.",
+      "unit": "Inserate",
+      "empty": "Keine Firma hat in diesem Zeitraum mehr als ein Inserat für diesen Beruf geschaltet.",
+      "meaning": "{first} hat mit {count} die meisten Inserate. Firmen mit mehreren Inseraten für denselben Beruf sind naheliegende Adressen für ein Gespräch.",
+      "meaningOne": "Nur {first} hat mehrere Inserate."
+    },
+    "agencies": {
+      "title": "Personalvermittler",
+      "sentence": "{count} von 100 Inseraten stammen von Personalvermittlern.",
+      "intro": "Vermittler schreiben Stellen für andere Firmen aus. Die Firma dahinter ist im Inserat oft nicht genannt. Darum stehen sie getrennt von den Arbeitgebern.",
+      "empty": "Keine Personalvermittler in diesem Zeitraum."
+    }
+  },
+  "policy": {
+    "title": "Politik",
+    "lead": "Neue Geschäfte des Parlaments und neues Bundesrecht zu Asyl, Status F und S, Integration und Fachkräften. Die Liste zeigt, was sich bewegt, und bewertet nicht, was es bedeutet.",
+    "filterLabel": "Quelle filtern",
+    "all": "Alle",
+    "parliament": "Parlament",
+    "federal": "Bundesrecht",
+    "keyword": "Stichwort: {word}",
+    "status": "Stand des Geschäfts: {status}",
+    "empty": "Keine Einträge.",
+    "titlesNote": "Die Titel stehen in der Originalsprache der Quelle, meistens Deutsch.",
+    "meaning": "Das heisst für die Arbeit mit Geflüchteten: Ein Eintrag ist ein Hinweis, genauer hinzuschauen. Ob er eine Regel wirklich ändert, steht erst im verlinkten Geschäft.",
+    "sourceLine": "Quelle: Curia Vista (Parlament) und Fedlex (Bundesrecht)",
+    "count": "{count, plural, one {# Eintrag} other {# Einträge}}"
+  },
+  "sources": {
+    "title": "Quellen",
+    "lead": "Hier steht, woher jede Zahl im Radar kommt, wie aktuell sie ist und was wir bewusst nicht verwenden.",
+    "usedTitle": "Das verwenden wir",
+    "freshness": "Letzter Stand der Daten: {date}",
+    "noDate": "Kein Datum bekannt",
+    "how": "Wie oft",
+    "gives": "Was sie liefert",
+    "jobroom": {
+      "gives": "Inserate aus der ganzen Schweiz mit Volltext, Kanton und Angabe zur Stellenmeldepflicht. Daraus berechnen wir offene Inserate, neue Inserate pro Woche, gefragte Fähigkeiten und Hürden.",
+      "how": "Täglicher Abruf. job-room.ch zeigt nur die letzten 60 Tage, darum speichern wir jeden Tag den Stand."
+    },
+    "bfs": {
+      "gives": "Offene Stellen nach Wirtschaftszweig, hier in IT-Dienstleistungen. Die Reihe zeigt den ganzen Markt mit allen IT-Berufen.",
+      "how": "Neue Zahlen kommen einmal pro Quartal, mit einigen Wochen Verzögerung."
+    },
+    "curia": {
+      "gives": "Motionen, Anfragen und Gesetzesentwürfe des Parlaments zu Asyl, Status F und S, Integration und Fachkräften.",
+      "how": "Täglicher Abruf."
+    },
+    "fedlex": {
+      "gives": "Neues Bundesrecht, gefiltert nach Stichwörtern wie Asyl und Integration.",
+      "how": "Täglicher Abruf."
+    },
+    "notUsedTitle": "Das verwenden wir nicht",
+    "notUsedLead": "Diese Quellen kämen in Frage. Wir lassen sie aus, weil wir sie nicht korrekt nutzen können.",
+    "linkedin": {
+      "name": "LinkedIn",
+      "why": "Es gibt keine öffentliche Schnittstelle. Die Inserate automatisch von der Seite zu lesen, verstösst gegen die Nutzungsbedingungen."
+    },
+    "jobsch": {
+      "name": "jobs.ch",
+      "why": "Es gibt keine öffentliche Schnittstelle. Die Inserate automatisch von der Seite zu lesen, verstösst gegen die Nutzungsbedingungen. Viele Inserate von jobs.ch stehen trotzdem auch auf job-room.ch und sind so im Radar."
+    },
+    "adzuna": {
+      "name": "Adzuna",
+      "why": "Ob die Schweiz zuverlässig abgedeckt ist, haben wir nicht geprüft. Nach der Testphase von 14 Tagen bräuchten wir für die Auswertung zudem eine schriftliche Zustimmung."
+    },
+    "limitsTitle": "Was die Zahlen nicht sagen",
+    "limits": {
+      "one": "Die Zahlen beruhen auf Inseraten auf job-room.ch. Stellen, die nur auf anderen Seiten oder gar nicht ausgeschrieben werden, fehlen.",
+      "two": "Ein Inserat ist keine besetzte Stelle. Ein Beruf kann mehrfach ausgeschrieben sein.",
+      "three": "Die Berufe und Fähigkeiten werden aus dem Text der Inserate erkannt. Dabei gibt es Fehler in beide Richtungen."
+    },
+    "updatedLabel": "Letzter Stand",
+    "planned": "In Planung",
+    "plannedLead": "Diese Quellen sind für die Frage zur Zielgruppe vorgesehen. Es sind noch keine Daten angeschlossen.",
+    "generic": {
+      "how": "Siehe Quelle"
+    },
+    "rules": {
+      "title": "Regeln für die Daten",
+      "one": "Jede Zahl, jede Grafik und jede Liste nennt ihre Quelle mit Link und dem Datum des letzten Stands.",
+      "two": "Es werden nur zusammengefasste Zahlen gezeigt. Zu einzelnen Personen zeigt der Radar nichts. Bei Beispiel-Inseraten stehen nur Titel, Firma, Ort, Datum und Link."
+    }
+  },
+  "notFound": {
+    "title": "Seite nicht gefunden",
+    "text": "Diese Seite gibt es nicht. Auf dem Dashboard findest du die aktuellen Zahlen.",
+    "home": "Zum Dashboard"
+  },
+  "login": {
+    "title": "Anmelden",
+    "intro": "Für das Team von Powercoders: Hier meldest du dich an, um den Datenstand des Radars zu sehen.",
+    "email": "E-Mail",
+    "password": "Passwort",
+    "submit": "Anmelden",
+    "back": "Zum Dashboard",
+    "forgot": "Passwort vergessen?",
+    "loggedOut": "Du bist abgemeldet, auf allen Geräten.",
+    "passwordChanged": "Dein neues Passwort gilt. Melde dich damit an.",
+    "invalid_login": "E-Mail oder Passwort stimmt nicht.",
+    "too_many_attempts": "Zu viele Versuche. Bitte in 15 Minuten nochmals versuchen."
+  },
+  "admin": {
+    "title": "Verwaltung",
+    "signedInAs": "Angemeldet als {email}",
+    "toSite": "Zum Dashboard",
+    "logout": "Abmelden",
+    "security": "Sicherheit",
+    "protocol": "Protokoll",
+    "totpMissing": "Der zweite Schritt ist für dein Konto noch nicht eingerichtet.",
+    "stateTitle": "Datenstand",
+    "stateIntro": "Wie aktuell die Zahlen sind, die das Dashboard gerade zeigt.",
+    "generatedAt": "Datei erzeugt",
+    "windowDays": "Zeitfenster der Inserate",
+    "windowValue": "{days} Tage",
+    "file": "Datendatei",
+    "cacheNote": "Der Radar liest die Datei höchstens alle 10 Minuten neu.",
+    "adsPerRole": "Inserate pro Beruf",
+    "role": "Beruf",
+    "adsCount": "Inserate",
+    "weeks": "Wochen mit Daten",
+    "skills": "Fähigkeiten",
+    "sourcesTitle": "Quellen und Aktualität",
+    "source": "Quelle",
+    "updated": "Letzter Stand",
+    "age": "Alter",
+    "ageDays": "{days, plural, one {# Tag} other {# Tage}}",
+    "fresh": "aktuell",
+    "aging": "älter",
+    "old": "veraltet",
+    "unknown": "unbekannt",
+    "otherData": "Weitere Daten",
+    "sectorPoints": "Quartalswerte (BFS)",
+    "latestPeriod": "Neuester Quartalswert",
+    "policyItems": "Einträge zur Politik",
+    "dataError": "Die Datendatei konnte nicht gelesen werden: {error}",
+    "reportsTitle": "Berichte",
+    "reportsIntro": "Hier verwaltest du später die E-Mail-Zusammenfassungen pro Thema: wer sie bekommt und wie oft.",
+    "reportsSoon": "Diese Seite ist noch nicht in Betrieb. Es werden keine E-Mails verschickt.",
+    "back": "Zur Verwaltung",
+    "areas": "Bereiche",
+    "sourcesFromExport": "Die Liste der Quellen kommt aus der Datendatei. Eine neue Quelle erscheint hier und auf der Seite Quellen, sobald sie dort steht."
+  },
+  "twofa": {
+    "title": "Zweiter Schritt",
+    "intro": "Angemeldet als {email}. Gib den 6-stelligen Code aus deiner Authenticator-App ein oder einen deiner Backup-Codes.",
+    "code": "Code",
+    "submit": "Weiter",
+    "invalid_code": "Dieser Code gilt nicht. Prüfe die Uhrzeit auf deinem Handy und versuche es nochmals.",
+    "rate_limited": "Zu viele Versuche. Bitte in 15 Minuten nochmals versuchen."
+  },
+  "forgot": {
+    "title": "Passwort vergessen",
+    "intro": "Gib die E-Mail-Adresse deines Kontos ein. Du bekommst einen Link, mit dem du ein neues Passwort wählst.",
+    "email": "E-Mail",
+    "submit": "Link schicken",
+    "sent": "Wenn zu dieser Adresse ein Konto gehört, ist ein Link unterwegs. Er gilt 30 Minuten.",
+    "invalid_email": "Bitte eine gültige E-Mail-Adresse eingeben.",
+    "invalid_or_expired": "Dieser Link gilt nicht mehr. Fordere hier einen neuen an.",
+    "back": "Zur Anmeldung"
+  },
+  "newPassword": {
+    "title": "Neues Passwort wählen",
+    "intro": "Neues Passwort für {email}. Mindestens {min} Zeichen.",
+    "password": "Neues Passwort",
+    "repeat": "Passwort wiederholen",
+    "submit": "Passwort speichern",
+    "too_short": "Das Passwort ist zu kurz.",
+    "too_long": "Das Passwort ist zu lang.",
+    "mismatch": "Die beiden Passwörter sind nicht gleich.",
+    "rate_limited": "Zu viele Versuche. Bitte in 15 Minuten nochmals versuchen."
+  },
+  "security": {
+    "title": "Sicherheit",
+    "statusOn": "Der zweite Schritt ist eingeschaltet. Bei jeder Anmeldung fragt die Website nach einem Code aus deiner Authenticator-App.",
+    "statusOff": "Der zweite Schritt ist noch nicht eingerichtet. Mit ihm braucht eine Anmeldung neben dem Passwort einen Code aus einer App auf deinem Handy.",
+    "required": "Für den Verwaltungsbereich ist der zweite Schritt Pflicht. Richte ihn hier ein.",
+    "start": "Zweiten Schritt einrichten",
+    "scan": "Scanne den QR-Code mit deiner Authenticator-App, zum Beispiel Google Authenticator, Microsoft Authenticator oder 2FAS. Oder tippe den Schlüssel ab:",
+    "secretLabel": "Schlüssel",
+    "qrLabel": "QR-Code für die Authenticator-App",
+    "codeLabel": "Code aus der App",
+    "enable": "Einschalten",
+    "enableReset": "Neues Gerät bestätigen",
+    "enabledTitle": "Der zweite Schritt ist eingeschaltet.",
+    "backupIntro": "Deine Backup-Codes. Jeder gilt einmal, falls du dein Handy nicht zur Hand hast:",
+    "backupOnce": "Bewahre die Codes jetzt sicher auf. Die Codes werden nur dieses eine Mal angezeigt.",
+    "backupLeft": "Backup-Codes übrig: {count}",
+    "backupLow": "Nur noch wenige Backup-Codes übrig. Richte ein neues Gerät ein, dann bekommst du neue Codes.",
+    "reenrolTitle": "Neues Handy",
+    "reenrolIntro": "Mit einem aktuellen Code oder einem Backup-Code richtest du ein neues Gerät ein. Bis du es bestätigst, gilt das alte weiter.",
+    "reenrolStart": "Neues Gerät einrichten",
+    "cancel": "Abbrechen",
+    "err_invalid_code": "Dieser Code gilt nicht. Prüfe die Uhrzeit auf deinem Handy und versuche es nochmals.",
+    "err_rate_limited": "Zu viele Versuche. Bitte in 15 Minuten nochmals versuchen.",
+    "err_not_started": "Die Einrichtung ist nicht gestartet. Bitte nochmals beginnen.",
+    "err_not_allowed": "Nur für Konten des Teams.",
+    "back": "Zur Verwaltung"
+  },
+  "protocol": {
+    "title": "Protokoll",
+    "intro": "Die letzten Aktionen im Verwaltungsbereich.",
+    "empty": "Noch keine Einträge.",
+    "when": "Zeitpunkt",
+    "who": "Wer",
+    "what": "Aktion",
+    "target": "Betrifft",
+    "details": "Details"
+  },
+  "questions": {
+    "A": {
+      "title": "Nachfrage",
+      "question": "Gibt es Arbeit für unsere Absolvent*innen?"
+    },
+    "B": {
+      "title": "Fähigkeiten",
+      "question": "Was sollen wir unterrichten?"
+    },
+    "C": {
+      "title": "Arbeitgeber",
+      "question": "Mit wem sollen wir reden?"
+    },
+    "D": {
+      "title": "Zielgruppe",
+      "question": "Für wen bilden wir aus?"
+    },
+    "E": {
+      "title": "Politik",
+      "question": "Was könnte uns zwingen, das Programm anzupassen?"
+    }
+  },
+  "target": {
+    "title": "Zielgruppe",
+    "lead": "Hier steht später, wie sich die Gruppe zusammensetzt, für die Powercoders ausbildet: nach Aufenthaltsstatus, Herkunft und Kanton, und wie gut sie im Arbeitsmarkt Fuss fasst.",
+    "statusTitle": "Daten folgen",
+    "statusText": "Für diese Frage sind noch keine Daten angeschlossen. Bis dahin zeigt diese Seite keine Zahlen.",
+    "plannedTitle": "Geplante Quellen",
+    "showTitle": "Das soll hier stehen",
+    "show": {
+      "status": "Personen im Asylbereich nach Aufenthaltsstatus (zum Beispiel Status F und S)",
+      "origin": "Herkunftsländer",
+      "canton": "Verteilung auf die Kantone",
+      "labour": "Erwerbsquote und Integration in den Arbeitsmarkt"
+    },
+    "sem": {
+      "name": "Staatssekretariat für Migration (SEM), Asylstatistik",
+      "what": "Monatliche und jährliche Zahlen zu Asylgesuchen, Entscheiden und Personen im Asylbereich."
+    },
+    "bfs": {
+      "name": "Bundesamt für Statistik (BFS), Bevölkerungsstatistik",
+      "what": "Wohnbevölkerung nach Migrationsstatus, Herkunft und Kanton, dazu Zahlen zur Erwerbstätigkeit."
+    },
+    "rule": "Es werden nur zusammengefasste Zahlen gezeigt, nie Angaben zu einzelnen Personen."
+  }
+}
