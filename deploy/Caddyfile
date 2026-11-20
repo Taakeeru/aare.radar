@@ -1,0 +1,55 @@
+# Caddy for radar.gnamak.ch: automatic Let's Encrypt certificates.
+# Ported from the client template's Caddyfile (access log with the secret query
+# parameters removed, X-Real-IP). The upstream name `radar` is the app service in
+# docker-compose.prod.yml.
+#
+# A Caddyfile change reaches the running Caddy through deploy/promote.sh (it restarts Caddy when the file
+# differs); by hand: docker compose -f deploy/docker-compose.prod.yml restart caddy
+
+radar.gnamak.ch {
+	encode zstd gzip
+
+	# Access log for abuse and incident forensics, JSON, size-rolled. The one-time link of the password
+	# reset carries its secret in the query (?t=, lib/referrer-policy.ts SECRET_QUERY_PARAMS), so it is
+	# removed from the logged URI: an access log must never become a place where login tokens leak.
+	# 720 h = 30 days; the privacy text says «kurz aufbewahrt», the owner confirms the number.
+	log {
+		output file /data/access-logs/radar.gnamak.ch.log {
+			roll_size 20MiB
+			roll_keep 10
+			roll_keep_for 720h
+		}
+		format filter {
+			wrap json
+			fields {
+				request>uri query {
+					delete t
+					delete token
+				}
+				# Next.js client navigation and the browser repeat the current URL (with ?t= on the reset
+				# page) in these headers: never in the log.
+				request>headers>Referer delete
+				request>headers>Next-Url delete
+				request>headers>Next-Router-State-Tree delete
+			}
+		}
+	}
+
+	# Security headers: the app sets all of them itself (next.config.ts headers(), middleware.ts: CSP with a
+	# nonce, X-Frame-Options, nosniff, Permissions-Policy, HSTS and a PER-PAGE Referrer-Policy: strict-origin on
+	# the password-reset page). A plain `header` line here would REPLACE the app's value, so these are
+	# defaults only (`?`: set when the response has none, e.g. an error page Caddy makes itself), and
+	# Referrer-Policy is left to the app on purpose. lib/__tests__/deploy-files.test.ts enforces both.
+	header {
+		?X-Frame-Options "DENY"
+		?X-Content-Type-Options "nosniff"
+		?Permissions-Policy "camera=(), microphone=(), geolocation=()"
+		?Strict-Transport-Security "max-age=63072000; includeSubDomains"
+	}
+
+	# lib/get-client-ip.ts CADDY_REAL_IP_SNIPPET, word for word: X-Real-IP is REPLACED with the address Caddy
+	# saw, and the app reads nothing else (never X-Forwarded-For); TRUST_PROXY=true in the compose file.
+	reverse_proxy radar:3000 {
+		header_up X-Real-IP {remote_host}
+	}
+}
