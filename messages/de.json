@@ -1,0 +1,122 @@
+{
+  "meta": {
+    "siteName": "Powercoders Job Radar",
+    "description": "Ein Marktradar für das Powercoders-Team. Im Aufbau.",
+    "skip": "Zum Inhalt springen",
+    "testBanner": "Testumgebung: nicht öffentlich."
+  },
+  "nav": {
+    "language": "Sprache"
+  },
+  "footer": {
+    "note": "Ein Werkzeug für das Team von Powercoders.",
+    "login": "Anmelden für das Team"
+  },
+  "home": {
+    "title": "Powercoders Job Radar",
+    "lead": "Ein Marktradar für das Powercoders-Team. Im Aufbau.",
+    "questions": "Die fünf Fragen"
+  },
+  "questions": {
+    "A": "Nachfrage",
+    "B": "Fähigkeiten",
+    "C": "Arbeitgeber",
+    "D": "Zielgruppe",
+    "E": "Politik"
+  },
+  "notFound": {
+    "title": "Seite nicht gefunden",
+    "text": "Diese Seite gibt es nicht.",
+    "home": "Zur Startseite"
+  },
+  "login": {
+    "title": "Anmelden",
+    "intro": "Für das Team von Powercoders: Hier meldest du dich an.",
+    "email": "E-Mail",
+    "password": "Passwort",
+    "submit": "Anmelden",
+    "back": "Zur Startseite",
+    "forgot": "Passwort vergessen?",
+    "loggedOut": "Du bist abgemeldet, auf allen Geräten.",
+    "passwordChanged": "Dein neues Passwort gilt. Melde dich damit an.",
+    "invalid_login": "E-Mail oder Passwort stimmt nicht.",
+    "too_many_attempts": "Zu viele Versuche. Bitte in 15 Minuten nochmals versuchen."
+  },
+  "admin": {
+    "title": "Verwaltung",
+    "signedInAs": "Angemeldet als {email}",
+    "toSite": "Zur Startseite",
+    "logout": "Abmelden",
+    "security": "Sicherheit",
+    "protocol": "Protokoll",
+    "totpMissing": "Der zweite Schritt ist für dein Konto noch nicht eingerichtet.",
+    "back": "Zur Verwaltung",
+    "areas": "Bereiche"
+  },
+  "twofa": {
+    "title": "Zweiter Schritt",
+    "intro": "Angemeldet als {email}. Gib den 6-stelligen Code aus deiner Authenticator-App ein oder einen deiner Backup-Codes.",
+    "code": "Code",
+    "submit": "Weiter",
+    "invalid_code": "Dieser Code gilt nicht. Prüfe die Uhrzeit auf deinem Handy und versuche es nochmals.",
+    "rate_limited": "Zu viele Versuche. Bitte in 15 Minuten nochmals versuchen."
+  },
+  "forgot": {
+    "title": "Passwort vergessen",
+    "intro": "Gib die E-Mail-Adresse deines Kontos ein. Du bekommst einen Link, mit dem du ein neues Passwort wählst.",
+    "email": "E-Mail",
+    "submit": "Link schicken",
+    "sent": "Wenn zu dieser Adresse ein Konto gehört, ist ein Link unterwegs. Er gilt 30 Minuten.",
+    "invalid_email": "Bitte eine gültige E-Mail-Adresse eingeben.",
+    "invalid_or_expired": "Dieser Link gilt nicht mehr. Fordere hier einen neuen an.",
+    "back": "Zur Anmeldung"
+  },
+  "newPassword": {
+    "title": "Neues Passwort wählen",
+    "intro": "Neues Passwort für {email}. Mindestens {min} Zeichen.",
+    "password": "Neues Passwort",
+    "repeat": "Passwort wiederholen",
+    "submit": "Passwort speichern",
+    "too_short": "Das Passwort ist zu kurz.",
+    "too_long": "Das Passwort ist zu lang.",
+    "mismatch": "Die beiden Passwörter sind nicht gleich.",
+    "rate_limited": "Zu viele Versuche. Bitte in 15 Minuten nochmals versuchen."
+  },
+  "security": {
+    "title": "Sicherheit",
+    "statusOn": "Der zweite Schritt ist eingeschaltet. Bei jeder Anmeldung fragt die Website nach einem Code aus deiner Authenticator-App.",
+    "statusOff": "Der zweite Schritt ist noch nicht eingerichtet. Mit ihm braucht eine Anmeldung neben dem Passwort einen Code aus einer App auf deinem Handy.",
+    "required": "Für den Verwaltungsbereich ist der zweite Schritt Pflicht. Richte ihn hier ein.",
+    "start": "Zweiten Schritt einrichten",
+    "scan": "Scanne den QR-Code mit deiner Authenticator-App, zum Beispiel Google Authenticator, Microsoft Authenticator oder 2FAS. Oder tippe den Schlüssel ab:",
+    "secretLabel": "Schlüssel",
+    "qrLabel": "QR-Code für die Authenticator-App",
+    "codeLabel": "Code aus der App",
+    "enable": "Einschalten",
+    "enableReset": "Neues Gerät bestätigen",
+    "enabledTitle": "Der zweite Schritt ist eingeschaltet.",
+    "backupIntro": "Deine Backup-Codes. Jeder gilt einmal, falls du dein Handy nicht zur Hand hast:",
+    "backupOnce": "Bewahre die Codes jetzt sicher auf. Die Codes werden nur dieses eine Mal angezeigt.",
+    "backupLeft": "Backup-Codes übrig: {count}",
+    "backupLow": "Nur noch wenige Backup-Codes übrig. Richte ein neues Gerät ein, dann bekommst du neue Codes.",
+    "reenrolTitle": "Neues Handy",
+    "reenrolIntro": "Mit einem aktuellen Code oder einem Backup-Code richtest du ein neues Gerät ein. Bis du es bestätigst, gilt das alte weiter.",
+    "reenrolStart": "Neues Gerät einrichten",
+    "cancel": "Abbrechen",
+    "err_invalid_code": "Dieser Code gilt nicht. Prüfe die Uhrzeit auf deinem Handy und versuche es nochmals.",
+    "err_rate_limited": "Zu viele Versuche. Bitte in 15 Minuten nochmals versuchen.",
+    "err_not_started": "Die Einrichtung ist nicht gestartet. Bitte nochmals beginnen.",
+    "err_not_allowed": "Nur für Konten des Teams.",
+    "back": "Zur Verwaltung"
+  },
+  "protocol": {
+    "title": "Protokoll",
+    "intro": "Die letzten Aktionen im Verwaltungsbereich.",
+    "empty": "Noch keine Einträge.",
+    "when": "Zeitpunkt",
+    "who": "Wer",
+    "what": "Aktion",
+    "target": "Betrifft",
+    "details": "Details"
+  }
+}

@@ -1,0 +1,92 @@
+# Powercoders Job Radar: production stack on the client's own server
+# (ported from the client template's docker-compose.yml; owner decision 2026-11-15: set up like the client template's server).
+#
+#   radar    the Next.js app, from the image the in-house CI built and pushed to GHCR
+#   caddy  reverse proxy with automatic TLS for radar.gnamak.ch (www redirects to the apex)
+#
+# NO `build:` key, on purpose (incident of the client template 24.10.2026: a Next.js build on the client server froze the box).
+# The server only PULLS ghcr.io/7hem4ster/powercoders-radar:<full commit sha>; deploy/promote.sh does that
+# and writes the tag into deploy/.env (RADAR_TAG, the previous one in RADAR_TAG_PREV). lib/__tests__/deploy-files.test.ts
+# keeps this file honest.
+#
+# Run it from the checkout root:  docker compose -f deploy/docker-compose.prod.yml <command>
+# (compose reads deploy/.env, which sits next to this file and is NOT in git.)
+
+name: radar
+
+services:
+  radar:
+    image: ghcr.io/7hem4ster/powercoders-radar:${RADAR_TAG:?RADAR_TAG missing in deploy/.env (bash deploy/promote.sh <sha> sets it)}
+    restart: unless-stopped
+    mem_limit: 512m
+    # memory + swap = memory: the container never swaps onto the disk (client host freeze 24.10.2026,
+    # harden_host.sh in Project-Pandora scripts/ops/client_server/).
+    memswap_limit: 512m
+    # Rotated container log (hardening of the client template): docker's json-file driver keeps everything
+    # for ever by default. 5 x 10 MB caps what the app log holds and how far back it reaches.
+    logging:
+      driver: json-file
+      options:
+        max-size: "10m"
+        max-file: "5"
+    environment:
+      - NODE_ENV=production
+      # Hard-set (not from .env): this is what switches the boot guards on (lib/boot-guards.ts: AUTH_SECRET,
+      # TRUST_PROXY, no EMAIL_STUB). DEMO_INSTANCE is never set here: it is for Pandora's CI test server only.
+      - APP_ENV=production
+      - PORT=3000
+      - HOSTNAME=0.0.0.0
+      - DATABASE_URL=/app/data/local.db
+      # Behind our Caddy, which replaces X-Real-IP with the address it saw (deploy/Caddyfile). The app refuses
+      # to start in production without it.
+      - TRUST_PROXY=true
+      - NEXT_PUBLIC_APP_URL=${NEXT_PUBLIC_APP_URL:-https://radar.gnamak.ch}
+      - AUTH_SECRET=${AUTH_SECRET:-}
+      - ADMIN_TOTP_REQUIRED=${ADMIN_TOTP_REQUIRED:-}
+      - SMTP_HOST=${SMTP_HOST:-}
+      - SMTP_PORT=${SMTP_PORT:-465}
+      - SMTP_USER=${SMTP_USER:-}
+      - SMTP_PASS=${SMTP_PASS:-}
+      - MAIL_FROM=${MAIL_FROM:-Powercoders Job Radar <noreply@radar.gnamak.ch>}
+    volumes:
+      # SQLite (WAL) and anything the app stores. Outside the git checkout, owned by uid 1001 (the image's user).
+      - ${RADAR_DATA_DIR:-/home/ubuntu/radar-data}:/app/data
+    ports:
+      # Localhost only: promote.sh and the probe check /api/health here. The public path is Caddy.
+      - "127.0.0.1:3000:3000"
+    networks:
+      - web
+
+  caddy:
+    # Pinned by digest (never a floating tag); the same 2.8 line as the template's shared Caddy.
+    image: caddy:2.8-alpine@sha256:af32e97399febea808609119bb21544d0265c58a02836576e32a2d082c262c17
+    restart: unless-stopped
+    mem_limit: 256m
+    memswap_limit: 256m
+    logging:
+      driver: json-file
+      options:
+        max-size: "10m"
+        max-file: "5"
+    ports:
+      - "80:80"
+      - "443:443"
+      - "443:443/udp" # HTTP/3
+    volumes:
+      # A single-file bind mount: after a git checkout that CHANGES the Caddyfile the container still sees the
+      # old inode. promote.sh compares both and restarts Caddy when they differ («restart, not reload»).
+      - ./Caddyfile:/etc/caddy/Caddyfile:ro
+      # Certificates and the access log: keep this volume, or Let's Encrypt is asked for new certificates.
+      - caddy_data:/data
+      - caddy_config:/config
+    depends_on:
+      - radar
+    networks:
+      - web
+
+volumes:
+  caddy_data:
+  caddy_config:
+
+networks:
+  web:

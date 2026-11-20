@@ -1,0 +1,122 @@
+{
+  "meta": {
+    "siteName": "Powercoders Job Radar",
+    "description": "A market radar for the Powercoders team. Work in progress.",
+    "skip": "Skip to content",
+    "testBanner": "Test environment: not public."
+  },
+  "nav": {
+    "language": "Language"
+  },
+  "footer": {
+    "note": "A tool for the Powercoders team.",
+    "login": "Team sign-in"
+  },
+  "home": {
+    "title": "Powercoders Job Radar",
+    "lead": "A market radar for the Powercoders team. Work in progress.",
+    "questions": "The five questions"
+  },
+  "questions": {
+    "A": "Demand",
+    "B": "Skills",
+    "C": "Employers",
+    "D": "Target group",
+    "E": "Policy"
+  },
+  "notFound": {
+    "title": "Page not found",
+    "text": "This page does not exist.",
+    "home": "To the home page"
+  },
+  "login": {
+    "title": "Sign in",
+    "intro": "For the Powercoders team: sign in here.",
+    "email": "Email",
+    "password": "Password",
+    "submit": "Sign in",
+    "back": "To the home page",
+    "forgot": "Forgot your password?",
+    "loggedOut": "You are signed out, on all devices.",
+    "passwordChanged": "Your new password is active. Sign in with it.",
+    "invalid_login": "Email or password is not correct.",
+    "too_many_attempts": "Too many attempts. Please try again in 15 minutes."
+  },
+  "admin": {
+    "title": "Administration",
+    "signedInAs": "Signed in as {email}",
+    "toSite": "To the home page",
+    "logout": "Sign out",
+    "security": "Security",
+    "protocol": "Log",
+    "totpMissing": "The second step is not set up for your account yet.",
+    "back": "To the administration",
+    "areas": "Areas"
+  },
+  "twofa": {
+    "title": "Second step",
+    "intro": "Signed in as {email}. Enter the 6-digit code from your authenticator app or one of your backup codes.",
+    "code": "Code",
+    "submit": "Continue",
+    "invalid_code": "This code is not valid. Check the time on your phone and try again.",
+    "rate_limited": "Too many attempts. Please try again in 15 minutes."
+  },
+  "forgot": {
+    "title": "Forgot password",
+    "intro": "Enter the email address of your account. You will get a link to choose a new password.",
+    "email": "Email",
+    "submit": "Send link",
+    "sent": "If an account belongs to this address, a link is on its way. It is valid for 30 minutes.",
+    "invalid_email": "Please enter a valid email address.",
+    "invalid_or_expired": "This link is no longer valid. Request a new one here.",
+    "back": "To sign-in"
+  },
+  "newPassword": {
+    "title": "Choose a new password",
+    "intro": "New password for {email}. At least {min} characters.",
+    "password": "New password",
+    "repeat": "Repeat password",
+    "submit": "Save password",
+    "too_short": "The password is too short.",
+    "too_long": "The password is too long.",
+    "mismatch": "The two passwords are not the same.",
+    "rate_limited": "Too many attempts. Please try again in 15 minutes."
+  },
+  "security": {
+    "title": "Security",
+    "statusOn": "The second step is on. At every sign-in the site asks for a code from your authenticator app.",
+    "statusOff": "The second step is not set up yet. With it, signing in needs a code from an app on your phone as well as the password.",
+    "required": "The second step is mandatory for the administration area. Set it up here.",
+    "start": "Set up the second step",
+    "scan": "Scan the QR code with your authenticator app, for example Google Authenticator, Microsoft Authenticator or 2FAS. Or type in the key:",
+    "secretLabel": "Key",
+    "qrLabel": "QR code for the authenticator app",
+    "codeLabel": "Code from the app",
+    "enable": "Switch on",
+    "enableReset": "Confirm new device",
+    "enabledTitle": "The second step is on.",
+    "backupIntro": "Your backup codes. Each is valid once, in case you do not have your phone at hand:",
+    "backupOnce": "Keep them safe now. They are shown only this once.",
+    "backupLeft": "Backup codes left: {count}",
+    "backupLow": "Only a few backup codes left. Set up a new device to get new codes.",
+    "reenrolTitle": "New phone",
+    "reenrolIntro": "With a current code or a backup code you set up a new device. Until you confirm it, the old one stays valid.",
+    "reenrolStart": "Set up new device",
+    "cancel": "Cancel",
+    "err_invalid_code": "This code is not valid. Check the time on your phone and try again.",
+    "err_rate_limited": "Too many attempts. Please try again in 15 minutes.",
+    "err_not_started": "The setup has not started. Please begin again.",
+    "err_not_allowed": "Only for team accounts.",
+    "back": "To the administration"
+  },
+  "protocol": {
+    "title": "Log",
+    "intro": "The latest actions in the administration area.",
+    "empty": "No entries yet.",
+    "when": "Time",
+    "who": "Who",
+    "what": "Action",
+    "target": "Concerns",
+    "details": "Details"
+  }
+}
