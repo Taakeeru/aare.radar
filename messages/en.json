@@ -1,0 +1,388 @@
+{
+  "meta": {
+    "siteName": "Powercoders Job Radar",
+    "description": "What the Swiss IT job market is looking for in web development, IT support and data analysis: demand, requested skills, entry barriers and policy changes.",
+    "skip": "Skip to content",
+    "testBanner": "Test environment: not public."
+  },
+  "nav": {
+    "label": "Main navigation",
+    "dashboard": "Dashboard",
+    "policy": "Policy",
+    "sources": "Sources",
+    "language": "Language",
+    "demand": "Demand",
+    "skills": "Skills",
+    "employers": "Employers",
+    "target": "Target group"
+  },
+  "footer": {
+    "note": "A tool for the Powercoders team. The numbers come from public sources.",
+    "login": "Team sign-in",
+    "sources": "Where the numbers come from"
+  },
+  "common": {
+    "source": "Source",
+    "asOf": "As of {date}",
+    "meaning": "What this means",
+    "ads": "{count, plural, one {# ad} other {# ads}}",
+    "ofHundred": "in {count} of 100 ads",
+    "noData": "No data",
+    "opensNewTab": "opens in a new tab",
+    "back": "Back",
+    "noDate": "Date unknown",
+    "sourceLabel": "Source: {name}",
+    "sources": "Sources",
+    "sectionOf": "Question {letter}"
+  },
+  "roles": {
+    "web": "Web developer",
+    "support": "IT support",
+    "data": "Data analyst"
+  },
+  "dash": {
+    "title": "What the IT market is looking for",
+    "lead": "For three roles that Powercoders graduates go into: how many jobs are open, which skills are asked for, and where are the hurdles at the start?",
+    "roleLabel": "Choose a role",
+    "dataStale": "The data is {days, plural, one {# day} other {# days}} old.",
+    "unavailableTitle": "The data is not available right now",
+    "unavailableText": "The file with the numbers could not be read. Please try again later. If this stays, contact the team that runs the radar.",
+    "demand": {
+      "title": "Open ads",
+      "caption": "open ads in the last {days} days",
+      "meaning": "That is how many ads for {role} there were in the last {days} days, about {perWeek} new ads per week on average."
+    },
+    "trend": {
+      "title": "New ads per week",
+      "yAxis": "New ads",
+      "xAxis": "Calendar week",
+      "partial": "* This week is not complete.",
+      "meaning": "In the last 3 complete weeks, {recent} new ads per week were added on average, in the 3 weeks before {before}.",
+      "meaningShort": "There is not enough data yet to compare several weeks.",
+      "caveat": "Older weeks can look too small: ads that have already ended can no longer be retrieved. The curve becomes more reliable with every week in which we collect data daily.",
+      "week": "Week {week}"
+    },
+    "skills": {
+      "title": "Requested skills",
+      "intro": "How often a skill appears in the text of the ads.",
+      "meaning": "{first}, {second} and {third} appear most often. Anyone who can show these fits most ads.",
+      "meaningTwo": "{first} and {second} appear most often.",
+      "meaningOne": "{first} appears most often.",
+      "basis": "Basis: the ads for which the full text is available."
+    },
+    "barriers": {
+      "title": "Entry barriers",
+      "intro": "What the ads ask of applicants.",
+      "german_required": "{count} in 10 ads ask for very good German.",
+      "french_required": "{count} in 10 ads ask for very good French.",
+      "degree_required": "{count} in 10 ads name a qualification (apprenticeship, university of applied sciences or university).",
+      "senior_experience": "{count} in 10 ads ask for several years of experience (3 or more).",
+      "english_ok": "English is mentioned in {count} in 10 ads. That does not always mean English is enough.",
+      "none": "Fewer than 1 in 10 ads",
+      "levelLow": "low hurdle",
+      "levelMedium": "medium hurdle",
+      "levelHigh": "high hurdle",
+      "meaning": "Asked for most often: {top}. It pays to prepare for this in applications.",
+      "meaningNone": "None of these hurdles appears in more than one in five ads.",
+      "short": {
+        "german_required": "very good German",
+        "french_required": "very good French",
+        "degree_required": "a qualification",
+        "senior_experience": "several years of experience"
+      },
+      "reporting": "Job-reporting duty: {count} in 100 ads. For occupations under the duty, only job seekers registered with the RAV (regional employment centre) see the job first.",
+      "basis": "Basis: the ads for which the full text is available."
+    },
+    "where": {
+      "title": "Where the jobs are",
+      "unit": "ads",
+      "meaning": "{first}, {second} and {third} together have {share} in 100 ads.",
+      "meaningOne": "{first} has {share} in 100 ads.",
+      "more": "Other cantons: {list}",
+      "empty": "No canton is known for any ad."
+    },
+    "examples": {
+      "title": "Newest ads",
+      "intro": "These ads were published most recently.",
+      "meaning": "This is what current ads for {role} look like. A click opens the ad at the provider.",
+      "empty": "No ads in this period.",
+      "published": "published {date}"
+    },
+    "sector": {
+      "title": "The whole IT market in Switzerland",
+      "subtitle": "Open positions in IT services, Switzerland, per quarter",
+      "yAxis": "Open positions",
+      "xAxis": "Year (labelled at the 1st quarter)",
+      "latest": "open positions in quarter {quarter} of {year}",
+      "meaningUp": "A year ago there were {before}. That is {percent} percent more.",
+      "meaningDown": "A year ago there were {before}. That is {percent} percent fewer.",
+      "meaningSame": "A year ago there were {before}. That is about the same.",
+      "meaningNoYear": "A comparison with the previous year is not possible with this data.",
+      "note": "The Federal Statistical Office counts all open positions in IT services (sectors 62 and 63). That is more than the ads for these three roles.",
+      "empty": "There is no data for this series."
+    },
+    "entry": {
+      "title": "Getting started without experience",
+      "intro": "Ads aimed at career starters, career changers, trainees or interns.",
+      "sentence": "{count} in 100 ads explicitly address people starting out.",
+      "meaning": "These ads are open to people without long work experience. They are shown apart from the hurdles further down.",
+      "meaningNone": "These ads contain no explicit mention of career starters. This holds for the keywords we detect, not for every ad in detail.",
+      "level": "open to newcomers"
+    },
+    "employers": {
+      "title": "Employers with several ads",
+      "intro": "Companies that placed several ads for {role} themselves.",
+      "unit": "ads",
+      "empty": "No company placed more than one ad for this role in this period.",
+      "meaning": "{first} has the most ads with {count}. Companies with several ads for the same role are obvious addresses for a conversation.",
+      "meaningOne": "Only {first} has several ads."
+    },
+    "agencies": {
+      "title": "Recruiting agencies",
+      "sentence": "{count} in 100 ads come from recruiting agencies.",
+      "intro": "Agencies advertise jobs for other companies. The company behind the job is often not named in the ad. That is why they are listed apart from the employers.",
+      "empty": "No recruiting agencies in this period."
+    }
+  },
+  "policy": {
+    "title": "Policy",
+    "lead": "New parliamentary business and new federal law on asylum, status F and S, integration and skilled workers. The list shows what is moving. It does not judge what it means.",
+    "filterLabel": "Filter by source",
+    "all": "All",
+    "parliament": "Parliament",
+    "federal": "Federal law",
+    "keyword": "Keyword: {word}",
+    "status": "Status of the item: {status}",
+    "empty": "No entries.",
+    "titlesNote": "Titles are in the original language of the source, mostly German.",
+    "meaning": "For work with refugees: an entry is a reason to look closer. Whether it really changes a rule is only stated in the linked item.",
+    "sourceLine": "Source: Curia Vista (Parliament) and Fedlex (federal law)",
+    "count": "{count, plural, one {# entry} other {# entries}}"
+  },
+  "sources": {
+    "title": "Sources",
+    "lead": "This page shows where every number in the radar comes from, how current it is, and what we deliberately do not use.",
+    "usedTitle": "What we use",
+    "freshness": "Latest data: {date}",
+    "noDate": "No date known",
+    "how": "How often",
+    "gives": "What it provides",
+    "jobroom": {
+      "gives": "Ads from all over Switzerland with full text, canton and the job-reporting duty flag. From them we calculate open ads, new ads per week, requested skills and hurdles.",
+      "how": "Retrieved daily. job-room.ch only shows the last 60 days, so we save the state every day."
+    },
+    "bfs": {
+      "gives": "Open positions by economic sector, here in IT services. The series shows the whole market with all IT roles.",
+      "how": "New figures arrive once per quarter, a few weeks late."
+    },
+    "curia": {
+      "gives": "Motions, questions and bills of Parliament on asylum, status F and S, integration and skilled workers.",
+      "how": "Retrieved daily."
+    },
+    "fedlex": {
+      "gives": "New federal law, filtered by keywords such as asylum and integration.",
+      "how": "Retrieved daily."
+    },
+    "notUsedTitle": "What we do not use",
+    "notUsedLead": "These sources would be possible. We leave them out because we cannot use them properly.",
+    "linkedin": {
+      "name": "LinkedIn",
+      "why": "There is no public interface. Reading the ads automatically from the site breaks its terms of use."
+    },
+    "jobsch": {
+      "name": "jobs.ch",
+      "why": "There is no public interface. Reading the ads automatically from the site breaks its terms of use. Many jobs.ch ads are also on job-room.ch and so appear in the radar."
+    },
+    "adzuna": {
+      "name": "Adzuna",
+      "why": "We have not verified whether Switzerland is covered reliably. After the 14-day trial we would also need written consent for the analysis."
+    },
+    "limitsTitle": "What the numbers do not say",
+    "limits": {
+      "one": "The numbers are based on ads on job-room.ch. Jobs that are only advertised elsewhere, or not at all, are missing.",
+      "two": "An ad is not a filled position. A job can be advertised several times.",
+      "three": "Roles and skills are recognised from the text of the ads. This produces errors in both directions."
+    },
+    "updatedLabel": "Latest data",
+    "planned": "Planned",
+    "plannedLead": "These sources are planned for the target-group question. No data is connected yet.",
+    "generic": {
+      "how": "See source"
+    },
+    "rules": {
+      "title": "Rules for the data",
+      "one": "Every number, chart and list names its source with a link and the date of the latest update.",
+      "two": "Only summarised numbers are shown. The radar shows nothing about individual people. Example ads show only title, company, place, date and link."
+    }
+  },
+  "notFound": {
+    "title": "Page not found",
+    "text": "This page does not exist. The dashboard has the current numbers.",
+    "home": "To the dashboard"
+  },
+  "login": {
+    "title": "Sign in",
+    "intro": "For the Powercoders team: sign in here to see the data status of the radar.",
+    "email": "Email",
+    "password": "Password",
+    "submit": "Sign in",
+    "back": "To the dashboard",
+    "forgot": "Forgot your password?",
+    "loggedOut": "You are signed out, on all devices.",
+    "passwordChanged": "Your new password is active. Sign in with it.",
+    "invalid_login": "Email or password is not correct.",
+    "too_many_attempts": "Too many attempts. Please try again in 15 minutes."
+  },
+  "admin": {
+    "title": "Administration",
+    "signedInAs": "Signed in as {email}",
+    "toSite": "To the dashboard",
+    "logout": "Sign out",
+    "security": "Security",
+    "protocol": "Log",
+    "totpMissing": "The second step is not set up for your account yet.",
+    "stateTitle": "Data status",
+    "stateIntro": "How current the numbers are that the dashboard shows right now.",
+    "generatedAt": "File generated",
+    "windowDays": "Time window of the ads",
+    "windowValue": "{days} days",
+    "file": "Data file",
+    "cacheNote": "The radar re-reads the file at most every 10 minutes.",
+    "adsPerRole": "Ads per role",
+    "role": "Role",
+    "adsCount": "Ads",
+    "weeks": "Weeks with data",
+    "skills": "Skills",
+    "sourcesTitle": "Sources and freshness",
+    "source": "Source",
+    "updated": "Latest data",
+    "age": "Age",
+    "ageDays": "{days, plural, one {# day} other {# days}}",
+    "fresh": "current",
+    "aging": "older",
+    "old": "outdated",
+    "unknown": "unknown",
+    "otherData": "Other data",
+    "sectorPoints": "Quarterly values (BFS)",
+    "latestPeriod": "Latest quarterly value",
+    "policyItems": "Policy entries",
+    "dataError": "The data file could not be read: {error}",
+    "reportsTitle": "Reports",
+    "reportsIntro": "Here you will later manage the email summaries per topic: who gets them and how often.",
+    "reportsSoon": "This page is not in use yet. No emails are sent.",
+    "back": "To the administration",
+    "areas": "Areas",
+    "sourcesFromExport": "The list of sources comes from the data file. A new source appears here and on the sources page as soon as it is listed there."
+  },
+  "twofa": {
+    "title": "Second step",
+    "intro": "Signed in as {email}. Enter the 6-digit code from your authenticator app or one of your backup codes.",
+    "code": "Code",
+    "submit": "Continue",
+    "invalid_code": "This code is not valid. Check the time on your phone and try again.",
+    "rate_limited": "Too many attempts. Please try again in 15 minutes."
+  },
+  "forgot": {
+    "title": "Forgot password",
+    "intro": "Enter the email address of your account. You will get a link to choose a new password.",
+    "email": "Email",
+    "submit": "Send link",
+    "sent": "If an account belongs to this address, a link is on its way. It is valid for 30 minutes.",
+    "invalid_email": "Please enter a valid email address.",
+    "invalid_or_expired": "This link is no longer valid. Request a new one here.",
+    "back": "To sign-in"
+  },
+  "newPassword": {
+    "title": "Choose a new password",
+    "intro": "New password for {email}. At least {min} characters.",
+    "password": "New password",
+    "repeat": "Repeat password",
+    "submit": "Save password",
+    "too_short": "The password is too short.",
+    "too_long": "The password is too long.",
+    "mismatch": "The two passwords are not the same.",
+    "rate_limited": "Too many attempts. Please try again in 15 minutes."
+  },
+  "security": {
+    "title": "Security",
+    "statusOn": "The second step is on. At every sign-in the site asks for a code from your authenticator app.",
+    "statusOff": "The second step is not set up yet. With it, signing in needs a code from an app on your phone as well as the password.",
+    "required": "The second step is mandatory for the administration area. Set it up here.",
+    "start": "Set up the second step",
+    "scan": "Scan the QR code with your authenticator app, for example Google Authenticator, Microsoft Authenticator or 2FAS. Or type in the key:",
+    "secretLabel": "Key",
+    "qrLabel": "QR code for the authenticator app",
+    "codeLabel": "Code from the app",
+    "enable": "Switch on",
+    "enableReset": "Confirm new device",
+    "enabledTitle": "The second step is on.",
+    "backupIntro": "Your backup codes. Each is valid once, in case you do not have your phone at hand:",
+    "backupOnce": "Keep them safe now. They are shown only this once.",
+    "backupLeft": "Backup codes left: {count}",
+    "backupLow": "Only a few backup codes left. Set up a new device to get new codes.",
+    "reenrolTitle": "New phone",
+    "reenrolIntro": "With a current code or a backup code you set up a new device. Until you confirm it, the old one stays valid.",
+    "reenrolStart": "Set up new device",
+    "cancel": "Cancel",
+    "err_invalid_code": "This code is not valid. Check the time on your phone and try again.",
+    "err_rate_limited": "Too many attempts. Please try again in 15 minutes.",
+    "err_not_started": "The setup has not started. Please begin again.",
+    "err_not_allowed": "Only for team accounts.",
+    "back": "To the administration"
+  },
+  "protocol": {
+    "title": "Log",
+    "intro": "The latest actions in the administration area.",
+    "empty": "No entries yet.",
+    "when": "Time",
+    "who": "Who",
+    "what": "Action",
+    "target": "Concerns",
+    "details": "Details"
+  },
+  "questions": {
+    "A": {
+      "title": "Demand",
+      "question": "Is there work for our graduates?"
+    },
+    "B": {
+      "title": "Skills",
+      "question": "What should we teach?"
+    },
+    "C": {
+      "title": "Employers",
+      "question": "Who should we talk to?"
+    },
+    "D": {
+      "title": "Target group",
+      "question": "Who are we training?"
+    },
+    "E": {
+      "title": "Policy",
+      "question": "What could force us to change the programme?"
+    }
+  },
+  "target": {
+    "title": "Target group",
+    "lead": "This page will show how the group is made up that Powercoders trains: by residence status, origin and canton, and how well they gain a foothold in the labour market.",
+    "statusTitle": "Data coming",
+    "statusText": "No data is connected for this question yet. Until then this page shows no numbers.",
+    "plannedTitle": "Planned sources",
+    "showTitle": "What will be shown here",
+    "show": {
+      "status": "People in the asylum system by residence status (for example status F and S)",
+      "origin": "Countries of origin",
+      "canton": "Distribution across the cantons",
+      "labour": "Employment rate and integration into the labour market"
+    },
+    "sem": {
+      "name": "State Secretariat for Migration (SEM), asylum statistics",
+      "what": "Monthly and yearly figures on asylum applications, decisions and people in the asylum system."
+    },
+    "bfs": {
+      "name": "Federal Statistical Office (BFS), population statistics",
+      "what": "Resident population by migration status, origin and canton, plus figures on employment."
+    },
+    "rule": "Only summarised numbers are shown, never information about individual people."
+  }
+}
