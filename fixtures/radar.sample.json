@@ -1,34 +1,271 @@
 {
- "generated_at": "2026-11-20T19:51:51+00:00",
+ "generated_at": "2026-11-20T20:34:54+00:00",
  "window_days": 60,
+ "questions": {
+  "A": "Demand",
+  "B": "Skills",
+  "C": "Employers",
+  "D": "Target group",
+  "E": "Policy watch"
+ },
  "sources": [
   {
    "id": "jobroom",
    "name": "job-room.ch (SECO)",
    "url": "https://www.job-room.ch",
    "what": "Swiss job ads, public service of the State Secretariat for Economic Affairs",
-   "updated": "2026-11-20"
+   "updated": "2026-11-20",
+   "questions": [
+    "A",
+    "B",
+    "C"
+   ],
+   "type": "jobroom_search",
+   "schedule": "daily",
+   "status": "ok",
+   "latest_period": null
   },
   {
    "id": "bfs",
    "name": "Federal Statistical Office (BFS), JOBSTAT",
    "url": "https://www.bfs.admin.ch/bfs/en/home/statistics/industry-services/businesses-employment/jobstat.html",
    "what": "Open positions by economic sector, quarterly",
-   "updated": "2026-11-20"
+   "updated": "2026-11-20",
+   "questions": [
+    "A"
+   ],
+   "type": "pxweb",
+   "schedule": "monthly",
+   "status": "ok",
+   "latest_period": "2026Q2"
   },
   {
    "id": "curia",
    "name": "Swiss Parliament (Curia Vista)",
    "url": "https://www.parlament.ch",
    "what": "Motions, questions and bills on asylum, status F and S, integration, skilled workers",
-   "updated": "2026-11-20"
+   "updated": "2026-11-20",
+   "questions": [
+    "E",
+    "D"
+   ],
+   "type": "odata_search",
+   "schedule": "daily",
+   "status": "ok",
+   "latest_period": null
   },
   {
    "id": "fedlex",
    "name": "Fedlex",
    "url": "https://www.fedlex.admin.ch",
    "what": "New federal law",
-   "updated": "2026-11-20"
+   "updated": "2026-11-20",
+   "questions": [
+    "E"
+   ],
+   "type": "rss_keywords",
+   "schedule": "daily",
+   "status": "ok",
+   "latest_period": null
+  },
+  {
+   "id": "eurostat_jvs",
+   "name": "Eurostat, job vacancy statistics (Switzerland, information and communication)",
+   "url": "https://ec.europa.eu/eurostat/databrowser/view/jvs_q_nace2/default/table",
+   "what": "Job vacancies and the job vacancy rate in information and communication (NACE J) in Switzerland, quarterly, comparable across Europe.",
+   "updated": "2026-11-20",
+   "questions": [
+    "A"
+   ],
+   "type": "csv_series",
+   "schedule": "monthly",
+   "status": "ok",
+   "latest_period": "2025-Q4"
+  },
+  {
+   "id": "seco_stellenmeldepflicht",
+   "name": "SECO, occupations under the job-reporting duty (Stellenmeldepflicht) 2026",
+   "url": "https://www.arbeit.swiss/secoalv/de/home/menue/unternehmen/stellenmeldepflicht/stellenmeldepflicht-ab-2026.html",
+   "what": "Official list of occupation groups where employers must report vacancies first to the job centres (unemployment of 5 percent or more); IT occupations are not on it, so IT ads are mostly voluntary.",
+   "updated": "2026-11-20",
+   "questions": [
+    "A",
+    "E"
+   ],
+   "type": "link",
+   "schedule": "monthly",
+   "status": "reference",
+   "latest_period": null
+  },
+  {
+   "id": "sem_asylprozess",
+   "name": "SEM asylum statistics: stock of persons in the asylum process (status N, S, F)",
+   "url": "https://www.sem.admin.ch/de/asylstatistik",
+   "what": "How many people are in the asylum process or hold status N, S (temporary protection) or F (provisionally admitted), by canton and nationality; monthly.",
+   "updated": "2026-11-20",
+   "questions": [
+    "D"
+   ],
+   "type": "xlsx_series",
+   "schedule": "monthly",
+   "status": "ok",
+   "latest_period": "2026-10"
+  },
+  {
+   "id": "sem_erwerb_status_f",
+   "name": "SEM asylum statistics: employment of persons with status F",
+   "url": "https://www.sem.admin.ch/de/asylstatistik",
+   "what": "How many persons with status F (provisionally admitted) are of working age (18-64) and in work, by canton, nationality, sex and length of stay; monthly since 2025.",
+   "updated": "2026-11-20",
+   "questions": [
+    "D"
+   ],
+   "type": "xlsx_series",
+   "schedule": "monthly",
+   "status": "ok",
+   "latest_period": "2026-10"
+  },
+  {
+   "id": "sem_erwerb_status_b",
+   "name": "SEM asylum statistics: employment of persons with status B",
+   "url": "https://www.sem.admin.ch/de/asylstatistik",
+   "what": "How many persons with status B (recognised refugees with asylum) are of working age (18-64) and in work, by canton, nationality, sex and length of stay; monthly since 2025.",
+   "updated": "2026-11-20",
+   "questions": [
+    "D"
+   ],
+   "type": "xlsx_series",
+   "schedule": "monthly",
+   "status": "ok",
+   "latest_period": "2026-10"
+  },
+  {
+   "id": "sem_erwerb_status_s",
+   "name": "SEM asylum statistics: employment of persons with status S",
+   "url": "https://www.sem.admin.ch/de/asylstatistik",
+   "what": "How many persons with status S (temporary protection, e.g. from Ukraine) are of working age (18-64) and in work, by canton, nationality, sex and length of stay; monthly since 2025.",
+   "updated": "2026-11-20",
+   "questions": [
+    "D"
+   ],
+   "type": "xlsx_series",
+   "schedule": "monthly",
+   "status": "ok",
+   "latest_period": "2026-10"
+  },
+  {
+   "id": "sem_erwerb_status_n",
+   "name": "SEM asylum statistics: employment of persons with status N",
+   "url": "https://www.sem.admin.ch/de/asylstatistik",
+   "what": "How many persons with status N (asylum seekers) are of working age (18-64) and in work, by canton, nationality, sex and length of stay; monthly since 2025.",
+   "updated": "2026-11-20",
+   "questions": [
+    "D"
+   ],
+   "type": "xlsx_series",
+   "schedule": "monthly",
+   "status": "ok",
+   "latest_period": "2026-10"
+  },
+  {
+   "id": "bfs_population_permit",
+   "name": "BFS, resident population by residence permit",
+   "url": "https://www.bfs.admin.ch/bfs/en/home/statistics/population/migration-integration/foreign.html",
+   "what": "Yearly count of people living in Switzerland by residence permit (B, C, Ci, L and the asylum permits F, N, S), for all of Switzerland.",
+   "updated": "2026-11-20",
+   "questions": [
+    "D"
+   ],
+   "type": "pxweb",
+   "schedule": "monthly",
+   "status": "ok",
+   "latest_period": "2025"
+  },
+  {
+   "id": "bfs_sozialhilfe_asyl",
+   "name": "BFS, social assistance rate in the asylum sector (working age)",
+   "url": "https://www.bfs.admin.ch/asset/de/je-d-13.05.01.03.16",
+   "what": "Share of working-age (18-64) asylum seekers and provisionally admitted persons who receive social assistance, by canton, yearly. The lower, the more people are in work.",
+   "updated": "2026-11-20",
+   "questions": [
+    "D"
+   ],
+   "type": "xlsx_series",
+   "schedule": "monthly",
+   "status": "ok",
+   "latest_period": "2024"
+  },
+  {
+   "id": "sem_auslaenderstatistik",
+   "name": "SEM foreigner statistics (monthly Excel tables)",
+   "url": "https://www.sem.admin.ch/de/auslaenderstatistik",
+   "what": "Foreign resident population by permit, canton, nationality and age; immigration, emigration, naturalisation. Reference only: the numbers are in Excel tables 2-xx to 4-xx.",
+   "updated": "2026-11-20",
+   "questions": [
+    "D"
+   ],
+   "type": "link",
+   "schedule": "monthly",
+   "status": "reference",
+   "latest_period": null
+  },
+  {
+   "id": "sem_arbeit_asylbereich",
+   "name": "SEM, working as a refugee or provisionally admitted person",
+   "url": "https://www.sem.admin.ch/de/arbeit-asylbereich",
+   "what": "Rules for work permits and employer duties for persons with status F, B, S and N.",
+   "updated": "2026-11-20",
+   "questions": [
+    "D",
+    "E"
+   ],
+   "type": "link",
+   "schedule": "monthly",
+   "status": "reference",
+   "latest_period": null
+  },
+  {
+   "id": "sem_integrationsagenda",
+   "name": "SEM, Integration Agenda Switzerland",
+   "url": "https://www.sem.admin.ch/de/integrationsagenda",
+   "what": "Federal and cantonal goals for getting refugees into language, training and work, and the monitoring behind them.",
+   "updated": "2026-11-20",
+   "questions": [
+    "D",
+    "E"
+   ],
+   "type": "link",
+   "schedule": "monthly",
+   "status": "reference",
+   "latest_period": null
+  },
+  {
+   "id": "sem_ausbildung_junge",
+   "name": "SEM, training situation of young provisionally admitted persons and refugees",
+   "url": "https://www.sem.admin.ch/de/ausbildungssituation-junger-vorlaeufig-aufgenommener-und-anerkannter-fluechtlinge",
+   "what": "Report on how many young people with status F and B are in training or work.",
+   "updated": "2026-11-20",
+   "questions": [
+    "D"
+   ],
+   "type": "link",
+   "schedule": "monthly",
+   "status": "reference",
+   "latest_period": null
+  },
+  {
+   "id": "esco",
+   "name": "ESCO, European skills classification",
+   "url": "https://esco.ec.europa.eu/en/classification/skill_main",
+   "what": "Official EU classification of skills; the dashboard links each skill to its ESCO definition where one exists.",
+   "updated": "2026-11-20",
+   "questions": [
+    "B"
+   ],
+   "type": "link",
+   "schedule": "monthly",
+   "status": "reference",
+   "latest_period": null
   }
  ],
  "roles": [
@@ -37,10 +274,6 @@
    "label": "Web developer",
    "ads": 153,
    "weekly": [
-    {
-     "week": "2026-W39",
-     "new_ads": 8
-    },
     {
      "week": "2026-W40",
      "new_ads": 8
@@ -78,17 +311,26 @@
     {
      "skill": "Scrum/Agile",
      "count": 62,
-     "share": 0.405
+     "share": 0.405,
+     "esco_uri": "http://data.europa.eu/esco/skill/0a9acb6b-1139-4be9-b431-3a80a959f2f4",
+     "esco_label": "Agile project management",
+     "esco_match": "exact"
     },
     {
      "skill": "SQL",
      "count": 61,
-     "share": 0.399
+     "share": 0.399,
+     "esco_uri": "http://data.europa.eu/esco/skill/598de5b0-5b58-4ea7-8058-a4bc4d18c742",
+     "esco_label": "SQL",
+     "esco_match": "exact"
     },
     {
      "skill": "Java",
      "count": 52,
-     "share": 0.34
+     "share": 0.34,
+     "esco_uri": "http://data.europa.eu/esco/skill/19a8293b-8e95-4de3-983f-77484079c389",
+     "esco_label": "Java (computer programming)",
+     "esco_match": "exact"
     },
     {
      "skill": "API/REST",
@@ -98,57 +340,18 @@
     {
      "skill": "Cloud",
      "count": 41,
-     "share": 0.268
+     "share": 0.268,
+     "esco_uri": "http://data.europa.eu/esco/skill/bd14968e-e409-45af-b362-3495ed7b10e0",
+     "esco_label": "cloud technologies",
+     "esco_match": "exact"
     },
     {
      "skill": "JavaScript",
      "count": 39,
-     "share": 0.255
-    },
-    {
-     "skill": "TypeScript",
-     "count": 35,
-     "share": 0.229
-    },
-    {
-     "skill": "Git",
-     "count": 34,
-     "share": 0.222
-    },
-    {
-     "skill": "Docker",
-     "count": 34,
-     "share": 0.222
-    },
-    {
-     "skill": "React",
-     "count": 32,
-     "share": 0.209
-    },
-    {
-     "skill": "Kubernetes",
-     "count": 31,
-     "share": 0.203
-    },
-    {
-     "skill": "Networking",
-     "count": 30,
-     "share": 0.196
-    },
-    {
-     "skill": "Security",
-     "count": 30,
-     "share": 0.196
-    },
-    {
-     "skill": "HTML/CSS",
-     "count": 26,
-     "share": 0.17
-    },
-    {
-     "skill": "Angular",
-     "count": 26,
-     "share": 0.17
+     "share": 0.255,
+     "esco_uri": "http://data.europa.eu/esco/skill/3cd569a2-4f88-4c1e-9995-8dce8c5e51a7",
+     "esco_label": "JavaScript",
+     "esco_match": "exact"
     }
    ],
    "barriers": {
@@ -171,54 +374,6 @@
     {
      "company": "Google",
      "ads": 5
-    },
-    {
-     "company": "Swissquote Bank SA",
-     "ads": 3
-    },
-    {
-     "company": "Raiffeisen Schweiz",
-     "ads": 3
-    },
-    {
-     "company": "Stadler Rail AG",
-     "ads": 3
-    },
-    {
-     "company": "Salt Mobile SA",
-     "ads": 2
-    },
-    {
-     "company": "Evergreen Human Resources AG",
-     "ads": 2
-    },
-    {
-     "company": "Swisslinx AG",
-     "ads": 2
-    },
-    {
-     "company": "Pro Informatik AG",
-     "ads": 2
-    },
-    {
-     "company": "Diartis AG",
-     "ads": 2
-    },
-    {
-     "company": "Visana Services AG",
-     "ads": 2
-    },
-    {
-     "company": "INFOMANIAK NETWORK SA",
-     "ads": 2
-    },
-    {
-     "company": "Haefely AG",
-     "ads": 2
-    },
-    {
-     "company": "biwac websolutions ag",
-     "ads": 2
     }
    ],
    "agencies": [
@@ -229,30 +384,6 @@
     {
      "company": "Yellowshark",
      "ads": 6
-    },
-    {
-     "company": "avec compétence GmbH",
-     "ads": 5
-    },
-    {
-     "company": "Müntener & Thomas Personal- und Unternehmensberatung AG",
-     "ads": 4
-    },
-    {
-     "company": "Jobup",
-     "ads": 2
-    },
-    {
-     "company": "Hays (Schweiz) AG",
-     "ads": 2
-    },
-    {
-     "company": "Adecco",
-     "ads": 1
-    },
-    {
-     "company": "Coopers Group AG",
-     "ads": 1
     }
    ],
    "agency_share": 0.248,
@@ -276,42 +407,6 @@
     {
      "canton": "VD",
      "count": 6
-    },
-    {
-     "canton": "BS",
-     "count": 4
-    },
-    {
-     "canton": "GE",
-     "count": 4
-    },
-    {
-     "canton": "TG",
-     "count": 3
-    },
-    {
-     "canton": "SO",
-     "count": 2
-    },
-    {
-     "canton": "BL",
-     "count": 2
-    },
-    {
-     "canton": "TI",
-     "count": 2
-    },
-    {
-     "canton": "LU",
-     "count": 2
-    },
-    {
-     "canton": "ZG",
-     "count": 1
-    },
-    {
-     "canton": "SZ",
-     "count": 1
     }
    ],
    "reporting_obligation_share": 0.007,
@@ -329,48 +424,6 @@
      "city": "Prilly",
      "published": "2026-11-20",
      "url": "https://www.jobs.ch/de/stellenangebote/detail/141304db-2d43-46dd-9e70-9e22fb412c02/?utm_source=job-room.ch&inv=ppd-p&utm_medium=affiliate&utm_campaign=wb:jobs|tg:b2c|cn:ch|lg:de|ct:targeting,nonbrand,job|cd:feedonomics-jobroom|mg:job-application|pd:n|tt:organic"
-    },
-    {
-     "title": "Ecommerce and Web Operations Internship",
-     "company": "Salt Mobile SA",
-     "city": "Prilly",
-     "published": "2026-11-20",
-     "url": "https://www.jobup.ch/fr/emplois/detail/6dc97831-54f4-46fb-9f9c-fad0c9da97e2/?utm_source=job-room.ch&utm_medium=affiliate&utm_campaign=wb:jobup|tg:b2c|cn:ch|lg:fr|ct:targeting,nonbrand,job|cd:feedonomics-jobroom|mg:job-application|pd:n|tt:organic"
-    },
-    {
-     "title": "Fraud Python Software Engineer",
-     "company": "Swissquote Bank SA",
-     "city": "Gland",
-     "published": "2026-11-19",
-     "url": "https://jobs.smartrecruiters.com/Swissquote/744000162275389-fraud-python-software-engineer"
-    },
-    {
-     "title": "Software Engineer Java 80-100%",
-     "company": "Evergreen Human Resources AG",
-     "city": "BASEL",
-     "published": "2026-11-19",
-     "url": "https://www.evergreen-hr.ch/stelle/10423844361065158350/?cache=0fa69682a908b029709036d0c580188f"
-    },
-    {
-     "title": "Senior AI Software Developer",
-     "company": "DV Bern AG",
-     "city": "Bern",
-     "published": "2026-11-19",
-     "url": "https://www.jobs.ch/de/stellenangebote/detail/bec83357-3b90-4364-8b80-5384b6de19ce/?utm_source=job-room.ch&inv=ppd-p&utm_medium=affiliate&utm_campaign=wb:jobs|tg:b2c|cn:ch|lg:de|ct:targeting,nonbrand,job|cd:feedonomics-jobroom|mg:job-application|pd:n|tt:organic"
-    },
-    {
-     "title": "DevOps Software Engineer (Gitlab)",
-     "company": "SIX Group Ltd",
-     "city": "Zürich",
-     "published": "2026-11-18",
-     "url": "https://jobs.six-group.com/job/Zurich-DevOps-Software-Engineer-%28Gitlab%29/1411694233/"
-    },
-    {
-     "title": "Lead Web Application Engineer (m/w/d)",
-     "company": "Schweizerische Bundesbahnen SBB",
-     "city": "Bern",
-     "published": "2026-11-18",
-     "url": "https://jobs.sbb.ch/v2/offene-stellen/lead-web-application-engineer-m-w-d/7ec9a063-5a73-4af2-aad3-f137e00ba472"
     }
    ]
   },
@@ -379,10 +432,6 @@
    "label": "IT support",
    "ads": 330,
    "weekly": [
-    {
-     "week": "2026-W39",
-     "new_ads": 8
-    },
     {
      "week": "2026-W40",
      "new_ads": 8
@@ -420,7 +469,10 @@
     {
      "skill": "Microsoft 365",
      "count": 136,
-     "share": 0.412
+     "share": 0.412,
+     "esco_uri": "http://data.europa.eu/esco/skill/f683ae1d-cb7c-4aa1-b9fe-205e1bd23535",
+     "esco_label": "use microsoft office",
+     "esco_match": "broader"
     },
     {
      "skill": "Windows",
@@ -435,62 +487,26 @@
     {
      "skill": "Hardware",
      "count": 117,
-     "share": 0.355
+     "share": 0.355,
+     "esco_uri": "http://data.europa.eu/esco/skill/3497ebe1-d417-4105-a68f-f7bbcac7ee5f",
+     "esco_label": "ICT hardware specifications",
+     "esco_match": "broader"
     },
     {
      "skill": "Ticketing",
      "count": 98,
-     "share": 0.297
+     "share": 0.297,
+     "esco_uri": "http://data.europa.eu/esco/skill/118efbcd-8fc5-4668-81d1-c383a0d16070",
+     "esco_label": "handle helpdesk problems",
+     "esco_match": "broader"
     },
     {
      "skill": "Active Directory",
      "count": 66,
-     "share": 0.2
-    },
-    {
-     "skill": "Security",
-     "count": 65,
-     "share": 0.197
-    },
-    {
-     "skill": "ITIL",
-     "count": 38,
-     "share": 0.115
-    },
-    {
-     "skill": "Intune/MDM",
-     "count": 33,
-     "share": 0.1
-    },
-    {
-     "skill": "Cloud",
-     "count": 30,
-     "share": 0.091
-    },
-    {
-     "skill": "Azure",
-     "count": 24,
-     "share": 0.073
-    },
-    {
-     "skill": "Excel",
-     "count": 22,
-     "share": 0.067
-    },
-    {
-     "skill": "Scrum/Agile",
-     "count": 15,
-     "share": 0.045
-    },
-    {
-     "skill": "SQL",
-     "count": 10,
-     "share": 0.03
-    },
-    {
-     "skill": "Linux",
-     "count": 9,
-     "share": 0.027
+     "share": 0.2,
+     "esco_uri": "http://data.europa.eu/esco/skill/d1e954cd-d290-4d80-97c0-7969960d2928",
+     "esco_label": "distributed directory information services",
+     "esco_match": "broader"
     }
    ],
    "barriers": {
@@ -513,54 +529,6 @@
     {
      "company": "Selecta AG",
      "ads": 4
-    },
-    {
-     "company": "Foppa AG",
-     "ads": 4
-    },
-    {
-     "company": "C5I",
-     "ads": 4
-    },
-    {
-     "company": "Dottikon Exclusive Synthesis AG",
-     "ads": 4
-    },
-    {
-     "company": "IQ Plus AG",
-     "ads": 3
-    },
-    {
-     "company": "Nitrochemie Wimmis AG",
-     "ads": 3
-    },
-    {
-     "company": "Kantonale Verwaltung Basel-Landschaft",
-     "ads": 3
-    },
-    {
-     "company": "Schönenberger Partner AG",
-     "ads": 3
-    },
-    {
-     "company": "Mettler Toledo",
-     "ads": 3
-    },
-    {
-     "company": "SpeciTec SA",
-     "ads": 2
-    },
-    {
-     "company": "Hemmersbach Switzerland AG",
-     "ads": 2
-    },
-    {
-     "company": "Callpoint AG",
-     "ads": 2
-    },
-    {
-     "company": "Bison Schweiz AG",
-     "ads": 2
     }
    ],
    "agencies": [
@@ -571,30 +539,6 @@
     {
      "company": "myitjob GmbH",
      "ads": 27
-    },
-    {
-     "company": "Freestar-Informatik AG",
-     "ads": 16
-    },
-    {
-     "company": "Spotted",
-     "ads": 7
-    },
-    {
-     "company": "Rent a Person Personalberatungs AG",
-     "ads": 6
-    },
-    {
-     "company": "Jobup",
-     "ads": 6
-    },
-    {
-     "company": "Hays (Schweiz) AG",
-     "ads": 4
-    },
-    {
-     "company": "Adecco",
-     "ads": 4
     }
    ],
    "agency_share": 0.43,
@@ -618,70 +562,6 @@
     {
      "canton": "SG",
      "count": 16
-    },
-    {
-     "canton": "ZG",
-     "count": 14
-    },
-    {
-     "canton": "TG",
-     "count": 12
-    },
-    {
-     "canton": "VD",
-     "count": 11
-    },
-    {
-     "canton": "FL",
-     "count": 9
-    },
-    {
-     "canton": "BL",
-     "count": 8
-    },
-    {
-     "canton": "BS",
-     "count": 7
-    },
-    {
-     "canton": "GE",
-     "count": 6
-    },
-    {
-     "canton": "SO",
-     "count": 5
-    },
-    {
-     "canton": "GR",
-     "count": 4
-    },
-    {
-     "canton": "VS",
-     "count": 4
-    },
-    {
-     "canton": "GL",
-     "count": 3
-    },
-    {
-     "canton": "TI",
-     "count": 3
-    },
-    {
-     "canton": "SH",
-     "count": 2
-    },
-    {
-     "canton": "FR",
-     "count": 1
-    },
-    {
-     "canton": "AI",
-     "count": 1
-    },
-    {
-     "canton": "NE",
-     "count": 1
     }
    ],
    "reporting_obligation_share": 0.006,
@@ -699,48 +579,6 @@
      "city": "Grand-Lancy",
      "published": "2026-11-20",
      "url": "https://www.jobup.ch/fr/emplois/detail/792f34e6-d3d9-45c2-b2f8-d92d98eef09f/?utm_source=job-room.ch&utm_medium=affiliate&utm_campaign=wb:jobup|tg:b2c|cn:ch|lg:fr|ct:targeting,nonbrand,job|cd:feedonomics-jobroom|mg:job-application|pd:n|tt:organic"
-    },
-    {
-     "title": "IT Support Techniker *in",
-     "company": "ERNE Management AG",
-     "city": "Laufenburg",
-     "published": "2026-11-20",
-     "url": "https://ohws.prospective.ch/public/v1/jobs/1f0870ff-7dfa-4b66-94f3-a548320950f5"
-    },
-    {
-     "title": "Coordinateur·trice de projet déménagement IT & Support IT — Mission de 12 mois",
-     "company": "SpeciTec SA",
-     "city": "Grand-Lancy",
-     "published": "2026-11-20",
-     "url": "https://www.jobs.ch/de/stellenangebote/detail/792f34e6-d3d9-45c2-b2f8-d92d98eef09f/?utm_source=job-room.ch&inv=ppd-p&utm_medium=affiliate&utm_campaign=wb:jobs|tg:b2c|cn:ch|lg:de|ct:targeting,nonbrand,job|cd:feedonomics-jobroom|mg:job-application|pd:n|tt:organic"
-    },
-    {
-     "title": "ICT - Systemtechniker /-in",
-     "company": "Kantonale Verwaltung Zürich",
-     "city": "Dübendorf",
-     "published": "2026-11-20",
-     "url": "https://www.jobs.ch/de/stellenangebote/detail/e49a0f89-cb59-4536-9e24-79e901dafe41/?utm_source=job-room.ch&inv=ppd-p&utm_medium=affiliate&utm_campaign=wb:jobs|tg:b2c|cn:ch|lg:de|ct:targeting,nonbrand,job|cd:feedonomics-jobroom|mg:job-application|pd:n|tt:organic"
-    },
-    {
-     "title": "IT -Onsite Technician (L2) (m/w/d) in Eschen, Liechtenstein",
-     "company": "Hemmersbach Switzerland AG",
-     "city": "Eschen",
-     "published": "2026-11-20",
-     "url": "https://www.jobscout24.ch/de/job/d8358ecd-7e55-4495-bbf6-35e505364fe3/?utm_source=job-room.ch&utm_medium=affiliate&utm_campaign=wb:jobscout24|tg:b2c|cn:ch|lg:de|ct:targeting,nonbrand,job|cd:feedonomics-jobroom|mg:job-application|pd:n|tt:organic"
-    },
-    {
-     "title": "Kundenberater:in im First Level Support 50-60%",
-     "company": "Callpoint AG",
-     "city": "Basel",
-     "published": "2026-11-20",
-     "url": "https://www.jobs.ch/de/stellenangebote/detail/dec6bda0-f9c1-4d63-a414-d0c67939635e/?utm_source=job-room.ch&inv=ppd-p&utm_medium=affiliate&utm_campaign=wb:jobs|tg:b2c|cn:ch|lg:de|ct:targeting,nonbrand,job|cd:feedonomics-jobroom|mg:job-application|pd:n|tt:organic"
-    },
-    {
-     "title": "IT - Supporter (w/m/d)",
-     "company": "Bison Schweiz AG",
-     "city": "Winterthur",
-     "published": "2026-11-20",
-     "url": "https://www.jobscout24.ch/de/job/4194003f-e2dc-46c4-b9e1-88ad049e38c8/?utm_source=job-room.ch&utm_medium=affiliate&utm_campaign=wb:jobscout24|tg:b2c|cn:ch|lg:de|ct:targeting,nonbrand,job|cd:feedonomics-jobroom|mg:job-application|pd:n|tt:organic"
     }
    ]
   },
@@ -749,10 +587,6 @@
    "label": "Data analyst",
    "ads": 202,
    "weekly": [
-    {
-     "week": "2026-W39",
-     "new_ads": 5
-    },
     {
      "week": "2026-W40",
      "new_ads": 7
@@ -790,77 +624,50 @@
     {
      "skill": "SQL",
      "count": 119,
-     "share": 0.589
+     "share": 0.589,
+     "esco_uri": "http://data.europa.eu/esco/skill/598de5b0-5b58-4ea7-8058-a4bc4d18c742",
+     "esco_label": "SQL",
+     "esco_match": "exact"
     },
     {
      "skill": "Python",
      "count": 79,
-     "share": 0.391
+     "share": 0.391,
+     "esco_uri": "http://data.europa.eu/esco/skill/ccd0a1d9-afda-43d9-b901-96344886e14d",
+     "esco_label": "Python (computer programming)",
+     "esco_match": "exact"
     },
     {
      "skill": "Cloud",
      "count": 65,
-     "share": 0.322
+     "share": 0.322,
+     "esco_uri": "http://data.europa.eu/esco/skill/bd14968e-e409-45af-b362-3495ed7b10e0",
+     "esco_label": "cloud technologies",
+     "esco_match": "exact"
     },
     {
      "skill": "Excel",
      "count": 55,
-     "share": 0.272
+     "share": 0.272,
+     "esco_uri": "http://data.europa.eu/esco/skill/1973c966-f236-40c9-b2d4-5d71a89019be",
+     "esco_label": "use spreadsheets software",
+     "esco_match": "broader"
     },
     {
      "skill": "Power BI",
      "count": 49,
-     "share": 0.243
+     "share": 0.243,
+     "esco_uri": "http://data.europa.eu/esco/skill/143769cb-b61e-47d8-a61e-eedfbec1016c",
+     "esco_label": "business intelligence",
+     "esco_match": "broader"
     },
     {
      "skill": "Security",
      "count": 45,
-     "share": 0.223
-    },
-    {
-     "skill": "Scrum/Agile",
-     "count": 45,
-     "share": 0.223
-    },
-    {
-     "skill": "Azure",
-     "count": 41,
-     "share": 0.203
-    },
-    {
-     "skill": "API/REST",
-     "count": 30,
-     "share": 0.149
-    },
-    {
-     "skill": "Git",
-     "count": 24,
-     "share": 0.119
-    },
-    {
-     "skill": "SAP",
-     "count": 21,
-     "share": 0.104
-    },
-    {
-     "skill": "Tableau",
-     "count": 17,
-     "share": 0.084
-    },
-    {
-     "skill": "AWS",
-     "count": 16,
-     "share": 0.079
-    },
-    {
-     "skill": "R",
-     "count": 14,
-     "share": 0.069
-    },
-    {
-     "skill": "Ticketing",
-     "count": 13,
-     "share": 0.064
+     "share": 0.223,
+     "esco_uri": "http://data.europa.eu/esco/skill/8088750d-8388-4170-a76f-48354c469c44",
+     "esco_label": "cyber security",
+     "esco_match": "exact"
     }
    ],
    "barriers": {
@@ -883,54 +690,6 @@
     {
      "company": "OST - Ostschweizer Fachhochschule",
      "ads": 4
-    },
-    {
-     "company": "RUAG MRO Holding AG",
-     "ads": 4
-    },
-    {
-     "company": "Pictet Asset Management SA",
-     "ads": 3
-    },
-    {
-     "company": "Visana Services AG",
-     "ads": 3
-    },
-    {
-     "company": "Bundesamt für Meteorologie und Klimatologie MeteoSchweiz",
-     "ads": 3
-    },
-    {
-     "company": "Migros-Genossenschafts-Bund",
-     "ads": 3
-    },
-    {
-     "company": "Brack.Alltron AG",
-     "ads": 3
-    },
-    {
-     "company": "Schweizer Armee - Kommando Ausbildung Kdo Ausb",
-     "ads": 3
-    },
-    {
-     "company": "Swisslinx AG",
-     "ads": 2
-    },
-    {
-     "company": "Mercedes-Benz Schweiz AG",
-     "ads": 2
-    },
-    {
-     "company": "Groupe Mutuel",
-     "ads": 2
-    },
-    {
-     "company": "Vaudoise Assurances",
-     "ads": 2
-    },
-    {
-     "company": "Bundesamt für Landwirtschaft BLW",
-     "ads": 2
     }
    ],
    "agencies": [
@@ -941,30 +700,6 @@
     {
      "company": "Jobup",
      "ads": 6
-    },
-    {
-     "company": "avec compétence GmbH",
-     "ads": 6
-    },
-    {
-     "company": "Marco R. Fuhrer Unternehmensberatung",
-     "ads": 5
-    },
-    {
-     "company": "Coopers Group AG",
-     "ads": 4
-    },
-    {
-     "company": "NonStop Consulting AG",
-     "ads": 3
-    },
-    {
-     "company": "Müntener & Thomas Personal- und Unternehmensberatung AG",
-     "ads": 3
-    },
-    {
-     "company": "Yellowshark",
-     "ads": 2
     }
    ],
    "agency_share": 0.297,
@@ -988,58 +723,6 @@
     {
      "canton": "GE",
      "count": 13
-    },
-    {
-     "canton": "VD",
-     "count": 11
-    },
-    {
-     "canton": "BS",
-     "count": 10
-    },
-    {
-     "canton": "SG",
-     "count": 6
-    },
-    {
-     "canton": "SZ",
-     "count": 6
-    },
-    {
-     "canton": "SO",
-     "count": 5
-    },
-    {
-     "canton": "TG",
-     "count": 3
-    },
-    {
-     "canton": "NE",
-     "count": 2
-    },
-    {
-     "canton": "ZG",
-     "count": 2
-    },
-    {
-     "canton": "VS",
-     "count": 2
-    },
-    {
-     "canton": "FR",
-     "count": 1
-    },
-    {
-     "canton": "BL",
-     "count": 1
-    },
-    {
-     "canton": "FL",
-     "count": 1
-    },
-    {
-     "canton": "GR",
-     "count": 1
     }
    ],
    "reporting_obligation_share": 0.0,
@@ -1057,253 +740,11 @@
      "city": "Zürich",
      "published": "2026-11-20",
      "url": "https://www.jobs.ch/de/stellenangebote/detail/c40f8e1f-a008-4ed6-8213-c3fad80a3aa9/?utm_source=job-room.ch&inv=ppd-p&utm_medium=affiliate&utm_campaign=wb:jobs|tg:b2c|cn:ch|lg:de|ct:targeting,nonbrand,job|cd:feedonomics-jobroom|mg:job-application|pd:n|tt:organic"
-    },
-    {
-     "title": "Senior Data Platform Engineer",
-     "company": "Swisslinx AG",
-     "city": "Horgen",
-     "published": "2026-11-20",
-     "url": "https://www.jobs.ch/de/stellenangebote/detail/4f4dc78f-694d-4f46-89ab-25c10a171139/?utm_source=job-room.ch&inv=ppd-p&utm_medium=affiliate&utm_campaign=wb:jobs|tg:b2c|cn:ch|lg:de|ct:targeting,nonbrand,job|cd:feedonomics-jobroom|mg:job-application|pd:n|tt:organic"
-    },
-    {
-     "title": "Technical Lead ( Data Applications and BI )",
-     "company": "EPAM Systems (Switzerland) GmbH",
-     "city": "Zürich",
-     "published": "2026-11-20",
-     "url": "https://www.job-room.ch/job-search/b4e7fa88-41b6-4259-96aa-dd3e99acaf0a"
-    },
-    {
-     "title": "ESG Data Analyst - Exclusive",
-     "company": "EMEA Recruitment",
-     "city": null,
-     "published": "2026-11-19",
-     "url": "https://www.emearecruitment.com/jobs/details/netherlands/emea-exclusive/data-management/health-safety/esg-data-analyst-exclusive/8928"
-    },
-    {
-     "title": "Researcher - Pretraining Data Team",
-     "company": "Microsoft",
-     "city": "Zürich",
-     "published": "2026-11-19",
-     "url": "https://apply.careers.microsoft.com/careers/job/1970393557043264"
-    },
-    {
-     "title": "Portfolio & Data Controller/in 100% (w/m/d)",
-     "company": "Mercedes-Benz Schweiz AG",
-     "city": "Schlieren",
-     "published": "2026-11-19",
-     "url": "https://ictjobs.ch/software-entwicklung/portfolio-data-controller-in-100-w-m-d/?pg=2"
-    },
-    {
-     "title": "Data Risk & Compliance Analyst",
-     "company": "MSC Cruises",
-     "city": "Gross",
-     "published": "2026-11-19",
-     "url": "https://careers.msccruises.com/gb/en/job/18036/Data-Risk-Compliance-Analyst"
     }
    ]
   }
  ],
  "sector": [
-  {
-   "series": "Job vacancies - total / 58-63 IT and communications",
-   "period": "2020Q3",
-   "value": 4550.0
-  },
-  {
-   "series": "Job vacancies - total / 62-63 IT and other information services",
-   "period": "2020Q3",
-   "value": 3921.0
-  },
-  {
-   "series": "Job vacancies - total / 58-63 IT and communications",
-   "period": "2020Q4",
-   "value": 4665.0
-  },
-  {
-   "series": "Job vacancies - total / 62-63 IT and other information services",
-   "period": "2020Q4",
-   "value": 3980.0
-  },
-  {
-   "series": "Job vacancies - total / 58-63 IT and communications",
-   "period": "2021Q1",
-   "value": 4551.0
-  },
-  {
-   "series": "Job vacancies - total / 62-63 IT and other information services",
-   "period": "2021Q1",
-   "value": 3766.0
-  },
-  {
-   "series": "Job vacancies - total / 58-63 IT and communications",
-   "period": "2021Q2",
-   "value": 5126.0
-  },
-  {
-   "series": "Job vacancies - total / 62-63 IT and other information services",
-   "period": "2021Q2",
-   "value": 4295.0
-  },
-  {
-   "series": "Job vacancies - total / 58-63 IT and communications",
-   "period": "2021Q3",
-   "value": 6222.0
-  },
-  {
-   "series": "Job vacancies - total / 62-63 IT and other information services",
-   "period": "2021Q3",
-   "value": 5264.0
-  },
-  {
-   "series": "Job vacancies - total / 58-63 IT and communications",
-   "period": "2021Q4",
-   "value": 6688.0
-  },
-  {
-   "series": "Job vacancies - total / 62-63 IT and other information services",
-   "period": "2021Q4",
-   "value": 5475.0
-  },
-  {
-   "series": "Job vacancies - total / 58-63 IT and communications",
-   "period": "2022Q1",
-   "value": 6857.0
-  },
-  {
-   "series": "Job vacancies - total / 62-63 IT and other information services",
-   "period": "2022Q1",
-   "value": 5920.0
-  },
-  {
-   "series": "Job vacancies - total / 58-63 IT and communications",
-   "period": "2022Q2",
-   "value": 8259.0
-  },
-  {
-   "series": "Job vacancies - total / 62-63 IT and other information services",
-   "period": "2022Q2",
-   "value": 7011.0
-  },
-  {
-   "series": "Job vacancies - total / 58-63 IT and communications",
-   "period": "2022Q3",
-   "value": 7615.0
-  },
-  {
-   "series": "Job vacancies - total / 62-63 IT and other information services",
-   "period": "2022Q3",
-   "value": 6375.0
-  },
-  {
-   "series": "Job vacancies - total / 58-63 IT and communications",
-   "period": "2022Q4",
-   "value": 7129.0
-  },
-  {
-   "series": "Job vacancies - total / 62-63 IT and other information services",
-   "period": "2022Q4",
-   "value": 6250.0
-  },
-  {
-   "series": "Job vacancies - total / 58-63 IT and communications",
-   "period": "2023Q1",
-   "value": 6659.0
-  },
-  {
-   "series": "Job vacancies - total / 62-63 IT and other information services",
-   "period": "2023Q1",
-   "value": 5702.0
-  },
-  {
-   "series": "Job vacancies - total / 58-63 IT and communications",
-   "period": "2023Q2",
-   "value": 5923.0
-  },
-  {
-   "series": "Job vacancies - total / 62-63 IT and other information services",
-   "period": "2023Q2",
-   "value": 5161.0
-  },
-  {
-   "series": "Job vacancies - total / 58-63 IT and communications",
-   "period": "2023Q3",
-   "value": 5971.0
-  },
-  {
-   "series": "Job vacancies - total / 62-63 IT and other information services",
-   "period": "2023Q3",
-   "value": 5238.0
-  },
-  {
-   "series": "Job vacancies - total / 58-63 IT and communications",
-   "period": "2023Q4",
-   "value": 5104.0
-  },
-  {
-   "series": "Job vacancies - total / 62-63 IT and other information services",
-   "period": "2023Q4",
-   "value": 4350.0
-  },
-  {
-   "series": "Job vacancies - total / 58-63 IT and communications",
-   "period": "2024Q1",
-   "value": 6417.0
-  },
-  {
-   "series": "Job vacancies - total / 62-63 IT and other information services",
-   "period": "2024Q1",
-   "value": 5578.0
-  },
-  {
-   "series": "Job vacancies - total / 58-63 IT and communications",
-   "period": "2024Q2",
-   "value": 5481.0
-  },
-  {
-   "series": "Job vacancies - total / 62-63 IT and other information services",
-   "period": "2024Q2",
-   "value": 4757.0
-  },
-  {
-   "series": "Job vacancies - total / 58-63 IT and communications",
-   "period": "2024Q3",
-   "value": 4358.0
-  },
-  {
-   "series": "Job vacancies - total / 62-63 IT and other information services",
-   "period": "2024Q3",
-   "value": 3676.0
-  },
-  {
-   "series": "Job vacancies - total / 58-63 IT and communications",
-   "period": "2024Q4",
-   "value": 4398.0
-  },
-  {
-   "series": "Job vacancies - total / 62-63 IT and other information services",
-   "period": "2024Q4",
-   "value": 3762.0
-  },
-  {
-   "series": "Job vacancies - total / 58-63 IT and communications",
-   "period": "2025Q1",
-   "value": 4787.0
-  },
-  {
-   "series": "Job vacancies - total / 62-63 IT and other information services",
-   "period": "2025Q1",
-   "value": 4137.0
-  },
-  {
-   "series": "Job vacancies - total / 58-63 IT and communications",
-   "period": "2025Q2",
-   "value": 4529.0
-  },
-  {
-   "series": "Job vacancies - total / 62-63 IT and other information services",
-   "period": "2025Q2",
-   "value": 3740.0
-  },
   {
    "series": "Job vacancies - total / 58-63 IT and communications",
    "period": "2025Q3",
@@ -1385,286 +826,1027 @@
    "status": "In Ständerat geplant",
    "url": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20264550",
    "matched": "Status S"
-  },
-  {
-   "source": "Parliament (Curia Vista)",
-   "title": "Verbesserung der Integration von Personen mit Schutzstatus S durch aktive Teilhabe",
-   "date": "2026-10-02",
-   "status": "Stellungnahme zum Vorstoss liegt vor",
-   "url": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20264631",
-   "matched": "Status S"
-  },
-  {
-   "source": "Parliament (Curia Vista)",
-   "title": "Transparenz zu den interkulturellen Dolmetschern und Begleitern im Asylwesen und generell beim Bund",
-   "date": "2026-10-01",
-   "status": "Stellungnahme zum Vorstoss liegt vor",
-   "url": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20264426",
-   "matched": "Asyl"
-  },
-  {
-   "source": "Parliament (Curia Vista)",
-   "title": "Asyl nur für Schutzbedürftige. Überarbeitung Safe-Country-Konzept",
-   "date": "2026-10-01",
-   "status": "Stellungnahme zum Vorstoss liegt vor",
-   "url": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20264440",
-   "matched": "Asyl"
-  },
-  {
-   "source": "Parliament (Curia Vista)",
-   "title": "Recht des Kindes auf Anhörung in Asyl- und Ausländerrechtsangelegenheiten",
-   "date": "2026-10-01",
-   "status": "Stellungnahme zum Vorstoss liegt vor",
-   "url": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20264474",
-   "matched": "Asyl"
-  },
-  {
-   "source": "Parliament (Curia Vista)",
-   "title": "Kurzeinsätze hochspezialisierter Fachkräfte nach Ausschöpfung des 90-Tage-Meldeverfahrens vereinfachen",
-   "date": "2026-10-01",
-   "status": "Stellungnahme zum Vorstoss liegt vor",
-   "url": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20264410",
-   "matched": "Fachkräfte"
-  },
-  {
-   "source": "Parliament (Curia Vista)",
-   "title": "Ausbildungsoffensive Bund. Fachkräfte von morgen ausbilden",
-   "date": "2026-10-01",
-   "status": "Stellungnahme zum Vorstoss liegt vor",
-   "url": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20264422",
-   "matched": "Fachkräfte"
-  },
-  {
-   "source": "Parliament (Curia Vista)",
-   "title": "Besondere Zentren für sicherheitsrelevante Asylsuchende unverzüglich schaffen",
-   "date": "2026-09-30",
-   "status": "Eingereicht",
-   "url": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20264366",
-   "matched": "Asyl"
-  },
-  {
-   "source": "Parliament (Curia Vista)",
-   "title": "Kann mit einer Neuorganisation der Asylabteilungen des Bundesverwaltungsgerichts die Effizienz erhöht werden?",
-   "date": "2026-09-30",
-   "status": "In Ständerat geplant",
-   "url": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20264375",
-   "matched": "Asyl"
-  },
-  {
-   "source": "Parliament (Curia Vista)",
-   "title": "Schutzstatus S. Wer Sozialleistungen bezieht, soll einen Beitrag an die Gemeinschaft leisten",
-   "date": "2026-09-30",
-   "status": "Stellungnahme zum Vorstoss liegt vor",
-   "url": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20264350",
-   "matched": "Status S"
-  },
-  {
-   "source": "Parliament (Curia Vista)",
-   "title": "Italien. Keine Übernahme von Asylsuchenden, für die das Land zuständig ist?",
-   "date": "2026-09-29",
-   "status": "Eingereicht",
-   "url": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20264299",
-   "matched": "Asyl"
-  },
-  {
-   "source": "Parliament (Curia Vista)",
-   "title": "Keine Asylverfahren bei der Einreise aus sicherem Herkunfts-, Heimat- oder Drittstaaten",
-   "date": "2026-09-28",
-   "status": "Stellungnahme zum Vorstoss liegt vor",
-   "url": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20264281",
-   "matched": "Asyl"
-  },
-  {
-   "source": "Parliament (Curia Vista)",
-   "title": "Von Österreich lernen. Familiennachzug im Asylbereich aussetzen. Asylsystem stabilisieren. Familiennachzug für Flüchtlinge an Flüchtlingskonvention anpassen",
-   "date": "2026-09-28",
-   "status": "Stellungnahme zum Vorstoss liegt vor",
-   "url": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20264282",
-   "matched": "Asyl"
-  },
-  {
-   "source": "Parliament (Curia Vista)",
-   "title": "Bevölkerung schützen. Kein Asyl für Hochrisiko-Asylmigranten",
-   "date": "2026-09-28",
-   "status": "Stellungnahme zum Vorstoss liegt vor",
-   "url": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20264283",
-   "matched": "Asyl"
-  },
-  {
-   "source": "Parliament (Curia Vista)",
-   "title": "Folgen aktueller Regulierungsforderungen für die bezahlte Angehörigenpflege betreffend Kosten und Fachkräftemangel in der ambulanten Pflege",
-   "date": "2026-09-28",
-   "status": "Eingereicht",
-   "url": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20264276",
-   "matched": "Fachkräfte"
-  },
-  {
-   "source": "Parliament (Curia Vista)",
-   "title": "Migranten aus dem Maghreb vom Asylverfahren ausschliessen",
-   "date": "2026-09-23",
-   "status": "Stellungnahme zum Vorstoss liegt vor",
-   "url": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20264219",
-   "matched": "Asyl"
-  },
-  {
-   "source": "Parliament (Curia Vista)",
-   "title": "Asylgesuche: Was bedeutet die lange Landesgrenze für den Grenzschutz?",
-   "date": "2026-09-23",
-   "status": "Erledigt",
-   "url": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20267958",
-   "matched": "Asyl"
-  },
-  {
-   "source": "Parliament (Curia Vista)",
-   "title": "Entwicklung der minderjährigen Asylbewerber ohne Identifikationsdokumente",
-   "date": "2026-09-23",
-   "status": "Erledigt",
-   "url": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20268025",
-   "matched": "Asyl"
-  },
-  {
-   "source": "Parliament (Curia Vista)",
-   "title": "Wie viel Geld fliesst zu den Asylanwälten?",
-   "date": "2026-09-23",
-   "status": "Erledigt",
-   "url": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20268028",
-   "matched": "Asyl"
-  },
-  {
-   "source": "Parliament (Curia Vista)",
-   "title": "«Hintergrundgespräch» vom Freitag, 18. September 2026, 11 Uhr zur Grenzschutzinitiative «Asylmissbrauch stoppen!»",
-   "date": "2026-09-23",
-   "status": "Erledigt",
-   "url": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20268035",
-   "matched": "Asyl"
-  },
-  {
-   "source": "Parliament (Curia Vista)",
-   "title": "Detailliertere Statistiken zur Wegweisung straffälliger Ausländerinnen und Ausländer",
-   "date": "2026-09-23",
-   "status": "Erledigt",
-   "url": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20267990",
-   "matched": "Ausländer"
-  },
-  {
-   "source": "Parliament (Curia Vista)",
-   "title": "Integrationsreform der IV. Welche Lücke soll mit der neuen Integrationsleistung geschlossen werden?",
-   "date": "2026-09-23",
-   "status": "Stellungnahme zum Vorstoss liegt vor",
-   "url": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20264240",
-   "matched": "Integration"
-  },
-  {
-   "source": "Parliament (Curia Vista)",
-   "title": "Beschaffung von Reisedokumenten und Dauer der Administrativhaft für abgewiesene Asylsuchende aus den Maghreb-Staaten",
-   "date": "2026-09-22",
-   "status": "Stellungnahme zum Vorstoss liegt vor",
-   "url": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20264209",
-   "matched": "Asyl"
-  },
-  {
-   "source": "Parliament (Curia Vista)",
-   "title": "Vorgelagertes Asylverfahren: rechtlich haltbar und durchführbar?",
-   "date": "2026-09-22",
-   "status": "Erledigt",
-   "url": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20267923",
-   "matched": "Asyl"
-  },
-  {
-   "source": "Parliament (Curia Vista)",
-   "title": "Asylgesetz - was gibt es in klaren Fällen noch zu prüfen?",
-   "date": "2026-09-21",
-   "status": "Erledigt",
-   "url": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20267883",
-   "matched": "Asyl"
-  },
-  {
-   "source": "Parliament (Curia Vista)",
-   "title": "Asylmissbrauch stoppen! (Grenzschutzinitiative). Volksinitiative",
-   "date": "2026-09-18",
-   "status": "Beratung in Kommission des Ständerates abgeschlossen",
-   "url": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20260067",
-   "matched": "Asyl"
-  },
-  {
-   "source": "Parliament (Curia Vista)",
-   "title": "Schliessung des Bundesasylzentrums Boudry",
-   "date": "2026-09-17",
-   "status": "Stellungnahme zum Vorstoss liegt vor",
-   "url": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20264172",
-   "matched": "Asyl"
-  },
-  {
-   "source": "Parliament (Curia Vista)",
-   "title": "Ausgaben im Gesundheitsbereich für Asylsuchende, vorläufig Aufgenommene und Status S Personen",
-   "date": "2026-09-16",
-   "status": "Erledigt",
-   "url": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20267846",
-   "matched": "vorläufig"
-  },
-  {
-   "source": "Parliament (Curia Vista)",
-   "title": "Wieso werden die Herkunftsländer bei der Statistik über die Dauer von Asylverfahren nicht erfasst?",
-   "date": "2026-09-16",
-   "status": "Erledigt",
-   "url": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20267734",
-   "matched": "Asyl"
-  },
-  {
-   "source": "Parliament (Curia Vista)",
-   "title": "Fr. 18,9 Mio. Subventionen des Bundes an Caritas für den Verfahrensaufwand für Asylsuchende",
-   "date": "2026-09-16",
-   "status": "Erledigt",
-   "url": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20267761",
-   "matched": "Asyl"
-  },
-  {
-   "source": "Parliament (Curia Vista)",
-   "title": "Gutachten betreffend Altersbestimmung im Asylprozess",
-   "date": "2026-09-16",
-   "status": "Erledigt",
-   "url": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20267823",
-   "matched": "Asyl"
-  },
-  {
-   "source": "Parliament (Curia Vista)",
-   "title": "Wie viele Asylbewerber sind zur Fahndung ausgeschrieben?",
-   "date": "2026-09-16",
-   "status": "Erledigt",
-   "url": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20267838",
-   "matched": "Asyl"
-  },
-  {
-   "source": "Parliament (Curia Vista)",
-   "title": "Bundesasylzentrum Altstätten: 220 Mitarbeitende für 390 Asylsuchende?",
-   "date": "2026-09-15",
-   "status": "Erledigt",
-   "url": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20267690",
-   "matched": "Asyl"
-  },
-  {
-   "source": "Parliament (Curia Vista)",
-   "title": "Monitoringbericht zum Asylsystem 2025: Verfahrensdauer für Gesuche um Schutzstatus S",
-   "date": "2026-09-15",
-   "status": "Erledigt",
-   "url": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20267714",
-   "matched": "Asyl"
-  },
-  {
-   "source": "Parliament (Curia Vista)",
-   "title": "Einschränkung des Asyl-Antragsrechtes",
-   "date": "2026-09-14",
-   "status": "Erledigt",
-   "url": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20261036",
-   "matched": "Asyl"
-  },
-  {
-   "source": "Parliament (Curia Vista)",
-   "title": "Einschränkung des Asyl-Antragsrechtes",
-   "date": "2026-09-14",
-   "status": "Stellungnahme zum Vorstoss liegt vor",
-   "url": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20264090",
-   "matched": "Asyl"
   }
- ]
+ ],
+ "series": {
+  "A": [
+   {
+    "source": "bfs",
+    "name": "Federal Statistical Office (BFS), JOBSTAT",
+    "url": "https://www.bfs.admin.ch/bfs/en/home/statistics/industry-services/businesses-employment/jobstat.html",
+    "updated": "2026-11-20",
+    "series": [
+     {
+      "label": "Job vacancies - total / 58-63 IT and communications",
+      "unit": "positions",
+      "dimension": null,
+      "points": [
+       {
+        "period": "2025Q3",
+        "value": 4596.0
+       },
+       {
+        "period": "2025Q4",
+        "value": 4329.0
+       },
+       {
+        "period": "2026Q1",
+        "value": 4321.0
+       },
+       {
+        "period": "2026Q2",
+        "value": 4684.0
+       }
+      ]
+     },
+     {
+      "label": "Job vacancies - total / 62-63 IT and other information services",
+      "unit": "positions",
+      "dimension": null,
+      "points": [
+       {
+        "period": "2025Q3",
+        "value": 3855.0
+       },
+       {
+        "period": "2025Q4",
+        "value": 3681.0
+       },
+       {
+        "period": "2026Q1",
+        "value": 3482.0
+       },
+       {
+        "period": "2026Q2",
+        "value": 3920.0
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "source": "eurostat_jvs",
+    "name": "Eurostat, job vacancy statistics (Switzerland, information and communication)",
+    "url": "https://ec.europa.eu/eurostat/databrowser/view/jvs_q_nace2/default/table",
+    "updated": "2026-11-20",
+    "series": [
+     {
+      "label": "Job vacancy rate",
+      "unit": "%",
+      "dimension": null,
+      "points": [
+       {
+        "period": "2025-Q1",
+        "value": 2.2
+       },
+       {
+        "period": "2025-Q2",
+        "value": 2.2
+       },
+       {
+        "period": "2025-Q3",
+        "value": 2.3
+       },
+       {
+        "period": "2025-Q4",
+        "value": 2.2
+       }
+      ]
+     }
+    ]
+   }
+  ],
+  "D": [
+   {
+    "source": "sem_asylprozess",
+    "name": "SEM asylum statistics: stock of persons in the asylum process (status N, S, F)",
+    "url": "https://www.sem.admin.ch/de/asylstatistik",
+    "updated": "2026-11-20",
+    "series": [
+     {
+      "label": "Asylum process total: persons / Switzerland",
+      "unit": "persons",
+      "dimension": "Nationality",
+      "points": [
+       {
+        "period": "2026-07",
+        "value": 135439.0
+       },
+       {
+        "period": "2026-08",
+        "value": 135953.0
+       },
+       {
+        "period": "2026-09",
+        "value": 136641.0
+       },
+       {
+        "period": "2026-10",
+        "value": 137256.0
+       }
+      ]
+     },
+     {
+      "label": "Status S (temporary protection, with permit): persons / Switzerland",
+      "unit": "persons",
+      "dimension": "Nationality",
+      "points": [
+       {
+        "period": "2026-07",
+        "value": 73448.0
+       },
+       {
+        "period": "2026-08",
+        "value": 73850.0
+       },
+       {
+        "period": "2026-09",
+        "value": 74259.0
+       },
+       {
+        "period": "2026-10",
+        "value": 74937.0
+       }
+      ]
+     },
+     {
+      "label": "Status F (provisionally admitted): persons / Switzerland",
+      "unit": "persons",
+      "dimension": "Nationality",
+      "points": [
+       {
+        "period": "2026-07",
+        "value": 42017.0
+       },
+       {
+        "period": "2026-08",
+        "value": 42075.0
+       },
+       {
+        "period": "2026-09",
+        "value": 42190.0
+       },
+       {
+        "period": "2026-10",
+        "value": 42151.0
+       }
+      ]
+     },
+     {
+      "label": "Status N (asylum seekers): persons / Switzerland",
+      "unit": "persons",
+      "dimension": "Nationality",
+      "points": [
+       {
+        "period": "2026-07",
+        "value": 15477.0
+       },
+       {
+        "period": "2026-08",
+        "value": 15513.0
+       },
+       {
+        "period": "2026-09",
+        "value": 15374.0
+       },
+       {
+        "period": "2026-10",
+        "value": 15501.0
+       }
+      ]
+     },
+     {
+      "label": "Asylum process total: persons / Zürich",
+      "unit": "persons",
+      "dimension": "Canton",
+      "points": [
+       {
+        "period": "2026-07",
+        "value": 24176.0
+       },
+       {
+        "period": "2026-08",
+        "value": 24258.0
+       },
+       {
+        "period": "2026-09",
+        "value": 24418.0
+       },
+       {
+        "period": "2026-10",
+        "value": 24505.0
+       }
+      ]
+     },
+     {
+      "label": "Asylum process total: persons / Bern",
+      "unit": "persons",
+      "dimension": "Canton",
+      "points": [
+       {
+        "period": "2026-07",
+        "value": 17092.0
+       },
+       {
+        "period": "2026-08",
+        "value": 17169.0
+       },
+       {
+        "period": "2026-09",
+        "value": 17200.0
+       },
+       {
+        "period": "2026-10",
+        "value": 17255.0
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "source": "sem_erwerb_status_f",
+    "name": "SEM asylum statistics: employment of persons with status F",
+    "url": "https://www.sem.admin.ch/de/asylstatistik",
+    "updated": "2026-11-20",
+    "series": [
+     {
+      "label": "Status F: persons / Switzerland",
+      "unit": "persons",
+      "dimension": "Length of stay",
+      "points": [
+       {
+        "period": "2026-07",
+        "value": 42017.0
+       },
+       {
+        "period": "2026-08",
+        "value": 42075.0
+       },
+       {
+        "period": "2026-09",
+        "value": 42190.0
+       },
+       {
+        "period": "2026-10",
+        "value": 42151.0
+       }
+      ]
+     },
+     {
+      "label": "Status F: working age (18-64) / Switzerland",
+      "unit": "persons",
+      "dimension": "Length of stay",
+      "points": [
+       {
+        "period": "2026-07",
+        "value": 30735.0
+       },
+       {
+        "period": "2026-08",
+        "value": 30859.0
+       },
+       {
+        "period": "2026-09",
+        "value": 30999.0
+       },
+       {
+        "period": "2026-10",
+        "value": 31069.0
+       }
+      ]
+     },
+     {
+      "label": "Status F: in work (18-64) / Switzerland",
+      "unit": "persons",
+      "dimension": "Length of stay",
+      "points": [
+       {
+        "period": "2026-07",
+        "value": 14054.0
+       },
+       {
+        "period": "2026-08",
+        "value": 14489.0
+       },
+       {
+        "period": "2026-09",
+        "value": 14644.0
+       },
+       {
+        "period": "2026-10",
+        "value": 14696.0
+       }
+      ]
+     },
+     {
+      "label": "Status F: employment rate (18-64) / Switzerland",
+      "unit": "share",
+      "dimension": "Length of stay",
+      "points": [
+       {
+        "period": "2026-07",
+        "value": 0.4572637058727835
+       },
+       {
+        "period": "2026-08",
+        "value": 0.4695226676172267
+       },
+       {
+        "period": "2026-09",
+        "value": 0.4724023355592116
+       },
+       {
+        "period": "2026-10",
+        "value": 0.4730116836718272
+       }
+      ]
+     },
+     {
+      "label": "Status F: persons / > 7 Jahre",
+      "unit": "persons",
+      "dimension": "Length of stay",
+      "points": [
+       {
+        "period": "2026-07",
+        "value": 18459.0
+       },
+       {
+        "period": "2026-08",
+        "value": 18460.0
+       },
+       {
+        "period": "2026-09",
+        "value": 18470.0
+       },
+       {
+        "period": "2026-10",
+        "value": 18372.0
+       }
+      ]
+     },
+     {
+      "label": "Status F: working age (18-64) / > 7 Jahre",
+      "unit": "persons",
+      "dimension": "Length of stay",
+      "points": [
+       {
+        "period": "2026-07",
+        "value": 13717.0
+       },
+       {
+        "period": "2026-08",
+        "value": 13722.0
+       },
+       {
+        "period": "2026-09",
+        "value": 13718.0
+       },
+       {
+        "period": "2026-10",
+        "value": 13622.0
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "source": "sem_erwerb_status_b",
+    "name": "SEM asylum statistics: employment of persons with status B",
+    "url": "https://www.sem.admin.ch/de/asylstatistik",
+    "updated": "2026-11-20",
+    "series": [
+     {
+      "label": "Status B: persons / Switzerland",
+      "unit": "persons",
+      "dimension": "Length of stay",
+      "points": [
+       {
+        "period": "2026-07",
+        "value": 68112.0
+       },
+       {
+        "period": "2026-08",
+        "value": 68204.0
+       },
+       {
+        "period": "2026-09",
+        "value": 68389.0
+       },
+       {
+        "period": "2026-10",
+        "value": 68426.0
+       }
+      ]
+     },
+     {
+      "label": "Status B: working age (18-64) / Switzerland",
+      "unit": "persons",
+      "dimension": "Length of stay",
+      "points": [
+       {
+        "period": "2026-07",
+        "value": 41989.0
+       },
+       {
+        "period": "2026-08",
+        "value": 42159.0
+       },
+       {
+        "period": "2026-09",
+        "value": 42313.0
+       },
+       {
+        "period": "2026-10",
+        "value": 42409.0
+       }
+      ]
+     },
+     {
+      "label": "Status B: in work (18-64) / Switzerland",
+      "unit": "persons",
+      "dimension": "Length of stay",
+      "points": [
+       {
+        "period": "2026-07",
+        "value": 16548.0
+       },
+       {
+        "period": "2026-08",
+        "value": 16549.0
+       },
+       {
+        "period": "2026-09",
+        "value": 16613.0
+       },
+       {
+        "period": "2026-10",
+        "value": 16626.0
+       }
+      ]
+     },
+     {
+      "label": "Status B: employment rate (18-64) / Switzerland",
+      "unit": "share",
+      "dimension": "Length of stay",
+      "points": [
+       {
+        "period": "2026-07",
+        "value": 0.3941032175093477
+       },
+       {
+        "period": "2026-08",
+        "value": 0.39253777366635834
+       },
+       {
+        "period": "2026-09",
+        "value": 0.3926216529199064
+       },
+       {
+        "period": "2026-10",
+        "value": 0.392039425593624
+       }
+      ]
+     },
+     {
+      "label": "Status B: persons / > 7 Jahre",
+      "unit": "persons",
+      "dimension": "Length of stay",
+      "points": [
+       {
+        "period": "2026-07",
+        "value": 33766.0
+       },
+       {
+        "period": "2026-08",
+        "value": 33858.0
+       },
+       {
+        "period": "2026-09",
+        "value": 33997.0
+       },
+       {
+        "period": "2026-10",
+        "value": 34034.0
+       }
+      ]
+     },
+     {
+      "label": "Status B: working age (18-64) / > 7 Jahre",
+      "unit": "persons",
+      "dimension": "Length of stay",
+      "points": [
+       {
+        "period": "2026-07",
+        "value": 24004.0
+       },
+       {
+        "period": "2026-08",
+        "value": 24103.0
+       },
+       {
+        "period": "2026-09",
+        "value": 24206.0
+       },
+       {
+        "period": "2026-10",
+        "value": 24224.0
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "source": "sem_erwerb_status_s",
+    "name": "SEM asylum statistics: employment of persons with status S",
+    "url": "https://www.sem.admin.ch/de/asylstatistik",
+    "updated": "2026-11-20",
+    "series": [
+     {
+      "label": "Status S: persons / Switzerland",
+      "unit": "persons",
+      "dimension": "Length of stay",
+      "points": [
+       {
+        "period": "2026-07",
+        "value": 73448.0
+       },
+       {
+        "period": "2026-08",
+        "value": 73850.0
+       },
+       {
+        "period": "2026-09",
+        "value": 74259.0
+       },
+       {
+        "period": "2026-10",
+        "value": 74937.0
+       }
+      ]
+     },
+     {
+      "label": "Status S: working age (18-64) / Switzerland",
+      "unit": "persons",
+      "dimension": "Length of stay",
+      "points": [
+       {
+        "period": "2026-07",
+        "value": 46605.0
+       },
+       {
+        "period": "2026-08",
+        "value": 46980.0
+       },
+       {
+        "period": "2026-09",
+        "value": 47287.0
+       },
+       {
+        "period": "2026-10",
+        "value": 47782.0
+       }
+      ]
+     },
+     {
+      "label": "Status S: in work (18-64) / Switzerland",
+      "unit": "persons",
+      "dimension": "Length of stay",
+      "points": [
+       {
+        "period": "2026-07",
+        "value": 17701.0
+       },
+       {
+        "period": "2026-08",
+        "value": 18080.0
+       },
+       {
+        "period": "2026-09",
+        "value": 18370.0
+       },
+       {
+        "period": "2026-10",
+        "value": 18638.0
+       }
+      ]
+     },
+     {
+      "label": "Status S: employment rate (18-64) / Switzerland",
+      "unit": "share",
+      "dimension": "Length of stay",
+      "points": [
+       {
+        "period": "2026-07",
+        "value": 0.37980903336551874
+       },
+       {
+        "period": "2026-08",
+        "value": 0.3848446147296722
+       },
+       {
+        "period": "2026-09",
+        "value": 0.38847886311248336
+       },
+       {
+        "period": "2026-10",
+        "value": 0.39006320371688086
+       }
+      ]
+     },
+     {
+      "label": "Status S: persons / > 4 <= 5 Jahre",
+      "unit": "persons",
+      "dimension": "Length of stay",
+      "points": [
+       {
+        "period": "2026-07",
+        "value": 38203.0
+       },
+       {
+        "period": "2026-08",
+        "value": 40043.0
+       },
+       {
+        "period": "2026-09",
+        "value": 41365.0
+       },
+       {
+        "period": "2026-10",
+        "value": 42920.0
+       }
+      ]
+     },
+     {
+      "label": "Status S: working age (18-64) / > 4 <= 5 Jahre",
+      "unit": "persons",
+      "dimension": "Length of stay",
+      "points": [
+       {
+        "period": "2026-07",
+        "value": 23719.0
+       },
+       {
+        "period": "2026-08",
+        "value": 24973.0
+       },
+       {
+        "period": "2026-09",
+        "value": 25923.0
+       },
+       {
+        "period": "2026-10",
+        "value": 26991.0
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "source": "sem_erwerb_status_n",
+    "name": "SEM asylum statistics: employment of persons with status N",
+    "url": "https://www.sem.admin.ch/de/asylstatistik",
+    "updated": "2026-11-20",
+    "series": [
+     {
+      "label": "Status N: persons / Switzerland",
+      "unit": "persons",
+      "dimension": "Length of stay",
+      "points": [
+       {
+        "period": "2026-07",
+        "value": 15477.0
+       },
+       {
+        "period": "2026-08",
+        "value": 15513.0
+       },
+       {
+        "period": "2026-09",
+        "value": 15374.0
+       },
+       {
+        "period": "2026-10",
+        "value": 15501.0
+       }
+      ]
+     },
+     {
+      "label": "Status N: working age (18-64) / Switzerland",
+      "unit": "persons",
+      "dimension": "Length of stay",
+      "points": [
+       {
+        "period": "2026-07",
+        "value": 11314.0
+       },
+       {
+        "period": "2026-08",
+        "value": 11359.0
+       },
+       {
+        "period": "2026-09",
+        "value": 11224.0
+       },
+       {
+        "period": "2026-10",
+        "value": 11328.0
+       }
+      ]
+     },
+     {
+      "label": "Status N: in work (18-64) / Switzerland",
+      "unit": "persons",
+      "dimension": "Length of stay",
+      "points": [
+       {
+        "period": "2026-07",
+        "value": 636.0
+       },
+       {
+        "period": "2026-08",
+        "value": 680.0
+       },
+       {
+        "period": "2026-09",
+        "value": 687.0
+       },
+       {
+        "period": "2026-10",
+        "value": 694.0
+       }
+      ]
+     },
+     {
+      "label": "Status N: employment rate (18-64) / Switzerland",
+      "unit": "share",
+      "dimension": "Length of stay",
+      "points": [
+       {
+        "period": "2026-07",
+        "value": 0.0562135407459784
+       },
+       {
+        "period": "2026-08",
+        "value": 0.0598644246852716
+       },
+       {
+        "period": "2026-09",
+        "value": 0.061208125445474
+       },
+       {
+        "period": "2026-10",
+        "value": 0.0612641242937853
+       }
+      ]
+     },
+     {
+      "label": "Status N: persons / <= 6 Monate",
+      "unit": "persons",
+      "dimension": "Length of stay",
+      "points": [
+       {
+        "period": "2026-07",
+        "value": 3333.0
+       },
+       {
+        "period": "2026-08",
+        "value": 3481.0
+       },
+       {
+        "period": "2026-09",
+        "value": 3753.0
+       },
+       {
+        "period": "2026-10",
+        "value": 4265.0
+       }
+      ]
+     },
+     {
+      "label": "Status N: working age (18-64) / <= 6 Monate",
+      "unit": "persons",
+      "dimension": "Length of stay",
+      "points": [
+       {
+        "period": "2026-07",
+        "value": 2230.0
+       },
+       {
+        "period": "2026-08",
+        "value": 2364.0
+       },
+       {
+        "period": "2026-09",
+        "value": 2478.0
+       },
+       {
+        "period": "2026-10",
+        "value": 2900.0
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "source": "bfs_population_permit",
+    "name": "BFS, resident population by residence permit",
+    "url": "https://www.bfs.admin.ch/bfs/en/home/statistics/population/migration-integration/foreign.html",
+    "updated": "2026-11-20",
+    "series": [
+     {
+      "label": "Switzerland / Permanent resident population / Settlement permit (C)",
+      "unit": "persons",
+      "dimension": null,
+      "points": [
+       {
+        "period": "2022",
+        "value": 1389969.0
+       },
+       {
+        "period": "2023",
+        "value": 1392613.0
+       },
+       {
+        "period": "2024",
+        "value": 1400159.0
+       },
+       {
+        "period": "2025",
+        "value": 1406673.0
+       }
+      ]
+     },
+     {
+      "label": "Switzerland / Permanent resident population / Residence permit (B)",
+      "unit": "persons",
+      "dimension": null,
+      "points": [
+       {
+        "period": "2022",
+        "value": 809025.0
+       },
+       {
+        "period": "2023",
+        "value": 868459.0
+       },
+       {
+        "period": "2024",
+        "value": 915566.0
+       },
+       {
+        "period": "2025",
+        "value": 955652.0
+       }
+      ]
+     },
+     {
+      "label": "Switzerland / Permanent resident population / Person in need of protection (S)",
+      "unit": "persons",
+      "dimension": null,
+      "points": [
+       {
+        "period": "2022",
+        "value": 94.0
+       },
+       {
+        "period": "2023",
+        "value": 53168.0
+       },
+       {
+        "period": "2024",
+        "value": 60666.0
+       },
+       {
+        "period": "2025",
+        "value": 65260.0
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "source": "bfs_sozialhilfe_asyl",
+    "name": "BFS, social assistance rate in the asylum sector (working age)",
+    "url": "https://www.bfs.admin.ch/asset/de/je-d-13.05.01.03.16",
+    "updated": "2026-11-20",
+    "series": [
+     {
+      "label": "Asylsuchende (N) (%) / Switzerland",
+      "unit": "%",
+      "dimension": "Canton",
+      "points": [
+       {
+        "period": "2021",
+        "value": 78.8
+       },
+       {
+        "period": "2022",
+        "value": 83.4
+       },
+       {
+        "period": "2023",
+        "value": 91.8768996960486
+       },
+       {
+        "period": "2024",
+        "value": 91.5987452246659
+       }
+      ]
+     },
+     {
+      "label": "Total (%) / Switzerland",
+      "unit": "%",
+      "dimension": "Canton",
+      "points": [
+       {
+        "period": "2021",
+        "value": 76.3
+       },
+       {
+        "period": "2022",
+        "value": 76.3
+       },
+       {
+        "period": "2023",
+        "value": 85.5867249176056
+       },
+       {
+        "period": "2024",
+        "value": 88.9367943319295
+       }
+      ]
+     },
+     {
+      "label": "Vorläufig aufgenommene Personen 7- (F) (%) / Switzerland",
+      "unit": "%",
+      "dimension": "Canton",
+      "points": [
+       {
+        "period": "2021",
+        "value": 75.6
+       },
+       {
+        "period": "2022",
+        "value": 72.5
+       },
+       {
+        "period": "2023",
+        "value": 79.1866398639246
+       },
+       {
+        "period": "2024",
+        "value": 86.3623442903201
+       }
+      ]
+     },
+     {
+      "label": "Asylsuchende (N) (%) / Zug",
+      "unit": "%",
+      "dimension": "Canton",
+      "points": [
+       {
+        "period": "2020",
+        "value": 85.5555555555556
+       },
+       {
+        "period": "2021",
+        "value": 95.7
+       },
+       {
+        "period": "2022",
+        "value": 98.3
+       },
+       {
+        "period": "2024",
+        "value": 97.5438596491228
+       }
+      ]
+     },
+     {
+      "label": "Asylsuchende (N) (%) / Zürich",
+      "unit": "%",
+      "dimension": "Canton",
+      "points": [
+       {
+        "period": "2021",
+        "value": 88.1
+       },
+       {
+        "period": "2022",
+        "value": 76.9
+       },
+       {
+        "period": "2023",
+        "value": 87.2775800711744
+       },
+       {
+        "period": "2024",
+        "value": 97.252896577947
+       }
+      ]
+     }
+    ]
+   }
+  ]
+ }
 }
