@@ -9,6 +9,7 @@ Params:
             "last"      optional: keep only the last N values (for time variables: the latest N periods)
           Variables without a rule: left out if the table allows it (total), else the first value.
   unit    optional text shown next to the numbers ("persons", "%", ...)
+  timeout optional: seconds to wait for the data answer (default 60). Some BFS tables take about two minutes to answer.
   label_skip  optional regex: variables whose name matches are not repeated in the series label
 The series label is the chosen value names joined by " / ". The period is the time variable's code (2024, 2024Q3).
 """
@@ -71,7 +72,8 @@ def parse(data, info, entry):
 def run(c, entry):
     meta = json.loads(net.fetch(entry["table"])[0])
     query, info = build_query(meta, entry["select"])
-    data = json.loads(net.fetch(entry["table"], {"query": query, "response": {"format": "json"}})[0])
+    data = json.loads(net.fetch(entry["table"], {"query": query, "response": {"format": "json"}},
+                          timeout=int(entry.get("timeout", 60)))[0])
     rows = parse(data, info, entry)
     for label, period, val in rows:
         put_stat(c, entry["id"], label, period, val, entry.get("unit"))

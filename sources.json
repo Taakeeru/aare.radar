@@ -12,7 +12,6 @@
    ],
    "type": "jobroom_search",
    "schedule": "daily",
-   "home_ip_only": true,
    "online_since_days": 60
   },
   {
@@ -426,6 +425,7 @@
    "type": "pxweb",
    "schedule": "monthly",
    "unit": "persons",
+   "timeout": 240,
    "table": "https://www.pxweb.bfs.admin.ch/api/v1/en/px-x-0103010000_101/px-x-0103010000_101.px",
    "select": [
     {

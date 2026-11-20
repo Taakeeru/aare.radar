@@ -7,7 +7,8 @@
     python3 -m collector.collect retag           # re-tag stored job ads after a change in roles.py (network, ~5 min)
 
 Old names still work: jobs = jobroom, policy = curia + fedlex.
-job-room: run from a home/office IP (this Mac), never from a server. Python 3.10+, standard library only.
+A source with "home_ip_only": true in sources.json is skipped on a server (CI or RADAR_SERVER set) unless
+RADAR_ALLOW_SERVER=1 is given. job-room answers from servers (checked 20.11.2026), so it is not marked. Python 3.10+, standard library only.
 Adding a source needs no code: see docs/adding-a-source.md.
 """
 import datetime as dt
@@ -17,6 +18,11 @@ import sys
 from . import config, db, types
 
 ALIASES = {"jobs": ["jobroom"], "policy": ["curia", "fedlex"]}
+
+
+def on_server():
+    """True when the run looks like CI or a server (environment variable CI or RADAR_SERVER is set)."""
+    return bool(os.environ.get("CI") or os.environ.get("RADAR_SERVER"))
 
 
 def due(c, entry, today=None):
@@ -29,8 +35,9 @@ def due(c, entry, today=None):
 
 def run_entry(c, entry):
     """Run one source; a failing source is reported and recorded, it never stops the others."""
-    if entry.get("home_ip_only") and (os.environ.get("CI") or os.environ.get("RADAR_SERVER")):
-        print(f"{entry['id']}: skipped, this source must only run from a home/office IP, not from a server")
+    if entry.get("home_ip_only") and on_server() and not os.environ.get("RADAR_ALLOW_SERVER"):
+        print(f"{entry['id']}: skipped, this source is marked home_ip_only and must not run from a server "
+              "(one-off override: RADAR_ALLOW_SERVER=1)")
         return
     print(f"{entry['id']} ({entry['type']}) ...")
     try:

@@ -40,6 +40,19 @@ class CollectTest(unittest.TestCase):
         get.assert_not_called()
         self.assertIsNone(c.execute("SELECT 1 FROM source_runs").fetchone())
 
+    def test_home_ip_source_runs_on_a_server_with_the_override(self):
+        c = db.connect(":memory:")
+        env = {"RADAR_SERVER": "1", "RADAR_ALLOW_SERVER": "1"}
+        with mock.patch.dict(os.environ, env), mock.patch.object(types, "get") as get:
+            get.return_value.run.return_value = 3
+            collect.run_entry(c, {"id": "x", "type": "link", "home_ip_only": True, "schedule": "daily"})
+        get.assert_called_once()
+
+    def test_jobroom_is_not_home_ip_only(self):
+        from collector import config
+        jobroom = [e for e in config.load() if e["id"] == "jobroom"][0]
+        self.assertFalse(jobroom.get("home_ip_only"))
+
     def test_old_names_still_work(self):
         self.assertEqual(collect.ALIASES["jobs"], ["jobroom"])
         self.assertEqual(collect.ALIASES["policy"], ["curia", "fedlex"])

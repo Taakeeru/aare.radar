@@ -61,6 +61,13 @@ class PxwebTest(unittest.TestCase):
         self.assertEqual(rows[0], ("62 IT services / Job vacancies - total", "2024Q1", 100.0, "positions"))
         self.assertEqual(rows[-1][1:3], ("2024Q3", 55.0))
 
+    def test_slow_table_timeout_is_passed_to_the_data_request(self):
+        c = db.connect(":memory:")
+        responses = [fx("pxweb_meta.json"), fx("pxweb_data.json")]
+        with mock.patch.object(net, "fetch", side_effect=lambda *a, **k: (responses.pop(0), {})) as f:
+            pxweb.run(c, dict(self.ENTRY, timeout=240))
+        self.assertEqual(f.call_args_list[1].kwargs["timeout"], 240)
+
 
 class CsvSeriesTest(unittest.TestCase):
     def test_csv_mapping_and_filter(self):

@@ -35,7 +35,9 @@ aggregate use after the 14-day trial needs written consent).
     python3 -m collector.export             # data/radar.json for the dashboard (contract: docstring of export.py)
     python3 -m unittest discover -s tests -t .   # tests, no network
 
-Run it from a home/office IP (job-room must never run from a server). Servers that answer 429 are respected: the
+job-room answers from servers too (HTTP 200 checked from the VPS on 20.11.2026), so every source runs anywhere. A source that
+truly needs a home/office IP gets `"home_ip_only": true` in `sources.json` and is then skipped on a server
+(`CI` or `RADAR_SERVER` set; one-off override `RADAR_ALLOW_SERVER=1`). Servers that answer 429 are respected: the
 collector waits as long as `Retry-After` says. Python 3.10+, standard library only.
 
 ## What we extract per ad (`collector/roles.py`)

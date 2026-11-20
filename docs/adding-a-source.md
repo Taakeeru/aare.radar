@@ -108,7 +108,8 @@ How to read `select`: `variable` is a word from the question's name (the dashboa
 out (the total is used). If your words match nothing, the run stops with a message such as
 `no value of 'Canton' matches /^Switzerland$/`: open the table address in a browser (it lists every variable and value) and
 fix the words. The BFS server sometimes answers "too many requests"; the collector then waits as long as the server asks and
-tries again by itself.
+tries again by itself. A few tables need about two minutes to answer; if a run ends with `The read operation timed out`,
+add `"timeout": 240` to the block.
 
 ### What the dashboard shows for your block
 
@@ -117,8 +118,11 @@ Numbers appear under `series`, grouped by question, each with the unit. Nothing 
 
 ### Things to know
 
-* Run `python3 -m collector.collect` from the Mac (home IP). job-room must never run from a server; the `jobroom` block
-  is marked `"home_ip_only": true` and is skipped when the environment variable `CI` or `RADAR_SERVER` is set.
+* Every source runs from a laptop or a server. If a source only answers from a home/office IP (for example one that blocks
+  data centres), add `"home_ip_only": true` to its block: it is then skipped whenever the environment variable `CI` or
+  `RADAR_SERVER` is set, with a plain message. To run it anyway once, start with `RADAR_ALLOW_SERVER=1`
+  (`RADAR_ALLOW_SERVER=1 python3 -m collector.collect your_id`). `jobroom` is not marked: job-room.ch answers from our server
+  (checked 20.11.2026).
 * Be polite: the collector waits between requests to the same server and obeys `Retry-After`. Do not lower the waits.
 * Excel files from SEM get a new file address every month, so the block names the monthly page and the link text
   (`"page"`, `"file_link": "^6-22:"`); the collector finds the file itself and keeps up to `"editions"` months.
@@ -172,7 +176,7 @@ or people's names; be polite to the server.
 | type | reads | key params |
 |---|---|---|
 | `jobroom_search` | job-room.ch ads, classified by `roles.py` | `online_since_days` |
-| `pxweb` | any PxWeb table | `table`, `select` (rules by variable/value words) |
+| `pxweb` | any PxWeb table | `table`, `select` (rules by variable/value words), `timeout` (seconds, slow tables) |
 | `odata_search` | OData service searched by keywords | `base`, `filter`, `keywords`, `fields`, `link` |
 | `rss_keywords` | RSS feed filtered by keywords | `feed`, `keywords` |
 | `csv_series` | CSV, JSON or JSON-stat file | `data_url`, `format`, `period`/`value`/`series` columns |
