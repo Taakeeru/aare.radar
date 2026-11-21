@@ -679,7 +679,8 @@
     "skills": {
       "title": "Skills companies seek",
       "intro": "Share of the mentions among the six most asked skills in all IT ads.",
-      "chip": "Demand"
+      "chip": "Demand",
+      "introRole": "Share of the mentions among the six most asked skills in this role's ads."
     },
     "teach": {
       "title": "Skills to teach",
@@ -698,7 +699,8 @@
       "chip": "Number of ads",
       "yAxis": "Ads",
       "xAxis": "Skill",
-      "note": "A month-by-month trend appears as the radar keeps collecting every day; job-room only keeps the last 60 days."
+      "note": "A month-by-month trend appears as the radar keeps collecting every day; job-room only keeps the last 60 days.",
+      "introRole": "Number of this role's ads that name the skill, last {days} days."
     },
     "req": {
       "title": "Entry requirements",
@@ -708,7 +710,8 @@
       "senior_experience": "Several years of experience",
       "degree_required": "A qualification or degree",
       "german_required": "Very good German",
-      "french_required": "Very good French"
+      "french_required": "Very good French",
+      "introRole": "How often this role's ads ask for it."
     },
     "where": {
       "title": "Where the jobs are",

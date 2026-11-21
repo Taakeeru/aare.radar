@@ -99,7 +99,7 @@ export default async function OverviewPage({ params, searchParams }: { params: P
         <RoleSwitch base="/uebersicht" roles={data.roles.map((r) => ({ id: r.id, label: roleName(r) }))} current={role ? role.id : "all"} label={d("roleLabel")} all={t("allJobs")} />
       </header>
       <div className="grid">
-        <Panel id="o-skills" title={t("skills.title")} intro={t("skills.intro")} span={4} sources={jobroom}>
+        <Panel id="o-skills" title={t("skills.title")} intro={role ? t("skills.introRole") : t("skills.intro")} span={4} sources={jobroom}>
           <span className="tag-chip">{t("skills.chip")}</span>
           <Donut slices={skillSlices} label={t("skills.title")} center="100%" />
         </Panel>
@@ -112,12 +112,12 @@ export default async function OverviewPage({ params, searchParams }: { params: P
             <a href={`/${locale}/faehigkeiten`}>{t("teach.link")}</a>
           </p>
         </Panel>
-        <Panel id="o-evo" title={t("evo.title")} intro={t("evo.intro", { days: data.window_days })} span={4} sources={jobroom}>
+        <Panel id="o-evo" title={t("evo.title")} intro={role ? t("evo.introRole", { days: data.window_days }) : t("evo.intro", { days: data.window_days })} span={4} sources={jobroom}>
           <span className="tag-chip">{t("evo.chip")}</span>
           <BarList rows={evoRows} label={t("evo.title")} />
           <p className="note">{t("evo.note")}</p>
         </Panel>
-        <Panel id="o-req" title={t("req.title")} intro={t("req.intro")} span={4} sources={jobroom}>
+        <Panel id="o-req" title={t("req.title")} intro={role ? t("req.introRole") : t("req.intro")} span={4} sources={jobroom}>
           <span className="tag-chip">{t("req.chip")}</span>
           <BarList rows={reqRows} label={t("req.title")} />
           <p className="note">{t("req.note")}</p>
