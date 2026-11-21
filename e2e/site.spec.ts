@@ -8,7 +8,7 @@
  * container and only the browser reaches the app.
  */
 import { expect, test } from "@playwright/test";
-import { COLOR, GRADIENT } from "../lib/design-tokens";
+import { OPTION_PALETTE } from "../lib/design-tokens";
 
 test("@ci dashboard renders: one screen per role, the big number, the favicon", async ({ page }) => {
   const res = await page.goto("/de/nachfrage");
@@ -188,7 +188,7 @@ test("@ci security headers on the admin sign-in", async ({ page }) => {
 /** Every colour the browser really paints (text, backgrounds, borders, outlines, shadows, gradients, SVG) is a palette value. */
 test("@ci rendered colours are only the palette", async ({ page }) => {
   const hex = (h: string) => `rgb(${parseInt(h.slice(1, 3), 16)}, ${parseInt(h.slice(3, 5), 16)}, ${parseInt(h.slice(5, 7), 16)})`;
-  const allowed = new Set([...Object.values(COLOR), ...GRADIENT].map(hex));
+  const allowed = new Set([...OPTION_PALETTE].map(hex));
   for (const [w, p] of [[1280, "/de"], [390, "/de?role=data"], [1280, "/de/politik"], [1280, "/de/quellen"], [1280, "/de/zielgruppe"], [1280, "/de/login"]] as const) {
     await page.setViewportSize({ width: w, height: 900 });
     await page.goto(p);

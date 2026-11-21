@@ -7,15 +7,12 @@ import { describe, expect, it } from "vitest";
 import {
   ACCENTS,
   BACKGROUNDS,
-  COLOR,
   DESIGN_DEFAULT,
   FONTS,
   MARKS,
   ON_ACCENT,
   OPTION_PALETTE,
   cleanChoice,
-  designStyle,
-  tokenStyle,
 } from "@/lib/design-tokens";
 import { read } from "./support/files";
 
@@ -40,12 +37,11 @@ describe("design options", () => {
     }
   });
 
-  it("the default combination is exactly today's look", () => {
-    const style = designStyle(DESIGN_DEFAULT);
-    const base = tokenStyle();
-    for (const [k, v] of Object.entries(style)) expect(base[k], k).toBe(v);
-    expect(DESIGN_DEFAULT.mark).toBe("d");
-    expect(ACCENTS[DESIGN_DEFAULT.accent]).toBe(COLOR.link);
+  it("the default is the look the team voted for, written on <html> by the layout", () => {
+    expect(DESIGN_DEFAULT).toEqual({ bg: "sand", accent: "aare", font: "atkinson", mark: "b" });
+    const layout = read("app/[locale]/layout.tsx");
+    expect(layout).toContain("designStyle(DESIGN_DEFAULT)");
+    expect(layout).toContain("data-mark={DESIGN_DEFAULT.mark}");
   });
 
   it("unknown values from the URL or the browser fall back to the default", () => {

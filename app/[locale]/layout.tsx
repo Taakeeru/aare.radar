@@ -5,7 +5,7 @@ import { NextIntlClientProvider, hasLocale } from "next-intl";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { routing } from "@/i18n/routing";
 import { DesignSwitcher } from "@/components/design-switcher";
-import { COLOR, tokenStyle } from "@/lib/design-tokens";
+import { BACKGROUNDS, DESIGN_DEFAULT, designStyle, tokenStyle } from "@/lib/design-tokens";
 import { SITE_ICONS, SITE_URL } from "@/lib/site-meta";
 import { isTestSite } from "@/lib/site-env";
 
@@ -28,7 +28,7 @@ export async function generateMetadata({ params }: { params: Promise<{ locale: s
 }
 
 export const viewport: Viewport = {
-  themeColor: COLOR.root,
+  themeColor: BACKGROUNDS[DESIGN_DEFAULT.bg]!.colors.root,
 };
 
 export default async function LocaleLayout({
@@ -43,7 +43,12 @@ export default async function LocaleLayout({
   setRequestLocale(locale);
   const t = await getTranslations({ locale, namespace: "meta" });
   return (
-    <html lang={locale} style={tokenStyle() as React.CSSProperties}>
+    <html
+      lang={locale}
+      style={{ ...tokenStyle(), ...designStyle(DESIGN_DEFAULT) } as React.CSSProperties}
+      data-mark={DESIGN_DEFAULT.mark}
+      data-light={String(BACKGROUNDS[DESIGN_DEFAULT.bg]!.light)}
+    >
       <head>
         {/* Self-hosted faces for the design options; a face downloads only when it is chosen. */}
         <link rel="stylesheet" href="/fonts/fonts.css" />
