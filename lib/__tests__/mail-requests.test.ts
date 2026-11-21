@@ -25,7 +25,7 @@ describe("mail requests", () => {
     expect(MAX_PER_DAY).toBeLessThanOrEqual(40);
     const route = read("app/api/mail-request/route.ts");
     expect(route).toMatch(/if \(!mailRequestsEnabled\(\)\) return back\("off"\);/);
-    expect(route).toMatch(/isSameOrigin\(req\)/);
+    expect(route).toMatch(/if \(!isSameOrigin\(req\)\) return/);
     expect(route).toMatch(/checkRateLimit\(key, 3, 60 \* 60 \* 1000\)/);
   });
 

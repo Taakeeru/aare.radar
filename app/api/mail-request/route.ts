@@ -12,11 +12,12 @@ export const runtime = "nodejs";
  * back to the page with ?mail=ok|bad|consent|limit|off, so it works without JavaScript. 3 per visitor per hour.
  */
 export async function POST(req: NextRequest) {
+  if (!isSameOrigin(req)) return new NextResponse(null, { status: 403 });
   const form = await req.formData().catch(() => null);
   const locale = form?.get("locale") === "de" ? "de" : "en";
   const back = (status: string) => NextResponse.redirect(new URL(`/${locale}/email?mail=${status}#send`, req.url), 303);
   if (!mailRequestsEnabled()) return back("off");
-  if (!isSameOrigin(req) || !form) return back("bad");
+  if (!form) return back("bad");
   const key = `mailreq:ip:${clientKeyFrom(req.headers, process.env.TRUST_PROXY)}`;
   if (!(await checkRateLimit(key, 3, 60 * 60 * 1000))) return back("limit");
   try {

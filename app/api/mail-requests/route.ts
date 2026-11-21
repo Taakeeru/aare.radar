@@ -3,6 +3,7 @@ import { finishMailRequest, mailRequestsEnabled, pendingMailRequests } from "@/l
 import { bearerToken, configuredDigestToken, tokenMatches } from "@/lib/digest-token";
 import { clientKeyFrom } from "@/lib/get-client-ip";
 import { isRateLimited, recordFailure } from "@/lib/rate-limit";
+import { isSameOrigin } from "@/lib/same-origin";
 
 export const dynamic = "force-dynamic";
 export const runtime = "nodejs";
@@ -36,6 +37,7 @@ export async function GET(req: NextRequest) {
 }
 
 export async function POST(req: NextRequest) {
+  if (!isSameOrigin(req)) return plain(403); // the sender sends no Origin; a browser from elsewhere is refused
   const refused = await authorised(req);
   if (refused) return refused;
   const body = (await req.json().catch(() => null)) as { id?: unknown; ok?: unknown } | null;
