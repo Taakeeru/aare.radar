@@ -2116,9 +2116,9 @@
  },
  "it_market": {
   "ads": 3147,
-  "read_in_full": 933,
-  "entry_ads": 332,
-  "entry_level_share": 0.105,
+  "read_in_full": 3147,
+  "entry_ads": 225,
+  "entry_level_share": 0.071,
   "reporting_obligation_share": 0.002,
   "weekly": [
    {
@@ -2156,6 +2156,119 @@
    {
     "week": "2026-W47",
     "new_ads": 877
+   }
+  ],
+  "skills": [
+   {
+    "skill": "Security",
+    "count": 1211,
+    "share": 0.385
+   },
+   {
+    "skill": "Cloud",
+    "count": 885,
+    "share": 0.281
+   },
+   {
+    "skill": "Networking",
+    "count": 859,
+    "share": 0.273
+   },
+   {
+    "skill": "Scrum/Agile",
+    "count": 627,
+    "share": 0.199
+   },
+   {
+    "skill": "Windows",
+    "count": 592,
+    "share": 0.188
+   },
+   {
+    "skill": "Microsoft 365",
+    "count": 505,
+    "share": 0.16
+   },
+   {
+    "skill": "Azure",
+    "count": 444,
+    "share": 0.141
+   },
+   {
+    "skill": "SQL",
+    "count": 433,
+    "share": 0.138
+   },
+   {
+    "skill": "Active Directory",
+    "count": 367,
+    "share": 0.117
+   },
+   {
+    "skill": "Linux",
+    "count": 355,
+    "share": 0.113
+   }
+  ],
+  "skills_basis": 3147,
+  "employers": [
+   {
+    "company": "Schweizer Armee - Kommando Cyber Kdo Cy",
+    "ads": 37
+   },
+   {
+    "company": "Consult & Pepper AG",
+    "ads": 34
+   },
+   {
+    "company": "Bundesamt für Informatik und Telekommunikation BIT",
+    "ads": 32
+   },
+   {
+    "company": "Brack.Alltron AG",
+    "ads": 25
+   },
+   {
+    "company": "RUAG AG",
+    "ads": 24
+   },
+   {
+    "company": "Mettler Toledo",
+    "ads": 20
+   },
+   {
+    "company": "MTF Solutions AG",
+    "ads": 20
+   },
+   {
+    "company": "Swiss Life AG",
+    "ads": 20
+   }
+  ],
+  "entry_employers": [
+   {
+    "company": "Schweizer Armee - Kommando Cyber Kdo Cy",
+    "ads": 10
+   },
+   {
+    "company": "Finnova AG Bankware",
+    "ads": 8
+   },
+   {
+    "company": "Mettler Toledo",
+    "ads": 6
+   },
+   {
+    "company": "RUAG AG",
+    "ads": 5
+   },
+   {
+    "company": "Consult & Pepper AG",
+    "ads": 4
+   },
+   {
+    "company": "Kantonale Verwaltung Basel-Landschaft",
+    "ads": 4
    }
   ],
   "groups": [
@@ -2197,8 +2310,159 @@
     "label_de": "Software Engineer",
     "group": "251",
     "ads": 565,
-    "entry_ads": 45,
-    "entry_level_share": 0.08
+    "entry_ads": 29,
+    "entry_level_share": 0.051,
+    "weekly": [
+     {
+      "week": "2026-W39",
+      "new_ads": 19
+     },
+     {
+      "week": "2026-W40",
+      "new_ads": 24
+     },
+     {
+      "week": "2026-W41",
+      "new_ads": 22
+     },
+     {
+      "week": "2026-W42",
+      "new_ads": 24
+     },
+     {
+      "week": "2026-W43",
+      "new_ads": 32
+     },
+     {
+      "week": "2026-W44",
+      "new_ads": 60
+     },
+     {
+      "week": "2026-W45",
+      "new_ads": 96
+     },
+     {
+      "week": "2026-W46",
+      "new_ads": 164
+     },
+     {
+      "week": "2026-W47",
+      "new_ads": 124
+     }
+    ],
+    "skills": [
+     {
+      "skill": "Scrum/Agile",
+      "count": 184,
+      "share": 0.326
+     },
+     {
+      "skill": "Security",
+      "count": 160,
+      "share": 0.283
+     },
+     {
+      "skill": "Cloud",
+      "count": 137,
+      "share": 0.242
+     },
+     {
+      "skill": "SQL",
+      "count": 127,
+      "share": 0.225
+     },
+     {
+      "skill": "Git",
+      "count": 115,
+      "share": 0.204
+     },
+     {
+      "skill": "API/REST",
+      "count": 113,
+      "share": 0.2
+     },
+     {
+      "skill": "Python",
+      "count": 106,
+      "share": 0.188
+     },
+     {
+      "skill": "Linux",
+      "count": 100,
+      "share": 0.177
+     },
+     {
+      "skill": "Networking",
+      "count": 97,
+      "share": 0.172
+     },
+     {
+      "skill": "Java",
+      "count": 93,
+      "share": 0.165
+     }
+    ],
+    "skills_basis": 565,
+    "employers": [
+     {
+      "company": "EPAM Systems (Switzerland) GmbH",
+      "ads": 14
+     },
+     {
+      "company": "Mettler Toledo",
+      "ads": 13
+     },
+     {
+      "company": "Brack.Alltron AG",
+      "ads": 13
+     },
+     {
+      "company": "ti&m AG",
+      "ads": 10
+     },
+     {
+      "company": "Consult & Pepper AG",
+      "ads": 8
+     },
+     {
+      "company": "Post CH AG",
+      "ads": 7
+     },
+     {
+      "company": "Google",
+      "ads": 6
+     },
+     {
+      "company": "Threema AG",
+      "ads": 6
+     }
+    ],
+    "entry_employers": [
+     {
+      "company": "Mettler Toledo",
+      "ads": 3
+     },
+     {
+      "company": "Finnova AG Bankware",
+      "ads": 2
+     },
+     {
+      "company": "ti&m AG",
+      "ads": 2
+     },
+     {
+      "company": "Swisscard",
+      "ads": 2
+     },
+     {
+      "company": "Consult & Pepper AG",
+      "ads": 1
+     },
+     {
+      "company": "Akros AG",
+      "ads": 1
+     }
+    ]
    },
    {
     "code": "101353",
@@ -2206,8 +2470,159 @@
     "label_de": "ICT System Engineer",
     "group": "251",
     "ads": 537,
-    "entry_ads": 54,
-    "entry_level_share": 0.101
+    "entry_ads": 38,
+    "entry_level_share": 0.071,
+    "weekly": [
+     {
+      "week": "2026-W39",
+      "new_ads": 13
+     },
+     {
+      "week": "2026-W40",
+      "new_ads": 20
+     },
+     {
+      "week": "2026-W41",
+      "new_ads": 16
+     },
+     {
+      "week": "2026-W42",
+      "new_ads": 29
+     },
+     {
+      "week": "2026-W43",
+      "new_ads": 51
+     },
+     {
+      "week": "2026-W44",
+      "new_ads": 60
+     },
+     {
+      "week": "2026-W45",
+      "new_ads": 95
+     },
+     {
+      "week": "2026-W46",
+      "new_ads": 119
+     },
+     {
+      "week": "2026-W47",
+      "new_ads": 134
+     }
+    ],
+    "skills": [
+     {
+      "skill": "Security",
+      "count": 287,
+      "share": 0.534
+     },
+     {
+      "skill": "Cloud",
+      "count": 263,
+      "share": 0.49
+     },
+     {
+      "skill": "Windows",
+      "count": 238,
+      "share": 0.443
+     },
+     {
+      "skill": "Networking",
+      "count": 219,
+      "share": 0.408
+     },
+     {
+      "skill": "Microsoft 365",
+      "count": 204,
+      "share": 0.38
+     },
+     {
+      "skill": "Active Directory",
+      "count": 172,
+      "share": 0.32
+     },
+     {
+      "skill": "Azure",
+      "count": 152,
+      "share": 0.283
+     },
+     {
+      "skill": "Intune/MDM",
+      "count": 91,
+      "share": 0.169
+     },
+     {
+      "skill": "Linux",
+      "count": 84,
+      "share": 0.156
+     },
+     {
+      "skill": "Scrum/Agile",
+      "count": 66,
+      "share": 0.123
+     }
+    ],
+    "skills_basis": 537,
+    "employers": [
+     {
+      "company": "Bundesamt für Informatik und Telekommunikation BIT",
+      "ads": 11
+     },
+     {
+      "company": "Bechtle Suisse SA",
+      "ads": 8
+     },
+     {
+      "company": "Eidgenössisches Institut für Metrologie",
+      "ads": 8
+     },
+     {
+      "company": "MTF Solutions AG",
+      "ads": 7
+     },
+     {
+      "company": "UMB AG, Zweigniederlassung Volketswil",
+      "ads": 7
+     },
+     {
+      "company": "Stadler Rail AG",
+      "ads": 6
+     },
+     {
+      "company": "Universitätsspital Zürich",
+      "ads": 6
+     },
+     {
+      "company": "skybris gmbh",
+      "ads": 6
+     }
+    ],
+    "entry_employers": [
+     {
+      "company": "Finnova AG Bankware",
+      "ads": 4
+     },
+     {
+      "company": "Vision-Inside AG",
+      "ads": 2
+     },
+     {
+      "company": "CFU GmbH",
+      "ads": 2
+     },
+     {
+      "company": "itelium GmbH",
+      "ads": 2
+     },
+     {
+      "company": "Tempobrain AG",
+      "ads": 1
+     },
+     {
+      "company": "Aargau Verkehr AG (AVA)",
+      "ads": 1
+     }
+    ]
    },
    {
     "code": "101341",
@@ -2215,8 +2630,159 @@
     "label_de": "Informatiker/in",
     "group": "250",
     "ads": 278,
-    "entry_ads": 32,
-    "entry_level_share": 0.115
+    "entry_ads": 22,
+    "entry_level_share": 0.079,
+    "weekly": [
+     {
+      "week": "2026-W39",
+      "new_ads": 15
+     },
+     {
+      "week": "2026-W40",
+      "new_ads": 22
+     },
+     {
+      "week": "2026-W41",
+      "new_ads": 16
+     },
+     {
+      "week": "2026-W42",
+      "new_ads": 14
+     },
+     {
+      "week": "2026-W43",
+      "new_ads": 21
+     },
+     {
+      "week": "2026-W44",
+      "new_ads": 45
+     },
+     {
+      "week": "2026-W45",
+      "new_ads": 40
+     },
+     {
+      "week": "2026-W46",
+      "new_ads": 54
+     },
+     {
+      "week": "2026-W47",
+      "new_ads": 51
+     }
+    ],
+    "skills": [
+     {
+      "skill": "Security",
+      "count": 147,
+      "share": 0.529
+     },
+     {
+      "skill": "Networking",
+      "count": 114,
+      "share": 0.41
+     },
+     {
+      "skill": "Cloud",
+      "count": 102,
+      "share": 0.367
+     },
+     {
+      "skill": "Windows",
+      "count": 65,
+      "share": 0.234
+     },
+     {
+      "skill": "Azure",
+      "count": 48,
+      "share": 0.173
+     },
+     {
+      "skill": "Microsoft 365",
+      "count": 43,
+      "share": 0.155
+     },
+     {
+      "skill": "Active Directory",
+      "count": 41,
+      "share": 0.147
+     },
+     {
+      "skill": "Excel",
+      "count": 34,
+      "share": 0.122
+     },
+     {
+      "skill": "Scrum/Agile",
+      "count": 32,
+      "share": 0.115
+     },
+     {
+      "skill": "Python",
+      "count": 30,
+      "share": 0.108
+     }
+    ],
+    "skills_basis": 278,
+    "employers": [
+     {
+      "company": "Post CH AG",
+      "ads": 5
+     },
+     {
+      "company": "Die Schweizerische Post AG",
+      "ads": 5
+     },
+     {
+      "company": "Swiss Himmel GmbH",
+      "ads": 4
+     },
+     {
+      "company": "Raiffeisen Schweiz",
+      "ads": 3
+     },
+     {
+      "company": "Einwohnergemeinde Saanen",
+      "ads": 2
+     },
+     {
+      "company": "Work4You AG",
+      "ads": 2
+     },
+     {
+      "company": "Schindler",
+      "ads": 2
+     },
+     {
+      "company": "Bundesamt für Meteorologie und Klimatologie MeteoSchweiz",
+      "ads": 2
+     }
+    ],
+    "entry_employers": [
+     {
+      "company": "TechSearch AG",
+      "ads": 1
+     },
+     {
+      "company": "Bundesamt für Sozialversicherungen BSV",
+      "ads": 1
+     },
+     {
+      "company": "Emmi Group",
+      "ads": 1
+     },
+     {
+      "company": "Ufficio federale di polizia fedpol",
+      "ads": 1
+     },
+     {
+      "company": "Office fédéral de la police fedpol",
+      "ads": 1
+     },
+     {
+      "company": "Bundesamt für Polizei fedpol",
+      "ads": 1
+     }
+    ]
    },
    {
     "code": "101782",
@@ -2225,7 +2791,158 @@
     "group": "351",
     "ads": 223,
     "entry_ads": 29,
-    "entry_level_share": 0.13
+    "entry_level_share": 0.13,
+    "weekly": [
+     {
+      "week": "2026-W39",
+      "new_ads": 11
+     },
+     {
+      "week": "2026-W40",
+      "new_ads": 4
+     },
+     {
+      "week": "2026-W41",
+      "new_ads": 2
+     },
+     {
+      "week": "2026-W42",
+      "new_ads": 7
+     },
+     {
+      "week": "2026-W43",
+      "new_ads": 20
+     },
+     {
+      "week": "2026-W44",
+      "new_ads": 26
+     },
+     {
+      "week": "2026-W45",
+      "new_ads": 38
+     },
+     {
+      "week": "2026-W46",
+      "new_ads": 50
+     },
+     {
+      "week": "2026-W47",
+      "new_ads": 65
+     }
+    ],
+    "skills": [
+     {
+      "skill": "Microsoft 365",
+      "count": 96,
+      "share": 0.43
+     },
+     {
+      "skill": "Windows",
+      "count": 91,
+      "share": 0.408
+     },
+     {
+      "skill": "Hardware",
+      "count": 88,
+      "share": 0.395
+     },
+     {
+      "skill": "Ticketing",
+      "count": 85,
+      "share": 0.381
+     },
+     {
+      "skill": "Networking",
+      "count": 79,
+      "share": 0.354
+     },
+     {
+      "skill": "Active Directory",
+      "count": 48,
+      "share": 0.215
+     },
+     {
+      "skill": "Security",
+      "count": 39,
+      "share": 0.175
+     },
+     {
+      "skill": "ITIL",
+      "count": 32,
+      "share": 0.143
+     },
+     {
+      "skill": "Intune/MDM",
+      "count": 19,
+      "share": 0.085
+     },
+     {
+      "skill": "Cloud",
+      "count": 19,
+      "share": 0.085
+     }
+    ],
+    "skills_basis": 223,
+    "employers": [
+     {
+      "company": "Abacus Business Solutions AG",
+      "ads": 4
+     },
+     {
+      "company": "Mettler Toledo",
+      "ads": 4
+     },
+     {
+      "company": "Selecta AG",
+      "ads": 4
+     },
+     {
+      "company": "C5I",
+      "ads": 4
+     },
+     {
+      "company": "Dottikon Exclusive Synthesis AG",
+      "ads": 4
+     },
+     {
+      "company": "IQ Plus AG",
+      "ads": 3
+     },
+     {
+      "company": "Callpoint AG",
+      "ads": 3
+     },
+     {
+      "company": "Nitrochemie Wimmis AG",
+      "ads": 3
+     }
+    ],
+    "entry_employers": [
+     {
+      "company": "Mettler Toledo",
+      "ads": 3
+     },
+     {
+      "company": "Demant Schweiz AG",
+      "ads": 2
+     },
+     {
+      "company": "univativ Schweiz AG",
+      "ads": 2
+     },
+     {
+      "company": "ERNE Management AG",
+      "ads": 1
+     },
+     {
+      "company": "Aargau Verkehr AG (AVA)",
+      "ads": 1
+     },
+     {
+      "company": "Kantonale Verwaltung Basel-Landschaft",
+      "ads": 1
+     }
+    ]
    },
    {
     "code": "101358",
@@ -2233,8 +2950,155 @@
     "label_de": "ICT Application Engineer",
     "group": "251",
     "ads": 158,
-    "entry_ads": 15,
-    "entry_level_share": 0.095
+    "entry_ads": 6,
+    "entry_level_share": 0.038,
+    "weekly": [
+     {
+      "week": "2026-W40",
+      "new_ads": 10
+     },
+     {
+      "week": "2026-W41",
+      "new_ads": 3
+     },
+     {
+      "week": "2026-W42",
+      "new_ads": 1
+     },
+     {
+      "week": "2026-W43",
+      "new_ads": 16
+     },
+     {
+      "week": "2026-W44",
+      "new_ads": 19
+     },
+     {
+      "week": "2026-W45",
+      "new_ads": 35
+     },
+     {
+      "week": "2026-W46",
+      "new_ads": 37
+     },
+     {
+      "week": "2026-W47",
+      "new_ads": 37
+     }
+    ],
+    "skills": [
+     {
+      "skill": "SQL",
+      "count": 36,
+      "share": 0.228
+     },
+     {
+      "skill": "Java",
+      "count": 35,
+      "share": 0.222
+     },
+     {
+      "skill": "Cloud",
+      "count": 33,
+      "share": 0.209
+     },
+     {
+      "skill": "Scrum/Agile",
+      "count": 31,
+      "share": 0.196
+     },
+     {
+      "skill": "Excel",
+      "count": 30,
+      "share": 0.19
+     },
+     {
+      "skill": "Security",
+      "count": 29,
+      "share": 0.184
+     },
+     {
+      "skill": "API/REST",
+      "count": 26,
+      "share": 0.165
+     },
+     {
+      "skill": "Docker",
+      "count": 21,
+      "share": 0.133
+     },
+     {
+      "skill": "Kubernetes",
+      "count": 21,
+      "share": 0.133
+     },
+     {
+      "skill": "SAP",
+      "count": 21,
+      "share": 0.133
+     }
+    ],
+    "skills_basis": 158,
+    "employers": [
+     {
+      "company": "Kandou Bus SA",
+      "ads": 6
+     },
+     {
+      "company": "Brack.Alltron AG",
+      "ads": 4
+     },
+     {
+      "company": "Kanton St. Gallen",
+      "ads": 4
+     },
+     {
+      "company": "mylife Diabetes Care AG",
+      "ads": 4
+     },
+     {
+      "company": "NOVO Business Consultants AG",
+      "ads": 4
+     },
+     {
+      "company": "Evergreen Human Resources AG",
+      "ads": 3
+     },
+     {
+      "company": "Dottikon Exclusive Synthesis AG",
+      "ads": 3
+     },
+     {
+      "company": "Meggitt SA",
+      "ads": 3
+     }
+    ],
+    "entry_employers": [
+     {
+      "company": "HAPA AG",
+      "ads": 1
+     },
+     {
+      "company": "Spital Thurgau AG",
+      "ads": 1
+     },
+     {
+      "company": "INSELSPITAL",
+      "ads": 1
+     },
+     {
+      "company": "Axians Infoma Schweiz",
+      "ads": 1
+     },
+     {
+      "company": "Solothurner Spitäler AG",
+      "ads": 1
+     },
+     {
+      "company": "Lenorplastics AG",
+      "ads": 1
+     }
+    ]
    },
    {
     "code": "101349",
@@ -2242,8 +3106,159 @@
     "label_de": "ICT Consultant",
     "group": "251",
     "ads": 157,
-    "entry_ads": 16,
-    "entry_level_share": 0.102
+    "entry_ads": 11,
+    "entry_level_share": 0.07,
+    "weekly": [
+     {
+      "week": "2026-W39",
+      "new_ads": 2
+     },
+     {
+      "week": "2026-W40",
+      "new_ads": 5
+     },
+     {
+      "week": "2026-W41",
+      "new_ads": 2
+     },
+     {
+      "week": "2026-W42",
+      "new_ads": 1
+     },
+     {
+      "week": "2026-W43",
+      "new_ads": 5
+     },
+     {
+      "week": "2026-W44",
+      "new_ads": 24
+     },
+     {
+      "week": "2026-W45",
+      "new_ads": 30
+     },
+     {
+      "week": "2026-W46",
+      "new_ads": 40
+     },
+     {
+      "week": "2026-W47",
+      "new_ads": 48
+     }
+    ],
+    "skills": [
+     {
+      "skill": "SAP",
+      "count": 53,
+      "share": 0.338
+     },
+     {
+      "skill": "Scrum/Agile",
+      "count": 28,
+      "share": 0.178
+     },
+     {
+      "skill": "Cloud",
+      "count": 25,
+      "share": 0.159
+     },
+     {
+      "skill": "Excel",
+      "count": 19,
+      "share": 0.121
+     },
+     {
+      "skill": "Security",
+      "count": 18,
+      "share": 0.115
+     },
+     {
+      "skill": "SQL",
+      "count": 13,
+      "share": 0.083
+     },
+     {
+      "skill": "Ticketing",
+      "count": 12,
+      "share": 0.076
+     },
+     {
+      "skill": "Networking",
+      "count": 10,
+      "share": 0.064
+     },
+     {
+      "skill": "HTML/CSS",
+      "count": 8,
+      "share": 0.051
+     },
+     {
+      "skill": "API/REST",
+      "count": 7,
+      "share": 0.045
+     }
+    ],
+    "skills_basis": 157,
+    "employers": [
+     {
+      "company": "Axept Business Software AG",
+      "ads": 9
+     },
+     {
+      "company": "OBT AG",
+      "ads": 7
+     },
+     {
+      "company": "Consult & Pepper AG",
+      "ads": 6
+     },
+     {
+      "company": "Opale Solutions AG",
+      "ads": 5
+     },
+     {
+      "company": "Communardo Switzerland AG",
+      "ads": 5
+     },
+     {
+      "company": "NOVO Business Consultants AG",
+      "ads": 4
+     },
+     {
+      "company": "UMB AG, Zweigniederlassung Volketswil",
+      "ads": 4
+     },
+     {
+      "company": "Informaticon AG",
+      "ads": 4
+     }
+    ],
+    "entry_employers": [
+     {
+      "company": "Schweizer Armee - Kommando Cyber Kdo Cy",
+      "ads": 2
+     },
+     {
+      "company": "NOVO Business Consultants AG",
+      "ads": 2
+     },
+     {
+      "company": "WAGNER AG",
+      "ads": 2
+     },
+     {
+      "company": "Consult & Pepper AG",
+      "ads": 1
+     },
+     {
+      "company": "Stadler Rail Management AG",
+      "ads": 1
+     },
+     {
+      "company": "Esercito svizzero - Comando Ciber Cdo Ciber",
+      "ads": 1
+     }
+    ]
    },
    {
     "code": "101355",
@@ -2251,8 +3266,147 @@
     "label_de": "ICT Project Manager",
     "group": "251",
     "ads": 150,
-    "entry_ads": 15,
-    "entry_level_share": 0.1
+    "entry_ads": 6,
+    "entry_level_share": 0.04,
+    "weekly": [
+     {
+      "week": "2026-W39",
+      "new_ads": 2
+     },
+     {
+      "week": "2026-W40",
+      "new_ads": 3
+     },
+     {
+      "week": "2026-W41",
+      "new_ads": 1
+     },
+     {
+      "week": "2026-W42",
+      "new_ads": 1
+     },
+     {
+      "week": "2026-W43",
+      "new_ads": 12
+     },
+     {
+      "week": "2026-W44",
+      "new_ads": 20
+     },
+     {
+      "week": "2026-W45",
+      "new_ads": 28
+     },
+     {
+      "week": "2026-W46",
+      "new_ads": 21
+     },
+     {
+      "week": "2026-W47",
+      "new_ads": 62
+     }
+    ],
+    "skills": [
+     {
+      "skill": "Scrum/Agile",
+      "count": 47,
+      "share": 0.313
+     },
+     {
+      "skill": "Security",
+      "count": 36,
+      "share": 0.24
+     },
+     {
+      "skill": "Cloud",
+      "count": 29,
+      "share": 0.193
+     },
+     {
+      "skill": "Excel",
+      "count": 26,
+      "share": 0.173
+     },
+     {
+      "skill": "Ticketing",
+      "count": 21,
+      "share": 0.14
+     },
+     {
+      "skill": "Networking",
+      "count": 17,
+      "share": 0.113
+     },
+     {
+      "skill": "Microsoft 365",
+      "count": 14,
+      "share": 0.093
+     },
+     {
+      "skill": "SAP",
+      "count": 12,
+      "share": 0.08
+     },
+     {
+      "skill": "Intune/MDM",
+      "count": 8,
+      "share": 0.053
+     },
+     {
+      "skill": "Windows",
+      "count": 8,
+      "share": 0.053
+     }
+    ],
+    "skills_basis": 150,
+    "employers": [
+     {
+      "company": "MTF Solutions AG",
+      "ads": 6
+     },
+     {
+      "company": "Kanton St. Gallen",
+      "ads": 4
+     },
+     {
+      "company": "Kantonale Verwaltung Zürich",
+      "ads": 3
+     },
+     {
+      "company": "HIS Schweiz",
+      "ads": 3
+     },
+     {
+      "company": "Kanton Aargau",
+      "ads": 3
+     },
+     {
+      "company": "RUAG AG",
+      "ads": 3
+     },
+     {
+      "company": "Opacc Software AG",
+      "ads": 3
+     },
+     {
+      "company": "SpeciTec SA",
+      "ads": 2
+     }
+    ],
+    "entry_employers": [
+     {
+      "company": "Brasport S.A.",
+      "ads": 2
+     },
+     {
+      "company": "Logjob AG - For Supply Chain Experts",
+      "ads": 2
+     },
+     {
+      "company": "Bindella Terra Vite Vita SA",
+      "ads": 1
+     }
+    ]
    },
    {
     "code": "101364",
@@ -2261,7 +3415,146 @@
     "group": "252",
     "ads": 87,
     "entry_ads": 6,
-    "entry_level_share": 0.069
+    "entry_level_share": 0.069,
+    "weekly": [
+     {
+      "week": "2026-W40",
+      "new_ads": 6
+     },
+     {
+      "week": "2026-W41",
+      "new_ads": 4
+     },
+     {
+      "week": "2026-W42",
+      "new_ads": 4
+     },
+     {
+      "week": "2026-W43",
+      "new_ads": 8
+     },
+     {
+      "week": "2026-W44",
+      "new_ads": 15
+     },
+     {
+      "week": "2026-W45",
+      "new_ads": 16
+     },
+     {
+      "week": "2026-W46",
+      "new_ads": 18
+     },
+     {
+      "week": "2026-W47",
+      "new_ads": 16
+     }
+    ],
+    "skills": [
+     {
+      "skill": "Networking",
+      "count": 54,
+      "share": 0.621
+     },
+     {
+      "skill": "Security",
+      "count": 50,
+      "share": 0.575
+     },
+     {
+      "skill": "Windows",
+      "count": 47,
+      "share": 0.54
+     },
+     {
+      "skill": "Cloud",
+      "count": 43,
+      "share": 0.494
+     },
+     {
+      "skill": "Microsoft 365",
+      "count": 30,
+      "share": 0.345
+     },
+     {
+      "skill": "Active Directory",
+      "count": 28,
+      "share": 0.322
+     },
+     {
+      "skill": "Linux",
+      "count": 27,
+      "share": 0.31
+     },
+     {
+      "skill": "Azure",
+      "count": 25,
+      "share": 0.287
+     },
+     {
+      "skill": "Docker",
+      "count": 21,
+      "share": 0.241
+     },
+     {
+      "skill": "Kubernetes",
+      "count": 19,
+      "share": 0.218
+     }
+    ],
+    "skills_basis": 87,
+    "employers": [
+     {
+      "company": "MTF Solutions AG",
+      "ads": 4
+     },
+     {
+      "company": "Swisscom AG",
+      "ads": 4
+     },
+     {
+      "company": "FMV SA",
+      "ads": 3
+     },
+     {
+      "company": "Finders",
+      "ads": 3
+     },
+     {
+      "company": "Zürcher Kantonalbank",
+      "ads": 2
+     },
+     {
+      "company": "Notterkran AG",
+      "ads": 2
+     },
+     {
+      "company": "Mercedes-Benz Schweiz AG",
+      "ads": 2
+     },
+     {
+      "company": "SSM Schärer Schweiter Mettler AG",
+      "ads": 2
+     }
+    ],
+    "entry_employers": [
+     {
+      "company": "Swisscom AG",
+      "ads": 2
+     },
+     {
+      "company": "CHOCOLAT BERNRAIN AG",
+      "ads": 1
+     },
+     {
+      "company": "Elvetino AG",
+      "ads": 1
+     },
+     {
+      "company": "Swisscom (Schweiz) AG",
+      "ads": 1
+     }
+    ]
    },
    {
     "code": "101344",
@@ -2269,8 +3562,126 @@
     "label_de": "ICT Architect",
     "group": "251",
     "ads": 84,
-    "entry_ads": 7,
-    "entry_level_share": 0.083
+    "entry_ads": 1,
+    "entry_level_share": 0.012,
+    "weekly": [
+     {
+      "week": "2026-W41",
+      "new_ads": 1
+     },
+     {
+      "week": "2026-W42",
+      "new_ads": 1
+     },
+     {
+      "week": "2026-W43",
+      "new_ads": 5
+     },
+     {
+      "week": "2026-W44",
+      "new_ads": 15
+     },
+     {
+      "week": "2026-W45",
+      "new_ads": 20
+     },
+     {
+      "week": "2026-W46",
+      "new_ads": 22
+     },
+     {
+      "week": "2026-W47",
+      "new_ads": 20
+     }
+    ],
+    "skills": [
+     {
+      "skill": "Security",
+      "count": 47,
+      "share": 0.56
+     },
+     {
+      "skill": "Scrum/Agile",
+      "count": 39,
+      "share": 0.464
+     },
+     {
+      "skill": "Cloud",
+      "count": 32,
+      "share": 0.381
+     },
+     {
+      "skill": "Networking",
+      "count": 25,
+      "share": 0.298
+     },
+     {
+      "skill": "API/REST",
+      "count": 15,
+      "share": 0.179
+     },
+     {
+      "skill": "Docker",
+      "count": 11,
+      "share": 0.131
+     },
+     {
+      "skill": "Azure",
+      "count": 9,
+      "share": 0.107
+     },
+     {
+      "skill": "Excel",
+      "count": 9,
+      "share": 0.107
+     },
+     {
+      "skill": "HTML/CSS",
+      "count": 9,
+      "share": 0.107
+     },
+     {
+      "skill": "Java",
+      "count": 7,
+      "share": 0.083
+     }
+    ],
+    "skills_basis": 84,
+    "employers": [
+     {
+      "company": "Schweizer Armee - Kommando Cyber Kdo Cy",
+      "ads": 6
+     },
+     {
+      "company": "Bundesamt für Informatik und Telekommunikation BIT",
+      "ads": 4
+     },
+     {
+      "company": "Post CH AG",
+      "ads": 3
+     },
+     {
+      "company": "ti&m AG",
+      "ads": 2
+     },
+     {
+      "company": "Basler Kantonalbank",
+      "ads": 2
+     },
+     {
+      "company": "Brack.Alltron AG",
+      "ads": 2
+     },
+     {
+      "company": "Bundesamt für Landwirtschaft BLW",
+      "ads": 2
+     },
+     {
+      "company": "Zühlke Engineering AG",
+      "ads": 2
+     }
+    ],
+    "entry_employers": []
    },
    {
     "code": "101363",
@@ -2278,8 +3689,147 @@
     "label_de": "Database Engineer",
     "group": "252",
     "ads": 73,
-    "entry_ads": 5,
-    "entry_level_share": 0.068
+    "entry_ads": 4,
+    "entry_level_share": 0.055,
+    "weekly": [
+     {
+      "week": "2026-W39",
+      "new_ads": 2
+     },
+     {
+      "week": "2026-W40",
+      "new_ads": 6
+     },
+     {
+      "week": "2026-W41",
+      "new_ads": 4
+     },
+     {
+      "week": "2026-W42",
+      "new_ads": 2
+     },
+     {
+      "week": "2026-W43",
+      "new_ads": 9
+     },
+     {
+      "week": "2026-W44",
+      "new_ads": 3
+     },
+     {
+      "week": "2026-W45",
+      "new_ads": 17
+     },
+     {
+      "week": "2026-W46",
+      "new_ads": 18
+     },
+     {
+      "week": "2026-W47",
+      "new_ads": 12
+     }
+    ],
+    "skills": [
+     {
+      "skill": "SQL",
+      "count": 45,
+      "share": 0.616
+     },
+     {
+      "skill": "Python",
+      "count": 39,
+      "share": 0.534
+     },
+     {
+      "skill": "Cloud",
+      "count": 24,
+      "share": 0.329
+     },
+     {
+      "skill": "Azure",
+      "count": 17,
+      "share": 0.233
+     },
+     {
+      "skill": "Excel",
+      "count": 15,
+      "share": 0.205
+     },
+     {
+      "skill": "Scrum/Agile",
+      "count": 14,
+      "share": 0.192
+     },
+     {
+      "skill": "Security",
+      "count": 11,
+      "share": 0.151
+     },
+     {
+      "skill": "Power BI",
+      "count": 11,
+      "share": 0.151
+     },
+     {
+      "skill": "Tableau",
+      "count": 9,
+      "share": 0.123
+     },
+     {
+      "skill": "Git",
+      "count": 7,
+      "share": 0.096
+     }
+    ],
+    "skills_basis": 73,
+    "employers": [
+     {
+      "company": "UBS",
+      "ads": 2
+     },
+     {
+      "company": "Concordia",
+      "ads": 2
+     },
+     {
+      "company": "Capgemini",
+      "ads": 2
+     },
+     {
+      "company": "Basler Kantonalbank",
+      "ads": 2
+     },
+     {
+      "company": "Coop Genossenschaft",
+      "ads": 1
+     },
+     {
+      "company": "Raiffeisen Schweiz",
+      "ads": 1
+     },
+     {
+      "company": "Pictet Asset Management SA",
+      "ads": 1
+     },
+     {
+      "company": "Swiss Re",
+      "ads": 1
+     }
+    ],
+    "entry_employers": [
+     {
+      "company": "Swiss Re",
+      "ads": 1
+     },
+     {
+      "company": "Finnova AG Bankware",
+      "ads": 1
+     },
+     {
+      "company": "TotalEnergies Gas & Power Ltd",
+      "ads": 1
+     }
+    ]
    },
    {
     "code": "101345",
@@ -2287,8 +3837,131 @@
     "label_de": "ICT Business Analyst",
     "group": "251",
     "ads": 71,
-    "entry_ads": 4,
-    "entry_level_share": 0.056
+    "entry_ads": 3,
+    "entry_level_share": 0.042,
+    "weekly": [
+     {
+      "week": "2026-W43",
+      "new_ads": 3
+     },
+     {
+      "week": "2026-W44",
+      "new_ads": 7
+     },
+     {
+      "week": "2026-W45",
+      "new_ads": 9
+     },
+     {
+      "week": "2026-W46",
+      "new_ads": 11
+     },
+     {
+      "week": "2026-W47",
+      "new_ads": 41
+     }
+    ],
+    "skills": [
+     {
+      "skill": "Excel",
+      "count": 19,
+      "share": 0.268
+     },
+     {
+      "skill": "Security",
+      "count": 18,
+      "share": 0.254
+     },
+     {
+      "skill": "Scrum/Agile",
+      "count": 18,
+      "share": 0.254
+     },
+     {
+      "skill": "Ticketing",
+      "count": 12,
+      "share": 0.169
+     },
+     {
+      "skill": "API/REST",
+      "count": 11,
+      "share": 0.155
+     },
+     {
+      "skill": "Networking",
+      "count": 9,
+      "share": 0.127
+     },
+     {
+      "skill": "Cloud",
+      "count": 8,
+      "share": 0.113
+     },
+     {
+      "skill": "Microsoft 365",
+      "count": 8,
+      "share": 0.113
+     },
+     {
+      "skill": "SAP",
+      "count": 7,
+      "share": 0.099
+     },
+     {
+      "skill": "Power BI",
+      "count": 4,
+      "share": 0.056
+     }
+    ],
+    "skills_basis": 71,
+    "employers": [
+     {
+      "company": "Sonic Suisse Labs SA",
+      "ads": 7
+     },
+     {
+      "company": "Consult & Pepper AG",
+      "ads": 5
+     },
+     {
+      "company": "ÖKK Holding AG",
+      "ads": 4
+     },
+     {
+      "company": "ITech Consult AG",
+      "ads": 3
+     },
+     {
+      "company": "Kantonale Verwaltung Zürich",
+      "ads": 3
+     },
+     {
+      "company": "Aequor Consulting GmbH",
+      "ads": 2
+     },
+     {
+      "company": "Vaudoise Assurances",
+      "ads": 2
+     },
+     {
+      "company": "Schweizer Armee - Kommando Ausbildung Kdo Ausb",
+      "ads": 2
+     }
+    ],
+    "entry_employers": [
+     {
+      "company": "Calida AG",
+      "ads": 1
+     },
+     {
+      "company": "Thommen Services AG",
+      "ads": 1
+     },
+     {
+      "company": "Finanzverwaltung des Kantons Bern",
+      "ads": 1
+     }
+    ]
    },
    {
     "code": "104048",
@@ -2297,7 +3970,138 @@
     "group": "251",
     "ads": 64,
     "entry_ads": 9,
-    "entry_level_share": 0.141
+    "entry_level_share": 0.141,
+    "weekly": [
+     {
+      "week": "2026-W43",
+      "new_ads": 2
+     },
+     {
+      "week": "2026-W44",
+      "new_ads": 9
+     },
+     {
+      "week": "2026-W45",
+      "new_ads": 16
+     },
+     {
+      "week": "2026-W46",
+      "new_ads": 11
+     },
+     {
+      "week": "2026-W47",
+      "new_ads": 26
+     }
+    ],
+    "skills": [
+     {
+      "skill": "Security",
+      "count": 43,
+      "share": 0.672
+     },
+     {
+      "skill": "Cloud",
+      "count": 35,
+      "share": 0.547
+     },
+     {
+      "skill": "Docker",
+      "count": 35,
+      "share": 0.547
+     },
+     {
+      "skill": "Kubernetes",
+      "count": 34,
+      "share": 0.531
+     },
+     {
+      "skill": "Networking",
+      "count": 33,
+      "share": 0.516
+     },
+     {
+      "skill": "Git",
+      "count": 32,
+      "share": 0.5
+     },
+     {
+      "skill": "Linux",
+      "count": 28,
+      "share": 0.438
+     },
+     {
+      "skill": "Scrum/Agile",
+      "count": 27,
+      "share": 0.422
+     },
+     {
+      "skill": "Python",
+      "count": 13,
+      "share": 0.203
+     },
+     {
+      "skill": "Azure",
+      "count": 13,
+      "share": 0.203
+     }
+    ],
+    "skills_basis": 64,
+    "employers": [
+     {
+      "company": "Schweizer Armee - Kommando Cyber Kdo Cy",
+      "ads": 5
+     },
+     {
+      "company": "Swisslinx AG",
+      "ads": 4
+     },
+     {
+      "company": "Consult & Pepper AG",
+      "ads": 4
+     },
+     {
+      "company": "RUAG MRO Holding AG",
+      "ads": 4
+     },
+     {
+      "company": "Swissquote Bank SA",
+      "ads": 3
+     },
+     {
+      "company": "SmartYou SA",
+      "ads": 3
+     },
+     {
+      "company": "C5I",
+      "ads": 3
+     },
+     {
+      "company": "Pro Informatik AG",
+      "ads": 2
+     }
+    ],
+    "entry_employers": [
+     {
+      "company": "Swissquote Bank SA",
+      "ads": 3
+     },
+     {
+      "company": "RUAG AG",
+      "ads": 2
+     },
+     {
+      "company": "Schweizer Armee - Kommando Cyber Kdo Cy",
+      "ads": 2
+     },
+     {
+      "company": "ITRIS One AG",
+      "ads": 1
+     },
+     {
+      "company": "Blackpoints SA",
+      "ads": 1
+     }
+    ]
    },
    {
     "code": "101779",
@@ -2305,8 +4109,118 @@
     "label_de": "ICT Application Manager",
     "group": "351",
     "ads": 62,
-    "entry_ads": 7,
-    "entry_level_share": 0.113
+    "entry_ads": 0,
+    "entry_level_share": 0.0,
+    "weekly": [
+     {
+      "week": "2026-W43",
+      "new_ads": 2
+     },
+     {
+      "week": "2026-W44",
+      "new_ads": 13
+     },
+     {
+      "week": "2026-W45",
+      "new_ads": 13
+     },
+     {
+      "week": "2026-W46",
+      "new_ads": 10
+     },
+     {
+      "week": "2026-W47",
+      "new_ads": 24
+     }
+    ],
+    "skills": [
+     {
+      "skill": "SQL",
+      "count": 17,
+      "share": 0.274
+     },
+     {
+      "skill": "Ticketing",
+      "count": 16,
+      "share": 0.258
+     },
+     {
+      "skill": "SAP",
+      "count": 12,
+      "share": 0.194
+     },
+     {
+      "skill": "Security",
+      "count": 11,
+      "share": 0.177
+     },
+     {
+      "skill": "ITIL",
+      "count": 11,
+      "share": 0.177
+     },
+     {
+      "skill": "Scrum/Agile",
+      "count": 8,
+      "share": 0.129
+     },
+     {
+      "skill": "HTML/CSS",
+      "count": 6,
+      "share": 0.097
+     },
+     {
+      "skill": "Kubernetes",
+      "count": 5,
+      "share": 0.081
+     },
+     {
+      "skill": "Windows",
+      "count": 4,
+      "share": 0.065
+     },
+     {
+      "skill": "API/REST",
+      "count": 4,
+      "share": 0.065
+     }
+    ],
+    "skills_basis": 62,
+    "employers": [
+     {
+      "company": "Sabag AG",
+      "ads": 8
+     },
+     {
+      "company": "Swiss Life AG",
+      "ads": 3
+     },
+     {
+      "company": "Avosano",
+      "ads": 3
+     },
+     {
+      "company": "Fehlmann AG",
+      "ads": 2
+     },
+     {
+      "company": "Fédération Vaudoise des entrepreneurs, société coopérative",
+      "ads": 2
+     },
+     {
+      "company": "EW Höfe AG",
+      "ads": 2
+     },
+     {
+      "company": "Hans Hächler Verwaltungs AG",
+      "ads": 2
+     },
+     {
+      "company": "BVK Personalvorsorge des Kantons Zürich",
+      "ads": 2
+     }
+    ],
+    "entry_employers": []
    },
    {
     "code": "101362",
@@ -2314,8 +4228,139 @@
     "label_de": "Database Administrator",
     "group": "252",
     "ads": 60,
-    "entry_ads": 4,
-    "entry_level_share": 0.067
+    "entry_ads": 1,
+    "entry_level_share": 0.017,
+    "weekly": [
+     {
+      "week": "2026-W39",
+      "new_ads": 3
+     },
+     {
+      "week": "2026-W40",
+      "new_ads": 2
+     },
+     {
+      "week": "2026-W41",
+      "new_ads": 1
+     },
+     {
+      "week": "2026-W42",
+      "new_ads": 2
+     },
+     {
+      "week": "2026-W43",
+      "new_ads": 4
+     },
+     {
+      "week": "2026-W44",
+      "new_ads": 5
+     },
+     {
+      "week": "2026-W45",
+      "new_ads": 7
+     },
+     {
+      "week": "2026-W46",
+      "new_ads": 22
+     },
+     {
+      "week": "2026-W47",
+      "new_ads": 14
+     }
+    ],
+    "skills": [
+     {
+      "skill": "SQL",
+      "count": 37,
+      "share": 0.617
+     },
+     {
+      "skill": "Cloud",
+      "count": 23,
+      "share": 0.383
+     },
+     {
+      "skill": "Python",
+      "count": 22,
+      "share": 0.367
+     },
+     {
+      "skill": "Azure",
+      "count": 17,
+      "share": 0.283
+     },
+     {
+      "skill": "Security",
+      "count": 17,
+      "share": 0.283
+     },
+     {
+      "skill": "Scrum/Agile",
+      "count": 14,
+      "share": 0.233
+     },
+     {
+      "skill": "Excel",
+      "count": 12,
+      "share": 0.2
+     },
+     {
+      "skill": "SAP",
+      "count": 9,
+      "share": 0.15
+     },
+     {
+      "skill": "Git",
+      "count": 8,
+      "share": 0.133
+     },
+     {
+      "skill": "API/REST",
+      "count": 8,
+      "share": 0.133
+     }
+    ],
+    "skills_basis": 60,
+    "employers": [
+     {
+      "company": "Pictet Asset Management SA",
+      "ads": 3
+     },
+     {
+      "company": "Swisscom (Schweiz) AG",
+      "ads": 2
+     },
+     {
+      "company": "Bundesverwaltung",
+      "ads": 2
+     },
+     {
+      "company": "Kanton Aargau",
+      "ads": 2
+     },
+     {
+      "company": "Zühlke Engineering AG",
+      "ads": 2
+     },
+     {
+      "company": "Bechtle Suisse SA",
+      "ads": 2
+     },
+     {
+      "company": "Bison Schweiz AG",
+      "ads": 2
+     },
+     {
+      "company": "Unit8 SA",
+      "ads": 1
+     }
+    ],
+    "entry_employers": [
+     {
+      "company": "Bulgari Horlogerie SA",
+      "ads": 1
+     }
+    ]
    },
    {
     "code": "101368",
@@ -2323,8 +4368,139 @@
     "label_de": "Network Engineer",
     "group": "252",
     "ads": 54,
-    "entry_ads": 5,
-    "entry_level_share": 0.093
+    "entry_ads": 3,
+    "entry_level_share": 0.056,
+    "weekly": [
+     {
+      "week": "2026-W39",
+      "new_ads": 3
+     },
+     {
+      "week": "2026-W41",
+      "new_ads": 2
+     },
+     {
+      "week": "2026-W43",
+      "new_ads": 6
+     },
+     {
+      "week": "2026-W44",
+      "new_ads": 6
+     },
+     {
+      "week": "2026-W45",
+      "new_ads": 10
+     },
+     {
+      "week": "2026-W46",
+      "new_ads": 12
+     },
+     {
+      "week": "2026-W47",
+      "new_ads": 15
+     }
+    ],
+    "skills": [
+     {
+      "skill": "Networking",
+      "count": 51,
+      "share": 0.944
+     },
+     {
+      "skill": "Security",
+      "count": 38,
+      "share": 0.704
+     },
+     {
+      "skill": "Linux",
+      "count": 11,
+      "share": 0.204
+     },
+     {
+      "skill": "Python",
+      "count": 10,
+      "share": 0.185
+     },
+     {
+      "skill": "Cloud",
+      "count": 10,
+      "share": 0.185
+     },
+     {
+      "skill": "Excel",
+      "count": 9,
+      "share": 0.167
+     },
+     {
+      "skill": "Ticketing",
+      "count": 8,
+      "share": 0.148
+     },
+     {
+      "skill": "Git",
+      "count": 6,
+      "share": 0.111
+     },
+     {
+      "skill": "Windows",
+      "count": 6,
+      "share": 0.111
+     },
+     {
+      "skill": "Scrum/Agile",
+      "count": 4,
+      "share": 0.074
+     }
+    ],
+    "skills_basis": 54,
+    "employers": [
+     {
+      "company": "skybris gmbh",
+      "ads": 3
+     },
+     {
+      "company": "Bechtle Suisse SA",
+      "ads": 3
+     },
+     {
+      "company": "Tempobrain AG",
+      "ads": 2
+     },
+     {
+      "company": "Evergreen Human Resources AG",
+      "ads": 2
+     },
+     {
+      "company": "univativ Schweiz AG",
+      "ads": 2
+     },
+     {
+      "company": "RUAG AG",
+      "ads": 2
+     },
+     {
+      "company": "FHVi (Fédération des hôpitaux vaudois informatique)",
+      "ads": 2
+     },
+     {
+      "company": "Spital Emmental",
+      "ads": 2
+     }
+    ],
+    "entry_employers": [
+     {
+      "company": "Hirslanden AG",
+      "ads": 1
+     },
+     {
+      "company": "Stadler Signalling",
+      "ads": 1
+     },
+     {
+      "company": "ValJob",
+      "ads": 1
+     }
+    ]
    },
    {
     "code": "101369",
@@ -2333,7 +4509,130 @@
     "group": "252",
     "ads": 53,
     "entry_ads": 3,
-    "entry_level_share": 0.057
+    "entry_level_share": 0.057,
+    "weekly": [
+     {
+      "week": "2026-W43",
+      "new_ads": 6
+     },
+     {
+      "week": "2026-W44",
+      "new_ads": 5
+     },
+     {
+      "week": "2026-W45",
+      "new_ads": 9
+     },
+     {
+      "week": "2026-W46",
+      "new_ads": 8
+     },
+     {
+      "week": "2026-W47",
+      "new_ads": 25
+     }
+    ],
+    "skills": [
+     {
+      "skill": "Security",
+      "count": 43,
+      "share": 0.811
+     },
+     {
+      "skill": "Networking",
+      "count": 22,
+      "share": 0.415
+     },
+     {
+      "skill": "Cloud",
+      "count": 13,
+      "share": 0.245
+     },
+     {
+      "skill": "Active Directory",
+      "count": 12,
+      "share": 0.226
+     },
+     {
+      "skill": "Linux",
+      "count": 11,
+      "share": 0.208
+     },
+     {
+      "skill": "Azure",
+      "count": 10,
+      "share": 0.189
+     },
+     {
+      "skill": "Microsoft 365",
+      "count": 9,
+      "share": 0.17
+     },
+     {
+      "skill": "Windows",
+      "count": 8,
+      "share": 0.151
+     },
+     {
+      "skill": "Scrum/Agile",
+      "count": 8,
+      "share": 0.151
+     },
+     {
+      "skill": "SQL",
+      "count": 5,
+      "share": 0.094
+     }
+    ],
+    "skills_basis": 53,
+    "employers": [
+     {
+      "company": "Consult & Pepper AG",
+      "ads": 6
+     },
+     {
+      "company": "Bechtle Suisse SA",
+      "ads": 4
+     },
+     {
+      "company": "Universität Zürich",
+      "ads": 4
+     },
+     {
+      "company": "RUAG AG",
+      "ads": 3
+     },
+     {
+      "company": "BOLL Engineering AG",
+      "ads": 3
+     },
+     {
+      "company": "Bundesamt für Informatik und Telekommunikation BIT",
+      "ads": 2
+     },
+     {
+      "company": "Bison Schweiz AG",
+      "ads": 2
+     },
+     {
+      "company": "Swiss Life AG",
+      "ads": 2
+     }
+    ],
+    "entry_employers": [
+     {
+      "company": "RUAG AG",
+      "ads": 1
+     },
+     {
+      "company": "Bertschi AG",
+      "ads": 1
+     },
+     {
+      "company": "Schweizer Armee - Kommando Cyber Kdo Cy",
+      "ads": 1
+     }
+    ]
    },
    {
     "code": "104030",
@@ -2341,8 +4640,118 @@
     "label_de": "Information Security Manager",
     "group": "252",
     "ads": 47,
-    "entry_ads": 6,
-    "entry_level_share": 0.128
+    "entry_ads": 0,
+    "entry_level_share": 0.0,
+    "weekly": [
+     {
+      "week": "2026-W43",
+      "new_ads": 4
+     },
+     {
+      "week": "2026-W44",
+      "new_ads": 8
+     },
+     {
+      "week": "2026-W45",
+      "new_ads": 5
+     },
+     {
+      "week": "2026-W46",
+      "new_ads": 13
+     },
+     {
+      "week": "2026-W47",
+      "new_ads": 17
+     }
+    ],
+    "skills": [
+     {
+      "skill": "Security",
+      "count": 47,
+      "share": 1.0
+     },
+     {
+      "skill": "Cloud",
+      "count": 16,
+      "share": 0.34
+     },
+     {
+      "skill": "Networking",
+      "count": 8,
+      "share": 0.17
+     },
+     {
+      "skill": "Scrum/Agile",
+      "count": 7,
+      "share": 0.149
+     },
+     {
+      "skill": "R",
+      "count": 4,
+      "share": 0.085
+     },
+     {
+      "skill": "HTML/CSS",
+      "count": 4,
+      "share": 0.085
+     },
+     {
+      "skill": "Hardware",
+      "count": 3,
+      "share": 0.064
+     },
+     {
+      "skill": "Windows",
+      "count": 3,
+      "share": 0.064
+     },
+     {
+      "skill": "Vue",
+      "count": 3,
+      "share": 0.064
+     },
+     {
+      "skill": "SAP",
+      "count": 2,
+      "share": 0.043
+     }
+    ],
+    "skills_basis": 47,
+    "employers": [
+     {
+      "company": "Generali Assurances",
+      "ads": 5
+     },
+     {
+      "company": "Verein BFB - Bildung Formation Biel-Bienne",
+      "ads": 4
+     },
+     {
+      "company": "TMR SA",
+      "ads": 3
+     },
+     {
+      "company": "Swiss Life AG",
+      "ads": 3
+     },
+     {
+      "company": "Schweizer Armee - Kommando Operationen Kdo Op",
+      "ads": 3
+     },
+     {
+      "company": "p3b ag",
+      "ads": 2
+     },
+     {
+      "company": "Baudirektion Kanton Zürich",
+      "ads": 2
+     },
+     {
+      "company": "Kanton Solothurn",
+      "ads": 2
+     }
+    ],
+    "entry_employers": []
    },
    {
     "code": "101370",
@@ -2350,8 +4759,127 @@
     "label_de": "Cyber Security Specialist",
     "group": "252",
     "ads": 44,
-    "entry_ads": 5,
-    "entry_level_share": 0.114
+    "entry_ads": 3,
+    "entry_level_share": 0.068,
+    "weekly": [
+     {
+      "week": "2026-W43",
+      "new_ads": 3
+     },
+     {
+      "week": "2026-W44",
+      "new_ads": 7
+     },
+     {
+      "week": "2026-W45",
+      "new_ads": 10
+     },
+     {
+      "week": "2026-W46",
+      "new_ads": 11
+     },
+     {
+      "week": "2026-W47",
+      "new_ads": 13
+     }
+    ],
+    "skills": [
+     {
+      "skill": "Security",
+      "count": 43,
+      "share": 0.977
+     },
+     {
+      "skill": "Networking",
+      "count": 24,
+      "share": 0.545
+     },
+     {
+      "skill": "Linux",
+      "count": 10,
+      "share": 0.227
+     },
+     {
+      "skill": "Windows",
+      "count": 8,
+      "share": 0.182
+     },
+     {
+      "skill": "Cloud",
+      "count": 7,
+      "share": 0.159
+     },
+     {
+      "skill": "HTML/CSS",
+      "count": 7,
+      "share": 0.159
+     },
+     {
+      "skill": "Scrum/Agile",
+      "count": 7,
+      "share": 0.159
+     },
+     {
+      "skill": "Active Directory",
+      "count": 5,
+      "share": 0.114
+     },
+     {
+      "skill": "Microsoft 365",
+      "count": 3,
+      "share": 0.068
+     },
+     {
+      "skill": "SQL",
+      "count": 2,
+      "share": 0.045
+     }
+    ],
+    "skills_basis": 44,
+    "employers": [
+     {
+      "company": "Schweizer Armee - Kommando Cyber Kdo Cy",
+      "ads": 5
+     },
+     {
+      "company": "Deloitte SA",
+      "ads": 2
+     },
+     {
+      "company": "Noser Engineering AG",
+      "ads": 2
+     },
+     {
+      "company": "Die Securitas Gruppe",
+      "ads": 2
+     },
+     {
+      "company": "cyberunity",
+      "ads": 1
+     },
+     {
+      "company": "Swiss Life AG",
+      "ads": 1
+     },
+     {
+      "company": "Berner Fachhochschule BFH",
+      "ads": 1
+     },
+     {
+      "company": "BSI Business Systems Integration AG",
+      "ads": 1
+     }
+    ],
+    "entry_employers": [
+     {
+      "company": "BSI Business Systems Integration AG",
+      "ads": 1
+     },
+     {
+      "company": "Stadler Service AG",
+      "ads": 1
+     }
+    ]
    },
    {
     "code": "105004",
@@ -2359,8 +4887,143 @@
     "label_de": "Business AI Specialist",
     "group": "251",
     "ads": 43,
-    "entry_ads": 14,
-    "entry_level_share": 0.326
+    "entry_ads": 10,
+    "entry_level_share": 0.233,
+    "weekly": [
+     {
+      "week": "2026-W43",
+      "new_ads": 1
+     },
+     {
+      "week": "2026-W44",
+      "new_ads": 2
+     },
+     {
+      "week": "2026-W45",
+      "new_ads": 5
+     },
+     {
+      "week": "2026-W46",
+      "new_ads": 11
+     },
+     {
+      "week": "2026-W47",
+      "new_ads": 24
+     }
+    ],
+    "skills": [
+     {
+      "skill": "Security",
+      "count": 17,
+      "share": 0.395
+     },
+     {
+      "skill": "Cloud",
+      "count": 15,
+      "share": 0.349
+     },
+     {
+      "skill": "Python",
+      "count": 11,
+      "share": 0.256
+     },
+     {
+      "skill": "Git",
+      "count": 8,
+      "share": 0.186
+     },
+     {
+      "skill": "SQL",
+      "count": 7,
+      "share": 0.163
+     },
+     {
+      "skill": "Azure",
+      "count": 7,
+      "share": 0.163
+     },
+     {
+      "skill": "Power BI",
+      "count": 6,
+      "share": 0.14
+     },
+     {
+      "skill": "API/REST",
+      "count": 6,
+      "share": 0.14
+     },
+     {
+      "skill": "Excel",
+      "count": 6,
+      "share": 0.14
+     },
+     {
+      "skill": "Docker",
+      "count": 5,
+      "share": 0.116
+     }
+    ],
+    "skills_basis": 43,
+    "employers": [
+     {
+      "company": "Kantonale Verwaltung Basel-Landschaft",
+      "ads": 4
+     },
+     {
+      "company": "RUAG AG",
+      "ads": 2
+     },
+     {
+      "company": "Luzerner Kantonalbank",
+      "ads": 2
+     },
+     {
+      "company": "Corealis Consulting AG",
+      "ads": 2
+     },
+     {
+      "company": "CMS von Erlach Partners AG",
+      "ads": 2
+     },
+     {
+      "company": "BMW (Schweiz) AG",
+      "ads": 2
+     },
+     {
+      "company": "Tufa Labs AG",
+      "ads": 2
+     },
+     {
+      "company": "DataVision AG",
+      "ads": 2
+     }
+    ],
+    "entry_employers": [
+     {
+      "company": "RUAG AG",
+      "ads": 2
+     },
+     {
+      "company": "Luzerner Kantonalbank",
+      "ads": 2
+     },
+     {
+      "company": "Kantonale Verwaltung Basel-Landschaft",
+      "ads": 2
+     },
+     {
+      "company": "Merion Swiss Partners Sàrl",
+      "ads": 1
+     },
+     {
+      "company": "SpeciTec SA",
+      "ads": 1
+     },
+     {
+      "company": "Ethinc Sàrl",
+      "ads": 1
+     }
+    ]
    },
    {
     "code": "101352",
@@ -2368,8 +5031,135 @@
     "label_de": "Wirtschaftsinformatiker/in",
     "group": "251",
     "ads": 35,
-    "entry_ads": 7,
-    "entry_level_share": 0.2
+    "entry_ads": 4,
+    "entry_level_share": 0.114,
+    "weekly": [
+     {
+      "week": "2026-W42",
+      "new_ads": 1
+     },
+     {
+      "week": "2026-W43",
+      "new_ads": 2
+     },
+     {
+      "week": "2026-W44",
+      "new_ads": 3
+     },
+     {
+      "week": "2026-W45",
+      "new_ads": 6
+     },
+     {
+      "week": "2026-W46",
+      "new_ads": 5
+     },
+     {
+      "week": "2026-W47",
+      "new_ads": 18
+     }
+    ],
+    "skills": [
+     {
+      "skill": "SQL",
+      "count": 11,
+      "share": 0.314
+     },
+     {
+      "skill": "Scrum/Agile",
+      "count": 11,
+      "share": 0.314
+     },
+     {
+      "skill": "Security",
+      "count": 10,
+      "share": 0.286
+     },
+     {
+      "skill": "HTML/CSS",
+      "count": 6,
+      "share": 0.171
+     },
+     {
+      "skill": "Excel",
+      "count": 5,
+      "share": 0.143
+     },
+     {
+      "skill": "SAP",
+      "count": 5,
+      "share": 0.143
+     },
+     {
+      "skill": "R",
+      "count": 4,
+      "share": 0.114
+     },
+     {
+      "skill": "Power BI",
+      "count": 2,
+      "share": 0.057
+     },
+     {
+      "skill": "Cloud",
+      "count": 2,
+      "share": 0.057
+     },
+     {
+      "skill": "Vue",
+      "count": 2,
+      "share": 0.057
+     }
+    ],
+    "skills_basis": 35,
+    "employers": [
+     {
+      "company": "Consult & Pepper AG",
+      "ads": 5
+     },
+     {
+      "company": "Bundesamt für Informatik und Telekommunikation BIT",
+      "ads": 3
+     },
+     {
+      "company": "Kantonale Verwaltung Zürich",
+      "ads": 2
+     },
+     {
+      "company": "INSELSPITAL",
+      "ads": 2
+     },
+     {
+      "company": "CSE IT Solutions AG",
+      "ads": 2
+     },
+     {
+      "company": "Visana Services AG",
+      "ads": 1
+     },
+     {
+      "company": "Transgourmet Schweiz AG",
+      "ads": 1
+     },
+     {
+      "company": "Datalizard AG",
+      "ads": 1
+     }
+    ],
+    "entry_employers": [
+     {
+      "company": "Consult & Pepper AG",
+      "ads": 2
+     },
+     {
+      "company": "Visana Services AG",
+      "ads": 1
+     },
+     {
+      "company": "INSELSPITAL",
+      "ads": 1
+     }
+    ]
    }
   ],
   "cantons": [
@@ -2412,6 +5202,251 @@
    {
     "canton": "ZG",
     "count": 72
+   }
+  ]
+ },
+ "digest": {
+  "from": "2026-11-07",
+  "to": "2026-11-21",
+  "days": 14,
+  "ads": 3257,
+  "entry_ads": 223,
+  "fields": [
+   {
+    "group": "251",
+    "label_en": "Software and applications",
+    "label_de": "Software und Anwendungen",
+    "ads": 1968,
+    "entry_ads": 127,
+    "items": [
+     {
+      "title": "ICT-System-Spezialistin/Spezialist",
+      "company": "Kantonale Verwaltung Basel-Landschaft",
+      "city": "Liestal",
+      "ends": "2026-11-25",
+      "url": "https://www.job-room.ch/job-search/8ee13e14-5dea-4558-be22-40ea14f59b58"
+     },
+     {
+      "title": "Lehrstelle Mediamatiker:in EFZ (August 2027)",
+      "company": "Syngenta",
+      "city": "Switzerland",
+      "ends": "2026-11-25",
+      "url": "https://www.job-room.ch/job-search/2324541f-e55f-4453-b056-3f1c89924b72"
+     },
+     {
+      "title": "AI Engineer Intern",
+      "company": "Teoxane SA",
+      "city": "Genève",
+      "ends": "2026-11-26",
+      "url": "https://www.job-room.ch/job-search/f1009fae-232b-4a42-b6bf-191c29010b18"
+     },
+     {
+      "title": "DevSecOps ICT Ingenieur/-in Junior",
+      "company": "Schweizer Armee - Kommando Cyber Kdo Cy",
+      "city": "Payerne",
+      "ends": "2026-11-26",
+      "url": "https://www.job-room.ch/job-search/99190f4a-7321-4807-aded-4ef35d892491"
+     },
+     {
+      "title": "System Test Engineer",
+      "company": "Stadler Signalling AG",
+      "city": "Wallisellen",
+      "ends": "2026-11-26",
+      "url": "https://www.job-room.ch/job-search/cfa3b466-d5a9-4796-b6be-b066bafa6331"
+     }
+    ]
+   },
+   {
+    "group": "351",
+    "label_en": "IT operations and user support",
+    "label_de": "Betrieb und Anwendersupport",
+    "ads": 351,
+    "entry_ads": 34,
+    "items": [
+     {
+      "title": "ICT - Supporterin / ICT - Supporter",
+      "company": "Transgourmet Schweiz AG",
+      "city": "Moosseedorf",
+      "ends": "2026-12-03",
+      "url": "https://www.job-room.ch/job-search/6406526a-1daa-445b-a43e-280ed8655763"
+     },
+     {
+      "title": "ICT -Fachspezialistin / ICT -Fachspezialist 100%",
+      "company": "Kanton Aargau",
+      "city": "Aarau",
+      "ends": "2026-12-05",
+      "url": "https://www.job-room.ch/job-search/7f20cc38-f4be-4d44-8d86-0991bec725a6"
+     },
+     {
+      "title": "ICT - Supporter :in 1st Level Infrastruktur & KI",
+      "company": "CHOCOLAT BERNRAIN AG",
+      "city": "Kreuzlingen",
+      "ends": "2026-12-06",
+      "url": "https://www.job-room.ch/job-search/ad8e09c7-15e1-4034-a787-55669746043f"
+     },
+     {
+      "title": "Junior Floorwalker Mobile (iOS/Android) 80-100%",
+      "company": "Kidston People GmbH",
+      "city": "Aarau",
+      "ends": "2026-12-06",
+      "url": "https://www.job-room.ch/job-search/f106b2e8-9407-4291-be02-a7ab09e29af6"
+     },
+     {
+      "title": "Onsite Support Engineer (m/w/d) 100%",
+      "company": "EPAM Systems (Switzerland) GmbH",
+      "city": "Aarau",
+      "ends": "2026-12-06",
+      "url": "https://www.job-room.ch/job-search/076addc2-6764-49ab-adc0-e22061fcfeca"
+     }
+    ]
+   },
+   {
+    "group": "252",
+    "label_en": "Databases, networks and security",
+    "label_de": "Datenbanken, Netzwerke und Sicherheit",
+    "ads": 477,
+    "entry_ads": 29,
+    "items": [
+     {
+      "title": "Informationssicherheitsbeauftragte:r (ISB) / Information Security Officer 80–100 %",
+      "company": "Bildungs- und Kulturdirektion des Kantons Bern",
+      "city": "Bern",
+      "ends": "2026-11-28",
+      "url": "https://www.job-room.ch/job-search/455b5139-980f-4522-8fca-40f1350259ea"
+     },
+     {
+      "title": "Network Engineer",
+      "company": "Stadler Signalling",
+      "city": "Wallisellen",
+      "ends": "2026-11-28",
+      "url": "https://www.job-room.ch/job-search/e81219d7-cf7b-467c-9086-0185b627003e"
+     },
+     {
+      "title": "Information Security Officer / Informationssicherheitsbeauftragte:r (m/w/d) 80% - 100%",
+      "company": "Bildungs- und Kulturdirektion des Kantons Bern",
+      "city": "Thun",
+      "ends": "2026-11-30",
+      "url": "https://www.job-room.ch/job-search/bffc8339-fd52-434f-9f4c-21d833c7720c"
+     },
+     {
+      "title": "Security Operations Engineer DevSecOps (a) 80 - 100%",
+      "company": "cyberunity",
+      "city": "Dättwil AG",
+      "ends": "2026-11-30",
+      "url": "https://www.job-room.ch/job-search/91db8ecc-8636-494e-85a0-8b9fe4131a72"
+     },
+     {
+      "title": "ICT System Specialist C5I",
+      "company": "C5I",
+      "city": "Thun",
+      "ends": "2026-12-03",
+      "url": "https://www.job-room.ch/job-search/0e2a5e9b-5d74-4fe8-b81e-d69920598fff"
+     }
+    ]
+   },
+   {
+    "group": "250",
+    "label_en": "IT in general",
+    "label_de": "Informatik allgemein",
+    "ads": 275,
+    "entry_ads": 22,
+    "items": [
+     {
+      "title": "Junior IT Security Consultant (m/w) 100%",
+      "company": "myitjob GmbH",
+      "city": "Zug",
+      "ends": "2026-11-27",
+      "url": "https://www.job-room.ch/job-search/65c26955-df9b-4726-b0d4-faeedac46bb5"
+     },
+     {
+      "title": "IT Teamleader (m/w) 80-100%",
+      "company": "myitjob GmbH",
+      "city": "Zürich",
+      "ends": "2026-11-28",
+      "url": "https://www.job-room.ch/job-search/6b8037c6-84eb-4df7-a758-8a9b7e82f2d3"
+     },
+     {
+      "title": "Emmi Schweiz AG Praktikant in Informatik Plattformentwicklung 2027-2029 (Team NSS) 100% in Ostermundigen",
+      "company": "Emmi Group",
+      "city": "Ostermundigen",
+      "ends": "2026-11-29",
+      "url": "https://www.job-room.ch/job-search/03dd64a3-0edd-4a73-ab70-8c87948905c5"
+     },
+     {
+      "title": "Lehrstelle als Informatiker mit Schwerpunkt Plattformentwicklung",
+      "company": "LGT",
+      "city": "Haag (Rheintal)",
+      "ends": "2026-11-29",
+      "url": "https://www.job-room.ch/job-search/0dadede8-0cae-4f2c-ad5c-6f96f9f759c1"
+     },
+     {
+      "title": "Schülerpraktikum: Fachinformatiker mit dualem Studium (m/w/d) - 19.07.2027 - 23.07.2027",
+      "company": "MAN Energy Solutions",
+      "city": "Augsburg",
+      "ends": "2026-11-29",
+      "url": "https://www.job-room.ch/job-search/ec16940c-a3e0-4ede-8016-13b52f2297f2"
+     }
+    ]
+   },
+   {
+    "group": "352",
+    "label_en": "Telecommunications",
+    "label_de": "Telekommunikation",
+    "ads": 22,
+    "entry_ads": 1,
+    "items": [
+     {
+      "title": "Apprenti Informaticien du bâtiment",
+      "company": "ello communications S.A.",
+      "city": "Neuchâtel",
+      "ends": "2026-12-04",
+      "url": "https://www.job-room.ch/job-search/13b26571-cfc9-4486-b752-29c9c0a127b4"
+     }
+    ]
+   },
+   {
+    "group": "other",
+    "label_en": "Other IT-related roles",
+    "label_de": "Weitere IT-nahe Rollen",
+    "ads": 164,
+    "entry_ads": 10,
+    "items": [
+     {
+      "title": "Spezialist/in Energiedaten und Auswertungen 80 - 100%",
+      "company": "Pronovo AG",
+      "city": "Frick",
+      "ends": "2026-11-25",
+      "url": "https://www.job-room.ch/job-search/b715cd82-6d8e-49ea-89dc-24d1f9a6bef4"
+     },
+     {
+      "title": "Philanthropy Support Team Coordinator",
+      "company": "Médecins Sans Frontières Suisse (GE HQ)",
+      "city": "Genève",
+      "ends": "2026-12-03",
+      "url": "https://www.job-room.ch/job-search/a37309e2-c7a0-4de2-bb08-951c9f4c5d38"
+     },
+     {
+      "title": "Sachbearbeiterin / Sachbearbeiter Service Desk Fakturierung (a) 100%",
+      "company": "Hirslanden AG",
+      "city": "Bern",
+      "ends": "2026-12-09",
+      "url": "https://www.job-room.ch/job-search/009a3b5f-a37d-4c00-9b39-5dcb430d1917"
+     },
+     {
+      "title": "JUN. 2ND LEVEL SUPPORTER (M/W/D) Eschen",
+      "company": "Rent a Person Personalberatungs AG",
+      "city": "Eschen",
+      "ends": "2026-12-15",
+      "url": "https://www.job-room.ch/job-search/5f501744-7cff-47be-b27d-91a918a6c9aa"
+     },
+     {
+      "title": "Ecommerce and Web Operations Internship",
+      "company": "Salt Mobile SA",
+      "city": "Prilly",
+      "ends": "2026-12-20",
+      "url": "https://www.job-room.ch/job-search/43ef9205-0ae9-446c-a707-61b6acc62eb7"
+     }
+    ]
    }
   ]
  }
