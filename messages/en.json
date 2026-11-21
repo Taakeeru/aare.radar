@@ -189,7 +189,8 @@
       },
       "certificate": "certificate",
       "note": "Costs and certificates as the provider pages showed them on the day the links were checked. Coursera courses are marked paid; many offer a free trial or financial aid."
-    }
+    },
+    "rolePlaceholder": "Select a role…"
   },
   "policy": {
     "title": "Policy",
@@ -588,7 +589,8 @@
       "meaning": "{first} has the most ads. Recruiting agencies are left out.",
       "none": "No company with more than one ad.",
       "entry": "With beginner ads: {list}."
-    }
+    },
+    "pickPlaceholder": "Select an IT job…"
   },
   "settings": {
     "title": "Settings",

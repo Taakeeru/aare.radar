@@ -189,7 +189,8 @@
       },
       "certificate": "Zertifikat",
       "note": "Kosten und Zertifikate so, wie die Seiten der Anbieter sie am Prüftag zeigten. Coursera-Kurse sind als kostenpflichtig markiert; viele bieten einen Gratistest oder finanzielle Unterstützung."
-    }
+    },
+    "rolePlaceholder": "Beruf auswählen…"
   },
   "policy": {
     "title": "Politik",
@@ -588,7 +589,8 @@
       "meaning": "{first} hat die meisten Inserate. Personalvermittler sind ausgelassen.",
       "none": "Keine Firma mit mehr als einem Inserat.",
       "entry": "Mit Einsteiger-Inseraten: {list}."
-    }
+    },
+    "pickPlaceholder": "IT-Beruf auswählen…"
   },
   "settings": {
     "title": "Einstellungen",
