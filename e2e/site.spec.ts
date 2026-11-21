@@ -43,12 +43,12 @@ test("@ci the Overview shows its six cards", async ({ page }) => {
 
 test("@ci the role switcher changes the whole screen", async ({ page }) => {
   await page.goto("/de/nachfrage");
-  const nav = page.getByRole("navigation", { name: "Beruf wählen" });
-  await expect(nav.getByRole("link", { name: "Web-Entwicklung" })).toHaveAttribute("aria-current", "true");
+  const select = page.getByLabel("Beruf wählen");
+  await expect(select).toHaveValue("web");
   const web = await page.locator(".stat__n").first().innerText();
-  await nav.getByRole("link", { name: "IT-Support" }).click();
+  await select.selectOption("support");
   await expect(page).toHaveURL(/\/de\/nachfrage\?role=support$/);
-  await expect(nav.getByRole("link", { name: "IT-Support" })).toHaveAttribute("aria-current", "true");
+  await expect(page.getByLabel("Beruf wählen")).toHaveValue("support");
   expect(await page.locator(".stat__n").first().innerText()).not.toBe(web);
 });
 
@@ -95,8 +95,9 @@ test("@ci the five questions are the navigation", async ({ page }) => {
 
 test("@ci role switch stays on the skills page", async ({ page }) => {
   await page.goto("/de/faehigkeiten");
-  const role = page.getByRole("navigation", { name: /Beruf|Rolle/i }).getByRole("link").nth(1);
-  await role.click();
+  const select = page.getByLabel(/Beruf|Rolle/i);
+  const second = await select.locator("option").nth(1).getAttribute("value");
+  await select.selectOption(second!);
   await expect(page).toHaveURL(/\/de\/faehigkeiten\?role=/);
 });
 
