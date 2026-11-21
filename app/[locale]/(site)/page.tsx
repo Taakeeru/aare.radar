@@ -107,7 +107,7 @@ export default async function HomePage({ params, searchParams }: { params: Promi
           <Panel id="p-job-employers" title={t("employers.title")} span={5} sources={jobroom} meaning={employers.length > 0 ? t("employers.meaning", { first: employers[0]!.company }) : t("employers.none")}>
             {employers.length > 0 ? <BarList rows={companyRows(employers)} label={t("employers.title")} /> : <p>{t("employers.none")}</p>}
             {(job.entry_employers ?? []).length > 0 ? (
-              <p className="note ads">{t("employers.entry", { list: (job.entry_employers ?? []).map((e) => e.company).join(", ") })}</p>
+              <p className="note company-names">{t("employers.entry", { list: (job.entry_employers ?? []).map((e) => e.company).join(", ") })}</p>
             ) : null}
           </Panel>
         </div>
@@ -201,7 +201,7 @@ export default async function HomePage({ params, searchParams }: { params: Promi
         </Panel>
         <Panel id="p-glance-employers" title={t("employers.titleAll")} span={12} sources={jobroom} meaning={employers.length > 0 ? t("employers.meaning", { first: employers[0]!.company }) : t("employers.none")}>
           {employers.length > 0 ? <BarList rows={companyRows(employers)} label={t("employers.titleAll")} /> : <p>{t("employers.none")}</p>}
-          {(it.entry_employers ?? []).length > 0 ? <p className="note ads">{t("employers.entry", { list: (it.entry_employers ?? []).map((e) => e.company).join(", ") })}</p> : null}
+          {(it.entry_employers ?? []).length > 0 ? <p className="note company-names">{t("employers.entry", { list: (it.entry_employers ?? []).map((e) => e.company).join(", ") })}</p> : null}
         </Panel>
       </div>
     </div>
