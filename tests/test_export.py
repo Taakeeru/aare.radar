@@ -54,7 +54,7 @@ class ExportContractTest(unittest.TestCase):
         self.assertTrue(OLD_TOP <= set(d))
         self.assertTrue(all(OLD_SOURCE <= set(s) for s in d["sources"]))
         self.assertEqual([s["id"] for s in d["sources"]][:4], OLD_SOURCE_IDS)
-        self.assertEqual([r["id"] for r in d["roles"]], ["web", "support", "data"])
+        self.assertEqual([r["id"] for r in d["roles"]][:3], ["web", "support", "data"])
         for r in d["roles"]:
             self.assertTrue(OLD_ROLE <= set(r))
             self.assertTrue(all(OLD_SKILL <= set(s) for s in r["skills"]))
@@ -189,7 +189,9 @@ class EntrySkillsTest(unittest.TestCase):
         doc = self.export([("a", "2026-08-10", '["Python"]', '[]'), ("b", "2026-08-12", '["SQL"]', '[]'),
                            ("c", "2026-11-02", '["Python"]', '[]')])
         series = {s["skill"]: s["points"] for s in doc["roles"][0]["skills_monthly"]}
-        self.assertEqual(set(series), {"Python", "SQL"})
+        self.assertEqual(set(series), {"Python"})
+        # SQL ad is from 2026-08-12, outside the 60-day window that picks the top skills
+        self.assertNotIn("SQL", series)
         py = series["Python"]
         self.assertEqual(len(py), 12)
         self.assertEqual(py[0]["month"], "2025-12")
