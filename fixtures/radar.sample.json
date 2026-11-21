@@ -307,6 +307,68 @@
      "new_ads": 37
     }
    ],
+   "monthly": [
+    {
+     "month": "2025-12",
+     "new_ads": 38,
+     "partial": false
+    },
+    {
+     "month": "2026-01",
+     "new_ads": 42,
+     "partial": false
+    },
+    {
+     "month": "2026-02",
+     "new_ads": 49,
+     "partial": false
+    },
+    {
+     "month": "2026-03",
+     "new_ads": 52,
+     "partial": false
+    },
+    {
+     "month": "2026-04",
+     "new_ads": 56,
+     "partial": false
+    },
+    {
+     "month": "2026-05",
+     "new_ads": 63,
+     "partial": false
+    },
+    {
+     "month": "2026-06",
+     "new_ads": 60,
+     "partial": false
+    },
+    {
+     "month": "2026-07",
+     "new_ads": 56,
+     "partial": false
+    },
+    {
+     "month": "2026-08",
+     "new_ads": 66,
+     "partial": false
+    },
+    {
+     "month": "2026-09",
+     "new_ads": 70,
+     "partial": false
+    },
+    {
+     "month": "2026-10",
+     "new_ads": 74,
+     "partial": false
+    },
+    {
+     "month": "2026-11",
+     "new_ads": 56,
+     "partial": true
+    }
+   ],
    "skills": [
     {
      "skill": "Scrum/Agile",
@@ -465,6 +527,68 @@
      "new_ads": 80
     }
    ],
+   "monthly": [
+    {
+     "month": "2025-12",
+     "new_ads": 82,
+     "partial": false
+    },
+    {
+     "month": "2026-01",
+     "new_ads": 90,
+     "partial": false
+    },
+    {
+     "month": "2026-02",
+     "new_ads": 105,
+     "partial": false
+    },
+    {
+     "month": "2026-03",
+     "new_ads": 112,
+     "partial": false
+    },
+    {
+     "month": "2026-04",
+     "new_ads": 120,
+     "partial": false
+    },
+    {
+     "month": "2026-05",
+     "new_ads": 135,
+     "partial": false
+    },
+    {
+     "month": "2026-06",
+     "new_ads": 128,
+     "partial": false
+    },
+    {
+     "month": "2026-07",
+     "new_ads": 120,
+     "partial": false
+    },
+    {
+     "month": "2026-08",
+     "new_ads": 142,
+     "partial": false
+    },
+    {
+     "month": "2026-09",
+     "new_ads": 150,
+     "partial": false
+    },
+    {
+     "month": "2026-10",
+     "new_ads": 158,
+     "partial": false
+    },
+    {
+     "month": "2026-11",
+     "new_ads": 120,
+     "partial": true
+    }
+   ],
    "skills": [
     {
      "skill": "Microsoft 365",
@@ -620,6 +744,68 @@
      "new_ads": 45
     }
    ],
+   "monthly": [
+    {
+     "month": "2025-12",
+     "new_ads": 52,
+     "partial": false
+    },
+    {
+     "month": "2026-01",
+     "new_ads": 57,
+     "partial": false
+    },
+    {
+     "month": "2026-02",
+     "new_ads": 66,
+     "partial": false
+    },
+    {
+     "month": "2026-03",
+     "new_ads": 71,
+     "partial": false
+    },
+    {
+     "month": "2026-04",
+     "new_ads": 76,
+     "partial": false
+    },
+    {
+     "month": "2026-05",
+     "new_ads": 86,
+     "partial": false
+    },
+    {
+     "month": "2026-06",
+     "new_ads": 81,
+     "partial": false
+    },
+    {
+     "month": "2026-07",
+     "new_ads": 76,
+     "partial": false
+    },
+    {
+     "month": "2026-08",
+     "new_ads": 90,
+     "partial": false
+    },
+    {
+     "month": "2026-09",
+     "new_ads": 95,
+     "partial": false
+    },
+    {
+     "month": "2026-10",
+     "new_ads": 100,
+     "partial": false
+    },
+    {
+     "month": "2026-11",
+     "new_ads": 76,
+     "partial": true
+    }
+   ],
    "skills": [
     {
      "skill": "SQL",
@@ -744,6 +930,85 @@
    ]
   }
  ],
+ "market": {
+  "ads": 630,
+  "monthly": [
+   {
+    "month": "2025-12",
+    "new_ads": 158,
+    "partial": false
+   },
+   {
+    "month": "2026-01",
+    "new_ads": 174,
+    "partial": false
+   },
+   {
+    "month": "2026-02",
+    "new_ads": 202,
+    "partial": false
+   },
+   {
+    "month": "2026-03",
+    "new_ads": 216,
+    "partial": false
+   },
+   {
+    "month": "2026-04",
+    "new_ads": 232,
+    "partial": false
+   },
+   {
+    "month": "2026-05",
+    "new_ads": 261,
+    "partial": false
+   },
+   {
+    "month": "2026-06",
+    "new_ads": 247,
+    "partial": false
+   },
+   {
+    "month": "2026-07",
+    "new_ads": 232,
+    "partial": false
+   },
+   {
+    "month": "2026-08",
+    "new_ads": 274,
+    "partial": false
+   },
+   {
+    "month": "2026-09",
+    "new_ads": 290,
+    "partial": false
+   },
+   {
+    "month": "2026-10",
+    "new_ads": 305,
+    "partial": false
+   },
+   {
+    "month": "2026-11",
+    "new_ads": 232,
+    "partial": true
+   }
+  ],
+  "roles": [
+   {
+    "id": "support",
+    "ads": 330
+   },
+   {
+    "id": "data",
+    "ads": 202
+   },
+   {
+    "id": "web",
+    "ads": 153
+   }
+  ]
+ },
  "sector": [
   {
    "series": "Job vacancies - total / 58-63 IT and communications",
