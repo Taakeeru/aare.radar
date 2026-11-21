@@ -487,6 +487,518 @@
      "published": "2026-11-20",
      "url": "https://www.jobs.ch/de/stellenangebote/detail/141304db-2d43-46dd-9e70-9e22fb412c02/?utm_source=job-room.ch&inv=ppd-p&utm_medium=affiliate&utm_campaign=wb:jobs|tg:b2c|cn:ch|lg:de|ct:targeting,nonbrand,job|cd:feedonomics-jobroom|mg:job-application|pd:n|tt:organic"
     }
+   ],
+   "entry_ads": 16,
+   "entry_skills": [
+    {
+     "skill": "Scrum/Agile",
+     "count": 6,
+     "share": 0.375,
+     "esco_uri": "http://data.europa.eu/esco/skill/0a9acb6b-1139-4be9-b431-3a80a959f2f4",
+     "esco_label": "Agile project management",
+     "esco_match": "exact"
+    },
+    {
+     "skill": "SQL",
+     "count": 7,
+     "share": 0.438,
+     "esco_uri": "http://data.europa.eu/esco/skill/598de5b0-5b58-4ea7-8058-a4bc4d18c742",
+     "esco_label": "SQL",
+     "esco_match": "exact"
+    },
+    {
+     "skill": "Java",
+     "count": 5,
+     "share": 0.312,
+     "esco_uri": "http://data.europa.eu/esco/skill/19a8293b-8e95-4de3-983f-77484079c389",
+     "esco_label": "Java (computer programming)",
+     "esco_match": "exact"
+    },
+    {
+     "skill": "API/REST",
+     "count": 5,
+     "share": 0.312
+    },
+    {
+     "skill": "Cloud",
+     "count": 4,
+     "share": 0.25,
+     "esco_uri": "http://data.europa.eu/esco/skill/bd14968e-e409-45af-b362-3495ed7b10e0",
+     "esco_label": "cloud technologies",
+     "esco_match": "exact"
+    },
+    {
+     "skill": "JavaScript",
+     "count": 4,
+     "share": 0.25,
+     "esco_uri": "http://data.europa.eu/esco/skill/3cd569a2-4f88-4c1e-9995-8dce8c5e51a7",
+     "esco_label": "JavaScript",
+     "esco_match": "exact"
+    }
+   ],
+   "skills_monthly": [
+    {
+     "skill": "Scrum/Agile",
+     "points": [
+      {
+       "month": "2025-12",
+       "count": 13,
+       "share": 0.342,
+       "partial": false
+      },
+      {
+       "month": "2026-01",
+       "count": 15,
+       "share": 0.357,
+       "partial": false
+      },
+      {
+       "month": "2026-02",
+       "count": 18,
+       "share": 0.367,
+       "partial": false
+      },
+      {
+       "month": "2026-03",
+       "count": 20,
+       "share": 0.385,
+       "partial": false
+      },
+      {
+       "month": "2026-04",
+       "count": 22,
+       "share": 0.393,
+       "partial": false
+      },
+      {
+       "month": "2026-05",
+       "count": 25,
+       "share": 0.397,
+       "partial": false
+      },
+      {
+       "month": "2026-06",
+       "count": 25,
+       "share": 0.417,
+       "partial": false
+      },
+      {
+       "month": "2026-07",
+       "count": 24,
+       "share": 0.429,
+       "partial": false
+      },
+      {
+       "month": "2026-08",
+       "count": 29,
+       "share": 0.439,
+       "partial": false
+      },
+      {
+       "month": "2026-09",
+       "count": 31,
+       "share": 0.443,
+       "partial": false
+      },
+      {
+       "month": "2026-10",
+       "count": 34,
+       "share": 0.459,
+       "partial": false
+      },
+      {
+       "month": "2026-11",
+       "count": 26,
+       "share": 0.464,
+       "partial": true
+      }
+     ]
+    },
+    {
+     "skill": "SQL",
+     "points": [
+      {
+       "month": "2025-12",
+       "count": 13,
+       "share": 0.342,
+       "partial": false
+      },
+      {
+       "month": "2026-01",
+       "count": 15,
+       "share": 0.357,
+       "partial": false
+      },
+      {
+       "month": "2026-02",
+       "count": 18,
+       "share": 0.367,
+       "partial": false
+      },
+      {
+       "month": "2026-03",
+       "count": 19,
+       "share": 0.365,
+       "partial": false
+      },
+      {
+       "month": "2026-04",
+       "count": 21,
+       "share": 0.375,
+       "partial": false
+      },
+      {
+       "month": "2026-05",
+       "count": 25,
+       "share": 0.397,
+       "partial": false
+      },
+      {
+       "month": "2026-06",
+       "count": 24,
+       "share": 0.4,
+       "partial": false
+      },
+      {
+       "month": "2026-07",
+       "count": 23,
+       "share": 0.411,
+       "partial": false
+      },
+      {
+       "month": "2026-08",
+       "count": 28,
+       "share": 0.424,
+       "partial": false
+      },
+      {
+       "month": "2026-09",
+       "count": 31,
+       "share": 0.443,
+       "partial": false
+      },
+      {
+       "month": "2026-10",
+       "count": 33,
+       "share": 0.446,
+       "partial": false
+      },
+      {
+       "month": "2026-11",
+       "count": 26,
+       "share": 0.464,
+       "partial": true
+      }
+     ]
+    },
+    {
+     "skill": "Java",
+     "points": [
+      {
+       "month": "2025-12",
+       "count": 11,
+       "share": 0.289,
+       "partial": false
+      },
+      {
+       "month": "2026-01",
+       "count": 13,
+       "share": 0.31,
+       "partial": false
+      },
+      {
+       "month": "2026-02",
+       "count": 15,
+       "share": 0.306,
+       "partial": false
+      },
+      {
+       "month": "2026-03",
+       "count": 16,
+       "share": 0.308,
+       "partial": false
+      },
+      {
+       "month": "2026-04",
+       "count": 18,
+       "share": 0.321,
+       "partial": false
+      },
+      {
+       "month": "2026-05",
+       "count": 21,
+       "share": 0.333,
+       "partial": false
+      },
+      {
+       "month": "2026-06",
+       "count": 21,
+       "share": 0.35,
+       "partial": false
+      },
+      {
+       "month": "2026-07",
+       "count": 20,
+       "share": 0.357,
+       "partial": false
+      },
+      {
+       "month": "2026-08",
+       "count": 24,
+       "share": 0.364,
+       "partial": false
+      },
+      {
+       "month": "2026-09",
+       "count": 26,
+       "share": 0.371,
+       "partial": false
+      },
+      {
+       "month": "2026-10",
+       "count": 28,
+       "share": 0.378,
+       "partial": false
+      },
+      {
+       "month": "2026-11",
+       "count": 22,
+       "share": 0.393,
+       "partial": true
+      }
+     ]
+    },
+    {
+     "skill": "API/REST",
+     "points": [
+      {
+       "month": "2025-12",
+       "count": 9,
+       "share": 0.237,
+       "partial": false
+      },
+      {
+       "month": "2026-01",
+       "count": 11,
+       "share": 0.262,
+       "partial": false
+      },
+      {
+       "month": "2026-02",
+       "count": 13,
+       "share": 0.265,
+       "partial": false
+      },
+      {
+       "month": "2026-03",
+       "count": 14,
+       "share": 0.269,
+       "partial": false
+      },
+      {
+       "month": "2026-04",
+       "count": 15,
+       "share": 0.268,
+       "partial": false
+      },
+      {
+       "month": "2026-05",
+       "count": 18,
+       "share": 0.286,
+       "partial": false
+      },
+      {
+       "month": "2026-06",
+       "count": 18,
+       "share": 0.3,
+       "partial": false
+      },
+      {
+       "month": "2026-07",
+       "count": 17,
+       "share": 0.304,
+       "partial": false
+      },
+      {
+       "month": "2026-08",
+       "count": 20,
+       "share": 0.303,
+       "partial": false
+      },
+      {
+       "month": "2026-09",
+       "count": 22,
+       "share": 0.314,
+       "partial": false
+      },
+      {
+       "month": "2026-10",
+       "count": 24,
+       "share": 0.324,
+       "partial": false
+      },
+      {
+       "month": "2026-11",
+       "count": 19,
+       "share": 0.339,
+       "partial": true
+      }
+     ]
+    },
+    {
+     "skill": "Cloud",
+     "points": [
+      {
+       "month": "2025-12",
+       "count": 9,
+       "share": 0.237,
+       "partial": false
+      },
+      {
+       "month": "2026-01",
+       "count": 10,
+       "share": 0.238,
+       "partial": false
+      },
+      {
+       "month": "2026-02",
+       "count": 12,
+       "share": 0.245,
+       "partial": false
+      },
+      {
+       "month": "2026-03",
+       "count": 13,
+       "share": 0.25,
+       "partial": false
+      },
+      {
+       "month": "2026-04",
+       "count": 14,
+       "share": 0.25,
+       "partial": false
+      },
+      {
+       "month": "2026-05",
+       "count": 17,
+       "share": 0.27,
+       "partial": false
+      },
+      {
+       "month": "2026-06",
+       "count": 16,
+       "share": 0.267,
+       "partial": false
+      },
+      {
+       "month": "2026-07",
+       "count": 16,
+       "share": 0.286,
+       "partial": false
+      },
+      {
+       "month": "2026-08",
+       "count": 19,
+       "share": 0.288,
+       "partial": false
+      },
+      {
+       "month": "2026-09",
+       "count": 21,
+       "share": 0.3,
+       "partial": false
+      },
+      {
+       "month": "2026-10",
+       "count": 22,
+       "share": 0.297,
+       "partial": false
+      },
+      {
+       "month": "2026-11",
+       "count": 17,
+       "share": 0.304,
+       "partial": true
+      }
+     ]
+    },
+    {
+     "skill": "JavaScript",
+     "points": [
+      {
+       "month": "2025-12",
+       "count": 0,
+       "share": 0,
+       "partial": false
+      },
+      {
+       "month": "2026-01",
+       "count": 9,
+       "share": 0.214,
+       "partial": false
+      },
+      {
+       "month": "2026-02",
+       "count": 11,
+       "share": 0.224,
+       "partial": false
+      },
+      {
+       "month": "2026-03",
+       "count": 12,
+       "share": 0.231,
+       "partial": false
+      },
+      {
+       "month": "2026-04",
+       "count": 14,
+       "share": 0.25,
+       "partial": false
+      },
+      {
+       "month": "2026-05",
+       "count": 16,
+       "share": 0.254,
+       "partial": false
+      },
+      {
+       "month": "2026-06",
+       "count": 16,
+       "share": 0.267,
+       "partial": false
+      },
+      {
+       "month": "2026-07",
+       "count": 15,
+       "share": 0.268,
+       "partial": false
+      },
+      {
+       "month": "2026-08",
+       "count": 18,
+       "share": 0.273,
+       "partial": false
+      },
+      {
+       "month": "2026-09",
+       "count": 20,
+       "share": 0.286,
+       "partial": false
+      },
+      {
+       "month": "2026-10",
+       "count": 21,
+       "share": 0.284,
+       "partial": false
+      },
+      {
+       "month": "2026-11",
+       "count": 16,
+       "share": 0.286,
+       "partial": true
+      }
+     ]
+    }
    ]
   },
   {
@@ -703,6 +1215,515 @@
      "city": "Grand-Lancy",
      "published": "2026-11-20",
      "url": "https://www.jobup.ch/fr/emplois/detail/792f34e6-d3d9-45c2-b2f8-d92d98eef09f/?utm_source=job-room.ch&utm_medium=affiliate&utm_campaign=wb:jobup|tg:b2c|cn:ch|lg:fr|ct:targeting,nonbrand,job|cd:feedonomics-jobroom|mg:job-application|pd:n|tt:organic"
+    }
+   ],
+   "entry_ads": 35,
+   "entry_skills": [
+    {
+     "skill": "Microsoft 365",
+     "count": 13,
+     "share": 0.371,
+     "esco_uri": "http://data.europa.eu/esco/skill/f683ae1d-cb7c-4aa1-b9fe-205e1bd23535",
+     "esco_label": "use microsoft office",
+     "esco_match": "broader"
+    },
+    {
+     "skill": "Windows",
+     "count": 15,
+     "share": 0.429
+    },
+    {
+     "skill": "Networking",
+     "count": 12,
+     "share": 0.343
+    },
+    {
+     "skill": "Hardware",
+     "count": 14,
+     "share": 0.4,
+     "esco_uri": "http://data.europa.eu/esco/skill/3497ebe1-d417-4105-a68f-f7bbcac7ee5f",
+     "esco_label": "ICT hardware specifications",
+     "esco_match": "broader"
+    },
+    {
+     "skill": "Ticketing",
+     "count": 9,
+     "share": 0.257,
+     "esco_uri": "http://data.europa.eu/esco/skill/118efbcd-8fc5-4668-81d1-c383a0d16070",
+     "esco_label": "handle helpdesk problems",
+     "esco_match": "broader"
+    },
+    {
+     "skill": "Active Directory",
+     "count": 8,
+     "share": 0.229,
+     "esco_uri": "http://data.europa.eu/esco/skill/d1e954cd-d290-4d80-97c0-7969960d2928",
+     "esco_label": "distributed directory information services",
+     "esco_match": "broader"
+    }
+   ],
+   "skills_monthly": [
+    {
+     "skill": "Microsoft 365",
+     "points": [
+      {
+       "month": "2025-12",
+       "count": 29,
+       "share": 0.354,
+       "partial": false
+      },
+      {
+       "month": "2026-01",
+       "count": 33,
+       "share": 0.367,
+       "partial": false
+      },
+      {
+       "month": "2026-02",
+       "count": 39,
+       "share": 0.371,
+       "partial": false
+      },
+      {
+       "month": "2026-03",
+       "count": 43,
+       "share": 0.384,
+       "partial": false
+      },
+      {
+       "month": "2026-04",
+       "count": 47,
+       "share": 0.392,
+       "partial": false
+      },
+      {
+       "month": "2026-05",
+       "count": 55,
+       "share": 0.407,
+       "partial": false
+      },
+      {
+       "month": "2026-06",
+       "count": 53,
+       "share": 0.414,
+       "partial": false
+      },
+      {
+       "month": "2026-07",
+       "count": 51,
+       "share": 0.425,
+       "partial": false
+      },
+      {
+       "month": "2026-08",
+       "count": 62,
+       "share": 0.437,
+       "partial": false
+      },
+      {
+       "month": "2026-09",
+       "count": 68,
+       "share": 0.453,
+       "partial": false
+      },
+      {
+       "month": "2026-10",
+       "count": 73,
+       "share": 0.462,
+       "partial": false
+      },
+      {
+       "month": "2026-11",
+       "count": 57,
+       "share": 0.475,
+       "partial": true
+      }
+     ]
+    },
+    {
+     "skill": "Windows",
+     "points": [
+      {
+       "month": "2025-12",
+       "count": 27,
+       "share": 0.329,
+       "partial": false
+      },
+      {
+       "month": "2026-01",
+       "count": 30,
+       "share": 0.333,
+       "partial": false
+      },
+      {
+       "month": "2026-02",
+       "count": 37,
+       "share": 0.352,
+       "partial": false
+      },
+      {
+       "month": "2026-03",
+       "count": 40,
+       "share": 0.357,
+       "partial": false
+      },
+      {
+       "month": "2026-04",
+       "count": 44,
+       "share": 0.367,
+       "partial": false
+      },
+      {
+       "month": "2026-05",
+       "count": 51,
+       "share": 0.378,
+       "partial": false
+      },
+      {
+       "month": "2026-06",
+       "count": 50,
+       "share": 0.391,
+       "partial": false
+      },
+      {
+       "month": "2026-07",
+       "count": 48,
+       "share": 0.4,
+       "partial": false
+      },
+      {
+       "month": "2026-08",
+       "count": 58,
+       "share": 0.408,
+       "partial": false
+      },
+      {
+       "month": "2026-09",
+       "count": 63,
+       "share": 0.42,
+       "partial": false
+      },
+      {
+       "month": "2026-10",
+       "count": 68,
+       "share": 0.43,
+       "partial": false
+      },
+      {
+       "month": "2026-11",
+       "count": 53,
+       "share": 0.442,
+       "partial": true
+      }
+     ]
+    },
+    {
+     "skill": "Networking",
+     "points": [
+      {
+       "month": "2025-12",
+       "count": 26,
+       "share": 0.317,
+       "partial": false
+      },
+      {
+       "month": "2026-01",
+       "count": 29,
+       "share": 0.322,
+       "partial": false
+      },
+      {
+       "month": "2026-02",
+       "count": 35,
+       "share": 0.333,
+       "partial": false
+      },
+      {
+       "month": "2026-03",
+       "count": 39,
+       "share": 0.348,
+       "partial": false
+      },
+      {
+       "month": "2026-04",
+       "count": 43,
+       "share": 0.358,
+       "partial": false
+      },
+      {
+       "month": "2026-05",
+       "count": 50,
+       "share": 0.37,
+       "partial": false
+      },
+      {
+       "month": "2026-06",
+       "count": 48,
+       "share": 0.375,
+       "partial": false
+      },
+      {
+       "month": "2026-07",
+       "count": 47,
+       "share": 0.392,
+       "partial": false
+      },
+      {
+       "month": "2026-08",
+       "count": 57,
+       "share": 0.401,
+       "partial": false
+      },
+      {
+       "month": "2026-09",
+       "count": 61,
+       "share": 0.407,
+       "partial": false
+      },
+      {
+       "month": "2026-10",
+       "count": 66,
+       "share": 0.418,
+       "partial": false
+      },
+      {
+       "month": "2026-11",
+       "count": 51,
+       "share": 0.425,
+       "partial": true
+      }
+     ]
+    },
+    {
+     "skill": "Hardware",
+     "points": [
+      {
+       "month": "2025-12",
+       "count": 25,
+       "share": 0.305,
+       "partial": false
+      },
+      {
+       "month": "2026-01",
+       "count": 28,
+       "share": 0.311,
+       "partial": false
+      },
+      {
+       "month": "2026-02",
+       "count": 34,
+       "share": 0.324,
+       "partial": false
+      },
+      {
+       "month": "2026-03",
+       "count": 37,
+       "share": 0.33,
+       "partial": false
+      },
+      {
+       "month": "2026-04",
+       "count": 41,
+       "share": 0.342,
+       "partial": false
+      },
+      {
+       "month": "2026-05",
+       "count": 47,
+       "share": 0.348,
+       "partial": false
+      },
+      {
+       "month": "2026-06",
+       "count": 46,
+       "share": 0.359,
+       "partial": false
+      },
+      {
+       "month": "2026-07",
+       "count": 44,
+       "share": 0.367,
+       "partial": false
+      },
+      {
+       "month": "2026-08",
+       "count": 54,
+       "share": 0.38,
+       "partial": false
+      },
+      {
+       "month": "2026-09",
+       "count": 58,
+       "share": 0.387,
+       "partial": false
+      },
+      {
+       "month": "2026-10",
+       "count": 63,
+       "share": 0.399,
+       "partial": false
+      },
+      {
+       "month": "2026-11",
+       "count": 49,
+       "share": 0.408,
+       "partial": true
+      }
+     ]
+    },
+    {
+     "skill": "Ticketing",
+     "points": [
+      {
+       "month": "2025-12",
+       "count": 21,
+       "share": 0.256,
+       "partial": false
+      },
+      {
+       "month": "2026-01",
+       "count": 23,
+       "share": 0.256,
+       "partial": false
+      },
+      {
+       "month": "2026-02",
+       "count": 28,
+       "share": 0.267,
+       "partial": false
+      },
+      {
+       "month": "2026-03",
+       "count": 31,
+       "share": 0.277,
+       "partial": false
+      },
+      {
+       "month": "2026-04",
+       "count": 34,
+       "share": 0.283,
+       "partial": false
+      },
+      {
+       "month": "2026-05",
+       "count": 40,
+       "share": 0.296,
+       "partial": false
+      },
+      {
+       "month": "2026-06",
+       "count": 39,
+       "share": 0.305,
+       "partial": false
+      },
+      {
+       "month": "2026-07",
+       "count": 37,
+       "share": 0.308,
+       "partial": false
+      },
+      {
+       "month": "2026-08",
+       "count": 45,
+       "share": 0.317,
+       "partial": false
+      },
+      {
+       "month": "2026-09",
+       "count": 49,
+       "share": 0.327,
+       "partial": false
+      },
+      {
+       "month": "2026-10",
+       "count": 53,
+       "share": 0.335,
+       "partial": false
+      },
+      {
+       "month": "2026-11",
+       "count": 41,
+       "share": 0.342,
+       "partial": true
+      }
+     ]
+    },
+    {
+     "skill": "Active Directory",
+     "points": [
+      {
+       "month": "2025-12",
+       "count": 0,
+       "share": 0,
+       "partial": false
+      },
+      {
+       "month": "2026-01",
+       "count": 16,
+       "share": 0.178,
+       "partial": false
+      },
+      {
+       "month": "2026-02",
+       "count": 19,
+       "share": 0.181,
+       "partial": false
+      },
+      {
+       "month": "2026-03",
+       "count": 21,
+       "share": 0.188,
+       "partial": false
+      },
+      {
+       "month": "2026-04",
+       "count": 23,
+       "share": 0.192,
+       "partial": false
+      },
+      {
+       "month": "2026-05",
+       "count": 27,
+       "share": 0.2,
+       "partial": false
+      },
+      {
+       "month": "2026-06",
+       "count": 26,
+       "share": 0.203,
+       "partial": false
+      },
+      {
+       "month": "2026-07",
+       "count": 25,
+       "share": 0.208,
+       "partial": false
+      },
+      {
+       "month": "2026-08",
+       "count": 30,
+       "share": 0.211,
+       "partial": false
+      },
+      {
+       "month": "2026-09",
+       "count": 33,
+       "share": 0.22,
+       "partial": false
+      },
+      {
+       "month": "2026-10",
+       "count": 35,
+       "share": 0.222,
+       "partial": false
+      },
+      {
+       "month": "2026-11",
+       "count": 28,
+       "share": 0.233,
+       "partial": true
+      }
+     ]
     }
    ]
   },
@@ -926,6 +1947,521 @@
      "city": "Zürich",
      "published": "2026-11-20",
      "url": "https://www.jobs.ch/de/stellenangebote/detail/c40f8e1f-a008-4ed6-8213-c3fad80a3aa9/?utm_source=job-room.ch&inv=ppd-p&utm_medium=affiliate&utm_campaign=wb:jobs|tg:b2c|cn:ch|lg:de|ct:targeting,nonbrand,job|cd:feedonomics-jobroom|mg:job-application|pd:n|tt:organic"
+    }
+   ],
+   "entry_ads": 19,
+   "entry_skills": [
+    {
+     "skill": "SQL",
+     "count": 10,
+     "share": 0.526,
+     "esco_uri": "http://data.europa.eu/esco/skill/598de5b0-5b58-4ea7-8058-a4bc4d18c742",
+     "esco_label": "SQL",
+     "esco_match": "exact"
+    },
+    {
+     "skill": "Python",
+     "count": 8,
+     "share": 0.421,
+     "esco_uri": "http://data.europa.eu/esco/skill/ccd0a1d9-afda-43d9-b901-96344886e14d",
+     "esco_label": "Python (computer programming)",
+     "esco_match": "exact"
+    },
+    {
+     "skill": "Cloud",
+     "count": 6,
+     "share": 0.316,
+     "esco_uri": "http://data.europa.eu/esco/skill/bd14968e-e409-45af-b362-3495ed7b10e0",
+     "esco_label": "cloud technologies",
+     "esco_match": "exact"
+    },
+    {
+     "skill": "Excel",
+     "count": 6,
+     "share": 0.316,
+     "esco_uri": "http://data.europa.eu/esco/skill/1973c966-f236-40c9-b2d4-5d71a89019be",
+     "esco_label": "use spreadsheets software",
+     "esco_match": "broader"
+    },
+    {
+     "skill": "Power BI",
+     "count": 4,
+     "share": 0.211,
+     "esco_uri": "http://data.europa.eu/esco/skill/143769cb-b61e-47d8-a61e-eedfbec1016c",
+     "esco_label": "business intelligence",
+     "esco_match": "broader"
+    },
+    {
+     "skill": "Security",
+     "count": 5,
+     "share": 0.263,
+     "esco_uri": "http://data.europa.eu/esco/skill/8088750d-8388-4170-a76f-48354c469c44",
+     "esco_label": "cyber security",
+     "esco_match": "exact"
+    }
+   ],
+   "skills_monthly": [
+    {
+     "skill": "SQL",
+     "points": [
+      {
+       "month": "2025-12",
+       "count": 26,
+       "share": 0.5,
+       "partial": false
+      },
+      {
+       "month": "2026-01",
+       "count": 29,
+       "share": 0.509,
+       "partial": false
+      },
+      {
+       "month": "2026-02",
+       "count": 35,
+       "share": 0.53,
+       "partial": false
+      },
+      {
+       "month": "2026-03",
+       "count": 39,
+       "share": 0.549,
+       "partial": false
+      },
+      {
+       "month": "2026-04",
+       "count": 43,
+       "share": 0.566,
+       "partial": false
+      },
+      {
+       "month": "2026-05",
+       "count": 50,
+       "share": 0.581,
+       "partial": false
+      },
+      {
+       "month": "2026-06",
+       "count": 48,
+       "share": 0.593,
+       "partial": false
+      },
+      {
+       "month": "2026-07",
+       "count": 47,
+       "share": 0.618,
+       "partial": false
+      },
+      {
+       "month": "2026-08",
+       "count": 57,
+       "share": 0.633,
+       "partial": false
+      },
+      {
+       "month": "2026-09",
+       "count": 61,
+       "share": 0.642,
+       "partial": false
+      },
+      {
+       "month": "2026-10",
+       "count": 66,
+       "share": 0.66,
+       "partial": false
+      },
+      {
+       "month": "2026-11",
+       "count": 51,
+       "share": 0.671,
+       "partial": true
+      }
+     ]
+    },
+    {
+     "skill": "Python",
+     "points": [
+      {
+       "month": "2025-12",
+       "count": 17,
+       "share": 0.327,
+       "partial": false
+      },
+      {
+       "month": "2026-01",
+       "count": 20,
+       "share": 0.351,
+       "partial": false
+      },
+      {
+       "month": "2026-02",
+       "count": 23,
+       "share": 0.348,
+       "partial": false
+      },
+      {
+       "month": "2026-03",
+       "count": 26,
+       "share": 0.366,
+       "partial": false
+      },
+      {
+       "month": "2026-04",
+       "count": 29,
+       "share": 0.382,
+       "partial": false
+      },
+      {
+       "month": "2026-05",
+       "count": 33,
+       "share": 0.384,
+       "partial": false
+      },
+      {
+       "month": "2026-06",
+       "count": 32,
+       "share": 0.395,
+       "partial": false
+      },
+      {
+       "month": "2026-07",
+       "count": 31,
+       "share": 0.408,
+       "partial": false
+      },
+      {
+       "month": "2026-08",
+       "count": 38,
+       "share": 0.422,
+       "partial": false
+      },
+      {
+       "month": "2026-09",
+       "count": 41,
+       "share": 0.432,
+       "partial": false
+      },
+      {
+       "month": "2026-10",
+       "count": 44,
+       "share": 0.44,
+       "partial": false
+      },
+      {
+       "month": "2026-11",
+       "count": 34,
+       "share": 0.447,
+       "partial": true
+      }
+     ]
+    },
+    {
+     "skill": "Cloud",
+     "points": [
+      {
+       "month": "2025-12",
+       "count": 14,
+       "share": 0.269,
+       "partial": false
+      },
+      {
+       "month": "2026-01",
+       "count": 16,
+       "share": 0.281,
+       "partial": false
+      },
+      {
+       "month": "2026-02",
+       "count": 19,
+       "share": 0.288,
+       "partial": false
+      },
+      {
+       "month": "2026-03",
+       "count": 21,
+       "share": 0.296,
+       "partial": false
+      },
+      {
+       "month": "2026-04",
+       "count": 23,
+       "share": 0.303,
+       "partial": false
+      },
+      {
+       "month": "2026-05",
+       "count": 27,
+       "share": 0.314,
+       "partial": false
+      },
+      {
+       "month": "2026-06",
+       "count": 26,
+       "share": 0.321,
+       "partial": false
+      },
+      {
+       "month": "2026-07",
+       "count": 25,
+       "share": 0.329,
+       "partial": false
+      },
+      {
+       "month": "2026-08",
+       "count": 31,
+       "share": 0.344,
+       "partial": false
+      },
+      {
+       "month": "2026-09",
+       "count": 34,
+       "share": 0.358,
+       "partial": false
+      },
+      {
+       "month": "2026-10",
+       "count": 36,
+       "share": 0.36,
+       "partial": false
+      },
+      {
+       "month": "2026-11",
+       "count": 28,
+       "share": 0.368,
+       "partial": true
+      }
+     ]
+    },
+    {
+     "skill": "Excel",
+     "points": [
+      {
+       "month": "2025-12",
+       "count": 12,
+       "share": 0.231,
+       "partial": false
+      },
+      {
+       "month": "2026-01",
+       "count": 14,
+       "share": 0.246,
+       "partial": false
+      },
+      {
+       "month": "2026-02",
+       "count": 16,
+       "share": 0.242,
+       "partial": false
+      },
+      {
+       "month": "2026-03",
+       "count": 18,
+       "share": 0.254,
+       "partial": false
+      },
+      {
+       "month": "2026-04",
+       "count": 20,
+       "share": 0.263,
+       "partial": false
+      },
+      {
+       "month": "2026-05",
+       "count": 23,
+       "share": 0.267,
+       "partial": false
+      },
+      {
+       "month": "2026-06",
+       "count": 22,
+       "share": 0.272,
+       "partial": false
+      },
+      {
+       "month": "2026-07",
+       "count": 22,
+       "share": 0.289,
+       "partial": false
+      },
+      {
+       "month": "2026-08",
+       "count": 26,
+       "share": 0.289,
+       "partial": false
+      },
+      {
+       "month": "2026-09",
+       "count": 28,
+       "share": 0.295,
+       "partial": false
+      },
+      {
+       "month": "2026-10",
+       "count": 31,
+       "share": 0.31,
+       "partial": false
+      },
+      {
+       "month": "2026-11",
+       "count": 24,
+       "share": 0.316,
+       "partial": true
+      }
+     ]
+    },
+    {
+     "skill": "Power BI",
+     "points": [
+      {
+       "month": "2025-12",
+       "count": 11,
+       "share": 0.212,
+       "partial": false
+      },
+      {
+       "month": "2026-01",
+       "count": 12,
+       "share": 0.211,
+       "partial": false
+      },
+      {
+       "month": "2026-02",
+       "count": 15,
+       "share": 0.227,
+       "partial": false
+      },
+      {
+       "month": "2026-03",
+       "count": 16,
+       "share": 0.225,
+       "partial": false
+      },
+      {
+       "month": "2026-04",
+       "count": 18,
+       "share": 0.237,
+       "partial": false
+      },
+      {
+       "month": "2026-05",
+       "count": 21,
+       "share": 0.244,
+       "partial": false
+      },
+      {
+       "month": "2026-06",
+       "count": 20,
+       "share": 0.247,
+       "partial": false
+      },
+      {
+       "month": "2026-07",
+       "count": 19,
+       "share": 0.25,
+       "partial": false
+      },
+      {
+       "month": "2026-08",
+       "count": 23,
+       "share": 0.256,
+       "partial": false
+      },
+      {
+       "month": "2026-09",
+       "count": 25,
+       "share": 0.263,
+       "partial": false
+      },
+      {
+       "month": "2026-10",
+       "count": 27,
+       "share": 0.27,
+       "partial": false
+      },
+      {
+       "month": "2026-11",
+       "count": 21,
+       "share": 0.276,
+       "partial": true
+      }
+     ]
+    },
+    {
+     "skill": "Security",
+     "points": [
+      {
+       "month": "2025-12",
+       "count": 0,
+       "share": 0,
+       "partial": false
+      },
+      {
+       "month": "2026-01",
+       "count": 11,
+       "share": 0.193,
+       "partial": false
+      },
+      {
+       "month": "2026-02",
+       "count": 13,
+       "share": 0.197,
+       "partial": false
+      },
+      {
+       "month": "2026-03",
+       "count": 15,
+       "share": 0.211,
+       "partial": false
+      },
+      {
+       "month": "2026-04",
+       "count": 16,
+       "share": 0.211,
+       "partial": false
+      },
+      {
+       "month": "2026-05",
+       "count": 19,
+       "share": 0.221,
+       "partial": false
+      },
+      {
+       "month": "2026-06",
+       "count": 18,
+       "share": 0.222,
+       "partial": false
+      },
+      {
+       "month": "2026-07",
+       "count": 18,
+       "share": 0.237,
+       "partial": false
+      },
+      {
+       "month": "2026-08",
+       "count": 21,
+       "share": 0.233,
+       "partial": false
+      },
+      {
+       "month": "2026-09",
+       "count": 23,
+       "share": 0.242,
+       "partial": false
+      },
+      {
+       "month": "2026-10",
+       "count": 25,
+       "share": 0.25,
+       "partial": false
+      },
+      {
+       "month": "2026-11",
+       "count": 19,
+       "share": 0.25,
+       "partial": true
+      }
+     ]
     }
    ]
   }
