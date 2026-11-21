@@ -5,6 +5,7 @@ import { PageIcon } from "@/components/page-icon";
 import { Link, usePathname } from "@/i18n/navigation";
 
 const ITEMS = [
+  { key: "overview", href: "/uebersicht" },
   { key: "demand", href: "/nachfrage" },
   { key: "skills", href: "/faehigkeiten" },
   { key: "employers", href: "/arbeitgeber" },

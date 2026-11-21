@@ -234,7 +234,7 @@ def build_it_market(c, since):
     cols = {r[1] for r in c.execute("PRAGMA table_info(ads)")}
     exp_col = "experience" if "experience" in cols else "NULL"
     rows = c.execute(f"""SELECT occupation, published, canton, barriers, reporting_obligation, tagged, {exp_col}, title,
-                                company, skills FROM ads
+                                company, skills, id, url, city FROM ads
                          WHERE occupation IN ({marks}) AND published >= ?""", (*occ, since)).fetchall()
     n = len(rows)
     weekly = collections.Counter()
@@ -273,8 +273,27 @@ def build_it_market(c, since):
         sk, nf = skills(R)
         return {"weekly": weeks(R), "skills": sk, "skills_basis": nf, "employers": employers(R),
                 "entry_employers": employers([r for r in R if is_entry(r)], 6)}
+    def overview():
+        """The «Overview» page (Seckin, 21.11.2026): skills in beginner ads, entry requirements and the newest
+        beginner ads (skill counts over the whole window are it_market.skills; a month-by-month trend needs more history:
+        job-room keeps only 60 days, so an earlier month always looks smaller)."""
+        full = [r for r in rows if r[5]]
+        entry_full = [r for r in full if is_entry(r)]
+        es = collections.Counter(k for r in entry_full for k in json.loads(r[9] or "[]"))
+        bar = collections.Counter(b for r in full for b in json.loads(r[3] or "[]"))
+        newest = sorted((r for r in rows if is_entry(r) and r[1]), key=lambda r: r[1], reverse=True)[:4]
+        return {
+            "entry_skills": [{"skill": k, "count": v, "share": round(v / max(len(entry_full), 1), 3)} for k, v in es.most_common(6)],
+            "entry_basis": len(entry_full),
+            "requirements": {k: round(bar[k] / max(len(full), 1), 3)
+                             for k in ("senior_experience", "german_required", "french_required", "degree_required", "english_ok")},
+            "newest_entry": [{"title": r[7], "company": r[8], "city": r[12], "published": (r[1] or "")[:10],
+                              "url": r[11] or f"https://www.job-room.ch/job-search/{r[10]}"} for r in newest],
+        }
+
     return {
         "ads": n,
+        "overview": overview(),
         "read_in_full": sum(1 for r in rows if r[5]),
         "entry_ads": entry_n(rows),
         "entry_level_share": entry(rows),

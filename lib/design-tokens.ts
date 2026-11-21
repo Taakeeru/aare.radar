@@ -63,6 +63,9 @@ export function tokenStyle(): Record<string, string> {
   // colour of links. By default both are the link blue, exactly as before the design options.
   style["--radar-accent"] = COLOR.link;
   style["--radar-on-accent"] = COLOR.root;
+  CHART.forEach((v, i) => {
+    style[`--radar-chart-${i + 1}`] = v;
+  });
   return style;
 }
 
@@ -113,6 +116,12 @@ export const ACCENTS: Record<string, string> = {
   aare: "#3eafaf",
   blue: "#60a5fa",
 };
+
+/**
+ * Category colours for the donut charts of the Overview (21.11.2026), all from the palette, in this order; the last is
+ * «other». Categories only, never a status (statuses keep critical/warning/healthy with a word).
+ */
+export const CHART = ["#3eafaf", "#8ab4f8", "#60a5fa", "#c084fc", "#22c55e", "#8f98a5"] as const;
 
 /** Text on an accent fill (the primary button): always the darkest ink. */
 export const ON_ACCENT = COLOR.root;

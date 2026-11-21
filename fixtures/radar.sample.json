@@ -6739,7 +6739,79 @@
     "canton": "ZG",
     "count": 72
    }
-  ]
+  ],
+  "overview": {
+   "entry_skills": [
+    {
+     "skill": "Security",
+     "count": 99,
+     "share": 0.44
+    },
+    {
+     "skill": "Networking",
+     "count": 74,
+     "share": 0.329
+    },
+    {
+     "skill": "Windows",
+     "count": 66,
+     "share": 0.293
+    },
+    {
+     "skill": "Cloud",
+     "count": 54,
+     "share": 0.24
+    },
+    {
+     "skill": "Scrum/Agile",
+     "count": 54,
+     "share": 0.24
+    },
+    {
+     "skill": "Microsoft 365",
+     "count": 47,
+     "share": 0.209
+    }
+   ],
+   "entry_basis": 225,
+   "requirements": {
+    "senior_experience": 0.536,
+    "german_required": 0.364,
+    "french_required": 0.024,
+    "degree_required": 0.577,
+    "english_ok": 0.576
+   },
+   "newest_entry": [
+    {
+     "title": "Fullstack Software -Ingenieur",
+     "company": "avec compétence GmbH",
+     "city": "Belp",
+     "published": "2026-11-21",
+     "url": "https://tryandhire.io/ch-de/einsaetze/e/fullstack-software-ingenieur-tah-6f9wf/"
+    },
+    {
+     "title": "Junior Software-Ingenieur",
+     "company": "avec compétence GmbH",
+     "city": "Belp",
+     "published": "2026-11-21",
+     "url": "https://tryandhire.io/ch-de/einsaetze/e/junior-software-ingenieur-tah-kbzyy/"
+    },
+    {
+     "title": "Apprenti Médiamaticien-ne",
+     "company": "BOBST MEX SA",
+     "city": "Lausanne",
+     "published": "2026-11-21",
+     "url": "https://www.jobup.ch/fr/emplois/detail/6ad61a82-0f51-4039-98df-b003aace1c74/?utm_source=job-room.ch&utm_medium=affiliate&utm_campaign=wb:jobup|tg:b2c|cn:ch|lg:fr|ct:targeting,nonbrand,job|cd:feedonomics-jobroom|mg:job-application|pd:n|tt:organic"
+    },
+    {
+     "title": "IT Support Techniker *in",
+     "company": "ERNE Management AG",
+     "city": "Laufenburg",
+     "published": "2026-11-20",
+     "url": "https://ohws.prospective.ch/public/v1/jobs/1f0870ff-7dfa-4b66-94f3-a548320950f5"
+    }
+   ]
+  }
  },
  "digest": {
   "from": "2026-11-07",

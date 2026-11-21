@@ -34,6 +34,9 @@ class ItMarketTest(unittest.TestCase):
             self.assertEqual([(o["code"], o["ads"]) for o in m["occupations"]], [("101350", 2), ("101353", 1)])
             self.assertEqual(sum(g["ads"] for g in m["groups"]), 3)
             json.dumps(m)
+            self.assertIn("overview", m)
+            self.assertEqual(set(m["overview"]["requirements"]),
+                             {"senior_experience", "german_required", "french_required", "degree_required", "english_ok"})
 
 
 if __name__ == "__main__":

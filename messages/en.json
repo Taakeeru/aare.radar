@@ -15,7 +15,8 @@
     "skills": "Skills",
     "employers": "Employers",
     "target": "Target group",
-    "volunteers": "Volunteers"
+    "volunteers": "Volunteers",
+    "overview": "Overview"
   },
   "footer": {
     "note": "A tool for the Powercoders team. The numbers come from public sources.",
@@ -669,5 +670,50 @@
     "inCity": "{n} in {city}",
     "offers": "offers {offer}",
     "none": "No expert matches these filters."
+  },
+  "overview": {
+    "eyebrow": "Overview",
+    "title": "The IT market at a glance for Powercoders",
+    "lead": "{ads} IT ads in the last 60 days, {entry} of them open to beginners: what they ask for, where they are and the newest ones.",
+    "skills": {
+      "title": "Skills companies seek",
+      "intro": "Share of the mentions among the six most asked skills in all IT ads.",
+      "chip": "Demand"
+    },
+    "teach": {
+      "title": "Skills to teach",
+      "intro": "The skills asked for in beginner ads ({n} ads read in full), share of the mentions.",
+      "chip": "Training gap",
+      "link": "Courses and Powercoders programs for these skills"
+    },
+    "evo": {
+      "title": "Evolution of skills",
+      "intro": "Number of IT ads that name the skill, last {days} days.",
+      "chip": "Number of ads",
+      "yAxis": "Ads",
+      "xAxis": "Skill",
+      "note": "A month-by-month trend appears as the radar keeps collecting every day; job-room only keeps the last 60 days."
+    },
+    "req": {
+      "title": "Entry requirements",
+      "intro": "How often IT ads ask for it.",
+      "chip": "% of postings",
+      "note": "Certificates and portfolios are not measured yet.",
+      "senior_experience": "Several years of experience",
+      "degree_required": "A qualification or degree",
+      "german_required": "Very good German",
+      "french_required": "Very good French"
+    },
+    "where": {
+      "title": "Where the jobs are",
+      "chip": "Hubs"
+    },
+    "newest": {
+      "title": "Newest beginner ads",
+      "chip": "Live"
+    },
+    "today": "today",
+    "yesterday": "yesterday",
+    "daysAgo": "{n} days ago"
   }
 }
