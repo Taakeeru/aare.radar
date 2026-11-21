@@ -14,7 +14,8 @@
     "demand": "Nachfrage",
     "skills": "Fähigkeiten",
     "employers": "Arbeitgeber",
-    "target": "Zielgruppe"
+    "target": "Zielgruppe",
+    "volunteers": "Freiwillige"
   },
   "footer": {
     "note": "Ein Werkzeug für das Team von Powercoders. Die Zahlen stammen aus öffentlichen Quellen.",
@@ -638,5 +639,22 @@
     "addSubmit": "Hinzufügen",
     "editSubmit": "Änderungen speichern",
     "offNote": "Die Zusammenfassung ist aus. Im Moment bekommt sie niemand, auch wer aktiv ist."
+  },
+  "volunteers": {
+    "title": "Freiwillige: IT-Fachleute in deiner Nähe",
+    "lead": "Wo IT-Fachleute sind, die bei Powercoders eine Lektion geben könnten. Klick auf einen Punkt oder eine Stadt für die Profile; filtere nach Stadt, Fachgebiet oder Suche.",
+    "conceptTitle": "Konzept mit erfundenen Profilen.",
+    "concept": "Alle Personen hier sind erfunden, um die Idee zu zeigen. In einer echten Version tragen sich Fachleute selbst ein und können sich jederzeit löschen; es werden keine Daten von LinkedIn oder anderen Seiten übernommen.",
+    "city": "Stadt",
+    "domain": "Fachgebiet",
+    "all": "Alle",
+    "search": "Suche",
+    "searchHint": "zum Beispiel SQL oder Bern",
+    "mapLabel": "Schematische Karte der Schweiz mit der Zahl der Fachleute pro Stadt",
+    "pinsLabel": "Städte",
+    "count": "{n} Fachleute",
+    "inCity": "{n} in {city}",
+    "offers": "bietet {offer}",
+    "none": "Keine Fachperson passt zu diesen Filtern."
   }
 }
