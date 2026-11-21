@@ -22,7 +22,7 @@ export type SkillMonthPoint = { month: string; count: number; share: number; par
 export type SkillSeries = { skill: string; points: SkillMonthPoint[] };
 export type CantonCount = { canton: string; count: number };
 export type ExampleAd = { title: string; company: string | null; city: string | null; published: string | null; url: string };
-export type CompanyCount = { company: string; ads: number };
+export type CompanyCount = { company: string; ads: number; url?: string | null };
 /** Requirement details (21.11.2026, collector/export.py req_details): shares 0..1 of the ads read in full. */
 export type RequirementsDetail = {
   basis: number;

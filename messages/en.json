@@ -699,11 +699,11 @@
     "title": "Dashboard",
     "lead": "{ads} ads in the last 60 days, {entry} of them open to beginners: what they ask for, where they are and the newest ones. Choose a role below; the numbers are the same as on Demand, Skills and Employers.",
     "skills": {
-      "title": "Skills companies seek",
+      "title": "Skills Companies Seek",
       "intro": "Share of the mentions among the six most asked skills in all IT ads.",
       "chip": "Demand",
       "introRole": "Share of the mentions among the six most asked skills in this role's ads.",
-      "pick": "Choose a skill to see which companies ask for it:",
+      "pick": "Click a skill to see which companies ask for it (each links to its newest ad):",
       "adsWord": "ads",
       "noCompanies": "No company with an ad for this skill."
     },
@@ -719,7 +719,7 @@
       "how": "«Taught» = named on Powercoders' program pages (Bootcamp, Self Learning), checked 21.11.2026."
     },
     "evo": {
-      "title": "Evolution of skills",
+      "title": "Evolution of Skills",
       "intro": "Number of IT ads that name the skill, last {days} days.",
       "chip": "Number of ads",
       "yAxis": "Ads",
@@ -731,7 +731,7 @@
       "noteLine": "Earlier months look smaller: job-room keeps ads for 60 days only, so the lines become a real trend as the radar collects every day. The current month is not over yet."
     },
     "req": {
-      "title": "Entry requirements",
+      "title": "Entry Requirements",
       "intro": "How often IT ads ask for it.",
       "chip": "% of postings",
       "note": "Certificates and portfolios are not measured yet.",
@@ -765,12 +765,12 @@
       "noteDetail": "From the {n} ads read in full. An ad can name several degrees; ads without a level or number are not counted. Certificates and portfolios are not measured yet."
     },
     "where": {
-      "title": "Where the jobs are",
+      "title": "Where the Jobs Are",
       "chip": "Hubs",
       "mapLabel": "Map of Switzerland: ads per canton, the larger the bubble the more ads"
     },
     "newest": {
-      "title": "Newest beginner ads",
+      "title": "Newest Beginner Ads",
       "chip": "Live",
       "titleRole": "Newest ads for this role"
     },

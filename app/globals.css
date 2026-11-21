@@ -1686,3 +1686,8 @@ html[data-light="true"] {
 .dash-start {
   padding-bottom: 0;
 }
+
+/* Companies per skill as a bulleted list with links (Isabella, thread 68) */
+ul.skillco__list {
+  list-style: disc;
+}

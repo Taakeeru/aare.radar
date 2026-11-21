@@ -9,7 +9,7 @@ import { Donut, type Slice } from "@/components/donut";
  */
 export function SkillCompanies({ slices, companies, label, pick, adsWord, none }: {
   slices: Slice[];
-  companies: Record<string, { company: string; ads: number }[]>;
+  companies: Record<string, { company: string; ads: number; url?: string | null }[]>;
   label: string;
   pick: string;
   adsWord: string;
@@ -22,13 +22,25 @@ export function SkillCompanies({ slices, companies, label, pick, adsWord, none }
       <Donut slices={slices} label={label} center="100%" size="large" selected={sel} onSelect={(k) => setSel(k || sel)} unit={adsWord} />
       <p className="skillco__pick">{pick}</p>
       {list.length > 0 ? (
-        <ol className="skillco__list">
-          {list.map((c) => (
-            <li key={c.company}>
-              <span className="company-names">{c.company}</span> <span className="skillco__n">{c.ads} {adsWord}</span>
-            </li>
-          ))}
-        </ol>
+        <ul className="skillco__list">
+          {list.map((c) => {
+            const url = c.url && /^https:\/\//.test(c.url) ? c.url : null;
+            return (
+              <li key={c.company}>
+                {url ? (
+                  <a className="company-names" href={url} target="_blank" rel="noopener noreferrer">
+                    {c.company}
+                  </a>
+                ) : (
+                  <span className="company-names">{c.company}</span>
+                )}{" "}
+                <span className="skillco__n">
+                  {c.ads} {adsWord}
+                </span>
+              </li>
+            );
+          })}
+        </ul>
       ) : (
         <p className="note">{none}</p>
       )}

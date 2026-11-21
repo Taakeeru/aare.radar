@@ -182,7 +182,10 @@ def main(out: Path, db=None, entries=None, esco_path=None, today=None):
             "skills_monthly": skills_monthly([(h[0], json.loads(h[2])) for h in history if rid in json.loads(h[1])],
                                              [s["skill"] for s in top[:8]], today),
             # which companies ask for each of the role's top skills (Dashboard, Seckin 21.11.2026), no agencies
-            "skill_companies": {s["skill"]: [{"company": k, "ads": v} for k, v in collections.Counter(
+            # with a link to the company's newest ad for that skill (Isabella, thread 68)
+            "skill_companies": {s["skill"]: [{"company": k, "ads": v, "url": next(
+                (r[5] for r in full if r[1] == k and r[5] and s["skill"] in json.loads(r[7] or "[]")), None)}
+                for k, v in collections.Counter(
                 r[1] for r in full if r[1] and not AGENCY.search(r[1]) and s["skill"] in json.loads(r[7] or "[]")
             ).most_common(4)] for s in top[:6]},
             "requirements_detail": req_details([r[11] for r in R]),
@@ -307,7 +310,12 @@ def build_it_market(c, since, today=None):
                 "entry_employers": employers([r for r in R if is_entry(r)], 6)}
     def skill_companies(skills_top):
         full = [r for r in rows if r[5]]
-        return {k: [{"company": c, "ads": v} for c, v in collections.Counter(
+        newest = sorted(full, key=lambda r: r[1] or "", reverse=True)
+
+        def link(company, k):  # the company's newest ad naming the skill (Isabella, thread 68)
+            r = next((r for r in newest if r[8] == company and k in json.loads(r[9] or "[]")), None)
+            return (r[11] or f"https://www.job-room.ch/job-search/{r[10]}") if r else None
+        return {k: [{"company": c, "ads": v, "url": link(c, k)} for c, v in collections.Counter(
             r[8] for r in full if r[8] and not AGENCY.search(r[8]) and k in json.loads(r[9] or "[]")).most_common(4)]
             for k in skills_top}
 
