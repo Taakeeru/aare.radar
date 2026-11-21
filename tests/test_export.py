@@ -1,4 +1,5 @@
 """Export contract: the fields the dashboard already reads must stay; new fields may be added."""
+import datetime as dt
 import json
 import tempfile
 import unittest
@@ -104,6 +105,52 @@ class ExportContractTest(unittest.TestCase):
         for v in mapped:
             self.assertRegex(v["uri"], r"^http://data\.europa\.eu/esco/skill/[0-9a-f-]{36}$")
             self.assertIn(v["match"], ("exact", "broader"))
+
+
+class MonthlyTest(unittest.TestCase):
+    TODAY = dt.date(2026, 11, 20)
+
+    def export(self, ads):
+        """ads: [(id, published, roles_json)] -> exported doc."""
+        with tempfile.TemporaryDirectory() as tmp:
+            path = Path(tmp) / "radar.db"
+            c = db.connect(path)
+            for i, pub, roles in ads:
+                c.execute("""INSERT INTO ads(id,title,company,canton,city,published,reporting_obligation,url,roles,skills,
+                             barriers,first_seen,last_seen,tagged) VALUES(?,?,?,?,?,?,0,?,?,'[]','[]',?,?,1)""",
+                          (i, "T", "C", "ZH", "Zürich", pub, "https://x/" + i, roles, "2026-11-01", "2026-11-20"))
+            c.commit()
+            c.close()
+            return export.main(Path(tmp) / "radar.json", db=path, today=self.TODAY)
+
+    def test_old_ad_counts_in_monthly_not_in_ads(self):
+        old = (self.TODAY - dt.timedelta(days=90)).isoformat()
+        doc = self.export([("a", old, '["web"]'), ("b", "2026-11-10", '["web"]')])
+        web = doc["roles"][0]
+        self.assertEqual(web["ads"], 1)
+        self.assertEqual(sum(m["new_ads"] for m in web["monthly"]), 2)
+        self.assertEqual(web["monthly"][0]["month"], old[:7])
+
+    def test_ad_in_two_roles_counts_once_in_market(self):
+        doc = self.export([("a", "2026-11-10", '["web", "data"]'), ("b", "2026-11-11", '["support"]')])
+        self.assertEqual(doc["market"]["ads"], 2)
+        self.assertEqual(doc["market"]["monthly"], [{"month": "2026-11", "new_ads": 2, "partial": True}])
+        self.assertEqual(sum(r["ads"] for r in doc["market"]["roles"]), 3)
+        self.assertEqual(doc["market"]["roles"][0]["ads"], 1)
+
+    def test_empty_month_between_shows_zero(self):
+        doc = self.export([("a", "2026-08-15", '["web"]'), ("b", "2026-10-02", '["web"]')])
+        self.assertEqual([(m["month"], m["new_ads"]) for m in doc["roles"][0]["monthly"]],
+                         [("2026-08", 1), ("2026-09", 0), ("2026-10", 1), ("2026-11", 0)])
+
+    def test_current_month_is_partial_and_range_is_capped(self):
+        doc = self.export([("o", "2020-01-05", '["web"]'), ("a", "2024-12-05", '["web"]'),
+                           ("b", "2026-11-02", '["web"]')])
+        m = doc["roles"][0]["monthly"]
+        self.assertEqual(len(m), 24)
+        self.assertEqual(m[0]["month"], "2024-12")
+        self.assertEqual([x["partial"] for x in m], [False] * 23 + [True])
+        self.assertEqual(m[-1], {"month": "2026-11", "new_ads": 1, "partial": True})
 
 
 if __name__ == "__main__":

@@ -12,6 +12,10 @@ import * as path from "node:path";
 
 export type RadarSource = { id: string; name: string; url: string; what: string; updated: string | null };
 export type WeeklyPoint = { week: string; new_ads: number };
+/** One calendar month of publications (export field `monthly`); `partial` marks the current, unfinished month. */
+export type MonthlyPoint = { month: string; new_ads: number; partial: boolean };
+/** The whole IT market (export field `market`): distinct ads in the window, monthly history, roles by ads. */
+export type Market = { ads: number; monthly: MonthlyPoint[]; roles: { id: string; ads: number }[] };
 export type SkillShare = { skill: string; count: number; share: number };
 export type CantonCount = { canton: string; count: number };
 export type ExampleAd = { title: string; company: string | null; city: string | null; published: string | null; url: string };
@@ -28,6 +32,8 @@ export type RadarRole = {
   label: string;
   ads: number;
   weekly: WeeklyPoint[];
+  /** Optional: the role's ads by published month over the whole history, at most 24 months, oldest first. */
+  monthly?: MonthlyPoint[];
   skills: SkillShare[];
   barriers: RoleBarriers;
   /** Share of ads that say junior / career changer / trainee / internship (question A, good news, apart from the barriers). */
@@ -54,6 +60,8 @@ export type Radar = {
   roles: RadarRole[];
   sector: SectorPoint[];
   policy: PolicyItem[];
+  /** Optional: Swiss IT market totals. */
+  market?: Market;
   /** Optional (added with sources-as-config): time series per question letter. */
   series?: Record<string, SeriesBlock[]>;
 };
@@ -76,6 +84,8 @@ const isNum = (v: unknown): v is number => typeof v === "number" && Number.isFin
 const isStrOrNull = (v: unknown) => v === null || v === undefined || isStr(v);
 const isCompanyCount = (c: unknown) => isObj(c) && isStr(c.company) && isNum(c.ads);
 const isArr = (v: unknown, each: (x: unknown) => boolean): boolean => Array.isArray(v) && v.every(each);
+
+const isMonthly = (m: unknown) => isObj(m) && isStr(m.month) && /^\d{4}-(0[1-9]|1[0-2])$/.test(m.month) && isNum(m.new_ads) && typeof m.partial === "boolean";
 
 /** Throws a readable Error when the document does not have the shape of the contract. */
 export function parseRadar(text: string): Radar {
@@ -101,6 +111,7 @@ export function parseRadar(text: string): Radar {
         isStr(r.label) &&
         isNum(r.ads) &&
         isArr(r.weekly, (w) => isObj(w) && isStr(w.week) && /^\d{4}-W\d{2}$/.test(w.week) && isNum(w.new_ads)) &&
+        (r.monthly === undefined || isArr(r.monthly, isMonthly)) &&
         isArr(r.skills, (s) => isObj(s) && isStr(s.skill) && isNum(s.count) && isNum(s.share)) &&
         isObj(r.barriers) &&
         BARRIER_KEYS.every((k) => isNum((r.barriers as Record<string, unknown>)[k])) &&
@@ -123,6 +134,10 @@ export function parseRadar(text: string): Radar {
     )
   ) {
     bad("policy");
+  }
+  if (raw.market !== undefined) {
+    const m = raw.market;
+    if (!isObj(m) || !isNum(m.ads) || !isArr(m.monthly, isMonthly) || !isArr(m.roles, (r) => isObj(r) && isStr(r.id) && isNum(r.ads))) bad("market");
   }
   if (raw.series !== undefined) {
     const isPoint = (p: unknown) => isObj(p) && isStr(p.period) && isNum(p.value);
