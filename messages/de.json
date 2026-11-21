@@ -540,6 +540,6 @@
     "until": "Bewerbung bis {date}",
     "noEnd": "kein Enddatum angegeben",
     "foot": "Quelle: job-room.ch (SECO), in der Schweiz ausgeschriebene Inserate. Nur Zahlen, keine Personendaten.",
-    "empty": "Noch keine Zusammenfassung. Sie erscheint nach dem nächsten Daten-Update."
+    "empty": "Noch keine Zusammenfassung. Die Vorschau erscheint nach dem nächsten Daten-Update."
   }
 }
