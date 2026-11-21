@@ -34,11 +34,14 @@ test("@ci the start page is the market at a glance, and the job list opens one j
   await expect(page.getByRole("heading", { name: "Neue Inserate pro Woche" })).toBeVisible();
 });
 
-test("@ci the Overview shows its six cards", async ({ page }) => {
+test("@ci the Dashboard shows its six cards and follows the role", async ({ page }) => {
   await page.goto("/de/uebersicht");
-  await expect(page.locator("h1")).toHaveText("Der IT-Markt auf einen Blick für Powercoders");
+  await expect(page.locator("h1")).toHaveText("Dashboard");
   await expect(page.locator("section.panel")).toHaveCount(6);
-  await expect(page.getByRole("heading", { name: "Entry requirements" })).toBeVisible();
+  await expect(page.getByRole("heading", { name: "Einstiegsanforderungen" })).toBeVisible();
+  await page.getByLabel("Beruf wählen").selectOption("support");
+  await expect(page).toHaveURL(/\/de\/uebersicht\?role=support$/);
+  await expect(page.locator("h1")).toContainText("Dashboard:");
 });
 
 test("@ci the role switcher changes the whole screen", async ({ page }) => {

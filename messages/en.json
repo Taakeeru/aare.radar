@@ -16,7 +16,7 @@
     "employers": "Employers",
     "target": "Target group",
     "volunteers": "Volunteers",
-    "overview": "Overview"
+    "overview": "Dashboard"
   },
   "footer": {
     "note": "A tool for the Powercoders team. The numbers come from public sources.",
@@ -673,9 +673,9 @@
     "avatar": "Drawn picture for {name}, not a real person"
   },
   "overview": {
-    "eyebrow": "Overview",
-    "title": "The IT market at a glance for Powercoders",
-    "lead": "{ads} IT ads in the last 60 days, {entry} of them open to beginners: what they ask for, where they are and the newest ones.",
+    "eyebrow": "Dashboard",
+    "title": "Dashboard",
+    "lead": "{ads} ads in the last 60 days, {entry} of them open to beginners: what they ask for, where they are and the newest ones. Choose a role below; the numbers are the same as on Demand, Skills and Employers.",
     "skills": {
       "title": "Skills companies seek",
       "intro": "Share of the mentions among the six most asked skills in all IT ads.",
@@ -685,7 +685,12 @@
       "title": "Skills to teach",
       "intro": "The skills asked for in beginner ads ({n} ads read in full), share of the mentions.",
       "chip": "Training gap",
-      "link": "Courses and Powercoders programs for these skills"
+      "link": "Courses and Powercoders programs for these skills",
+      "taught": "taught at Powercoders",
+      "gap": "not yet taught",
+      "gaps": "Not yet in Powercoders' courses: {list}.",
+      "noGaps": "All of these are in Powercoders' courses.",
+      "how": "«Taught» = named on Powercoders' program pages (Bootcamp, Self Learning), checked 21.11.2026."
     },
     "evo": {
       "title": "Evolution of skills",
@@ -711,10 +716,12 @@
     },
     "newest": {
       "title": "Newest beginner ads",
-      "chip": "Live"
+      "chip": "Live",
+      "titleRole": "Newest ads for this role"
     },
     "today": "today",
     "yesterday": "yesterday",
-    "daysAgo": "{n} days ago"
+    "daysAgo": "{n} days ago",
+    "allJobs": "All IT jobs"
   }
 }

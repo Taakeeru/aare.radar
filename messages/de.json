@@ -16,7 +16,7 @@
     "employers": "Arbeitgeber",
     "target": "Zielgruppe",
     "volunteers": "Freiwillige",
-    "overview": "Übersicht"
+    "overview": "Dashboard"
   },
   "footer": {
     "note": "Ein Werkzeug für das Team von Powercoders. Die Zahlen stammen aus öffentlichen Quellen.",
@@ -673,9 +673,9 @@
     "avatar": "Gezeichnetes Bild für {name}, keine echte Person"
   },
   "overview": {
-    "eyebrow": "Übersicht",
-    "title": "Der IT-Markt auf einen Blick für Powercoders",
-    "lead": "{ads} IT-Inserate in den letzten 60 Tagen, {entry} davon offen für Einsteigende: was sie verlangen, wo sie sind und die neuesten.",
+    "eyebrow": "Dashboard",
+    "title": "Dashboard",
+    "lead": "{ads} Inserate in den letzten 60 Tagen, {entry} davon offen für Einsteigende: was sie verlangen, wo sie sind und die neuesten. Wähl unten einen Beruf; die Zahlen sind dieselben wie bei Nachfrage, Fähigkeiten und Arbeitgeber.",
     "skills": {
       "title": "Fähigkeiten, die Firmen suchen",
       "intro": "Anteil an den Nennungen unter den sechs meistgefragten Fähigkeiten in allen IT-Inseraten.",
@@ -685,7 +685,12 @@
       "title": "Fähigkeiten zum Unterrichten",
       "intro": "Die Fähigkeiten, die Einsteiger-Inserate verlangen ({n} ganz gelesene Inserate), Anteil an den Nennungen.",
       "chip": "Lücke in der Ausbildung",
-      "link": "Kurse und Powercoders-Programme zu diesen Fähigkeiten"
+      "link": "Kurse und Powercoders-Programme zu diesen Fähigkeiten",
+      "taught": "bei Powercoders",
+      "gap": "noch nicht unterrichtet",
+      "gaps": "Noch nicht in den Kursen von Powercoders: {list}.",
+      "noGaps": "Alle diese Fähigkeiten sind in den Kursen von Powercoders.",
+      "how": "«Bei Powercoders» = auf den Programmseiten von Powercoders genannt (Bootcamp, Self Learning), geprüft am 21.11.2026."
     },
     "evo": {
       "title": "Entwicklung der Fähigkeiten",
@@ -696,7 +701,7 @@
       "note": "Ein Verlauf Monat für Monat entsteht, während der Radar täglich sammelt; job-room zeigt nur die letzten 60 Tage."
     },
     "req": {
-      "title": "Entry requirements",
+      "title": "Einstiegsanforderungen",
       "intro": "Wie oft IT-Inserate das verlangen.",
       "chip": "% der Inserate",
       "note": "Zertifikate und Portfolios misst der Radar noch nicht.",
@@ -711,10 +716,12 @@
     },
     "newest": {
       "title": "Neueste Einsteiger-Inserate",
-      "chip": "Live"
+      "chip": "Live",
+      "titleRole": "Neueste Inserate für diesen Beruf"
     },
     "today": "heute",
     "yesterday": "gestern",
-    "daysAgo": "vor {n} Tagen"
+    "daysAgo": "vor {n} Tagen",
+    "allJobs": "Alle IT-Berufe"
   }
 }

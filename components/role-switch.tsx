@@ -8,7 +8,7 @@ import { usePathname, useRouter } from "@/i18n/navigation";
  * «in all the pages please incorporate the drop-down menu»; 18 role buttons were too many). Without script the
  * «Show» button submits the same choice as a plain form.
  */
-export function RoleSwitch({ roles, current, label, base = "", show = "Show" }: { base?: string; roles: { id: string; label: string }[]; current: string; label: string; show?: string }) {
+export function RoleSwitch({ roles, current, label, base = "", show = "Show", all }: { base?: string; roles: { id: string; label: string }[]; current: string; label: string; show?: string; all?: string }) {
   const router = useRouter();
   const pathname = usePathname();
   const params = useSearchParams();
@@ -27,6 +27,7 @@ export function RoleSwitch({ roles, current, label, base = "", show = "Show" }: 
             router.push(`${target}?${q.toString()}`, { scroll: false });
           }}
         >
+          {all ? <option value="all">{all}</option> : null}
           {roles.map((r) => (
             <option key={r.id} value={r.id}>
               {r.label}
