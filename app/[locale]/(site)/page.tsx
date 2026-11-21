@@ -9,7 +9,6 @@ import { loadRadar, type Radar, type RadarRole } from "@/lib/radar";
 import {
   ageInDays,
   cantonName,
-  formatDate,
   formatInt,
   hurdleLevel,
   outOf10,
@@ -19,7 +18,6 @@ import {
   parsePeriod,
   recentVersusBefore,
   roleById,
-  safeHttpUrl,
   sectorSeries,
   topCantonShare,
   weekNumber,
@@ -145,21 +143,6 @@ export default async function DashboardPage({
     return { key: p.period, value: p.value, label: quarter === 1 ? String(year) : "", description: `${year} Q${quarter}` };
   });
 
-  // B: skills
-  const skills = role.skills.slice(0, 10);
-  const skillRows: BarRow[] = skills.map((s) => ({
-    key: s.skill,
-    label: s.skill,
-    fraction: s.share,
-    value: c("ofHundred", { count: outOf100(s.share) }),
-  }));
-
-  // C: employers
-  const maxEmp = Math.max(1, ...role.employers.map((e) => e.ads));
-  const employerRows: BarRow[] = role.employers.map((e) => ({ key: e.company, label: e.company, fraction: e.ads / maxEmp, value: c("ads", { count: e.ads }) }));
-  const maxAg = Math.max(1, ...role.agencies.map((e) => e.ads));
-  const agencyRows: BarRow[] = role.agencies.map((e) => ({ key: e.company, label: e.company, fraction: e.ads / maxAg, value: c("ads", { count: e.ads }) }));
-
   return (
     <div className="page">
       <header className="page-head">
@@ -280,82 +263,6 @@ export default async function DashboardPage({
               </>
             ) : (
               <p>{t("sector.empty")}</p>
-            )}
-          </Panel>
-        </div>
-      </section>
-
-      <section id="faehigkeiten" className="question-section" aria-labelledby="q-b">
-        <QuestionHead id="q-b" letter="B" title={q("B.title")} question={q("B.question")} label={label("B")} />
-        <div className="grid">
-          <Panel
-            id="p-skills"
-            title={t("skills.title")}
-            intro={t("skills.intro")}
-            span={12}
-            sources={jobroom}
-            meaning={
-              skills.length >= 3
-                ? t("skills.meaning", { first: skills[0]!.skill, second: skills[1]!.skill, third: skills[2]!.skill })
-                : skills.length === 2
-                  ? t("skills.meaningTwo", { first: skills[0]!.skill, second: skills[1]!.skill })
-                  : skills.length === 1
-                    ? t("skills.meaningOne", { first: skills[0]!.skill })
-                    : c("noData")
-            }
-          >
-            <BarList rows={skillRows} label={t("skills.title")} />
-            <p className="note">{t("skills.basis")}</p>
-          </Panel>
-        </div>
-      </section>
-
-      <section id="arbeitgeber" className="question-section" aria-labelledby="q-c">
-        <QuestionHead id="q-c" letter="C" title={q("C.title")} question={q("C.question")} label={label("C")} />
-        <div className="grid">
-          <Panel
-            id="p-employers"
-            title={t("employers.title")}
-            intro={t("employers.intro", { role: roleName(role) })}
-            span={6}
-            sources={jobroom}
-            meaning={
-              role.employers.length > 1
-                ? t("employers.meaning", { first: role.employers[0]!.company, count: role.employers[0]!.ads })
-                : role.employers.length === 1
-                  ? t("employers.meaningOne", { first: role.employers[0]!.company })
-                  : t("employers.empty")
-            }
-          >
-            {employerRows.length > 0 ? <BarList rows={employerRows} label={t("employers.title")} /> : <p>{t("employers.empty")}</p>}
-          </Panel>
-
-          <Panel id="p-agencies" title={t("agencies.title")} intro={t("agencies.intro")} span={6} sources={jobroom} meaning={t("agencies.sentence", { count: outOf100(role.agency_share) })}>
-            {agencyRows.length > 0 ? <BarList rows={agencyRows} label={t("agencies.title")} /> : <p>{t("agencies.empty")}</p>}
-          </Panel>
-
-          <Panel id="p-examples" title={t("examples.title")} intro={t("examples.intro")} span={12} sources={jobroom} meaning={t("examples.meaning", { role: roleName(role) })}>
-            {role.examples.length > 0 ? (
-              <ul className="ads">
-                {role.examples.map((e) => {
-                  const url = safeHttpUrl(e.url);
-                  return (
-                    <li key={e.url} className="ads__item">
-                      {url ? (
-                        <a href={url} target="_blank" rel="noopener noreferrer" className="ads__title">
-                          {e.title}
-                          <span className="sr-only"> ({c("opensNewTab")})</span>
-                        </a>
-                      ) : (
-                        <span className="ads__title">{e.title}</span>
-                      )}
-                      <span className="ads__meta">{[e.company, e.city, e.published ? formatDate(e.published, locale) : ""].filter(Boolean).join(" · ")}</span>
-                    </li>
-                  );
-                })}
-              </ul>
-            ) : (
-              <p>{t("examples.empty")}</p>
             )}
           </Panel>
         </div>
