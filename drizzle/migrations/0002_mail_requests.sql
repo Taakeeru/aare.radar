@@ -1,6 +1,7 @@
 CREATE TABLE `mail_requests` (
 	`id` text PRIMARY KEY NOT NULL,
 	`email` text,
+	`email_hash` text NOT NULL,
 	`lang` text DEFAULT 'en' NOT NULL,
 	`fields` text,
 	`canton` text,
@@ -11,3 +12,6 @@ CREATE TABLE `mail_requests` (
 );
 --> statement-breakpoint
 CREATE INDEX `mail_requests_status_idx` ON `mail_requests` (`status`);
+
+--> statement-breakpoint
+CREATE INDEX `mail_requests_hash_idx` ON `mail_requests` (`email_hash`);

@@ -4,10 +4,12 @@
  *
  * Off unless MAIL_REQUESTS=1 and DIGEST_CONFIG_TOKEN is set (the sender needs it to fetch the requests). Guards,
  * because anyone can type any address: a hidden honeypot field, explicit consent, one request per address per
- * day, 3 per visitor address per hour, 40 in total per day. The address is cleared after sending unless the
- * person also asked to subscribe (then it joins the reader list of the admin page, as an active reader).
+ * day (checked on a keyed hash that is kept after the address is cleared, plus tags removed), 3 per visitor
+ * address per hour, 40 in total per day. The address is cleared after sending unless the person also asked to
+ * subscribe; a subscription joins the admin page's reader list INACTIVE (security review: nobody can sign
+ * someone else up), an admin switches it on once the person has confirmed.
  */
-import { randomUUID } from "node:crypto";
+import { createHmac, randomUUID } from "node:crypto";
 import { and, asc, eq, gte, sql } from "drizzle-orm";
 import { db } from "@/lib/db";
 import { digestReaders, mailRequests } from "@/drizzle/schema";
@@ -24,6 +26,12 @@ export function mailRequestsEnabled(env: Record<string, string | undefined> = pr
 
 export type MailRequestInput = { email: unknown; lang: unknown; fields: unknown[]; canton: unknown; subscribe: unknown; consent: unknown; website: unknown };
 export type MailRequestResult = "ok" | "bad" | "consent" | "limit";
+
+/** Keyed hash of the address for the once-per-day check: lower case, plus tag removed («a+x@b.ch» = «a@b.ch»). */
+export function addressHash(email: string, key: string = configuredDigestToken() ?? ""): string {
+  const [local = "", domain = ""] = email.toLowerCase().split("@");
+  return createHmac("sha256", key).update(`${local.split("+")[0]}@${domain}`).digest("hex");
+}
 
 function startOfDayUtc(now: Date): string {
   return new Date(Date.UTC(now.getUTCFullYear(), now.getUTCMonth(), now.getUTCDate())).toISOString();
@@ -42,15 +50,16 @@ export function createMailRequest(input: MailRequestInput, now: Date = new Date(
   const since = startOfDayUtc(now);
   const today = db.select({ n: sql<number>`count(*)` }).from(mailRequests).where(gte(mailRequests.createdAt, since)).get();
   if ((today?.n ?? 0) >= MAX_PER_DAY) return "limit";
-  const again = db.select({ id: mailRequests.id }).from(mailRequests).where(and(eq(mailRequests.email, email), gte(mailRequests.createdAt, since))).get();
+  const emailHash = addressHash(email);
+  const again = db.select({ id: mailRequests.id }).from(mailRequests).where(and(eq(mailRequests.emailHash, emailHash), gte(mailRequests.createdAt, since))).get();
   if (again) return "ok"; // once per address per day; same answer, so nobody learns who asked
   const iso = now.toISOString();
   db.insert(mailRequests)
-    .values({ id: randomUUID(), email, lang, fields: fields.length ? JSON.stringify(fields) : null, canton, subscribe, status: "pending", createdAt: iso })
+    .values({ id: randomUUID(), email, emailHash, lang, fields: fields.length ? JSON.stringify(fields) : null, canton, subscribe, status: "pending", createdAt: iso })
     .run();
   if (subscribe) {
     db.insert(digestReaders)
-      .values({ id: randomUUID(), email, lang, fields: fields.length ? JSON.stringify(fields) : null, active: true, createdAt: iso, updatedAt: iso })
+      .values({ id: randomUUID(), email, lang, fields: fields.length ? JSON.stringify(fields) : null, active: false, createdAt: iso, updatedAt: iso })
       .onConflictDoNothing()
       .run();
   }

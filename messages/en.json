@@ -547,7 +547,7 @@
       "emailHint": "name@example.ch",
       "canton": "Canton",
       "allCantons": "All of Switzerland",
-      "subscribe": "Also send it to me every two weeks",
+      "subscribe": "Also send it to me every two weeks (the radar team confirms it with you first)",
       "consent": "I agree that the radar uses my address only to send this summary. Without a subscription it is deleted right after sending.",
       "button": "Send it to me",
       "paused": "Sending is switched off at the moment.",

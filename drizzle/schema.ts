@@ -138,6 +138,8 @@ export type DigestReaderRow = typeof digestReaders.$inferSelect;
 export const mailRequests = sqliteTable("mail_requests", {
   id: text("id").primaryKey(),
   email: text("email"),
+  /** Keyed hash of the address (plus tag removed), kept after the address is cleared: the once-per-day check. */
+  emailHash: text("email_hash").notNull(),
   lang: text("lang", { enum: ["en", "de"] }).notNull().default("en"),
   fields: text("fields"),
   canton: text("canton"),
@@ -145,7 +147,7 @@ export const mailRequests = sqliteTable("mail_requests", {
   status: text("status", { enum: ["pending", "sent", "failed"] }).notNull().default("pending"),
   createdAt: text("created_at").notNull(),
   sentAt: text("sent_at"),
-}, (t) => [index("mail_requests_status_idx").on(t.status)]);
+}, (t) => [index("mail_requests_status_idx").on(t.status), index("mail_requests_hash_idx").on(t.emailHash)]);
 
 export type UserTotp = typeof userTotp.$inferSelect;
 export type AdminAuditEntry = typeof adminAuditLog.$inferSelect;
