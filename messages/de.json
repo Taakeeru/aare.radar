@@ -669,7 +669,8 @@
     "count": "{n} Fachleute",
     "inCity": "{n} in {city}",
     "offers": "bietet {offer}",
-    "none": "Keine Fachperson passt zu diesen Filtern."
+    "none": "Keine Fachperson passt zu diesen Filtern.",
+    "avatar": "Gezeichnetes Bild für {name}, keine echte Person"
   },
   "overview": {
     "eyebrow": "Übersicht",

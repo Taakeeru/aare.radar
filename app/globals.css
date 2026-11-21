@@ -1291,8 +1291,9 @@ html[data-light="true"] {
 }
 .vol__land {
   fill: var(--radar-raised);
-  stroke: var(--radar-border);
+  stroke: var(--radar-text3);
   stroke-width: 1.5;
+  stroke-linejoin: round;
 }
 .vol__pin circle {
   fill: var(--radar-accent);
@@ -1346,6 +1347,9 @@ html[data-light="true"] {
   list-style: none;
 }
 .vol__card {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
   padding: 12px 16px;
   border: 1px solid var(--radar-border);
   border-radius: 6px;
@@ -1505,4 +1509,14 @@ html[data-light="true"] {
   text-decoration: underline;
   text-decoration-thickness: 1px;
   text-underline-offset: 3px;
+}
+
+.avatar {
+  flex: none;
+}
+.avatar__shape {
+  fill: var(--radar-surface);
+}
+.vol__info {
+  min-width: 0;
 }

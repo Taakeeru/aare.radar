@@ -669,7 +669,8 @@
     "count": "{n} experts",
     "inCity": "{n} in {city}",
     "offers": "offers {offer}",
-    "none": "No expert matches these filters."
+    "none": "No expert matches these filters.",
+    "avatar": "Drawn picture for {name}, not a real person"
   },
   "overview": {
     "eyebrow": "Overview",
