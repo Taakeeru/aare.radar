@@ -519,7 +519,10 @@
     "empty": "There is no summary yet. It appears after the next data update.",
     "skills": "Skills they look for: {list}",
     "pick": "Categories in my email",
-    "apply": "Show my email"
+    "apply": "Show my email",
+    "policyCategory": "New in parliament and federal law",
+    "policy": "New in parliament and federal law (last {days} days)",
+    "policyNote": "Titles in their original language."
   },
   "home": {
     "title": "The Swiss IT job market at a glance",

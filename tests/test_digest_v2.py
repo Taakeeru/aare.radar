@@ -46,6 +46,14 @@ class DigestV2Test(unittest.TestCase):
             self.assertIn("ICT Supporter", only["text"])
             self.assertNotIn("Junior Software Engineer", only["text"])   # a category the reader did not choose
             self.assertIn("1 new entry-level", only["text"])
+            c.execute("INSERT INTO policy VALUES('p1','Parliament (Curia Vista)','Integration of status S','2026-11-15','open','https://p',"
+                      "'Status S','2026-11-15')")
+            c.commit()
+            g = digest.build_digest_v2(c, today)
+            self.assertEqual([p["title"] for p in g["policy"]], ["Integration of status S"])
+            self.assertIn("New in parliament", digest.render_v2(g, "en")["text"])
+            self.assertNotIn("New in parliament", digest.render_v2(g, "en", fields=["351"])["text"])
+            self.assertIn("stop", digest.render_v2(g, "en", scheduled=True)["text"])
 
 
 if __name__ == "__main__":

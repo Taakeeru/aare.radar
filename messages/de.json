@@ -519,7 +519,10 @@
     "empty": "Noch keine Zusammenfassung. Die Vorschau erscheint nach dem nächsten Daten-Update.",
     "skills": "Gesuchte Fähigkeiten: {list}",
     "pick": "Kategorien in meiner Mail",
-    "apply": "Meine Mail anzeigen"
+    "apply": "Meine Mail anzeigen",
+    "policyCategory": "Neu im Parlament und im Bundesrecht",
+    "policy": "Neu im Parlament und im Bundesrecht (letzte {days} Tage)",
+    "policyNote": "Titel in der Originalsprache."
   },
   "home": {
     "title": "Der Schweizer IT-Stellenmarkt auf einen Blick",
