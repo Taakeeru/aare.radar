@@ -199,3 +199,66 @@ def is_entry_ad(title, tags, experience):
     if SENIOR_TITLE.search(title or ""):
         return False
     return "entry_level" in (tags or []) or experience in ENTRY_EXPERIENCE
+
+
+# ── Requirement details (Isabella, 21.11.2026): language level per language, degree type, years of experience ──
+# Read from the same full text as the skills (the text itself is never stored). Each tag is «lang:de:C1»,
+# «degree:bachelor», «exp:3»; an ad can carry several (e.g. «Bachelor or EFZ»).
+_LANGS = {
+    "de": r"deutsch|german|allemand",
+    "fr": r"franz(?:ö|oe)sisch|french|fran(?:ç|c)ais",
+    "en": r"englisch|english|anglais",
+}
+_CEFR = r"\b([abc][12])\b"
+_CLAUSE = re.compile(r"[,;.\n()/]|\s(?:und|and|et|sowie|as well as|or|oder|ou)\s", re.I)
+_LEVEL_WORDS = [
+    (re.compile(r"muttersprache|native|langue maternelle|erstsprache", re.I), "C2"),
+    (re.compile(r"verhandlungssicher|fliessend|flie(?:ß|ss)end|fluent|courant|stilsicher|business fluent", re.I), "C1"),
+    (re.compile(r"sehr gute|very good|excellent|ausgezeichnete", re.I), "C1"),
+    (re.compile(r"(?<!sehr )(?<!very )\bgute|(?<!very )\bgood\b|\bbonne|\bsolide", re.I), "B2"),
+    (re.compile(r"grundkenntnisse|basic|notions|von vorteil|advantage|un atout", re.I), "B1"),
+]
+_DEGREES = [
+    ("phd", re.compile(r"\bphd\b|doktor|doctorate|doctorat", re.I)),
+    ("master", re.compile(r"\bmaster|\bmsc\b|\beth\b|\bepfl\b|universit(?:ä|ae|y|é)", re.I)),
+    ("bachelor", re.compile(r"bachelor|\bbsc\b|\bfh\b|fachhochschule|\bhes\b|\bhf\b|höhere fachschule|hoehere fachschule", re.I)),
+    ("vocational", re.compile(r"\befz\b|\bcfc\b|lehre\b|berufslehre|apprentissage|apprenticeship|lehrabschluss|informatiker\s*efz", re.I)),
+]
+_YEARS = re.compile(
+    r"(?:mindestens|min\.?|at least|au moins|plus de|über|ueber)?\s*(\d{1,2})\s*\+?\s*(?:-|bis|to|à)?\s*\d{0,2}\s*\+?\s*"
+    r"(?:jahre?n?|years?|ans|yrs)\b[^.\n]{0,40}?(?:erfahrung|experience|expérience|berufserfahrung)", re.I)
+
+
+def requirement_tags(text):
+    """Tags for one ad's full text: language level per language, degree types, the years of experience asked."""
+    t = text.lower()
+    tags = set()
+    for lang, rx in _LANGS.items():
+        for m in re.finditer(rx, t):
+            # only the clause of this language word: up to the nearest comma, semicolon, full stop or «und/and/et/sowie»
+            left = max([0] + [x.end() for x in _CLAUSE.finditer(t, max(0, m.start() - 60), m.start())])
+            right_m = _CLAUSE.search(t, m.end(), m.end() + 60)
+            clause = t[left: right_m.start() if right_m else m.end() + 60]
+            lv = re.search(_CEFR, clause)
+            if lv:
+                tags.add(f"lang:{lang}:{lv.group(1).upper()}")
+                continue
+            for wrx, level in _LEVEL_WORDS:
+                if wrx.search(clause):
+                    tags.add(f"lang:{lang}:{level}")
+                    break
+    for name, rx in _DEGREES:
+        if rx.search(t):
+            tags.add(f"degree:{name}")
+    years = [int(m.group(1)) for m in _YEARS.finditer(t) if 0 < int(m.group(1)) <= 20]
+    if years:
+        tags.add(f"exp:{min(years)}")
+    # one level per language: keep the highest named
+    order = ["A1", "A2", "B1", "B2", "C1", "C2"]
+    best = {}
+    for tg in [x for x in tags if x.startswith("lang:")]:
+        _, lang, lv = tg.split(":")
+        if lang not in best or order.index(lv) > order.index(best[lang]):
+            best[lang] = lv
+    tags = {x for x in tags if not x.startswith("lang:")} | {f"lang:{k}:{v}" for k, v in best.items()}
+    return sorted(tags)
