@@ -1,5 +1,5 @@
 {
- "generated_at": "2026-11-21T11:02:02+00:00",
+ "generated_at": "2026-11-21T14:20:04+00:00",
  "window_days": 60,
  "questions": {
   "A": "Demand",
@@ -1164,6 +1164,116 @@
      ]
     }
    ],
+   "skill_companies": {
+    "Scrum/Agile": [
+     {
+      "company": "Brack.Alltron AG",
+      "ads": 12
+     },
+     {
+      "company": "ti&m AG",
+      "ads": 6
+     },
+     {
+      "company": "Mettler Toledo",
+      "ads": 5
+     },
+     {
+      "company": "Evergreen Human Resources AG",
+      "ads": 4
+     }
+    ],
+    "Java": [
+     {
+      "company": "Brack.Alltron AG",
+      "ads": 7
+     },
+     {
+      "company": "Post CH AG",
+      "ads": 6
+     },
+     {
+      "company": "ti&m AG",
+      "ads": 6
+     },
+     {
+      "company": "Consult & Pepper AG",
+      "ads": 5
+     }
+    ],
+    "SQL": [
+     {
+      "company": "Swissquote Bank SA",
+      "ads": 5
+     },
+     {
+      "company": "Brack.Alltron AG",
+      "ads": 4
+     },
+     {
+      "company": "CashCtrl AG",
+      "ads": 3
+     },
+     {
+      "company": "Espace Health Group AG",
+      "ads": 3
+     }
+    ],
+    "Git": [
+     {
+      "company": "INFOMANIAK NETWORK SA",
+      "ads": 6
+     },
+     {
+      "company": "Mettler Toledo",
+      "ads": 6
+     },
+     {
+      "company": "Post CH AG",
+      "ads": 6
+     },
+     {
+      "company": "Swissquote Bank SA",
+      "ads": 5
+     }
+    ],
+    "Cloud": [
+     {
+      "company": "INFOMANIAK NETWORK SA",
+      "ads": 6
+     },
+     {
+      "company": "ti&m AG",
+      "ads": 4
+     },
+     {
+      "company": "CashCtrl AG",
+      "ads": 3
+     },
+     {
+      "company": "Swiss Life AG",
+      "ads": 3
+     }
+    ],
+    "Security": [
+     {
+      "company": "Google",
+      "ads": 6
+     },
+     {
+      "company": "Consult & Pepper AG",
+      "ads": 6
+     },
+     {
+      "company": "Post CH AG",
+      "ads": 4
+     },
+     {
+      "company": "Espace Health Group AG",
+      "ads": 3
+     }
+    ]
+   },
    "barriers": {
     "german_required": 0.36,
     "french_required": 0.016,
@@ -2317,6 +2427,116 @@
      ]
     }
    ],
+   "skill_companies": {
+    "Microsoft 365": [
+     {
+      "company": "MTF Solutions AG",
+      "ads": 4
+     },
+     {
+      "company": "Dottikon Exclusive Synthesis AG",
+      "ads": 4
+     },
+     {
+      "company": "Schönenberger Partner AG",
+      "ads": 3
+     },
+     {
+      "company": "Hemmersbach Switzerland AG",
+      "ads": 2
+     }
+    ],
+    "Windows": [
+     {
+      "company": "Kantonale Verwaltung Basel-Landschaft",
+      "ads": 3
+     },
+     {
+      "company": "Schönenberger Partner AG",
+      "ads": 3
+     },
+     {
+      "company": "Mettler Toledo",
+      "ads": 3
+     },
+     {
+      "company": "SRG",
+      "ads": 3
+     }
+    ],
+    "Networking": [
+     {
+      "company": "Hirslanden AG",
+      "ads": 5
+     },
+     {
+      "company": "Salt Mobile SA",
+      "ads": 3
+     },
+     {
+      "company": "Schönenberger Partner AG",
+      "ads": 3
+     },
+     {
+      "company": "Mettler Toledo",
+      "ads": 3
+     }
+    ],
+    "Hardware": [
+     {
+      "company": "Selecta AG",
+      "ads": 4
+     },
+     {
+      "company": "Dottikon Exclusive Synthesis AG",
+      "ads": 4
+     },
+     {
+      "company": "IQ Plus AG",
+      "ads": 3
+     },
+     {
+      "company": "Nitrochemie Wimmis AG",
+      "ads": 3
+     }
+    ],
+    "Ticketing": [
+     {
+      "company": "Salt Mobile SA",
+      "ads": 3
+     },
+     {
+      "company": "Mettler Toledo",
+      "ads": 3
+     },
+     {
+      "company": "Hemmersbach Switzerland AG",
+      "ads": 2
+     },
+     {
+      "company": "colibri people AG",
+      "ads": 2
+     }
+    ],
+    "Security": [
+     {
+      "company": "Foppa AG",
+      "ads": 4
+     },
+     {
+      "company": "C5I",
+      "ads": 4
+     },
+     {
+      "company": "ASSEPRO AG",
+      "ads": 3
+     },
+     {
+      "company": "Kantonale Verwaltung Basel-Landschaft",
+      "ads": 3
+     }
+    ]
+   },
    "barriers": {
     "german_required": 0.556,
     "french_required": 0.034,
@@ -3468,6 +3688,116 @@
      ]
     }
    ],
+   "skill_companies": {
+    "SQL": [
+     {
+      "company": "Kanton Aargau",
+      "ads": 3
+     },
+     {
+      "company": "Visana Services AG",
+      "ads": 3
+     },
+     {
+      "company": "Bundesamt für Meteorologie und Klimatologie MeteoSchweiz",
+      "ads": 3
+     },
+     {
+      "company": "Migros-Genossenschafts-Bund",
+      "ads": 3
+     }
+    ],
+    "Python": [
+     {
+      "company": "Microsoft",
+      "ads": 2
+     },
+     {
+      "company": "Pictet Asset Management SA",
+      "ads": 2
+     },
+     {
+      "company": "Vaudoise Assurances",
+      "ads": 2
+     },
+     {
+      "company": "TotalEnergies Gas & Power Ltd",
+      "ads": 2
+     }
+    ],
+    "Cloud": [
+     {
+      "company": "Zühlke Engineering AG",
+      "ads": 5
+     },
+     {
+      "company": "ti&m AG",
+      "ads": 4
+     },
+     {
+      "company": "Bundesamt für Meteorologie und Klimatologie MeteoSchweiz",
+      "ads": 3
+     },
+     {
+      "company": "Migros-Genossenschafts-Bund",
+      "ads": 3
+     }
+    ],
+    "Excel": [
+     {
+      "company": "Zühlke Engineering AG",
+      "ads": 5
+     },
+     {
+      "company": "TotalEnergies Gas & Power Ltd",
+      "ads": 4
+     },
+     {
+      "company": "Pictet Asset Management SA",
+      "ads": 3
+     },
+     {
+      "company": "Schweizer Armee - Kommando Ausbildung Kdo Ausb",
+      "ads": 3
+     }
+    ],
+    "Security": [
+     {
+      "company": "RUAG MRO Holding AG",
+      "ads": 4
+     },
+     {
+      "company": "Kanton Aargau",
+      "ads": 3
+     },
+     {
+      "company": "Schweizer Armee - Logistikbasis der Armee LBA",
+      "ads": 3
+     },
+     {
+      "company": "Zühlke Engineering AG",
+      "ads": 3
+     }
+    ],
+    "Scrum/Agile": [
+     {
+      "company": "ti&m AG",
+      "ads": 6
+     },
+     {
+      "company": "Bundesamt für Landwirtschaft BLW",
+      "ads": 4
+     },
+     {
+      "company": "Kanton Aargau",
+      "ads": 3
+     },
+     {
+      "company": "Bundesamt für Meteorologie und Klimatologie MeteoSchweiz",
+      "ads": 3
+     }
+    ]
+   },
    "barriers": {
     "german_required": 0.289,
     "french_required": 0.022,
@@ -4599,6 +4929,116 @@
      ]
     }
    ],
+   "skill_companies": {
+    "Cloud": [
+     {
+      "company": "Bundesamt für Meteorologie und Klimatologie MeteoSchweiz",
+      "ads": 4
+     },
+     {
+      "company": "SmartYou SA",
+      "ads": 3
+     },
+     {
+      "company": "MTF Solutions AG",
+      "ads": 3
+     },
+     {
+      "company": "C5I",
+      "ads": 3
+     }
+    ],
+    "Security": [
+     {
+      "company": "Consult & Pepper AG",
+      "ads": 4
+     },
+     {
+      "company": "Bundesamt für Meteorologie und Klimatologie MeteoSchweiz",
+      "ads": 4
+     },
+     {
+      "company": "Swisscom AG",
+      "ads": 4
+     },
+     {
+      "company": "Bundesamt für Informatik und Telekommunikation BIT",
+      "ads": 3
+     }
+    ],
+    "Kubernetes": [
+     {
+      "company": "Bundesamt für Informatik und Telekommunikation BIT",
+      "ads": 3
+     },
+     {
+      "company": "SmartYou SA",
+      "ads": 3
+     },
+     {
+      "company": "C5I",
+      "ads": 3
+     },
+     {
+      "company": "Swisscom AG",
+      "ads": 3
+     }
+    ],
+    "Docker": [
+     {
+      "company": "Bundesamt für Informatik und Telekommunikation BIT",
+      "ads": 3
+     },
+     {
+      "company": "C5I",
+      "ads": 3
+     },
+     {
+      "company": "SIX Group Ltd",
+      "ads": 2
+     },
+     {
+      "company": "PwC Zurich",
+      "ads": 2
+     }
+    ],
+    "Git": [
+     {
+      "company": "Bundesamt für Meteorologie und Klimatologie MeteoSchweiz",
+      "ads": 4
+     },
+     {
+      "company": "Finnova AG Bankware",
+      "ads": 3
+     },
+     {
+      "company": "SmartYou SA",
+      "ads": 3
+     },
+     {
+      "company": "SIX Group Ltd",
+      "ads": 2
+     }
+    ],
+    "Azure": [
+     {
+      "company": "SmartYou SA",
+      "ads": 3
+     },
+     {
+      "company": "Zürcher Kantonalbank",
+      "ads": 3
+     },
+     {
+      "company": "PwC Zurich",
+      "ads": 2
+     },
+     {
+      "company": "Universität Zürich",
+      "ads": 2
+     }
+    ]
+   },
    "barriers": {
     "german_required": 0.348,
     "french_required": 0.006,
@@ -5704,6 +6144,116 @@
      ]
     }
    ],
+   "skill_companies": {
+    "Security": [
+     {
+      "company": "Schweizer Armee - Kommando Cyber Kdo Cy",
+      "ads": 9
+     },
+     {
+      "company": "Bundesamt für Informatik und Telekommunikation BIT",
+      "ads": 8
+     },
+     {
+      "company": "Kantonale Verwaltung Basel-Landschaft",
+      "ads": 6
+     },
+     {
+      "company": "Informatik Service Center ISC-EJPD",
+      "ads": 6
+     }
+    ],
+    "Windows": [
+     {
+      "company": "Schweizer Armee - Kommando Cyber Kdo Cy",
+      "ads": 6
+     },
+     {
+      "company": "MTF Solutions AG",
+      "ads": 6
+     },
+     {
+      "company": "Sonic Suisse Labs SA",
+      "ads": 5
+     },
+     {
+      "company": "Centris AG",
+      "ads": 3
+     }
+    ],
+    "Networking": [
+     {
+      "company": "Bundesamt für Informatik und Telekommunikation BIT",
+      "ads": 5
+     },
+     {
+      "company": "Sonic Suisse Labs SA",
+      "ads": 5
+     },
+     {
+      "company": "SmartIT Services AG",
+      "ads": 4
+     },
+     {
+      "company": "MTF Solutions AG",
+      "ads": 4
+     }
+    ],
+    "Cloud": [
+     {
+      "company": "MTF Solutions AG",
+      "ads": 6
+     },
+     {
+      "company": "Sonic Suisse Labs SA",
+      "ads": 5
+     },
+     {
+      "company": "Beltronic IT AG",
+      "ads": 5
+     },
+     {
+      "company": "SmartIT Services AG",
+      "ads": 4
+     }
+    ],
+    "Microsoft 365": [
+     {
+      "company": "Centris AG",
+      "ads": 6
+     },
+     {
+      "company": "MTF Solutions AG",
+      "ads": 6
+     },
+     {
+      "company": "Beltronic IT AG",
+      "ads": 5
+     },
+     {
+      "company": "Universitätsspital Zürich",
+      "ads": 3
+     }
+    ],
+    "Active Directory": [
+     {
+      "company": "Universitätsspital Zürich",
+      "ads": 6
+     },
+     {
+      "company": "Evergreen Human Resources AG",
+      "ads": 3
+     },
+     {
+      "company": "Centris AG",
+      "ads": 3
+     },
+     {
+      "company": "Assura SA",
+      "ads": 3
+     }
+    ]
+   },
    "barriers": {
     "german_required": 0.481,
     "french_required": 0.008,
@@ -6799,6 +7349,116 @@
      ]
     }
    ],
+   "skill_companies": {
+    "Networking": [
+     {
+      "company": "Evergreen Human Resources AG",
+      "ads": 3
+     },
+     {
+      "company": "Swisscom AG",
+      "ads": 3
+     },
+     {
+      "company": "Bechtle Schweiz AG, Zweigniederlassung Deutschschweiz, Mägenwil",
+      "ads": 3
+     },
+     {
+      "company": "skybris gmbh",
+      "ads": 3
+     }
+    ],
+    "Security": [
+     {
+      "company": "Evergreen Human Resources AG",
+      "ads": 3
+     },
+     {
+      "company": "Swisscom AG",
+      "ads": 3
+     },
+     {
+      "company": "Bechtle Schweiz AG, Zweigniederlassung Deutschschweiz, Mägenwil",
+      "ads": 3
+     },
+     {
+      "company": "skybris gmbh",
+      "ads": 3
+     }
+    ],
+    "Cloud": [
+     {
+      "company": "Swisscom AG",
+      "ads": 3
+     },
+     {
+      "company": "Engineering Management Selection E.M.S. AG",
+      "ads": 2
+     },
+     {
+      "company": "univativ Schweiz AG",
+      "ads": 2
+     },
+     {
+      "company": "Robert Aebi AG",
+      "ads": 2
+     }
+    ],
+    "Linux": [
+     {
+      "company": "FMV SA",
+      "ads": 2
+     },
+     {
+      "company": "RUAG AG",
+      "ads": 2
+     },
+     {
+      "company": "MTF Solutions AG",
+      "ads": 2
+     },
+     {
+      "company": "Telecom26 AG",
+      "ads": 2
+     }
+    ],
+    "Windows": [
+     {
+      "company": "Spital Emmental",
+      "ads": 3
+     },
+     {
+      "company": "FMV SA",
+      "ads": 2
+     },
+     {
+      "company": "MTF Solutions AG",
+      "ads": 2
+     },
+     {
+      "company": "Marti Dienstleistungen AG",
+      "ads": 2
+     }
+    ],
+    "Scrum/Agile": [
+     {
+      "company": "Swisscom AG",
+      "ads": 3
+     },
+     {
+      "company": "RUAG AG",
+      "ads": 2
+     },
+     {
+      "company": "UBS Card Center AG",
+      "ads": 2
+     },
+     {
+      "company": "MTF Solutions AG",
+      "ads": 2
+     }
+    ]
+   },
    "barriers": {
     "german_required": 0.384,
     "french_required": 0.04,
@@ -7914,6 +8574,116 @@
      ]
     }
    ],
+   "skill_companies": {
+    "Security": [
+     {
+      "company": "Schweizer Armee - Kommando Cyber Kdo Cy",
+      "ads": 9
+     },
+     {
+      "company": "Swiss Life AG",
+      "ads": 8
+     },
+     {
+      "company": "Consult & Pepper AG",
+      "ads": 8
+     },
+     {
+      "company": "RUAG AG",
+      "ads": 5
+     }
+    ],
+    "Networking": [
+     {
+      "company": "Schweizer Armee - Kommando Cyber Kdo Cy",
+      "ads": 6
+     },
+     {
+      "company": "Consult & Pepper AG",
+      "ads": 4
+     },
+     {
+      "company": "BOLL Engineering AG",
+      "ads": 4
+     },
+     {
+      "company": "Deloitte AG",
+      "ads": 4
+     }
+    ],
+    "Cloud": [
+     {
+      "company": "Consult & Pepper AG",
+      "ads": 4
+     },
+     {
+      "company": "Centris AG",
+      "ads": 3
+     },
+     {
+      "company": "Generali Assurances",
+      "ads": 3
+     },
+     {
+      "company": "Securosys SA",
+      "ads": 2
+     }
+    ],
+    "Microsoft 365": [
+     {
+      "company": "Swiss Life AG",
+      "ads": 4
+     },
+     {
+      "company": "Centris AG",
+      "ads": 3
+     },
+     {
+      "company": "cyberunity",
+      "ads": 2
+     },
+     {
+      "company": "Beltronic IT AG",
+      "ads": 2
+     }
+    ],
+    "Windows": [
+     {
+      "company": "Centris AG",
+      "ads": 3
+     },
+     {
+      "company": "Schweizer Armee - Kommando Cyber Kdo Cy",
+      "ads": 3
+     },
+     {
+      "company": "Bison Schweiz AG",
+      "ads": 2
+     },
+     {
+      "company": "Sanitas Troesch AG",
+      "ads": 2
+     }
+    ],
+    "Active Directory": [
+     {
+      "company": "Swiss Life AG",
+      "ads": 4
+     },
+     {
+      "company": "Centris AG",
+      "ads": 3
+     },
+     {
+      "company": "Robert Aebi AG",
+      "ads": 2
+     },
+     {
+      "company": "Die Securitas Gruppe",
+      "ads": 2
+     }
+    ]
+   },
    "barriers": {
     "german_required": 0.338,
     "french_required": 0.012,
@@ -9045,6 +9815,116 @@
      ]
     }
    ],
+   "skill_companies": {
+    "SQL": [
+     {
+      "company": "Kanton Aargau",
+      "ads": 3
+     },
+     {
+      "company": "Bundesamt für Meteorologie und Klimatologie MeteoSchweiz",
+      "ads": 3
+     },
+     {
+      "company": "Migros-Genossenschafts-Bund",
+      "ads": 3
+     },
+     {
+      "company": "Bundesverwaltung",
+      "ads": 2
+     }
+    ],
+    "Python": [
+     {
+      "company": "Migros-Genossenschafts-Bund",
+      "ads": 2
+     },
+     {
+      "company": "AXA",
+      "ads": 2
+     },
+     {
+      "company": "ti&m AG",
+      "ads": 2
+     },
+     {
+      "company": "Microsoft",
+      "ads": 1
+     }
+    ],
+    "Cloud": [
+     {
+      "company": "ti&m AG",
+      "ads": 4
+     },
+     {
+      "company": "Bundesamt für Meteorologie und Klimatologie MeteoSchweiz",
+      "ads": 3
+     },
+     {
+      "company": "Migros-Genossenschafts-Bund",
+      "ads": 3
+     },
+     {
+      "company": "Bundesverwaltung",
+      "ads": 2
+     }
+    ],
+    "Scrum/Agile": [
+     {
+      "company": "ti&m AG",
+      "ads": 4
+     },
+     {
+      "company": "Kanton Aargau",
+      "ads": 3
+     },
+     {
+      "company": "Bundesamt für Meteorologie und Klimatologie MeteoSchweiz",
+      "ads": 3
+     },
+     {
+      "company": "Schweizer Armee - Kommando Cyber Kdo Cy",
+      "ads": 3
+     }
+    ],
+    "Azure": [
+     {
+      "company": "Zühlke Engineering AG",
+      "ads": 2
+     },
+     {
+      "company": "ti&m AG",
+      "ads": 2
+     },
+     {
+      "company": "Swica",
+      "ads": 1
+     },
+     {
+      "company": "Eraneos Switzerland AG",
+      "ads": 1
+     }
+    ],
+    "Security": [
+     {
+      "company": "Kanton Aargau",
+      "ads": 3
+     },
+     {
+      "company": "Schweizer Armee - Kommando Cyber Kdo Cy",
+      "ads": 3
+     },
+     {
+      "company": "ti&m AG",
+      "ads": 2
+     },
+     {
+      "company": "RUAG MRO Holding AG",
+      "ads": 2
+     }
+    ]
+   },
    "barriers": {
     "german_required": 0.291,
     "french_required": 0.019,
@@ -10057,6 +10937,88 @@
      ]
     }
    ],
+   "skill_companies": {
+    "Scrum/Agile": [
+     {
+      "company": "Securiton AG",
+      "ads": 2
+     },
+     {
+      "company": "Ekkiden Group SA",
+      "ads": 1
+     },
+     {
+      "company": "Concordia",
+      "ads": 1
+     },
+     {
+      "company": "Swiss AviationSoftware",
+      "ads": 1
+     }
+    ],
+    "Security": [
+     {
+      "company": "Securiton AG",
+      "ads": 2
+     },
+     {
+      "company": "Stadler Signalling AG",
+      "ads": 1
+     }
+    ],
+    "Python": [
+     {
+      "company": "Swiss AviationSoftware",
+      "ads": 1
+     },
+     {
+      "company": "EPAM Systems (Switzerland) GmbH",
+      "ads": 1
+     },
+     {
+      "company": "Stadler Signalling AG",
+      "ads": 1
+     },
+     {
+      "company": "Universität Zürich",
+      "ads": 1
+     }
+    ],
+    "Hardware": [
+     {
+      "company": "Securiton AG",
+      "ads": 2
+     },
+     {
+      "company": "machineMD AG",
+      "ads": 1
+     },
+     {
+      "company": "Stadler Signalling AG",
+      "ads": 1
+     }
+    ],
+    "Cloud": [
+     {
+      "company": "Securiton AG",
+      "ads": 2
+     },
+     {
+      "company": "EPAM Systems (Switzerland) GmbH",
+      "ads": 1
+     }
+    ],
+    "Windows": [
+     {
+      "company": "Securiton AG",
+      "ads": 2
+     },
+     {
+      "company": "Concordia",
+      "ads": 1
+     }
+    ]
+   },
    "barriers": {
     "german_required": 0.429,
     "french_required": 0.0,
@@ -11012,6 +11974,112 @@
      ]
     }
    ],
+   "skill_companies": {
+    "Scrum/Agile": [
+     {
+      "company": "SRG",
+      "ads": 4
+     },
+     {
+      "company": "Bucherer AG",
+      "ads": 2
+     },
+     {
+      "company": "Valencia Kommunikation AG",
+      "ads": 2
+     },
+     {
+      "company": "Logjob AG - For Supply Chain Experts",
+      "ads": 2
+     }
+    ],
+    "Security": [
+     {
+      "company": "Certas AG",
+      "ads": 2
+     },
+     {
+      "company": "Stadt Biel / Ville de Bienne",
+      "ads": 2
+     },
+     {
+      "company": "Kanton St. Gallen",
+      "ads": 2
+     },
+     {
+      "company": "Kanton Graubünden",
+      "ads": 2
+     }
+    ],
+    "Cloud": [
+     {
+      "company": "Ville de Bienne - Département du personnel",
+      "ads": 3
+     },
+     {
+      "company": "Engineering Management Selection E.M.S. AG",
+      "ads": 2
+     },
+     {
+      "company": "Certas AG",
+      "ads": 2
+     },
+     {
+      "company": "Stadt Biel / Ville de Bienne",
+      "ads": 2
+     }
+    ],
+    "Networking": [
+     {
+      "company": "Engineering Management Selection E.M.S. AG",
+      "ads": 2
+     },
+     {
+      "company": "Mettler Toledo",
+      "ads": 1
+     },
+     {
+      "company": "Primetrack AG",
+      "ads": 1
+     },
+     {
+      "company": "Piaget",
+      "ads": 1
+     }
+    ],
+    "Excel": [
+     {
+      "company": "SRG",
+      "ads": 1
+     },
+     {
+      "company": "Zühlke Engineering AG",
+      "ads": 1
+     },
+     {
+      "company": "United Machining Solutions",
+      "ads": 1
+     }
+    ],
+    "Ticketing": [
+     {
+      "company": "Bucherer AG",
+      "ads": 2
+     },
+     {
+      "company": "ETH Zürich",
+      "ads": 1
+     },
+     {
+      "company": "Zühlke Engineering AG",
+      "ads": 1
+     },
+     {
+      "company": "Migros-Genossenschafts-Bund",
+      "ads": 1
+     }
+    ]
+   },
    "barriers": {
     "german_required": 0.382,
     "french_required": 0.01,
@@ -12092,6 +13160,116 @@
      ]
     }
    ],
+   "skill_companies": {
+    "Scrum/Agile": [
+     {
+      "company": "ITech Consult AG",
+      "ads": 3
+     },
+     {
+      "company": "Post CH AG",
+      "ads": 3
+     },
+     {
+      "company": "Pro Informatik AG",
+      "ads": 2
+     },
+     {
+      "company": "Schweizerische Bundesbahnen SBB",
+      "ads": 2
+     }
+    ],
+    "Excel": [
+     {
+      "company": "Pictet Asset Management SA",
+      "ads": 2
+     },
+     {
+      "company": "Vaudoise Assurances",
+      "ads": 2
+     },
+     {
+      "company": "Post CH AG",
+      "ads": 2
+     },
+     {
+      "company": "TotalEnergies Gas & Power Ltd",
+      "ads": 2
+     }
+    ],
+    "Security": [
+     {
+      "company": "Consult & Pepper AG",
+      "ads": 4
+     },
+     {
+      "company": "Centris AG",
+      "ads": 3
+     },
+     {
+      "company": "Pro Informatik AG",
+      "ads": 2
+     },
+     {
+      "company": "Kanton St. Gallen",
+      "ads": 2
+     }
+    ],
+    "API/REST": [
+     {
+      "company": "Deloitte AG",
+      "ads": 2
+     },
+     {
+      "company": "Pictet Asset Management SA",
+      "ads": 2
+     },
+     {
+      "company": "Consult & Pepper AG",
+      "ads": 2
+     },
+     {
+      "company": "TotalEnergies Gas & Power Ltd",
+      "ads": 2
+     }
+    ],
+    "Cloud": [
+     {
+      "company": "Pro Informatik AG",
+      "ads": 2
+     },
+     {
+      "company": "ITech Consult AG",
+      "ads": 2
+     },
+     {
+      "company": "IBM Client Innovation Center Switzerland GmbH",
+      "ads": 2
+     },
+     {
+      "company": "Pictet Asset Management SA",
+      "ads": 2
+     }
+    ],
+    "Ticketing": [
+     {
+      "company": "ITech Consult AG",
+      "ads": 1
+     },
+     {
+      "company": "Vaudoise Assurances",
+      "ads": 1
+     },
+     {
+      "company": "Coop Genossenschaft",
+      "ads": 1
+     },
+     {
+      "company": "Zühlke Engineering AG",
+      "ads": 1
+     }
+    ]
+   },
    "barriers": {
     "german_required": 0.276,
     "french_required": 0.033,
@@ -13146,6 +14324,38 @@
      ]
     }
    ],
+   "skill_companies": {
+    "Scrum/Agile": [
+     {
+      "company": "YOO AG",
+      "ads": 1
+     },
+     {
+      "company": "Finnova AG Bankware",
+      "ads": 1
+     }
+    ],
+    "TypeScript": [],
+    "Cloud": [
+     {
+      "company": "Finnova AG Bankware",
+      "ads": 1
+     }
+    ],
+    "React": [
+     {
+      "company": "Bank J. Safra Sarasin AG",
+      "ads": 1
+     }
+    ],
+    "Python": [
+     {
+      "company": "Google",
+      "ads": 1
+     }
+    ],
+    "Security": []
+   },
    "barriers": {
     "german_required": 0.556,
     "french_required": 0.0,
@@ -14128,6 +15338,116 @@
      ]
     }
    ],
+   "skill_companies": {
+    "SAP": [
+     {
+      "company": "NOVO Business Consultants AG",
+      "ads": 8
+     },
+     {
+      "company": "Migros-Genossenschafts-Bund",
+      "ads": 5
+     },
+     {
+      "company": "mylife Diabetes Care AG",
+      "ads": 4
+     },
+     {
+      "company": "Thoma & Partner Management Consulting AG",
+      "ads": 4
+     }
+    ],
+    "Cloud": [
+     {
+      "company": "NOVO Business Consultants AG",
+      "ads": 4
+     },
+     {
+      "company": "Kanton St. Gallen",
+      "ads": 2
+     },
+     {
+      "company": "Pro Informatik AG",
+      "ads": 2
+     },
+     {
+      "company": "ITech Consult AG",
+      "ads": 2
+     }
+    ],
+    "Scrum/Agile": [
+     {
+      "company": "SRG",
+      "ads": 4
+     },
+     {
+      "company": "Migros-Genossenschafts-Bund",
+      "ads": 3
+     },
+     {
+      "company": "Brack.Alltron AG",
+      "ads": 3
+     },
+     {
+      "company": "ITech Consult AG",
+      "ads": 2
+     }
+    ],
+    "Security": [
+     {
+      "company": "RUAG AG",
+      "ads": 3
+     },
+     {
+      "company": "Kanton St. Gallen",
+      "ads": 2
+     },
+     {
+      "company": "SSM Schärer Schweiter Mettler AG",
+      "ads": 2
+     },
+     {
+      "company": "Hirslanden AG",
+      "ads": 2
+     }
+    ],
+    "Excel": [
+     {
+      "company": "Rieter",
+      "ads": 3
+     },
+     {
+      "company": "Opale Solutions AG",
+      "ads": 2
+     },
+     {
+      "company": "Elis (Suisse) AG",
+      "ads": 2
+     },
+     {
+      "company": "emineo AG",
+      "ads": 2
+     }
+    ],
+    "SQL": [
+     {
+      "company": "Laiteries Réunies Société coopérative",
+      "ads": 3
+     },
+     {
+      "company": "Sabag AG",
+      "ads": 2
+     },
+     {
+      "company": "Elis (Suisse) AG",
+      "ads": 2
+     },
+     {
+      "company": "Consult & Pepper AG",
+      "ads": 2
+     }
+    ]
+   },
    "barriers": {
     "german_required": 0.396,
     "french_required": 0.024,
@@ -14739,6 +16059,35 @@
      ]
     }
    ],
+   "skill_companies": {
+    "Excel": [
+     {
+      "company": "Kantonale Verwaltung Zürich",
+      "ads": 2
+     },
+     {
+      "company": "Herzog & de Meuron Basel Ltd.",
+      "ads": 2
+     },
+     {
+      "company": "Herzog & de Meuron Basel Ltd",
+      "ads": 1
+     }
+    ],
+    "Security": [
+     {
+      "company": "Kantonale Verwaltung Zürich",
+      "ads": 2
+     }
+    ],
+    "Python": [
+     {
+      "company": "Kantonale Verwaltung Zürich",
+      "ads": 1
+     }
+    ],
+    "Ticketing": []
+   },
    "barriers": {
     "german_required": 0.5,
     "french_required": 0.167,
@@ -15666,6 +17015,116 @@
      ]
     }
    ],
+   "skill_companies": {
+    "Scrum/Agile": [
+     {
+      "company": "Schweizerische Bundesbahnen SBB",
+      "ads": 5
+     },
+     {
+      "company": "SRG",
+      "ads": 3
+     },
+     {
+      "company": "BKB Basler Kantonalbank",
+      "ads": 3
+     },
+     {
+      "company": "SRG SSR (Schweizerische Radio- und Fernsehgesellschaft)",
+      "ads": 2
+     }
+    ],
+    "Excel": [
+     {
+      "company": "Brack.Alltron AG",
+      "ads": 6
+     },
+     {
+      "company": "Bossard AG",
+      "ads": 1
+     },
+     {
+      "company": "Logitech Europe S.A.",
+      "ads": 1
+     },
+     {
+      "company": "CHRIST Uhren & Schmuck AG",
+      "ads": 1
+     }
+    ],
+    "Networking": [
+     {
+      "company": "Bioengineering AG",
+      "ads": 2
+     },
+     {
+      "company": "Schweizerische Bundesbahnen SBB",
+      "ads": 2
+     },
+     {
+      "company": "Schneider Electric (Schweiz) AG",
+      "ads": 2
+     },
+     {
+      "company": "Mettler Toledo",
+      "ads": 2
+     }
+    ],
+    "Security": [
+     {
+      "company": "Schweizerische Bundesbahnen SBB",
+      "ads": 4
+     },
+     {
+      "company": "4B AG",
+      "ads": 2
+     },
+     {
+      "company": "Stutzer & Co. AG",
+      "ads": 2
+     },
+     {
+      "company": "Securiton AG",
+      "ads": 2
+     }
+    ],
+    "Cloud": [
+     {
+      "company": "Schweizerische Bundesbahnen SBB",
+      "ads": 5
+     },
+     {
+      "company": "Securiton AG",
+      "ads": 2
+     },
+     {
+      "company": "Google",
+      "ads": 1
+     },
+     {
+      "company": "Zürcher Kantonalbank",
+      "ads": 1
+     }
+    ],
+    "SAP": [
+     {
+      "company": "Diamond SA",
+      "ads": 2
+     },
+     {
+      "company": "CHRIST Uhren & Schmuck AG",
+      "ads": 1
+     },
+     {
+      "company": "UNITED MACHINING",
+      "ads": 1
+     },
+     {
+      "company": "job impuls AG",
+      "ads": 1
+     }
+    ]
+   },
    "barriers": {
     "german_required": 0.375,
     "french_required": 0.008,
@@ -16666,6 +18125,88 @@
      ]
     }
    ],
+   "skill_companies": {
+    "Excel": [
+     {
+      "company": "Webloyalty Sàrl",
+      "ads": 3
+     },
+     {
+      "company": "Tissot SA",
+      "ads": 1
+     },
+     {
+      "company": "Akris AG",
+      "ads": 1
+     },
+     {
+      "company": "The Swatch Group SA",
+      "ads": 1
+     }
+    ],
+    "API/REST": [
+     {
+      "company": "Webloyalty Sàrl",
+      "ads": 3
+     },
+     {
+      "company": "Streuplan AG",
+      "ads": 1
+     },
+     {
+      "company": "IT International Trading AG",
+      "ads": 1
+     }
+    ],
+    "Cloud": [
+     {
+      "company": "Vending Service AG",
+      "ads": 1
+     },
+     {
+      "company": "Tissot SA",
+      "ads": 1
+     },
+     {
+      "company": "Hebetech AG",
+      "ads": 1
+     },
+     {
+      "company": "IVF HARTMANN AG",
+      "ads": 1
+     }
+    ],
+    "Networking": [
+     {
+      "company": "BNP PARIBAS ASSET MANAGEMENT Switzerland AG",
+      "ads": 1
+     },
+     {
+      "company": "BNP PARIBAS",
+      "ads": 1
+     },
+     {
+      "company": "IT International Trading AG",
+      "ads": 1
+     }
+    ],
+    "Ticketing": [
+     {
+      "company": "Christ Uhren und Schmuck Zentralverwaltung",
+      "ads": 1
+     },
+     {
+      "company": "CHRIST Uhren & Schmuck AG",
+      "ads": 1
+     }
+    ],
+    "R": [
+     {
+      "company": "YFU Youth For Understanding Schweiz",
+      "ads": 1
+     }
+    ]
+   },
    "barriers": {
     "german_required": 0.265,
     "french_required": 0.147,
@@ -17593,6 +19134,84 @@
      ]
     }
    ],
+   "skill_companies": {
+    "Cloud": [
+     {
+      "company": "SoftwareONE Deutschland GmbH",
+      "ads": 2
+     },
+     {
+      "company": "Octapharma AG",
+      "ads": 2
+     },
+     {
+      "company": "Sonio AG",
+      "ads": 1
+     },
+     {
+      "company": "Ergon Informatik AG",
+      "ads": 1
+     }
+    ],
+    "Microsoft 365": [
+     {
+      "company": "Luware AG",
+      "ads": 2
+     },
+     {
+      "company": "UMB AG, Zweigniederlassung Volketswil",
+      "ads": 2
+     },
+     {
+      "company": "UMB AG",
+      "ads": 1
+     }
+    ],
+    "Scrum/Agile": [
+     {
+      "company": "Luware AG",
+      "ads": 2
+     },
+     {
+      "company": "tipee SA",
+      "ads": 2
+     }
+    ],
+    "Networking": [
+     {
+      "company": "MSD",
+      "ads": 1
+     },
+     {
+      "company": "SMG Swiss Marketplace Group AG",
+      "ads": 1
+     },
+     {
+      "company": "MSD International Business GmbH",
+      "ads": 1
+     }
+    ],
+    "Security": [
+     {
+      "company": "Octapharma AG",
+      "ads": 2
+     },
+     {
+      "company": "Ergon Informatik AG",
+      "ads": 1
+     }
+    ],
+    "Power BI": [
+     {
+      "company": "Luware AG",
+      "ads": 2
+     },
+     {
+      "company": "Travel Data SA",
+      "ads": 1
+     }
+    ]
+   },
    "barriers": {
     "german_required": 0.621,
     "french_required": 0.034,
@@ -18024,6 +19643,11 @@
      ]
     }
    ],
+   "skill_companies": {
+    "Cloud": [],
+    "Networking": [],
+    "Security": []
+   },
    "barriers": {
     "german_required": 1.0,
     "french_required": 0.0,
@@ -18154,6 +19778,575 @@
  },
  "it_market": {
   "ads": 3147,
+  "overview": {
+   "entry_skills": [
+    {
+     "skill": "Security",
+     "count": 99,
+     "share": 0.44
+    },
+    {
+     "skill": "Networking",
+     "count": 74,
+     "share": 0.329
+    },
+    {
+     "skill": "Windows",
+     "count": 66,
+     "share": 0.293
+    },
+    {
+     "skill": "Cloud",
+     "count": 54,
+     "share": 0.24
+    },
+    {
+     "skill": "Scrum/Agile",
+     "count": 54,
+     "share": 0.24
+    },
+    {
+     "skill": "Microsoft 365",
+     "count": 47,
+     "share": 0.209
+    }
+   ],
+   "entry_basis": 225,
+   "requirements": {
+    "senior_experience": 0.536,
+    "german_required": 0.364,
+    "french_required": 0.024,
+    "degree_required": 0.577,
+    "english_ok": 0.576
+   },
+   "newest_entry": [
+    {
+     "title": "Fullstack Software -Ingenieur",
+     "company": "avec compétence GmbH",
+     "city": "Belp",
+     "published": "2026-11-21",
+     "url": "https://tryandhire.io/ch-de/einsaetze/e/fullstack-software-ingenieur-tah-6f9wf/"
+    },
+    {
+     "title": "Junior Software-Ingenieur",
+     "company": "avec compétence GmbH",
+     "city": "Belp",
+     "published": "2026-11-21",
+     "url": "https://tryandhire.io/ch-de/einsaetze/e/junior-software-ingenieur-tah-kbzyy/"
+    },
+    {
+     "title": "Apprenti Médiamaticien-ne",
+     "company": "BOBST MEX SA",
+     "city": "Lausanne",
+     "published": "2026-11-21",
+     "url": "https://www.jobup.ch/fr/emplois/detail/6ad61a82-0f51-4039-98df-b003aace1c74/?utm_source=job-room.ch&utm_medium=affiliate&utm_campaign=wb:jobup|tg:b2c|cn:ch|lg:fr|ct:targeting,nonbrand,job|cd:feedonomics-jobroom|mg:job-application|pd:n|tt:organic"
+    },
+    {
+     "title": "IT Support Techniker *in",
+     "company": "ERNE Management AG",
+     "city": "Laufenburg",
+     "published": "2026-11-20",
+     "url": "https://ohws.prospective.ch/public/v1/jobs/1f0870ff-7dfa-4b66-94f3-a548320950f5"
+    }
+   ]
+  },
+  "skill_companies": {
+   "Security": [
+    {
+     "company": "Schweizer Armee - Kommando Cyber Kdo Cy",
+     "ads": 37
+    },
+    {
+     "company": "Bundesamt für Informatik und Telekommunikation BIT",
+     "ads": 28
+    },
+    {
+     "company": "Consult & Pepper AG",
+     "ads": 24
+    },
+    {
+     "company": "RUAG AG",
+     "ads": 24
+    }
+   ],
+   "Cloud": [
+    {
+     "company": "MTF Solutions AG",
+     "ads": 20
+    },
+    {
+     "company": "Bundesamt für Informatik und Telekommunikation BIT",
+     "ads": 11
+    },
+    {
+     "company": "EPAM Systems (Switzerland) GmbH",
+     "ads": 10
+    },
+    {
+     "company": "ti&m AG",
+     "ads": 10
+    }
+   ],
+   "Networking": [
+    {
+     "company": "Mettler Toledo",
+     "ads": 20
+    },
+    {
+     "company": "Schweizer Armee - Kommando Cyber Kdo Cy",
+     "ads": 20
+    },
+    {
+     "company": "Sonic Suisse Labs SA",
+     "ads": 16
+    },
+    {
+     "company": "Bundesamt für Informatik und Telekommunikation BIT",
+     "ads": 13
+    }
+   ],
+   "Scrum/Agile": [
+    {
+     "company": "Schweizer Armee - Kommando Cyber Kdo Cy",
+     "ads": 36
+    },
+    {
+     "company": "Bundesamt für Informatik und Telekommunikation BIT",
+     "ads": 32
+    },
+    {
+     "company": "MTF Solutions AG",
+     "ads": 20
+    },
+    {
+     "company": "Brack.Alltron AG",
+     "ads": 18
+    }
+   ],
+   "Windows": [
+    {
+     "company": "MTF Solutions AG",
+     "ads": 15
+    },
+    {
+     "company": "Schweizer Armee - Kommando Cyber Kdo Cy",
+     "ads": 10
+    },
+    {
+     "company": "Bechtle Suisse SA",
+     "ads": 9
+    },
+    {
+     "company": "Raiffeisen Schweiz",
+     "ads": 8
+    }
+   ],
+   "Microsoft 365": [
+    {
+     "company": "MTF Solutions AG",
+     "ads": 16
+    },
+    {
+     "company": "Swiss Life AG",
+     "ads": 7
+    },
+    {
+     "company": "UMB AG, Zweigniederlassung Volketswil",
+     "ads": 7
+    },
+    {
+     "company": "Beltronic IT AG",
+     "ads": 6
+    }
+   ]
+  },
+  "skills_monthly": [
+   {
+    "skill": "Security",
+    "points": [
+     {
+      "month": "2025-12",
+      "count": 0,
+      "share": 0,
+      "partial": false
+     },
+     {
+      "month": "2026-01",
+      "count": 0,
+      "share": 0,
+      "partial": false
+     },
+     {
+      "month": "2026-02",
+      "count": 0,
+      "share": 0,
+      "partial": false
+     },
+     {
+      "month": "2026-03",
+      "count": 0,
+      "share": 0,
+      "partial": false
+     },
+     {
+      "month": "2026-04",
+      "count": 0,
+      "share": 0,
+      "partial": false
+     },
+     {
+      "month": "2026-05",
+      "count": 0,
+      "share": 0,
+      "partial": false
+     },
+     {
+      "month": "2026-06",
+      "count": 0,
+      "share": 0,
+      "partial": false
+     },
+     {
+      "month": "2026-07",
+      "count": 0,
+      "share": 0,
+      "partial": false
+     },
+     {
+      "month": "2026-08",
+      "count": 0,
+      "share": 0,
+      "partial": false
+     },
+     {
+      "month": "2026-09",
+      "count": 49,
+      "share": 0.434,
+      "partial": false
+     },
+     {
+      "month": "2026-10",
+      "count": 338,
+      "share": 0.45,
+      "partial": false
+     },
+     {
+      "month": "2026-11",
+      "count": 824,
+      "share": 0.428,
+      "partial": true
+     }
+    ]
+   },
+   {
+    "skill": "Cloud",
+    "points": [
+     {
+      "month": "2025-12",
+      "count": 0,
+      "share": 0,
+      "partial": false
+     },
+     {
+      "month": "2026-01",
+      "count": 0,
+      "share": 0,
+      "partial": false
+     },
+     {
+      "month": "2026-02",
+      "count": 0,
+      "share": 0,
+      "partial": false
+     },
+     {
+      "month": "2026-03",
+      "count": 0,
+      "share": 0,
+      "partial": false
+     },
+     {
+      "month": "2026-04",
+      "count": 0,
+      "share": 0,
+      "partial": false
+     },
+     {
+      "month": "2026-05",
+      "count": 0,
+      "share": 0,
+      "partial": false
+     },
+     {
+      "month": "2026-06",
+      "count": 0,
+      "share": 0,
+      "partial": false
+     },
+     {
+      "month": "2026-07",
+      "count": 0,
+      "share": 0,
+      "partial": false
+     },
+     {
+      "month": "2026-08",
+      "count": 0,
+      "share": 0,
+      "partial": false
+     },
+     {
+      "month": "2026-09",
+      "count": 48,
+      "share": 0.425,
+      "partial": false
+     },
+     {
+      "month": "2026-10",
+      "count": 240,
+      "share": 0.32,
+      "partial": false
+     },
+     {
+      "month": "2026-11",
+      "count": 597,
+      "share": 0.31,
+      "partial": true
+     }
+    ]
+   },
+   {
+    "skill": "Networking",
+    "points": [
+     {
+      "month": "2025-12",
+      "count": 0,
+      "share": 0,
+      "partial": false
+     },
+     {
+      "month": "2026-01",
+      "count": 0,
+      "share": 0,
+      "partial": false
+     },
+     {
+      "month": "2026-02",
+      "count": 0,
+      "share": 0,
+      "partial": false
+     },
+     {
+      "month": "2026-03",
+      "count": 0,
+      "share": 0,
+      "partial": false
+     },
+     {
+      "month": "2026-04",
+      "count": 0,
+      "share": 0,
+      "partial": false
+     },
+     {
+      "month": "2026-05",
+      "count": 0,
+      "share": 0,
+      "partial": false
+     },
+     {
+      "month": "2026-06",
+      "count": 0,
+      "share": 0,
+      "partial": false
+     },
+     {
+      "month": "2026-07",
+      "count": 0,
+      "share": 0,
+      "partial": false
+     },
+     {
+      "month": "2026-08",
+      "count": 0,
+      "share": 0,
+      "partial": false
+     },
+     {
+      "month": "2026-09",
+      "count": 33,
+      "share": 0.292,
+      "partial": false
+     },
+     {
+      "month": "2026-10",
+      "count": 245,
+      "share": 0.326,
+      "partial": false
+     },
+     {
+      "month": "2026-11",
+      "count": 581,
+      "share": 0.302,
+      "partial": true
+     }
+    ]
+   },
+   {
+    "skill": "Scrum/Agile",
+    "points": [
+     {
+      "month": "2025-12",
+      "count": 0,
+      "share": 0,
+      "partial": false
+     },
+     {
+      "month": "2026-01",
+      "count": 0,
+      "share": 0,
+      "partial": false
+     },
+     {
+      "month": "2026-02",
+      "count": 0,
+      "share": 0,
+      "partial": false
+     },
+     {
+      "month": "2026-03",
+      "count": 0,
+      "share": 0,
+      "partial": false
+     },
+     {
+      "month": "2026-04",
+      "count": 0,
+      "share": 0,
+      "partial": false
+     },
+     {
+      "month": "2026-05",
+      "count": 0,
+      "share": 0,
+      "partial": false
+     },
+     {
+      "month": "2026-06",
+      "count": 0,
+      "share": 0,
+      "partial": false
+     },
+     {
+      "month": "2026-07",
+      "count": 0,
+      "share": 0,
+      "partial": false
+     },
+     {
+      "month": "2026-08",
+      "count": 0,
+      "share": 0,
+      "partial": false
+     },
+     {
+      "month": "2026-09",
+      "count": 19,
+      "share": 0.168,
+      "partial": false
+     },
+     {
+      "month": "2026-10",
+      "count": 149,
+      "share": 0.198,
+      "partial": false
+     },
+     {
+      "month": "2026-11",
+      "count": 459,
+      "share": 0.238,
+      "partial": true
+     }
+    ]
+   },
+   {
+    "skill": "Windows",
+    "points": [
+     {
+      "month": "2025-12",
+      "count": 0,
+      "share": 0,
+      "partial": false
+     },
+     {
+      "month": "2026-01",
+      "count": 0,
+      "share": 0,
+      "partial": false
+     },
+     {
+      "month": "2026-02",
+      "count": 0,
+      "share": 0,
+      "partial": false
+     },
+     {
+      "month": "2026-03",
+      "count": 0,
+      "share": 0,
+      "partial": false
+     },
+     {
+      "month": "2026-04",
+      "count": 0,
+      "share": 0,
+      "partial": false
+     },
+     {
+      "month": "2026-05",
+      "count": 0,
+      "share": 0,
+      "partial": false
+     },
+     {
+      "month": "2026-06",
+      "count": 0,
+      "share": 0,
+      "partial": false
+     },
+     {
+      "month": "2026-07",
+      "count": 0,
+      "share": 0,
+      "partial": false
+     },
+     {
+      "month": "2026-08",
+      "count": 0,
+      "share": 0,
+      "partial": false
+     },
+     {
+      "month": "2026-09",
+      "count": 20,
+      "share": 0.177,
+      "partial": false
+     },
+     {
+      "month": "2026-10",
+      "count": 172,
+      "share": 0.229,
+      "partial": false
+     },
+     {
+      "month": "2026-11",
+      "count": 400,
+      "share": 0.208,
+      "partial": true
+     }
+    ]
+   }
+  ],
   "read_in_full": 3147,
   "entry_ads": 225,
   "entry_level_share": 0.071,
@@ -24174,6 +26367,16 @@
   "from": "2026-11-07",
   "to": "2026-11-21",
   "days": 14,
+  "policy": [
+   {
+    "title": "Ausländer- und Integrationsgesetz (Sonderregelung für Reisen ins Ausland für Personen aus der Ukraine mit vorübergehendem Schutz). Änderung",
+    "source": "Parliament (Curia Vista)",
+    "date": "2026-11-11",
+    "status": "Zugewiesen an die behandelnde Kommission",
+    "url": "https://www.parlament.ch/de/ratsbetrieb/suche-curia-vista/geschaeft?AffairId=20260083"
+   }
+  ],
+  "policy_days": 30,
   "ads": 3686,
   "entry_ads": 246,
   "fields": [
