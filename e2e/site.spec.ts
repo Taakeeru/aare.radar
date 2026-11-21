@@ -34,16 +34,20 @@ test("@ci the role switcher changes the whole screen", async ({ page }) => {
 });
 
 test("@ci every number names its source with a link and a date", async ({ page }) => {
-  await page.goto("/de");
-  const panels = page.locator("section.panel");
-  const n = await panels.count();
-  expect(n).toBeGreaterThanOrEqual(8);
-  for (let i = 0; i < n; i++) {
-    const src = panels.nth(i).locator("p.source");
-    await expect(src).toContainText("Quelle:");
-    await expect(src).toContainText(/Stand \d{2}\.\d{2}\.\d{4}/);
-    await expect(src.locator("a[href^='http']").first()).toBeVisible();
+  let n = 0;
+  for (const path of ["/de", "/de/faehigkeiten", "/de/arbeitgeber"]) {
+    await page.goto(path);
+    const panels = page.locator("section.panel");
+    const count = await panels.count();
+    n += count;
+    for (let i = 0; i < count; i++) {
+      const src = panels.nth(i).locator("p.source");
+      await expect(src).toContainText("Quelle:");
+      await expect(src).toContainText(/Stand \d{2}\.\d{2}\.\d{4}/);
+      await expect(src.locator("a[href^='http']").first()).toBeVisible();
+    }
   }
+  expect(n).toBeGreaterThanOrEqual(8);
 });
 
 test("@ci the five questions are the navigation", async ({ page }) => {
@@ -60,11 +64,21 @@ test("@ci the five questions are the navigation", async ({ page }) => {
     await expect(page).toHaveURL(new RegExp(`${path}$`));
     await expect(page.locator("h1")).toHaveText(h1);
   }
-  await page.goto("/de");
-  for (const [name, id] of [["Nachfrage", "nachfrage"], ["Fähigkeiten", "faehigkeiten"], ["Arbeitgeber", "arbeitgeber"]] as const) {
-    await expect(nav.getByRole("link", { name })).toHaveAttribute("href", new RegExp(`#${id}$`));
-    await expect(page.locator(`#${id}`)).toHaveCount(1);
+  for (const [name, path] of [["Nachfrage", "/de/nachfrage"], ["Fähigkeiten", "/de/faehigkeiten"], ["Arbeitgeber", "/de/arbeitgeber"]] as const) {
+    await page.goto("/de");
+    await nav.getByRole("link", { name }).click();
+    await expect(page).toHaveURL(new RegExp(`${path}$`));
+    await expect(page.locator("h1")).toHaveCount(1);
+    await expect(nav.getByRole("link", { name })).toHaveAttribute("aria-current", "page");
   }
+  await expect(page.locator("h1")).toHaveText("Arbeitgeber");
+});
+
+test("@ci role switch stays on the skills page", async ({ page }) => {
+  await page.goto("/de/faehigkeiten");
+  const role = page.getByRole("navigation", { name: /Beruf|Rolle/i }).getByRole("link").nth(1);
+  await role.click();
+  await expect(page).toHaveURL(/\/de\/faehigkeiten\?role=/);
 });
 
 test("@ci policy list and sources page", async ({ page }) => {
@@ -100,7 +114,7 @@ test("@ci English pages", async ({ page }) => {
 
 test("@ci phone width: no horizontal scroll on any public page", async ({ page }) => {
   await page.setViewportSize({ width: 390, height: 844 });
-  for (const p of ["/de", "/de?role=data", "/de/politik", "/de/quellen", "/de/zielgruppe", "/de/login", "/en"]) {
+  for (const p of ["/de", "/de?role=data", "/de/nachfrage", "/de/faehigkeiten", "/de/arbeitgeber", "/de/politik", "/de/quellen", "/de/zielgruppe", "/de/login", "/en"]) {
     await page.goto(p);
     const over = await page.evaluate(() => document.documentElement.scrollWidth - window.innerWidth);
     expect(over, `${p} overflows by ${over}px`).toBeLessThanOrEqual(0);
@@ -202,7 +216,7 @@ test("@ci English pages hold no German", async ({ page }) => {
     const hit = text.split("\n").filter((l) => GERMAN.test(l));
     expect(hit, `${path}: German text on an English page`).toEqual([]);
   };
-  for (const p of ["/en", "/en?role=support", "/en?role=data", "/en/politik", "/en/quellen", "/en/zielgruppe", "/en/login", "/en/passwort-vergessen", "/en/nonexistent-page"]) await check(p);
+  for (const p of ["/en", "/en?role=support", "/en?role=data", "/en/faehigkeiten", "/en/arbeitgeber", "/en/politik", "/en/quellen", "/en/zielgruppe", "/en/login", "/en/passwort-vergessen", "/en/nonexistent-page"]) await check(p);
   test.skip(!password, "no demo admin password given (CI_DEMO_ADMIN_PASSWORD)");
   await page.goto("/en/admin");
   await expect(page).toHaveURL(/\/en\/login\?next=%2Fen%2Fadmin$/);
