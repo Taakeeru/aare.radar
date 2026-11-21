@@ -89,7 +89,7 @@
       "basis": "Basis: the ads for which the full text is available."
     },
     "barriers": {
-      "title": "Entry barriers",
+      "title": "Entry requirements",
       "intro": "What the ads ask of applicants.",
       "german_required": "{count} in 10 ads ask for very good German.",
       "french_required": "{count} in 10 ads ask for very good French.",
