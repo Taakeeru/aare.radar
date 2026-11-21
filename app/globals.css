@@ -1242,3 +1242,133 @@ html[data-light="true"] {
   gap: 12px;
 }
 .tag--paused .tag__dot { background: var(--radar-text3); }
+
+/* ── Volunteers concept (app/[locale]/(site)/freiwillige) ─────────────── */
+.vol__filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px 16px;
+  margin-bottom: 16px;
+}
+.vol__filters label {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  font-size: 14px;
+  font-weight: 700;
+}
+.vol__filters select,
+.vol__filters input {
+  min-height: 44px;
+  min-width: 180px;
+  padding: 0 12px;
+  border-radius: 4px;
+  border: 2px solid var(--radar-border);
+  background: var(--radar-surface);
+  color: var(--radar-text);
+  font: inherit;
+  font-weight: 400;
+}
+.vol__search {
+  flex: 1;
+}
+.vol__body {
+  display: grid;
+  grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
+  gap: 24px;
+}
+@media (max-width: 899px) {
+  .vol__body {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+.vol__map {
+  width: 100%;
+  height: auto;
+  border: 1px solid var(--radar-border);
+  border-radius: 6px;
+  background: var(--radar-surface);
+}
+.vol__land {
+  fill: var(--radar-raised);
+  stroke: var(--radar-border);
+  stroke-width: 1.5;
+}
+.vol__pin circle {
+  fill: var(--radar-accent);
+  stroke: var(--radar-surface);
+  stroke-width: 2;
+  cursor: pointer;
+}
+.vol__pin[data-open="true"] circle {
+  stroke: var(--radar-text);
+  stroke-width: 3;
+}
+.vol__pin text {
+  fill: var(--radar-on-accent);
+  font-size: 13px;
+  font-weight: 700;
+  pointer-events: none;
+}
+.vol__pin .vol__city {
+  fill: var(--radar-text);
+  font-size: 12px;
+}
+.vol__pins {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.vol__chip {
+  min-height: 36px;
+  padding: 0 12px;
+  border-radius: 4px;
+  border: 2px solid var(--radar-border);
+  background: var(--radar-surface);
+  color: var(--radar-text);
+  font: inherit;
+  font-size: 14px;
+  cursor: pointer;
+}
+.vol__chip[aria-pressed="true"] {
+  border-color: var(--radar-accent);
+  font-weight: 700;
+}
+.vol__count {
+  margin: 12px 0 8px;
+  color: var(--radar-text2);
+}
+.vol__cards {
+  display: grid;
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.vol__card {
+  padding: 12px 16px;
+  border: 1px solid var(--radar-border);
+  border-radius: 6px;
+  background: var(--radar-surface);
+}
+.vol__name {
+  margin: 0;
+  font-weight: 700;
+}
+.vol__meta {
+  margin: 2px 0 6px;
+  color: var(--radar-text2);
+  font-size: 15px;
+}
+.vol__tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin: 0;
+}
+.vol__tag {
+  padding: 2px 8px;
+  border: 1px solid var(--radar-accent);
+  border-radius: 4px;
+  font-size: 14px;
+}

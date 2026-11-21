@@ -14,7 +14,8 @@
     "demand": "Demand",
     "skills": "Skills",
     "employers": "Employers",
-    "target": "Target group"
+    "target": "Target group",
+    "volunteers": "Volunteers"
   },
   "footer": {
     "note": "A tool for the Powercoders team. The numbers come from public sources.",
@@ -638,5 +639,22 @@
     "addSubmit": "Add reader",
     "editSubmit": "Save changes",
     "offNote": "The summary email is off, so nobody gets it right now, active readers included."
+  },
+  "volunteers": {
+    "title": "Volunteers: IT experts near you",
+    "lead": "Where IT experts are who could give a teaching session at Powercoders. Click a pin or a city to see the profiles; filter by city, field or search.",
+    "conceptTitle": "Concept with fictional profiles.",
+    "concept": "Every person shown here is made up to show the idea. In a real version, experts sign themselves up and can remove themselves at any time; no data is taken from LinkedIn or any other site.",
+    "city": "City",
+    "domain": "Field",
+    "all": "All",
+    "search": "Search",
+    "searchHint": "for example SQL or Bern",
+    "mapLabel": "Schematic map of Switzerland with the number of experts per city",
+    "pinsLabel": "Cities",
+    "count": "{n} experts",
+    "inCity": "{n} in {city}",
+    "offers": "offers {offer}",
+    "none": "No expert matches these filters."
   }
 }
