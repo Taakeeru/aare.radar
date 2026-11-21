@@ -1691,13 +1691,16 @@ html[data-light="true"] {
   gap: 16px 32px;
 }
 .page-head__row .page__title {
-  flex: 1 1 0;
-  min-width: 0;
+  flex: 1 1 100%;
   margin-bottom: 0;
 }
 @media (min-width: 900px) {
   .page-head__row {
     flex-wrap: nowrap;
+  }
+  .page-head__row .page__title {
+    flex: 1 1 0;
+    min-width: 0;
   }
   .page-head__row .role-switch,
   .page-head__row form {
