@@ -1373,6 +1373,34 @@ html[data-light="true"] {
   font-size: 14px;
 }
 
+/* What to teach next (Skills page) */
+.teach,
+.teach__courses {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.teach__row {
+  padding: 12px 0;
+  border-top: 1px solid var(--radar-hairline);
+}
+.teach__row:first-child {
+  border-top: 0;
+}
+.teach__skill {
+  margin: 0 0 4px;
+}
+.teach__share,
+.teach__meta {
+  color: var(--radar-text2);
+  font-size: 15px;
+}
+.teach__pc {
+  margin: 0 0 4px;
+}
+.teach__courses li {
+  margin: 2px 0;
+}
 /* Page heads: the tab icon instead of the letters A to E (team, 21.11.2026). */
 .eyebrow--icon {
   display: inline-flex;

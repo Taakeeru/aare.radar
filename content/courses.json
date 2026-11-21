@@ -1,0 +1,639 @@
+{
+ "checked": "2026-11-21",
+ "programs": [
+  {
+   "id": "bootcamp",
+   "name": "Bootcamp",
+   "url": "https://powercoders.org/programs/bootcamp/",
+   "summary": "14-week intensive hybrid full-time program (taught in English, B2+) on AI and automation, no-code/low-code, digital transformation, Agile and change management, followed by a 6-12 month internship at a Swiss company with a Job Coach.",
+   "skills": [
+    "Scrum/Agile"
+   ]
+  },
+  {
+   "id": "women-connect",
+   "name": "Women Connect",
+   "url": "https://powercoders.org/programs/womenconnect/",
+   "summary": "Six weekly 3-hour in-person workshops (Bern, Lausanne) for women from migrant and refugee backgrounds to explore digital careers: career planning, digital literacy, certifications, networking. No specific tools taught.",
+   "skills": []
+  },
+  {
+   "id": "self-learning",
+   "name": "Self Learning",
+   "url": "https://powercoders.org/programs/self-learning/",
+   "summary": "Curated free online courses and platforms (AWS Skill Builder, Cisco Networking Academy, Microsoft Learn, Google Career Certificates, freeCodeCamp, Codecademy and more) in digital, language, social and business skills to prepare for jobs or programs.",
+   "skills": [
+    "Security",
+    "Cloud",
+    "Networking",
+    "Scrum/Agile",
+    "SQL",
+    "Python",
+    "JavaScript",
+    "Git",
+    "Excel",
+    "AWS",
+    "DevOps"
+   ]
+  },
+  {
+   "id": "piscine-prep",
+   "name": "piscine prep by Powercoders",
+   "url": "https://powercoders.org/programs/piscine-prep/",
+   "summary": "7-week intensive course (C programming basics plus social and professional skills) preparing for the piscine at 42 Lausanne, with a volunteer IT mentor for 6 months. French B1/B2 expected.",
+   "skills": []
+  },
+  {
+   "id": "digital-literacy",
+   "name": "Digital Skills for Life in Switzerland",
+   "url": "https://powercoders.org/programs/digitalliteracy/",
+   "summary": "5-week course for refugees, migrants and asylum seekers: everyday digital tools (SBB, maps, banking, email, calendar), online job and housing search, LinkedIn and digital CV, practical AI use.",
+   "skills": []
+  },
+  {
+   "id": "futurecoders",
+   "name": "Futurecoders",
+   "url": "https://powercoders.org/programs/futurecoders/",
+   "summary": "Courses and holiday camps for 13-18 year olds (website programming, video game design); separate site futurecoders.ch. Not aimed at adult job seekers.",
+   "skills": []
+  },
+  {
+   "id": "remotecoders",
+   "name": "Remotecoders",
+   "url": "https://remotecoders.org/",
+   "summary": "Swiss non-profit that matches tech talent from vulnerable backgrounds with (nearshore) work opportunities; EPFL Continuing Education is a training partner. Job placement, not a course.",
+   "skills": []
+  }
+ ],
+ "skills": [
+  {
+   "skill": "Security",
+   "powercoders": [
+    "self-learning"
+   ],
+   "courses": [
+    {
+     "provider": "Cisco Networking Academy",
+     "title": "Introduction to Cybersecurity",
+     "url": "https://www.netacad.com/courses/introduction-to-cybersecurity",
+     "cost": "free",
+     "language": "English",
+     "certificate": true
+    },
+    {
+     "provider": "Microsoft Learn",
+     "title": "Describe the concepts of cybersecurity (learning path)",
+     "url": "https://learn.microsoft.com/en-us/training/paths/describe-basic-concepts-of-cybersecurity/",
+     "cost": "free",
+     "language": "English",
+     "certificate": false
+    },
+    {
+     "provider": "Coursera (Google)",
+     "title": "Google Cybersecurity Professional Certificate",
+     "url": "https://www.coursera.org/professional-certificates/google-cybersecurity",
+     "cost": "paid",
+     "language": "English",
+     "certificate": true
+    }
+   ]
+  },
+  {
+   "skill": "Cloud",
+   "powercoders": [
+    "self-learning"
+   ],
+   "courses": [
+    {
+     "provider": "Microsoft Learn",
+     "title": "Introduction to Cloud Infrastructure: Describe cloud concepts (learning path)",
+     "url": "https://learn.microsoft.com/en-us/training/paths/microsoft-azure-fundamentals-describe-cloud-concepts/",
+     "cost": "free",
+     "language": "English",
+     "certificate": false
+    },
+    {
+     "provider": "Coursera (IBM)",
+     "title": "Introduction to Cloud Computing",
+     "url": "https://www.coursera.org/learn/introduction-to-cloud",
+     "cost": "paid",
+     "language": "English",
+     "certificate": true
+    },
+    {
+     "provider": "Coursera (Google Cloud)",
+     "title": "Google Cloud Fundamentals: Explore Core Cloud Services",
+     "url": "https://www.coursera.org/learn/gcp-fundamentals",
+     "cost": "paid",
+     "language": "English",
+     "certificate": true
+    }
+   ]
+  },
+  {
+   "skill": "Networking",
+   "powercoders": [
+    "self-learning"
+   ],
+   "courses": [
+    {
+     "provider": "Cisco Networking Academy",
+     "title": "Networking Basics",
+     "url": "https://www.netacad.com/courses/networking-basics",
+     "cost": "free",
+     "language": "English",
+     "certificate": true
+    },
+    {
+     "provider": "Coursera (Google)",
+     "title": "The Bits and Bytes of Computer Networking",
+     "url": "https://www.coursera.org/learn/computer-networking",
+     "cost": "paid",
+     "language": "English",
+     "certificate": true
+    }
+   ]
+  },
+  {
+   "skill": "Scrum/Agile",
+   "powercoders": [
+    "bootcamp",
+    "self-learning"
+   ],
+   "courses": [
+    {
+     "provider": "Scrum.org",
+     "title": "Scrum Open (free open assessment)",
+     "url": "https://www.scrum.org/open-assessments/scrum-open",
+     "cost": "free",
+     "language": "English",
+     "certificate": false
+    },
+    {
+     "provider": "Scrum Guides",
+     "title": "The Scrum Guide",
+     "url": "https://scrumguides.org/scrum-guide.html",
+     "cost": "free",
+     "language": "English",
+     "certificate": false
+    },
+    {
+     "provider": "Coursera (IBM)",
+     "title": "Introduction to Agile Development and Scrum",
+     "url": "https://www.coursera.org/learn/agile-development-and-scrum",
+     "cost": "paid",
+     "language": "English",
+     "certificate": true
+    }
+   ]
+  },
+  {
+   "skill": "Windows",
+   "powercoders": [],
+   "courses": [
+    {
+     "provider": "LearnFree",
+     "title": "Windows Basics",
+     "url": "https://www.learnfree.org/series/windows-basics",
+     "cost": "free",
+     "language": "English",
+     "certificate": false
+    },
+    {
+     "provider": "Coursera (Google)",
+     "title": "Operating Systems and You: Becoming a Power User (Windows and Linux)",
+     "url": "https://www.coursera.org/learn/os-power-user",
+     "cost": "paid",
+     "language": "English",
+     "certificate": true
+    }
+   ]
+  },
+  {
+   "skill": "Microsoft 365",
+   "powercoders": [],
+   "courses": [
+    {
+     "provider": "Microsoft Learn",
+     "title": "Explore Microsoft 365 administration (learning path)",
+     "url": "https://learn.microsoft.com/en-us/training/paths/explore-microsoft-365-administration/",
+     "cost": "free",
+     "language": "English",
+     "certificate": false
+    },
+    {
+     "provider": "Microsoft Learn",
+     "title": "AB-900T00: Introduction to Microsoft 365 and AI administration",
+     "url": "https://learn.microsoft.com/en-us/training/courses/ab-900t00",
+     "cost": "free",
+     "language": "English, German, French (and 10 more)",
+     "certificate": false
+    }
+   ]
+  },
+  {
+   "skill": "Azure",
+   "powercoders": [],
+   "courses": [
+    {
+     "provider": "Microsoft Learn",
+     "title": "Introduction to Cloud Infrastructure: Describe cloud concepts (AZ-900 part 1)",
+     "url": "https://learn.microsoft.com/en-us/training/paths/microsoft-azure-fundamentals-describe-cloud-concepts/",
+     "cost": "free",
+     "language": "English",
+     "certificate": false
+    },
+    {
+     "provider": "Microsoft Learn",
+     "title": "Introduction to Cloud Infrastructure: Describe Azure architecture and services (AZ-900 part 2)",
+     "url": "https://learn.microsoft.com/en-us/training/paths/azure-fundamentals-describe-azure-architecture-services/",
+     "cost": "free",
+     "language": "English",
+     "certificate": false
+    },
+    {
+     "provider": "Microsoft Learn",
+     "title": "Microsoft Certified: Azure Fundamentals (AZ-900 exam, certificate; exam is paid)",
+     "url": "https://learn.microsoft.com/en-us/credentials/certifications/azure-fundamentals/",
+     "cost": "paid",
+     "language": "English, German, French (and 10 more)",
+     "certificate": true
+    }
+   ]
+  },
+  {
+   "skill": "SQL",
+   "powercoders": [
+    "self-learning"
+   ],
+   "courses": [
+    {
+     "provider": "freeCodeCamp",
+     "title": "Relational Databases Certification (SQL, Bash, Git)",
+     "url": "https://www.freecodecamp.org/learn/relational-databases-v9/",
+     "cost": "free",
+     "language": "English",
+     "certificate": true
+    },
+    {
+     "provider": "SQLBolt",
+     "title": "SQLBolt: Learn SQL with interactive lessons",
+     "url": "https://sqlbolt.com/",
+     "cost": "free",
+     "language": "English",
+     "certificate": false
+    },
+    {
+     "provider": "Codecademy",
+     "title": "Learn SQL",
+     "url": "https://www.codecademy.com/learn/learn-sql",
+     "cost": "free",
+     "language": "English",
+     "certificate": false
+    }
+   ]
+  },
+  {
+   "skill": "Active Directory",
+   "powercoders": [],
+   "courses": [
+    {
+     "provider": "Microsoft Learn",
+     "title": "Introduction to AD DS (module, intermediate)",
+     "url": "https://learn.microsoft.com/en-us/training/modules/introduction-to-ad-ds/",
+     "cost": "free",
+     "language": "English",
+     "certificate": false
+    },
+    {
+     "provider": "Microsoft Learn",
+     "title": "Active Directory Domain Services (learning path, intermediate)",
+     "url": "https://learn.microsoft.com/en-us/training/paths/active-directory-domain-services/",
+     "cost": "free",
+     "language": "English",
+     "certificate": false
+    },
+    {
+     "provider": "Microsoft Learn",
+     "title": "Introduction to Microsoft Entra (learning path)",
+     "url": "https://learn.microsoft.com/en-us/training/paths/describe-capabilities-of-microsoft-identity-access/",
+     "cost": "free",
+     "language": "English",
+     "certificate": false
+    }
+   ]
+  },
+  {
+   "skill": "Linux",
+   "powercoders": [],
+   "courses": [
+    {
+     "provider": "Linux Foundation",
+     "title": "Introduction to Linux (LFS101)",
+     "url": "https://training.linuxfoundation.org/training/introduction-to-linux/",
+     "cost": "free",
+     "language": "English (Spanish version also offered)",
+     "certificate": true
+    },
+    {
+     "provider": "Cisco Networking Academy",
+     "title": "Linux Unhatched",
+     "url": "https://www.netacad.com/courses/linux-unhatched",
+     "cost": "free",
+     "language": "English",
+     "certificate": true
+    },
+    {
+     "provider": "Coursera (Google)",
+     "title": "Operating Systems and You: Becoming a Power User (Windows and Linux)",
+     "url": "https://www.coursera.org/learn/os-power-user",
+     "cost": "paid",
+     "language": "English",
+     "certificate": true
+    }
+   ]
+  },
+  {
+   "skill": "Python",
+   "powercoders": [
+    "self-learning"
+   ],
+   "courses": [
+    {
+     "provider": "University of Helsinki",
+     "title": "Python Programming MOOC 2025",
+     "url": "https://programming-25.mooc.fi/",
+     "cost": "free",
+     "language": "English",
+     "certificate": false
+    },
+    {
+     "provider": "freeCodeCamp",
+     "title": "Python Certification",
+     "url": "https://www.freecodecamp.org/learn/python-v9/",
+     "cost": "free",
+     "language": "English",
+     "certificate": true
+    },
+    {
+     "provider": "Cisco Networking Academy / Python Institute",
+     "title": "Python Essentials 1",
+     "url": "https://www.netacad.com/courses/python-essentials-1",
+     "cost": "free",
+     "language": "English",
+     "certificate": true
+    }
+   ]
+  },
+  {
+   "skill": "JavaScript",
+   "powercoders": [
+    "self-learning"
+   ],
+   "courses": [
+    {
+     "provider": "freeCodeCamp",
+     "title": "JavaScript Certification",
+     "url": "https://www.freecodecamp.org/learn/javascript-v9/",
+     "cost": "free",
+     "language": "English",
+     "certificate": true
+    },
+    {
+     "provider": "The Odin Project",
+     "title": "Foundations course (JavaScript basics and Git)",
+     "url": "https://www.theodinproject.com/paths/foundations/courses/foundations",
+     "cost": "free",
+     "language": "English",
+     "certificate": false
+    },
+    {
+     "provider": "MDN Web Docs",
+     "title": "Dynamic scripting with JavaScript",
+     "url": "https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/Scripting",
+     "cost": "free",
+     "language": "English, German, French (and more)",
+     "certificate": false
+    }
+   ]
+  },
+  {
+   "skill": "Power BI",
+   "powercoders": [],
+   "courses": [
+    {
+     "provider": "Microsoft Learn",
+     "title": "Get started building with Power BI (module)",
+     "url": "https://learn.microsoft.com/en-us/training/modules/get-started-with-power-bi/",
+     "cost": "free",
+     "language": "English",
+     "certificate": false
+    },
+    {
+     "provider": "Microsoft Learn",
+     "title": "Get started with Microsoft data analytics (learning path)",
+     "url": "https://learn.microsoft.com/en-us/training/paths/data-analytics-microsoft/",
+     "cost": "free",
+     "language": "English",
+     "certificate": false
+    },
+    {
+     "provider": "Coursera (Microsoft)",
+     "title": "Microsoft Power BI Data Analyst Professional Certificate",
+     "url": "https://www.coursera.org/professional-certificates/microsoft-power-bi-data-analyst",
+     "cost": "paid",
+     "language": "English",
+     "certificate": true
+    }
+   ]
+  },
+  {
+   "skill": "Excel",
+   "powercoders": [
+    "self-learning"
+   ],
+   "courses": [
+    {
+     "provider": "Microsoft Support",
+     "title": "Excel help and learning (training videos)",
+     "url": "https://support.microsoft.com/en-us/excel/",
+     "cost": "free",
+     "language": "English (many languages)",
+     "certificate": false
+    },
+    {
+     "provider": "LearnFree",
+     "title": "Excel: Foundations",
+     "url": "https://www.learnfree.org/series/excel-foundations",
+     "cost": "free",
+     "language": "English",
+     "certificate": false
+    },
+    {
+     "provider": "Coursera (Macquarie University)",
+     "title": "Excel Skills for Business: Essentials",
+     "url": "https://www.coursera.org/learn/excel-essentials",
+     "cost": "paid",
+     "language": "English",
+     "certificate": true
+    }
+   ]
+  },
+  {
+   "skill": "Git",
+   "powercoders": [
+    "self-learning"
+   ],
+   "courses": [
+    {
+     "provider": "Atlassian",
+     "title": "Git Tutorials and Training",
+     "url": "https://www.atlassian.com/git/tutorials",
+     "cost": "free",
+     "language": "English",
+     "certificate": false
+    },
+    {
+     "provider": "GitHub",
+     "title": "GitHub Skills (interactive courses)",
+     "url": "https://github.com/skills",
+     "cost": "free",
+     "language": "English",
+     "certificate": false
+    },
+    {
+     "provider": "Microsoft Learn",
+     "title": "GitHub Foundations Part 1 of 2 (learning path, includes Introduction to Git)",
+     "url": "https://learn.microsoft.com/en-us/training/paths/github-foundations/",
+     "cost": "free",
+     "language": "English",
+     "certificate": false
+    }
+   ]
+  },
+  {
+   "skill": "Testing/QA",
+   "powercoders": [],
+   "courses": [
+    {
+     "provider": "TestGrid University",
+     "title": "Introduction to Software Testing - Level 1",
+     "url": "https://university.testgrid.io/course/introduction-to-software-testing",
+     "cost": "free",
+     "language": "English",
+     "certificate": true
+    },
+    {
+     "provider": "Simplilearn SkillUp",
+     "title": "Introduction to Software Testing",
+     "url": "https://www.simplilearn.com/free-software-testing-course-skillup",
+     "cost": "free",
+     "language": "English",
+     "certificate": true
+    },
+    {
+     "provider": "Coursera (University of Minnesota)",
+     "title": "Introduction to Software Testing",
+     "url": "https://www.coursera.org/learn/introduction-software-testing",
+     "cost": "paid",
+     "language": "English",
+     "certificate": true
+    }
+   ]
+  },
+  {
+   "skill": "AWS",
+   "powercoders": [
+    "self-learning"
+   ],
+   "courses": [
+    {
+     "provider": "AWS Training",
+     "title": "Cloud Practitioner: digital training and learning plans (AWS Skill Builder)",
+     "url": "https://aws.amazon.com/training/learn-about/cloud-practitioner/",
+     "cost": "free",
+     "language": "English",
+     "certificate": false
+    },
+    {
+     "provider": "AWS Skill Builder",
+     "title": "AWS Skill Builder (free tier digital courses)",
+     "url": "https://skillbuilder.aws/",
+     "cost": "free",
+     "language": "English",
+     "certificate": false
+    },
+    {
+     "provider": "Coursera (Amazon Web Services)",
+     "title": "AWS Cloud Practitioner Essentials",
+     "url": "https://www.coursera.org/learn/aws-cloud-practitioner-essentials",
+     "cost": "paid",
+     "language": "English",
+     "certificate": true
+    }
+   ]
+  },
+  {
+   "skill": "Docker",
+   "powercoders": [],
+   "courses": [
+    {
+     "provider": "Docker",
+     "title": "Get started with Docker containers (Docker Learn path)",
+     "url": "https://docs.docker.com/learn/paths/get-started-with-docker-containers/",
+     "cost": "free",
+     "language": "English",
+     "certificate": false
+    },
+    {
+     "provider": "Docker",
+     "title": "Docker 101 Tutorial",
+     "url": "https://www.docker.com/101-tutorial/",
+     "cost": "free",
+     "language": "English",
+     "certificate": false
+    },
+    {
+     "provider": "KodeKloud",
+     "title": "Docker Training Course for the Absolute Beginner",
+     "url": "https://kodekloud.com/courses/docker-training-course-for-the-absolute-beginner",
+     "cost": "free",
+     "language": "English",
+     "certificate": true
+    }
+   ]
+  },
+  {
+   "skill": "DevOps",
+   "powercoders": [
+    "self-learning"
+   ],
+   "courses": [
+    {
+     "provider": "Linux Foundation",
+     "title": "Introduction to DevOps and Site Reliability Engineering (LFS162)",
+     "url": "https://training.linuxfoundation.org/training/introduction-to-devops-and-site-reliability-engineering-lfs162/",
+     "cost": "free",
+     "language": "English",
+     "certificate": true
+    },
+    {
+     "provider": "Coursera (IBM)",
+     "title": "Introduction to DevOps",
+     "url": "https://www.coursera.org/learn/intro-to-devops",
+     "cost": "paid",
+     "language": "English",
+     "certificate": true
+    },
+    {
+     "provider": "Microsoft Learn",
+     "title": "GitHub Foundations Part 1 of 2 (learning path)",
+     "url": "https://learn.microsoft.com/en-us/training/paths/github-foundations/",
+     "cost": "free",
+     "language": "English",
+     "certificate": false
+    }
+   ]
+  }
+ ]
+}

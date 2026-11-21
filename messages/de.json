@@ -175,6 +175,19 @@
       "jobsEmpty": "In diesem Zeitraum spricht kein IT-Inserat Einsteigende an.",
       "entryHow": "Offen für Einsteigende: Das Inserat nennt Junior, Trainee, Quereinstieg, Praktikum oder Ähnliches, oder der Arbeitgeber hat keine oder weniger als ein Jahr Erfahrung angegeben.",
       "note": "Beruf so, wie ihn der Arbeitgeber auf job-room.ch (SECO) gewählt hat. IT-Berufe sind die, die das Schweizer Berufsverzeichnis bei den ICT-Fachleuten und ICT-Technikern führt."
+    },
+    "teach": {
+      "title": "Was als Nächstes unterrichten",
+      "intro": "Die Fähigkeiten, die diese Inserate am meisten verlangen, mit dem passenden Powercoders-Programm und Einsteigerkursen anderswo.",
+      "atPowercoders": "Bei Powercoders:",
+      "source": "Powercoders-Programme und Kursanbieter, Links geprüft",
+      "cost": {
+        "free": "gratis",
+        "audit": "gratis ohne Zertifikat",
+        "paid": "kostenpflichtig (Gratistest oder Unterstützung möglich)"
+      },
+      "certificate": "Zertifikat",
+      "note": "Kosten und Zertifikate so, wie die Seiten der Anbieter sie am Prüftag zeigten. Coursera-Kurse sind als kostenpflichtig markiert; viele bieten einen Gratistest oder finanzielle Unterstützung."
     }
   },
   "policy": {
