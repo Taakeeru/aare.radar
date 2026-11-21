@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { BarChart, type ChartBar } from "@/components/bar-chart";
 import { BarList, type BarRow } from "@/components/bar-list";
+import { PageIcon } from "@/components/page-icon";
 import { Panel } from "@/components/panel";
 import { RoleSwitch } from "@/components/role-switch";
 import { toLocale } from "@/i18n/routing";
@@ -30,13 +31,15 @@ export async function generateMetadata(): Promise<Metadata> {
   return { title: t("title") };
 }
 
+const ICON_OF: Record<string, string> = { A: "demand", B: "skills", C: "employers", D: "target", E: "policy" };
+
 const HURDLES = ["german_required", "degree_required", "senior_experience", "french_required"] as const;
 
 function QuestionHead({ id, letter, title, question, label }: { id: string; letter: string; title: string; question: string; label: string }) {
   return (
     <header className="question">
       <p className="question__letter">
-        <span aria-hidden="true">{letter}</span>
+        <PageIcon name={ICON_OF[letter] ?? "demand"} size={26} />
         <span className="sr-only">{label}</span>
       </p>
       <div>
