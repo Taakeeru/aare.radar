@@ -6,7 +6,7 @@ import { Avatar } from "@/components/avatar";
 import { CH_OUTLINE, VOLUNTEERS, project, type Volunteer } from "@/lib/volunteers-mockup";
 
 // Where a city's name goes so neighbours do not overlap (Zürich, Zug, Winterthur, Luzern sit close together).
-const LABEL: Record<string, "above" | "below" | "right" | "left"> = { Zug: "below", Luzern: "left", Winterthur: "right", Fribourg: "left", Bern: "right" };
+const LABEL: Record<string, "above" | "below" | "right" | "left"> = { Zürich: "left", Zug: "below", Luzern: "left", Winterthur: "above", Fribourg: "left", Bern: "right", "St. Gallen": "right" };
 
 const W = 640;
 const H = 420;
