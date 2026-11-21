@@ -515,32 +515,32 @@
     },
     "opt": {
       "bg": {
-        "dark": "Dark (now)",
+        "dark": "Dark",
         "grey": "Light grey",
         "white": "White",
-        "sand": "Light sand"
+        "sand": "Light sand (chosen)"
       },
       "accent": {
-        "link": "Link blue (now)",
-        "aare": "Aare turquoise",
+        "link": "Link blue",
+        "aare": "Aare turquoise (chosen)",
         "blue": "Blue"
       },
       "font": {
-        "system": "System (now)",
+        "system": "System",
         "ubuntu": "Ubuntu",
-        "atkinson": "Atkinson Hyperlegible",
+        "atkinson": "Atkinson Hyperlegible (chosen)",
         "plex": "IBM Plex Sans"
       },
       "mark": {
         "a": "'{' Aare.Radar '}'",
-        "b": "'{' AARE.RADAR '}'",
+        "b": "'{' AARE.RADAR '}' (chosen)",
         "c": "'{' aare.radar '}'",
-        "d": "AareRadar (now)"
+        "d": "AareRadar"
       }
     },
     "copy": "Copy link",
     "copied": "Link copied. Paste it into the panel or a message.",
-    "reset": "Back to the current look"
+    "reset": "Back to the chosen look"
   },
   "email": {
     "title": "Summary email: preview",

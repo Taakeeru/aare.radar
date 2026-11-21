@@ -515,32 +515,32 @@
     },
     "opt": {
       "bg": {
-        "dark": "Dunkel (jetzt)",
+        "dark": "Dunkel",
         "grey": "Hellgrau",
         "white": "Weiss",
-        "sand": "Hellsand"
+        "sand": "Hellsand (gewählt)"
       },
       "accent": {
-        "link": "Linkblau (jetzt)",
-        "aare": "Aare-Türkis",
+        "link": "Linkblau",
+        "aare": "Aare-Türkis (gewählt)",
         "blue": "Blau"
       },
       "font": {
-        "system": "System (jetzt)",
+        "system": "System",
         "ubuntu": "Ubuntu",
-        "atkinson": "Atkinson Hyperlegible",
+        "atkinson": "Atkinson Hyperlegible (gewählt)",
         "plex": "IBM Plex Sans"
       },
       "mark": {
         "a": "'{' Aare.Radar '}'",
-        "b": "'{' AARE.RADAR '}'",
+        "b": "'{' AARE.RADAR '}' (gewählt)",
         "c": "'{' aare.radar '}'",
-        "d": "AareRadar (jetzt)"
+        "d": "AareRadar"
       }
     },
     "copy": "Link kopieren",
     "copied": "Link kopiert. Füg ihn im Panel oder in einer Nachricht ein.",
-    "reset": "Zurück zum jetzigen Look"
+    "reset": "Zurück zum gewählten Look"
   },
   "email": {
     "title": "Zusammenfassung per Mail: Vorschau",

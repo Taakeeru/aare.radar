@@ -129,7 +129,9 @@ export const MARKS = ["a", "b", "c", "d"] as const;
 
 export type DesignChoice = { bg: string; accent: string; font: string; mark: string };
 
-export const DESIGN_DEFAULT: DesignChoice = { bg: "dark", accent: "link", font: "system", mark: "d" };
+/** The team's vote on the panel, 21.11.2026 (card «Your two looks differ», both members): light sand, Aare turquoise,
+ * Atkinson Hyperlegible, { AARE.RADAR }. The layout writes it on <html> on the server, so nothing flashes. */
+export const DESIGN_DEFAULT: DesignChoice = { bg: "sand", accent: "aare", font: "atkinson", mark: "b" };
 
 /** The CSS variables for one combination (written onto <html> by the switcher). */
 export function designStyle(choice: DesignChoice): Record<string, string> {
