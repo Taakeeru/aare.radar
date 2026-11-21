@@ -14,8 +14,8 @@ One story: a Powercoders job coach finds the IT jobs a graduate can start in, wi
 - **C Employers:** «Who hires, without recruiting agencies: a list of companies to approach for internships.»
 - **D Target group:** «How many refugees with status F, B and S work, by canton, from the State Secretariat for Migration.»
 - **E Policy:** «New items in parliament and federal law on asylum, integration and work permits.»
-4. **1:50 to 2:20, built to last.** «The data refreshes itself every day. Every two weeks the team gets a short email with the new beginner ads by category. And a new source is one line in a list, no developer needed.» Screen: the sources page.
-5. **2:20 to 2:45, the rules we kept.** «Only official and open data: job-room.ch of SECO, the Federal Statistical Office, the State Secretariat for Migration, the federal parliament. No scraping of LinkedIn or jobs.ch, no personal data, only counts.»
+4. **1:50 to 2:20, built to last.** «The data refreshes itself every morning. Every two weeks the team can get a short email with only the new entry-level jobs per category, each reader with their own categories. Admins change who gets it and when on a settings page, no developer needed. And a new data source is one line in a list.» Screen: the «Summary email» preview, then Admin → Settings.
+5. **2:20 to 2:45, safe by design.** «Only official and open data: job-room.ch of SECO, the Federal Statistical Office, the State Secretariat for Migration, the federal parliament. No scraping of LinkedIn or jobs.ch, no personal data, only counts. The admin area has its own sign-in, every change is logged, and two-step sign-in with a code app can be switched on with one setting for extra security.» Screen: the sources page, then the sign-in page.
 6. **2:45 to 3:00, close.** «AareRadar: so the next Powercoders graduate starts where the jobs are.» Screen: the wordmark.
 
 **Recording tips.** Rehearse once with a timer. Record the screen first, then the voice. Open the pages beforehand so nothing loads on camera. Use the English page. Hide the «Design options» button for the recording by choosing the look first, then reload with the link.
