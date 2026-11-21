@@ -222,7 +222,7 @@ test("@ci English pages hold no German", async ({ page }) => {
   const check = async (path: string) => {
     await page.goto(path);
     const text = await page.evaluate(() => {
-      document.querySelectorAll<HTMLElement>(".ads, .policy__title, .policy__status, section[aria-labelledby=p-employers] .rank, section[aria-labelledby=p-agencies] .rank, section[aria-labelledby=p-glance-employers] .rank, section[aria-labelledby=p-job-employers] .rank, .company-names").forEach((n) => (n.style.display = "none"));
+      document.querySelectorAll<HTMLElement>(".ads, .policy__title, .policy__status, section[aria-labelledby=p-employers] .rank, section[aria-labelledby=p-agencies] .rank, section[aria-labelledby=p-glance-employers] .rank, section[aria-labelledby=p-job-employers] .rank, .company-names, .course__title").forEach((n) => (n.style.display = "none"));
       return document.body.innerText;
     });
     const hit = text.split("\n").filter((l) => GERMAN.test(l));

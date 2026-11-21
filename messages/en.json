@@ -175,6 +175,19 @@
       "jobsEmpty": "No IT ad in this period speaks to beginners.",
       "entryHow": "Open to beginners: the ad says junior, trainee, career changer, internship or similar, or the employer marked no experience or less than a year.",
       "note": "Occupation as the employer chose it on job-room.ch (SECO). IT occupations are those the Swiss occupation list files under ICT professionals and ICT technicians."
+    },
+    "teach": {
+      "title": "What to teach next",
+      "intro": "The skills these ads ask for most, with the Powercoders program that fits and beginner courses elsewhere.",
+      "atPowercoders": "At Powercoders:",
+      "source": "Powercoders programs and course providers, links checked",
+      "cost": {
+        "free": "free",
+        "audit": "free to audit",
+        "paid": "paid (free trial or aid may exist)"
+      },
+      "certificate": "certificate",
+      "note": "Costs and certificates as the provider pages showed them on the day the links were checked. Coursera courses are marked paid; many offer a free trial or financial aid."
     }
   },
   "policy": {
