@@ -1621,6 +1621,8 @@ html[data-light="true"] {
 }
 .mail-send .btn {
   justify-self: start;
+}
+
 /* Dashboard round 4 (Isabella, 21.11.2026): clickable donuts, canton map, button to the courses */
 .donut__row {
   display: flex;
