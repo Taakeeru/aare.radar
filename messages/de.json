@@ -191,7 +191,8 @@
       "note": "Kosten und Zertifikate so, wie die Seiten der Anbieter sie am Prüftag zeigten. Coursera-Kurse sind als kostenpflichtig markiert; viele bieten einen Gratistest oder finanzielle Unterstützung."
     },
     "rolePlaceholder": "Beruf auswählen…",
-    "pickToStart": "Wähl einen Beruf, um sein Dashboard zu sehen"
+    "pickToStart": "Wähl einen Beruf, um sein Dashboard zu sehen",
+    "pickJob": "Wähl einen IT-Beruf"
   },
   "policy": {
     "title": "Politik",

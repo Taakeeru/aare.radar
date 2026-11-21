@@ -36,9 +36,10 @@ test("@ci the start page is the market at a glance, and the job list opens one j
 
 test("@ci the Dashboard shows the start page until a role is chosen, then its six cards", async ({ page }) => {
   await page.goto("/de/uebersicht");
-  const pick = page.getByLabel("Wähl einen Beruf, um sein Dashboard zu sehen");
+  const pick = page.getByLabel("Wähl einen IT-Beruf");
   await expect(pick).toHaveValue("");
   await expect(page.locator("#o-skills")).toHaveCount(0); // the start page, not yet the Dashboard cards
+  await expect(page.locator("h1")).toHaveText("Der Schweizer IT-Stellenmarkt auf einen Blick");
   await pick.selectOption("support");
   await expect(page).toHaveURL(/\/de\/uebersicht\?role=support$/);
   await expect(page.locator("h1")).toContainText("Dashboard:");
