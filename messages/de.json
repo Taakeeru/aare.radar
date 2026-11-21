@@ -539,7 +539,26 @@
     "apply": "Meine Mail anzeigen",
     "policyCategory": "Neu im Parlament und im Bundesrecht",
     "policy": "Neu im Parlament und im Bundesrecht (letzte {days} Tage)",
-    "policyNote": "Titel in der Originalsprache."
+    "policyNote": "Titel in der Originalsprache.",
+    "send": {
+      "title": "An mich senden",
+      "lead": "Gib deine Adresse ein, wähl die Bereiche und einen Kanton, und der Radar schickt dir diese Zusammenfassung jetzt.",
+      "email": "Deine E-Mail-Adresse",
+      "emailHint": "name@beispiel.ch",
+      "canton": "Kanton",
+      "allCantons": "Ganze Schweiz",
+      "subscribe": "Schick sie mir auch alle zwei Wochen (das Radar-Team bestätigt das zuerst mit dir)",
+      "consent": "Ich bin einverstanden, dass der Radar meine Adresse nur für den Versand dieser Zusammenfassung nutzt. Ohne Abo wird sie direkt nach dem Versand gelöscht.",
+      "button": "An mich senden",
+      "paused": "Der Versand ist im Moment ausgeschaltet.",
+      "status": {
+        "ok": "Danke. Die Zusammenfassung ist unterwegs und kommt in wenigen Minuten an.",
+        "bad": "Bitte prüf die E-Mail-Adresse.",
+        "consent": "Bitte setz das Häkchen, damit der Radar die Mail senden darf.",
+        "limit": "Im Moment zu viele Anfragen. Bitte versuch es später nochmals.",
+        "off": "Der Versand ist im Moment ausgeschaltet."
+      }
+    }
   },
   "home": {
     "title": "Der Schweizer IT-Stellenmarkt auf einen Blick",

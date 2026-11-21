@@ -49,6 +49,7 @@ services:
       # Admin «Settings» and GET /api/digest-config: off unless ADMIN_SETTINGS=1; the API also needs the token.
       - ADMIN_SETTINGS=${ADMIN_SETTINGS:-}
       - DIGEST_CONFIG_TOKEN=${DIGEST_CONFIG_TOKEN:-}
+      - MAIL_REQUESTS=${MAIL_REQUESTS:-}
       - SMTP_HOST=${SMTP_HOST:-}
       - SMTP_PORT=${SMTP_PORT:-465}
       - SMTP_USER=${SMTP_USER:-}

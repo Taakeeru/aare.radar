@@ -2,7 +2,8 @@ import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { toLocale } from "@/i18n/routing";
 import { loadRadar } from "@/lib/radar";
-import { formatDate, formatInt, safeHttpUrl } from "@/lib/radar-view";
+import { cantonName, formatDate, formatInt, safeHttpUrl } from "@/lib/radar-view";
+import { mailRequestsEnabled } from "@/lib/mail-requests";
 
 export async function generateMetadata(): Promise<Metadata> {
   const t = await getTranslations("email");
@@ -13,7 +14,7 @@ export async function generateMetadata(): Promise<Metadata> {
  * Preview of the two-weekly summary email (21.11.2026): exactly what collector/digest.py v2 sends, from the
  * `digest` block of the data file. Beginner IT ads first, by field, soonest deadline first, at most 5 per field.
  */
-export default async function EmailPreviewPage({ params, searchParams }: { params: Promise<{ locale: string }>; searchParams: Promise<{ field?: string | string[] }> }) {
+export default async function EmailPreviewPage({ params, searchParams }: { params: Promise<{ locale: string }>; searchParams: Promise<{ field?: string | string[]; mail?: string }> }) {
   const locale = toLocale((await params).locale);
   setRequestLocale(locale);
   const t = await getTranslations("email");
@@ -36,6 +37,11 @@ export default async function EmailPreviewPage({ params, searchParams }: { param
   // Each reader gets only the categories they chose (team, 21.11.); nothing ticked = all categories.
   const fields = picked.size > 0 ? d.fields.filter((f) => picked.has(f.group)) : d.fields;
   const entryTotal = fields.reduce((n, f) => n + f.entry_ads, 0);
+  // «Send it to me» (Isabella, thread 66): address, categories, canton; sent by the sender on the other server
+  const sendOn = mailRequestsEnabled();
+  const mailStatus = typeof sp.mail === "string" && ["ok", "bad", "consent", "limit", "off"].includes(sp.mail) ? sp.mail : "";
+  const cantonCodes = result.ok ? (result.data.it_market?.cantons ?? []).map((x) => x.canton).filter((x) => /^[A-Z]{2}$/.test(x)) : [];
+  const cantonOptions = [...new Set(cantonCodes)].map((code) => ({ code, name: cantonName(code, locale) })).sort((a, b) => a.name.localeCompare(b.name, locale));
   return (
     <div className="page">
       <header className="page-head">
@@ -60,6 +66,62 @@ export default async function EmailPreviewPage({ params, searchParams }: { param
           {t("apply")}
         </button>
       </form>
+      <section id="send" className="mail-send" aria-labelledby="send-title">
+        <h2 id="send-title">{t("send.title")}</h2>
+        <p>{t("send.lead")}</p>
+        {mailStatus ? (
+          <p className="notice" role="status">
+            {t(`send.status.${mailStatus}`)}
+          </p>
+        ) : null}
+        {sendOn ? (
+          <form className="mail-send__form" method="post" action="/api/mail-request">
+            <input type="hidden" name="locale" value={locale} />
+            <label className="mail-send__hp" aria-hidden="true">
+              Website <input type="text" name="website" tabIndex={-1} autoComplete="off" />
+            </label>
+            <label className="mail-send__field">
+              <span>{t("send.email")}</span>
+              <input type="email" name="email" required maxLength={254} autoComplete="email" placeholder={t("send.emailHint")} />
+            </label>
+            <fieldset>
+              <legend>{t("pick")}</legend>
+              {d.fields.map((f) => (
+                <label key={f.group} className="mail-pick__opt">
+                  <input type="checkbox" name="field" value={f.group} defaultChecked={picked.has(f.group)} /> {label(f)}
+                </label>
+              ))}
+              {(d.policy ?? []).length > 0 ? (
+                <label className="mail-pick__opt">
+                  <input type="checkbox" name="field" value="policy" defaultChecked={picked.has("policy")} /> {t("policyCategory")}
+                </label>
+              ) : null}
+            </fieldset>
+            <label className="mail-send__field">
+              <span>{t("send.canton")}</span>
+              <select name="canton" defaultValue="">
+                <option value="">{t("send.allCantons")}</option>
+                {cantonOptions.map((o) => (
+                  <option key={o.code} value={o.code}>
+                    {o.name}
+                  </option>
+                ))}
+              </select>
+            </label>
+            <label className="mail-pick__opt">
+              <input type="checkbox" name="subscribe" value="yes" /> {t("send.subscribe")}
+            </label>
+            <label className="mail-pick__opt">
+              <input type="checkbox" name="consent" value="yes" required /> {t("send.consent")}
+            </label>
+            <button type="submit" className="btn btn--primary">
+              {t("send.button")}
+            </button>
+          </form>
+        ) : (
+          <p className="note">{t("send.paused")}</p>
+        )}
+      </section>
       <article className="mail" aria-label={t("title")}>
         <dl className="mail__head">
           <dt>{t("fromLabel")}</dt>

@@ -539,7 +539,26 @@
     "apply": "Show my email",
     "policyCategory": "New in parliament and federal law",
     "policy": "New in parliament and federal law (last {days} days)",
-    "policyNote": "Titles in their original language."
+    "policyNote": "Titles in their original language.",
+    "send": {
+      "title": "Send it to me",
+      "lead": "Type your address, choose the categories and a canton, and the radar sends you this summary now.",
+      "email": "Your email address",
+      "emailHint": "name@example.ch",
+      "canton": "Canton",
+      "allCantons": "All of Switzerland",
+      "subscribe": "Also send it to me every two weeks (the radar team confirms it with you first)",
+      "consent": "I agree that the radar uses my address only to send this summary. Without a subscription it is deleted right after sending.",
+      "button": "Send it to me",
+      "paused": "Sending is switched off at the moment.",
+      "status": {
+        "ok": "Thank you. The summary is on its way and arrives within a few minutes.",
+        "bad": "Please check the email address.",
+        "consent": "Please tick the box to agree, so the radar may send the mail.",
+        "limit": "Too many requests right now. Please try again later.",
+        "off": "Sending is switched off at the moment."
+      }
+    }
   },
   "home": {
     "title": "The Swiss IT job market at a glance",

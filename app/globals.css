@@ -1580,6 +1580,49 @@ html[data-light="true"] {
   gap: 4px 24px;
 }
 
+/* «Send it to me» on the email page (Isabella, 21.11.2026) */
+.mail-send {
+  margin: 24px 0 32px;
+  padding: 24px;
+  border: 1px solid var(--radar-border);
+  border-radius: 8px;
+  background: var(--radar-surface);
+}
+.mail-send h2 {
+  margin: 0 0 8px;
+}
+.mail-send__form {
+  display: grid;
+  gap: 16px;
+  max-width: 560px;
+}
+.mail-send__field {
+  display: grid;
+  gap: 6px;
+  font-weight: 700;
+}
+.mail-send__field input,
+.mail-send__field select {
+  min-height: 44px;
+  padding: 8px 12px;
+  border: 1px solid var(--radar-border);
+  border-radius: 4px;
+  background: var(--radar-root);
+  color: var(--radar-text);
+  font: inherit;
+  font-weight: 400;
+}
+.mail-send__hp {
+  position: absolute;
+  left: -10000px;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+}
+.mail-send .btn {
+  justify-self: start;
+}
+
 /* Dashboard round 4 (Isabella, 21.11.2026): clickable donuts, canton map, button to the courses */
 .donut__row {
   display: flex;
