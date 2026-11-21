@@ -5,6 +5,7 @@ import { BarList, type BarRow } from "@/components/bar-list";
 import { Donut, type Slice } from "@/components/donut";
 import { PageIcon } from "@/components/page-icon";
 import { Panel } from "@/components/panel";
+import type { SourceRef } from "@/components/source-line";
 import { toLocale } from "@/i18n/routing";
 import { loadRadar } from "@/lib/radar";
 import { cantonName, formatInt, outOf100, pickSources, safeHttpUrl } from "@/lib/radar-view";
@@ -37,7 +38,7 @@ export default async function OverviewPage({ params }: { params: Promise<{ local
   const data = result.data;
   const fmt = (n: number) => formatInt(n, locale);
   const jobroom = pickSources(data, ["jobroom"]);
-  const courseSrc = [{ id: "courses", name: d("teach.source"), url: "https://powercoders.org/programs/", updated: "2026-11-21" }];
+  const courseSrc: SourceRef[] = [{ id: "courses", name: d("teach.source"), url: "https://powercoders.org/programs/", updated: "2026-11-21" }];
 
   // 1 and 2: donuts, slices = share of the mentions among the six skills shown (an ad names several skills)
   const sk = (it.skills ?? []).slice(0, 6);
@@ -78,7 +79,7 @@ export default async function OverviewPage({ params }: { params: Promise<{ local
           <span className="tag-chip">{t("skills.chip")}</span>
           <Donut slices={skillSlices} label={t("skills.title")} center="100%" />
         </Panel>
-        <Panel id="o-teach" title={t("teach.title")} intro={t("teach.intro", { n: fmt(ov.entry_basis) })} span={4} sources={courseSrc.concat(jobroom)}>
+        <Panel id="o-teach" title={t("teach.title")} intro={t("teach.intro", { n: fmt(ov.entry_basis) })} span={4} sources={[...courseSrc, ...jobroom]}>
           <span className="tag-chip">{t("teach.chip")}</span>
           <Donut slices={teachSlices} label={t("teach.title")} center="100%" />
           <p className="note">
