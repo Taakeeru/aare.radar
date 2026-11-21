@@ -4,6 +4,7 @@ import unittest
 from unittest import mock
 
 from collector import collect, db, types
+from collector.roles import IT_GUARD, classify
 
 
 class CollectTest(unittest.TestCase):
@@ -56,6 +57,32 @@ class CollectTest(unittest.TestCase):
     def test_old_names_still_work(self):
         self.assertEqual(collect.ALIASES["jobs"], ["jobroom"])
         self.assertEqual(collect.ALIASES["policy"], ["curia", "fedlex"])
+
+    def test_new_roles_by_title(self):
+        for title, role in [("Junior DevOps Engineer", "devops"), ("Netzwerktechniker EFZ", "network"),
+                            ("Cyber Security Analyst", "security"), ("Software Tester", "qa"),
+                            ("Projektleiter ICT", "itpm"), ("Business Analyst Banking", "business"),
+                            ("UX Designer", "ux"), ("SAP Berater", "erp")]:
+            self.assertIn(role, classify(title), title)
+            self.assertTrue(IT_GUARD.search(title), title)
+        self.assertNotIn("data", classify("Cyber Security Analyst"))
+
+    def test_non_programming_tech_roles_by_title(self):
+        for title, role in [("People Analyst (m/w/d)", "people"), ("Digital Product Manager", "product"),
+                            ("Online Marketing Manager SEO", "marketing"),
+                            ("Customer Success Manager SaaS", "techsales"), ("IT Recruiter 80-100%", "recruiting")]:
+            self.assertIn(role, classify(title), title)
+            self.assertTrue(IT_GUARD.search(title), title)
+        self.assertFalse(IT_GUARD.search("Pflegefachperson Station"))
+        self.assertFalse(IT_GUARD.search("Verkaufsberater Detailhandel"))
+
+    def test_old_roles_keep_their_titles(self):
+        self.assertIn("web", classify("Web Developer"))
+        self.assertIn("support", classify("IT Supporter"))
+        self.assertIn("data", classify("Data Analyst"))
+
+    def test_non_it_title_has_no_role(self):
+        self.assertEqual(classify("Pflegefachperson 80%"), [])
 
 
 if __name__ == "__main__":
