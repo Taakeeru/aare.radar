@@ -87,7 +87,8 @@ export type ItMarket = ItDetail & {
 /** The two-weekly summary email (export field `digest`, 21.11.2026). */
 export type DigestItem = { title: string; company: string | null; city: string | null; ends: string | null; url: string };
 export type DigestField = { group: string; label_en: string; label_de: string; ads: number; entry_ads: number; items: DigestItem[]; skills?: string[] };
-export type Digest = { from: string; to: string; days: number; ads: number; entry_ads: number; fields: DigestField[] };
+export type DigestPolicy = { title: string; source: string; date: string | null; status: string | null; url: string | null };
+export type Digest = { from: string; to: string; days: number; ads: number; entry_ads: number; fields: DigestField[]; policy?: DigestPolicy[]; policy_days?: number };
 export type Radar = {
   generated_at: string;
   window_days: number;

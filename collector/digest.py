@@ -2,6 +2,7 @@
 
     python3 -m collector.digest [db_path] [en|de]            # v1: every new ad per role (kept for its tests)
     python3 -m collector.digest --v2 [db_path] [en|de] [--html]   # v2: beginner IT ads first, by category
+    python3 -m collector.digest --v2 [db_path] [en|de] --fields 251,351,policy --scheduled --json   # one reader, for the sender
 
 v2 (21.11.2026, team: «a report every two weeks with the amount of new job postings organized by categories with
 clear deadlines»; owner: entry level first): every new IT ad of the period (job-room IT occupation codes, plus the
@@ -89,7 +90,10 @@ V2 = {
            "until": "apply until {d}", "noend": "no deadline given",
            "foot": "Source: job-room.ch (SECO), ads published in Switzerland. Counts only, no personal data. "
                    "All numbers and charts: {site}",
-           "other": "Other IT-related roles"},
+           "other": "Other IT-related roles",
+           "policy": "New in parliament and federal law (last {days} days)",
+           "policy_note": "Titles in their original language.",
+           "stop": "You get this email every second Monday and Thursday. Reply «stop» to leave the list, or reply with the categories you want."},
     "de": {"subject": "{{ AARE.RADAR }}: {n} Einstiegsstellen in der IT, {a} bis {b}",
            "intro": "{entry} neue Einstiegs-, Junior- und Praktikumsstellen in der IT in der Schweiz vom {a} bis {b}.",
            "field": "{label}: {e} Stellen",
@@ -99,9 +103,13 @@ V2 = {
            "until": "Bewerbung bis {d}", "noend": "kein Enddatum angegeben",
            "foot": "Quelle: job-room.ch (SECO), in der Schweiz ausgeschriebene Inserate. Nur Zahlen, keine Personendaten. "
                    "Alle Zahlen und Grafiken: {site}",
-           "other": "Weitere IT-nahe Rollen"},
+           "other": "Weitere IT-nahe Rollen",
+           "policy": "Neu im Parlament und im Bundesrecht (letzte {days} Tage)",
+           "policy_note": "Titel in der Originalsprache.",
+           "stop": "Diese Mail kommt jeden zweiten Montag und Donnerstag. Antworte «stop», um sie abzubestellen, oder mit den Kategorien, die du willst."},
 }
 SITE = "https://radar.gnamak.ch"
+POLICY_DAYS = 30
 # The site's wordmark (team vote 21.11.): { AARE.RADAR }, braces and dot in Aare turquoise, letters in the ink.
 ACCENT, INK, GROUND = "#3eafaf", "#101317", "#f6f1e7"
 WORDMARK_HTML = (f'<span style="color:{ACCENT}">{{</span> AARE<span style="color:{ACCENT}">.</span>RADAR '
@@ -158,11 +166,21 @@ def build_digest_v2(c, today, days=14, per_field=3, skills_per_field=3):
     # The team (Isabella, 21.11.): only entry-level, junior and internship positions; a field without one is left out.
     out = [f for f in out if f["entry_ads"] > 0]
     out.sort(key=lambda f: (f["group"] == "other", -f["entry_ads"]))
-    return {"from": start.isoformat(), "to": today.isoformat(), "days": days,
+    # Policy watch (question E): the newest parliament and federal-law items of the last POLICY_DAYS, at most 3.
+    pol_from = (today - dt.timedelta(days=POLICY_DAYS)).isoformat()
+    try:
+        policy = [{"title": t, "source": src, "date": (d or "")[:10] or None, "status": st, "url": u}
+                  for src, t, d, st, u in c.execute(
+                      "SELECT source, title, date, status, url FROM policy WHERE date >= ? ORDER BY date DESC LIMIT 3",
+                      (pol_from,))]
+    except Exception:  # noqa: BLE001 (an old database without the table: no section)
+        policy = []
+    return {"from": start.isoformat(), "to": today.isoformat(), "days": days, "policy": policy,
+            "policy_days": POLICY_DAYS,
             "ads": sum(f["ads"] for f in out), "entry_ads": sum(f["entry_ads"] for f in out), "fields": out}
 
 
-def render_v2(d, locale="en", fields=None):
+def render_v2(d, locale="en", fields=None, scheduled=False):
     """-> {subject, text, html} for one language. The HTML is inline-styled, plain (mail clients strip CSS)."""
     import html as h
     t = V2.get(locale, V2["en"])
@@ -199,9 +217,26 @@ def render_v2(d, locale="en", fields=None):
             lines.append(more)
             hp.append(f'<p style="margin:8px 0 0">{h.escape(more)}</p>')
         lines.append("")
+    pol = d.get("policy") or []
+    if pol and (fields is None or "policy" in fields):
+        head = t["policy"].format(days=d.get("policy_days", POLICY_DAYS))
+        lines.append(head)
+        hp.append(f'<h2 style="font-size:17px;margin:24px 0 8px">{h.escape(head)}</h2><ul style="margin:0;padding-left:20px">')
+        for p in pol:
+            meta = ", ".join(x for x in (p["source"], _fmt(dt.date.fromisoformat(p["date"]), locale) if p["date"] else "") if x)
+            lines.append(f"- {p['title']} ({meta}){': ' + p['url'] if p.get('url') else ''}")
+            title = (f'<a href="{h.escape(p["url"])}">{h.escape(p["title"])}</a>' if p.get("url") else h.escape(p["title"]))
+            hp.append(f'<li style="margin:0 0 8px">{title}<br>{h.escape(meta)}</li>')
+        hp.append("</ul>")
+        lines.append(t["policy_note"])
+        hp.append(f'<p style="margin:4px 0 0;font-size:14px">{h.escape(t["policy_note"])}</p>')
+        lines.append("")
     foot = t["foot"].format(site=f"{SITE}/{locale}")
     lines.append(foot)
     hp.append(f'<p style="margin:24px 0 0;font-size:14px">{h.escape(foot)}</p>')
+    if scheduled:
+        lines.append(t["stop"])
+        hp.append(f'<p style="margin:8px 0 0;font-size:14px">{h.escape(t["stop"])}</p>')
     body = "".join(hp)
     html_doc = (f'<!doctype html><html lang="{locale}"><body style="margin:0;padding:24px;background:{GROUND};color:{INK};'
                 f'font-family:Helvetica,Arial,sans-serif;font-size:16px;line-height:1.5"><div style="max-width:640px;margin:0 auto">'
@@ -212,10 +247,19 @@ def render_v2(d, locale="en", fields=None):
 def main(argv):
     from . import db
     if "--v2" in argv:
+        # --fields 251,351,policy  (one reader's categories; omitted = all)   --json  (subject, text, html for a sender)
+        fields = None
+        if "--fields" in argv:
+            fields = [f for f in argv[argv.index("--fields") + 1].split(",") if f]
+            argv = argv[:argv.index("--fields")] + argv[argv.index("--fields") + 2:]
         rest = [x for x in argv if not x.startswith("--")]
         c = db.connect(rest[0] if rest else None)
-        r = render_v2(build_digest_v2(c, dt.date.today()), rest[1] if len(rest) > 1 else "en")
-        print(r["html"] if "--html" in argv else f"{r['subject']}\n\n{r['text']}")
+        r = render_v2(build_digest_v2(c, dt.date.today()), rest[1] if len(rest) > 1 else "en", fields=fields,
+                      scheduled="--scheduled" in argv)
+        if "--json" in argv:
+            print(json.dumps(r, ensure_ascii=False))
+        else:
+            print(r["html"] if "--html" in argv else f"{r['subject']}\n\n{r['text']}")
         return
     c = db.connect(argv[0] if argv else None)
     d = build_digest(c, dt.date.today(), locale=argv[1] if len(argv) > 1 else "en")

@@ -50,6 +50,11 @@ export default async function EmailPreviewPage({ params, searchParams }: { param
               <input type="checkbox" name="field" value={f.group} defaultChecked={picked.has(f.group)} /> {label(f)}
             </label>
           ))}
+          {(d.policy ?? []).length > 0 ? (
+            <label className="mail-pick__opt">
+              <input type="checkbox" name="field" value="policy" defaultChecked={picked.has("policy")} /> {t("policyCategory")}
+            </label>
+          ) : null}
         </fieldset>
         <button type="submit" className="btn btn--primary">
           {t("apply")}
@@ -96,6 +101,33 @@ export default async function EmailPreviewPage({ params, searchParams }: { param
               {f.entry_ads > f.items.length ? <p className="mail__meta">{t("more", { k: fmt(f.entry_ads - f.items.length) })}</p> : null}
             </section>
           ))}
+          {(d.policy ?? []).length > 0 && (picked.size === 0 || picked.has("policy")) ? (
+            <section className="mail__field">
+              <h2>{t("policy", { days: d.policy_days ?? 30 })}</h2>
+              <ul>
+                {(d.policy ?? []).map((p) => {
+                  const url = safeHttpUrl(p.url);
+                  return (
+                    <li key={`${p.source}-${p.title}`}>
+                      {url ? (
+                        <a href={url} target="_blank" rel="noopener noreferrer" className="policy__title">
+                          {p.title}
+                        </a>
+                      ) : (
+                        <span className="policy__title">{p.title}</span>
+                      )}
+                      <br />
+                      <span className="mail__meta">
+                        {p.source}
+                        {p.date ? ` · ${formatDate(p.date, locale)}` : ""}
+                      </span>
+                    </li>
+                  );
+                })}
+              </ul>
+              <p className="mail__meta">{t("policyNote")}</p>
+            </section>
+          ) : null}
           <p className="mail__foot">{t("foot")}</p>
         </div>
       </article>
