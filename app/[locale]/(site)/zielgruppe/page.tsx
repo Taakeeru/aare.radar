@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { PageIcon } from "@/components/page-icon";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { LOCALE_TAGS, toLocale } from "@/i18n/routing";
 import { BarList, type BarRow } from "@/components/bar-list";
@@ -55,8 +56,9 @@ export default async function TargetGroupPage({ params }: { params: Promise<{ lo
     return (
       <div className="page">
         <header className="page-head">
-          <p className="eyebrow">
-            {c("sectionOf", { letter: "D" })}: {q("D.title")}
+          <p className="eyebrow eyebrow--icon">
+            <PageIcon name="target" />
+            {q("D.title")}
           </p>
           <h1 className="page__title">{q("D.question")}</h1>
           <p className="page__lead">{t("leadData")}</p>
@@ -119,8 +121,9 @@ export default async function TargetGroupPage({ params }: { params: Promise<{ lo
   return (
     <div className="page">
       <header className="page-head">
-        <p className="eyebrow">
-          {c("sectionOf", { letter: "D" })}: {q("D.title")}
+        <p className="eyebrow eyebrow--icon">
+          <PageIcon name="target" />
+            {q("D.title")}
         </p>
         <h1 className="page__title">{q("D.question")}</h1>
         <p className="page__lead">{t("lead")}</p>
