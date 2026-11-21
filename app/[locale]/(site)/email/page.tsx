@@ -13,10 +13,12 @@ export async function generateMetadata(): Promise<Metadata> {
  * Preview of the two-weekly summary email (21.11.2026): exactly what collector/digest.py v2 sends, from the
  * `digest` block of the data file. Beginner IT ads first, by field, soonest deadline first, at most 5 per field.
  */
-export default async function EmailPreviewPage({ params }: { params: Promise<{ locale: string }> }) {
+export default async function EmailPreviewPage({ params, searchParams }: { params: Promise<{ locale: string }>; searchParams: Promise<{ field?: string | string[] }> }) {
   const locale = toLocale((await params).locale);
   setRequestLocale(locale);
   const t = await getTranslations("email");
+  const sp = await searchParams;
+  const picked = new Set(typeof sp.field === "string" ? [sp.field] : (sp.field ?? []));
   const result = loadRadar();
   const d = result.ok ? result.data.digest : undefined;
   if (!d) {
@@ -31,24 +33,41 @@ export default async function EmailPreviewPage({ params }: { params: Promise<{ l
   const from = formatDate(d.from, locale);
   const to = formatDate(d.to, locale);
   const label = (f: { label_en: string; label_de: string }) => (locale === "de" ? f.label_de : f.label_en);
+  // Each reader gets only the categories they chose (team, 21.11.); nothing ticked = all categories.
+  const fields = picked.size > 0 ? d.fields.filter((f) => picked.has(f.group)) : d.fields;
+  const entryTotal = fields.reduce((n, f) => n + f.entry_ads, 0);
   return (
     <div className="page">
       <header className="page-head">
         <h1 className="page__title">{t("title")}</h1>
         <p className="page__lead">{t("lead")}</p>
       </header>
+      <form className="mail-pick" method="get" action="">
+        <fieldset>
+          <legend>{t("pick")}</legend>
+          {d.fields.map((f) => (
+            <label key={f.group} className="mail-pick__opt">
+              <input type="checkbox" name="field" value={f.group} defaultChecked={picked.has(f.group)} /> {label(f)}
+            </label>
+          ))}
+        </fieldset>
+        <button type="submit" className="btn btn--primary">
+          {t("apply")}
+        </button>
+      </form>
       <article className="mail" aria-label={t("title")}>
         <dl className="mail__head">
           <dt>{t("fromLabel")}</dt>
           <dd>AareRadar</dd>
           <dt>{t("subjectLabel")}</dt>
-          <dd>{t("subject", { n: fmt(d.entry_ads), from, to })}</dd>
+          <dd>{t("subject", { n: fmt(entryTotal), from, to })}</dd>
         </dl>
         <div className="mail__body">
-          <p>{t("intro", { from, to, total: fmt(d.ads), entry: fmt(d.entry_ads) })}</p>
-          {d.fields.map((f) => (
+          <p>{t("intro", { from, to, entry: fmt(entryTotal) })}</p>
+          {fields.map((f) => (
             <section key={f.group} className="mail__field">
-              <h2>{t("field", { label: label(f), n: fmt(f.ads), e: fmt(f.entry_ads) })}</h2>
+              <h2>{t("field", { label: label(f), e: fmt(f.entry_ads) })}</h2>
+              {(f.skills ?? []).length > 0 ? <p className="mail__skills">{t("skills", { list: (f.skills ?? []).join(", ") })}</p> : null}
               {f.items.length === 0 ? (
                 <p>{t("none")}</p>
               ) : (

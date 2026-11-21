@@ -38,9 +38,14 @@ class DigestV2Test(unittest.TestCase):
             self.assertTrue(by["251"]["items"][0]["url"].startswith("https://www.job-room.ch/job-search/"))
             for loc in ("en", "de"):
                 r = digest.render_v2(g, loc)
-                self.assertIn("AareRadar", r["subject"])
+                self.assertIn("{ AARE.RADAR }", r["subject"])
                 self.assertNotIn("ß", r["text"] + r["subject"])
                 self.assertIn("<a href=", r["html"])
+                self.assertIn("#3eafaf", r["html"])           # the wordmark's braces in Aare turquoise
+            only = digest.render_v2(g, "en", fields=["351"])
+            self.assertIn("ICT Supporter", only["text"])
+            self.assertNotIn("Junior Software Engineer", only["text"])   # a category the reader did not choose
+            self.assertIn("1 new entry-level", only["text"])
 
 
 if __name__ == "__main__":

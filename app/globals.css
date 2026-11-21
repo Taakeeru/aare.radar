@@ -1152,3 +1152,24 @@ html[data-light="true"] {
   outline: 2px solid var(--radar-accent);
   outline-offset: 2px;
 }
+.mail-pick {
+  max-width: 720px;
+  margin-bottom: 24px;
+}
+.mail-pick fieldset {
+  margin: 0 0 12px;
+  padding: 0;
+  border: 0;
+}
+.mail-pick legend {
+  margin-bottom: 8px;
+  font-weight: 700;
+}
+.mail-pick__opt {
+  display: block;
+  min-height: 32px;
+}
+.mail__skills {
+  margin: 0 0 8px;
+  font-weight: 700;
+}

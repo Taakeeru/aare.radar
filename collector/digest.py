@@ -80,32 +80,38 @@ def build_digest(c, today, days=14, locale="en"):
 
 
 V2 = {
-    "en": {"subject": "AareRadar: {n} IT jobs open to beginners, {a} to {b}",
-           "intro": "New IT job ads in Switzerland from {a} to {b}: {total} in all, {entry} of them open to beginners "
-                    "(junior, trainee, internship, career changer, or no experience needed).",
-           "field": "{label}: {n} new ads, {e} open to beginners",
-           "none": "No beginner ad in this field in these two weeks.",
-           "more": "{k} more beginner ads in this field on the radar.",
+    "en": {"subject": "{{ AARE.RADAR }}: {n} entry-level IT positions, {a} to {b}",
+           "intro": "{entry} new entry-level, junior and internship IT positions in Switzerland from {a} to {b}.",
+           "field": "{label}: {e} positions",
+           "skills": "Skills they look for: {list}",
+           "none": "No entry-level position in this category in these two weeks.",
+           "more": "{k} more in this category on the radar.",
            "until": "apply until {d}", "noend": "no deadline given",
            "foot": "Source: job-room.ch (SECO), ads published in Switzerland. Counts only, no personal data. "
                    "All numbers and charts: {site}",
            "other": "Other IT-related roles"},
-    "de": {"subject": "AareRadar: {n} IT-Stellen für Einsteigende, {a} bis {b}",
-           "intro": "Neue IT-Inserate in der Schweiz vom {a} bis {b}: {total} insgesamt, {entry} davon offen für "
-                    "Einsteigende (Junior, Trainee, Praktikum, Quereinstieg oder ohne Erfahrung).",
-           "field": "{label}: {n} neue Inserate, {e} offen für Einsteigende",
-           "none": "In diesem Bereich gab es in diesen zwei Wochen kein Einsteiger-Inserat.",
-           "more": "{k} weitere Einsteiger-Inserate in diesem Bereich auf dem Radar.",
+    "de": {"subject": "{{ AARE.RADAR }}: {n} Einstiegsstellen in der IT, {a} bis {b}",
+           "intro": "{entry} neue Einstiegs-, Junior- und Praktikumsstellen in der IT in der Schweiz vom {a} bis {b}.",
+           "field": "{label}: {e} Stellen",
+           "skills": "Gesuchte Fähigkeiten: {list}",
+           "none": "In dieser Kategorie gab es in diesen zwei Wochen keine Einstiegsstelle.",
+           "more": "{k} weitere in dieser Kategorie auf dem Radar.",
            "until": "Bewerbung bis {d}", "noend": "kein Enddatum angegeben",
            "foot": "Quelle: job-room.ch (SECO), in der Schweiz ausgeschriebene Inserate. Nur Zahlen, keine Personendaten. "
                    "Alle Zahlen und Grafiken: {site}",
            "other": "Weitere IT-nahe Rollen"},
 }
 SITE = "https://radar.gnamak.ch"
+# The site's wordmark (team vote 21.11.): { AARE.RADAR }, braces and dot in Aare turquoise, letters in the ink.
+ACCENT, INK, GROUND = "#3eafaf", "#101317", "#f6f1e7"
+WORDMARK_HTML = (f'<span style="color:{ACCENT}">{{</span> AARE<span style="color:{ACCENT}">.</span>RADAR '
+                 f'<span style="color:{ACCENT}">}}</span>')
+# Replies to the email go to the secretary inbox, which hands mails from the team to the radar's board (21.11.).
+REPLY_TO = "secretary@pandora-ai.ch"
 JOBROOM_AD = "https://www.job-room.ch/job-search/{id}"
 
 
-def build_digest_v2(c, today, days=14, per_field=5):
+def build_digest_v2(c, today, days=14, per_field=3, skills_per_field=3):
     """Language-neutral structure: {from, to, days, ads, entry_ads, fields: [{group, label_en, label_de, ads,
     entry_ads, items: [{title, company, city, ends, url}]}]} (items = beginner ads, soonest deadline first)."""
     from .types.jobroom_search import it_occupations
@@ -116,8 +122,8 @@ def build_digest_v2(c, today, days=14, per_field=5):
     cols = {r[1] for r in c.execute("PRAGMA table_info(ads)")}
     exp = "experience" if "experience" in cols else "NULL"
     fields, dup = {}, set()
-    for aid, title, company, city, ends, roles, barriers, first_seen, code, x in c.execute(
-            f"SELECT id, title, company, city, ends, roles, barriers, first_seen, occupation, {exp} FROM ads"):
+    for aid, title, company, city, ends, roles, barriers, first_seen, code, x, skills in c.execute(
+            f"SELECT id, title, company, city, ends, roles, barriers, first_seen, occupation, {exp}, skills FROM ads"):
         seen = _date(first_seen)
         if seen is None or not start <= seen <= today:
             continue
@@ -133,34 +139,49 @@ def build_digest_v2(c, today, days=14, per_field=5):
         if key in dup:
             continue
         dup.add(key)
-        f = fields.setdefault(g, {"ads": 0, "entry": []})
+        f = fields.setdefault(g, {"ads": 0, "entry": [], "skills": {}})
         f["ads"] += 1
         if is_entry_ad(title, tags, x) and not (ends and ends[:10] <= today.isoformat()):
+            try:
+                for k in json.loads(skills or "[]"):
+                    f["skills"][k] = f["skills"].get(k, 0) + 1
+            except (TypeError, ValueError):
+                pass
             f["entry"].append({"title": title, "company": company, "city": city, "ends": (ends or "")[:10] or None,
                                "url": JOBROOM_AD.format(id=aid)})
     out = []
     for g, f in fields.items():
         items = sorted(f["entry"], key=lambda i: (i["ends"] is None, i["ends"] or "9999"))
         out.append({"group": g, "label_en": groups.get(g, {}).get("en", g), "label_de": groups.get(g, {}).get("de", g),
-                    "ads": f["ads"], "entry_ads": len(items), "items": items[:per_field]})
-    out.sort(key=lambda f: (f["group"] == "other", -f["entry_ads"], -f["ads"]))
+                    "ads": f["ads"], "entry_ads": len(items), "items": items[:per_field],
+                    "skills": [k for k, _ in sorted(f["skills"].items(), key=lambda kv: -kv[1])[:skills_per_field]]})
+    # The team (Isabella, 21.11.): only entry-level, junior and internship positions; a field without one is left out.
+    out = [f for f in out if f["entry_ads"] > 0]
+    out.sort(key=lambda f: (f["group"] == "other", -f["entry_ads"]))
     return {"from": start.isoformat(), "to": today.isoformat(), "days": days,
             "ads": sum(f["ads"] for f in out), "entry_ads": sum(f["entry_ads"] for f in out), "fields": out}
 
 
-def render_v2(d, locale="en"):
+def render_v2(d, locale="en", fields=None):
     """-> {subject, text, html} for one language. The HTML is inline-styled, plain (mail clients strip CSS)."""
     import html as h
     t = V2.get(locale, V2["en"])
     a, b = _fmt(dt.date.fromisoformat(d["from"]), locale), _fmt(dt.date.fromisoformat(d["to"]), locale)
     lab = (lambda f: f["label_de"]) if locale == "de" else (lambda f: f["label_en"])
     when = lambda i: t["until"].format(d=_fmt(dt.date.fromisoformat(i["ends"]), locale)) if i["ends"] else t["noend"]  # noqa: E731
-    lines = [t["intro"].format(a=a, b=b, total=d["ads"], entry=d["entry_ads"]), ""]
+    # Each reader gets only the categories they chose (Seckin, 21.11.); None = all.
+    chosen = [f for f in d["fields"] if fields is None or f["group"] in fields]
+    entry_total = sum(f["entry_ads"] for f in chosen)
+    lines = [t["intro"].format(a=a, b=b, total=d["ads"], entry=entry_total), ""]
     hp = [f'<p style="margin:0 0 16px">{h.escape(lines[0])}</p>']
-    for f in d["fields"]:
+    for f in chosen:
         head = t["field"].format(label=lab(f), n=f["ads"], e=f["entry_ads"])
         lines.append(head)
         hp.append(f'<h2 style="font-size:17px;margin:24px 0 8px">{h.escape(head)}</h2>')
+        if f.get("skills"):
+            sk = t["skills"].format(list=", ".join(f["skills"]))
+            lines.append(sk)
+            hp.append(f'<p style="margin:0 0 8px"><strong>{h.escape(sk)}</strong></p>')
         if not f["items"]:
             lines.append(t["none"])
             hp.append(f'<p style="margin:0">{h.escape(t["none"])}</p>')
@@ -182,10 +203,10 @@ def render_v2(d, locale="en"):
     lines.append(foot)
     hp.append(f'<p style="margin:24px 0 0;font-size:14px">{h.escape(foot)}</p>')
     body = "".join(hp)
-    html_doc = (f'<!doctype html><html lang="{locale}"><body style="margin:0;padding:24px;font-family:Helvetica,Arial,sans-serif;'
-                f'font-size:16px;line-height:1.5"><div style="max-width:640px;margin:0 auto">'
-                f'<p style="font-size:20px;font-weight:700;margin:0 0 16px">{{ AareRadar }}</p>{body}</div></body></html>')
-    return {"subject": t["subject"].format(n=d["entry_ads"], a=a, b=b), "text": "\n".join(lines) + "\n", "html": html_doc}
+    html_doc = (f'<!doctype html><html lang="{locale}"><body style="margin:0;padding:24px;background:{GROUND};color:{INK};'
+                f'font-family:Helvetica,Arial,sans-serif;font-size:16px;line-height:1.5"><div style="max-width:640px;margin:0 auto">'
+                f'<p style="font-size:22px;font-weight:700;margin:0 0 16px">{WORDMARK_HTML}</p>{body}</div></body></html>')
+    return {"subject": t["subject"].format(n=entry_total, a=a, b=b), "text": "\n".join(lines) + "\n", "html": html_doc}
 
 
 def main(argv):

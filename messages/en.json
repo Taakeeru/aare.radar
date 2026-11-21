@@ -544,18 +544,21 @@
   },
   "email": {
     "title": "Summary email: preview",
-    "lead": "This is the email the team gets every two weeks: new IT jobs open to beginners, by field, the soonest deadline first.",
+    "lead": "This is the email the team gets every two weeks: only entry-level, junior and internship IT positions, up to 3 per category, with the deadline and the skills asked for. Each reader chooses their categories.",
     "fromLabel": "From",
     "subjectLabel": "Subject",
-    "subject": "AareRadar: {n} IT jobs open to beginners, {from} to {to}",
-    "intro": "New IT job ads in Switzerland from {from} to {to}: {total} in all, {entry} of them open to beginners (junior, trainee, internship, career changer, or no experience needed).",
-    "field": "{label}: {n} new ads, {e} open to beginners",
-    "none": "No beginner ad in this field in these two weeks.",
-    "more": "{k} more beginner ads in this field on the radar.",
+    "subject": "'{' AARE.RADAR '}': {n} entry-level IT positions, {from} to {to}",
+    "intro": "{entry} new entry-level, junior and internship IT positions in Switzerland from {from} to {to}.",
+    "field": "{label}: {e} positions",
+    "none": "No entry-level position in this category in these two weeks.",
+    "more": "{k} more in this category on the radar.",
     "until": "apply until {date}",
     "noEnd": "no deadline given",
     "foot": "Source: job-room.ch (SECO), ads published in Switzerland. Counts only, no personal data.",
-    "empty": "There is no summary yet. It appears after the next data update."
+    "empty": "There is no summary yet. It appears after the next data update.",
+    "skills": "Skills they look for: {list}",
+    "pick": "Categories in my email",
+    "apply": "Show my email"
   },
   "home": {
     "title": "The Swiss IT job market at a glance",
