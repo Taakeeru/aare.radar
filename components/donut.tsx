@@ -5,13 +5,13 @@
  */
 export type Slice = { key: string; label: string; value: number; tag?: string };
 
-export function Donut({ slices, label, center }: { slices: Slice[]; label: string; center: string }) {
+export function Donut({ slices, label, center, size = "normal" }: { slices: Slice[]; label: string; center: string; size?: "normal" | "large" }) {
   const total = slices.reduce((n, s) => n + s.value, 0) || 1;
   const R = 70;
   const C = 2 * Math.PI * R;
   let offset = 0;
   return (
-    <div className="donut">
+    <div className={size === "large" ? "donut donut--large" : "donut"}>
       <svg className="donut__chart" viewBox="0 0 180 180" role="img" aria-label={label}>
         {slices.map((s, i) => {
           const len = (s.value / total) * C;

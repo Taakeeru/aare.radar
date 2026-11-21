@@ -680,7 +680,10 @@
       "title": "Fähigkeiten, die Firmen suchen",
       "intro": "Anteil an den Nennungen unter den sechs meistgefragten Fähigkeiten in allen IT-Inseraten.",
       "chip": "Nachfrage",
-      "introRole": "Anteil an den Nennungen unter den sechs meistgefragten Fähigkeiten in den Inseraten dieses Berufs."
+      "introRole": "Anteil an den Nennungen unter den sechs meistgefragten Fähigkeiten in den Inseraten dieses Berufs.",
+      "pick": "Wähl eine Fähigkeit, um zu sehen, welche Firmen sie suchen:",
+      "adsWord": "Inserate",
+      "noCompanies": "Keine Firma mit einem Inserat für diese Fähigkeit."
     },
     "teach": {
       "title": "Fähigkeiten zum Unterrichten",
@@ -700,7 +703,10 @@
       "yAxis": "Inserate",
       "xAxis": "Fähigkeit",
       "note": "Ein Verlauf Monat für Monat entsteht, während der Radar täglich sammelt; job-room zeigt nur die letzten 60 Tage.",
-      "introRole": "Anzahl Inserate dieses Berufs, die die Fähigkeit nennen, letzte {days} Tage."
+      "introRole": "Anzahl Inserate dieses Berufs, die die Fähigkeit nennen, letzte {days} Tage.",
+      "introLine": "IT-Inserate pro Monat, die die Fähigkeit nennen.",
+      "introLineRole": "Inserate dieses Berufs pro Monat, die die Fähigkeit nennen.",
+      "noteLine": "Frühere Monate wirken kleiner: job-room zeigt Inserate nur 60 Tage lang, die Linien werden zu einem echten Verlauf, während der Radar täglich sammelt. Der laufende Monat ist noch nicht vorbei."
     },
     "req": {
       "title": "Einstiegsanforderungen",

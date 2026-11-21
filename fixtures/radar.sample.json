@@ -999,7 +999,117 @@
       }
      ]
     }
-   ]
+   ],
+   "skill_companies": {
+    "Scrum/Agile": [
+     {
+      "company": "Brack.Alltron AG",
+      "ads": 12
+     },
+     {
+      "company": "ti&m AG",
+      "ads": 6
+     },
+     {
+      "company": "Mettler Toledo",
+      "ads": 5
+     },
+     {
+      "company": "Evergreen Human Resources AG",
+      "ads": 4
+     }
+    ],
+    "Java": [
+     {
+      "company": "Brack.Alltron AG",
+      "ads": 7
+     },
+     {
+      "company": "Post CH AG",
+      "ads": 6
+     },
+     {
+      "company": "ti&m AG",
+      "ads": 6
+     },
+     {
+      "company": "Consult & Pepper AG",
+      "ads": 5
+     }
+    ],
+    "SQL": [
+     {
+      "company": "Swissquote Bank SA",
+      "ads": 5
+     },
+     {
+      "company": "Brack.Alltron AG",
+      "ads": 4
+     },
+     {
+      "company": "CashCtrl AG",
+      "ads": 3
+     },
+     {
+      "company": "Espace Health Group AG",
+      "ads": 3
+     }
+    ],
+    "Git": [
+     {
+      "company": "INFOMANIAK NETWORK SA",
+      "ads": 6
+     },
+     {
+      "company": "Mettler Toledo",
+      "ads": 6
+     },
+     {
+      "company": "Post CH AG",
+      "ads": 6
+     },
+     {
+      "company": "Swissquote Bank SA",
+      "ads": 5
+     }
+    ],
+    "Cloud": [
+     {
+      "company": "INFOMANIAK NETWORK SA",
+      "ads": 6
+     },
+     {
+      "company": "ti&m AG",
+      "ads": 4
+     },
+     {
+      "company": "CashCtrl AG",
+      "ads": 3
+     },
+     {
+      "company": "Swiss Life AG",
+      "ads": 3
+     }
+    ],
+    "Security": [
+     {
+      "company": "Google",
+      "ads": 6
+     },
+     {
+      "company": "Consult & Pepper AG",
+      "ads": 6
+     },
+     {
+      "company": "Post CH AG",
+      "ads": 4
+     },
+     {
+      "company": "Espace Health Group AG",
+      "ads": 3
+     }
+    ]
+   }
   },
   {
    "id": "support",
@@ -1725,7 +1835,117 @@
       }
      ]
     }
-   ]
+   ],
+   "skill_companies": {
+    "Microsoft 365": [
+     {
+      "company": "MTF Solutions AG",
+      "ads": 4
+     },
+     {
+      "company": "Dottikon Exclusive Synthesis AG",
+      "ads": 4
+     },
+     {
+      "company": "Schönenberger Partner AG",
+      "ads": 3
+     },
+     {
+      "company": "Hemmersbach Switzerland AG",
+      "ads": 2
+     }
+    ],
+    "Windows": [
+     {
+      "company": "Kantonale Verwaltung Basel-Landschaft",
+      "ads": 3
+     },
+     {
+      "company": "Schönenberger Partner AG",
+      "ads": 3
+     },
+     {
+      "company": "Mettler Toledo",
+      "ads": 3
+     },
+     {
+      "company": "SRG",
+      "ads": 3
+     }
+    ],
+    "Networking": [
+     {
+      "company": "Hirslanden AG",
+      "ads": 5
+     },
+     {
+      "company": "Salt Mobile SA",
+      "ads": 3
+     },
+     {
+      "company": "Schönenberger Partner AG",
+      "ads": 3
+     },
+     {
+      "company": "Mettler Toledo",
+      "ads": 3
+     }
+    ],
+    "Hardware": [
+     {
+      "company": "Selecta AG",
+      "ads": 4
+     },
+     {
+      "company": "Dottikon Exclusive Synthesis AG",
+      "ads": 4
+     },
+     {
+      "company": "IQ Plus AG",
+      "ads": 3
+     },
+     {
+      "company": "Nitrochemie Wimmis AG",
+      "ads": 3
+     }
+    ],
+    "Ticketing": [
+     {
+      "company": "Salt Mobile SA",
+      "ads": 3
+     },
+     {
+      "company": "Mettler Toledo",
+      "ads": 3
+     },
+     {
+      "company": "Hemmersbach Switzerland AG",
+      "ads": 2
+     },
+     {
+      "company": "colibri people AG",
+      "ads": 2
+     }
+    ],
+    "Security": [
+     {
+      "company": "Foppa AG",
+      "ads": 4
+     },
+     {
+      "company": "C5I",
+      "ads": 4
+     },
+     {
+      "company": "ASSEPRO AG",
+      "ads": 3
+     },
+     {
+      "company": "Kantonale Verwaltung Basel-Landschaft",
+      "ads": 3
+     }
+    ]
+   }
   },
   {
    "id": "data",
@@ -2463,7 +2683,117 @@
       }
      ]
     }
-   ]
+   ],
+   "skill_companies": {
+    "SQL": [
+     {
+      "company": "Kanton Aargau",
+      "ads": 3
+     },
+     {
+      "company": "Visana Services AG",
+      "ads": 3
+     },
+     {
+      "company": "Bundesamt für Meteorologie und Klimatologie MeteoSchweiz",
+      "ads": 3
+     },
+     {
+      "company": "Migros-Genossenschafts-Bund",
+      "ads": 3
+     }
+    ],
+    "Python": [
+     {
+      "company": "Microsoft",
+      "ads": 2
+     },
+     {
+      "company": "Pictet Asset Management SA",
+      "ads": 2
+     },
+     {
+      "company": "Vaudoise Assurances",
+      "ads": 2
+     },
+     {
+      "company": "TotalEnergies Gas & Power Ltd",
+      "ads": 2
+     }
+    ],
+    "Cloud": [
+     {
+      "company": "Zühlke Engineering AG",
+      "ads": 5
+     },
+     {
+      "company": "ti&m AG",
+      "ads": 4
+     },
+     {
+      "company": "Bundesamt für Meteorologie und Klimatologie MeteoSchweiz",
+      "ads": 3
+     },
+     {
+      "company": "Migros-Genossenschafts-Bund",
+      "ads": 3
+     }
+    ],
+    "Excel": [
+     {
+      "company": "Zühlke Engineering AG",
+      "ads": 5
+     },
+     {
+      "company": "TotalEnergies Gas & Power Ltd",
+      "ads": 4
+     },
+     {
+      "company": "Pictet Asset Management SA",
+      "ads": 3
+     },
+     {
+      "company": "Schweizer Armee - Kommando Ausbildung Kdo Ausb",
+      "ads": 3
+     }
+    ],
+    "Security": [
+     {
+      "company": "RUAG MRO Holding AG",
+      "ads": 4
+     },
+     {
+      "company": "Kanton Aargau",
+      "ads": 3
+     },
+     {
+      "company": "Schweizer Armee - Logistikbasis der Armee LBA",
+      "ads": 3
+     },
+     {
+      "company": "Zühlke Engineering AG",
+      "ads": 3
+     }
+    ],
+    "Scrum/Agile": [
+     {
+      "company": "ti&m AG",
+      "ads": 6
+     },
+     {
+      "company": "Bundesamt für Landwirtschaft BLW",
+      "ads": 4
+     },
+     {
+      "company": "Kanton Aargau",
+      "ads": 3
+     },
+     {
+      "company": "Bundesamt für Meteorologie und Klimatologie MeteoSchweiz",
+      "ads": 3
+     }
+    ]
+   }
   }
  ],
  "market": {
@@ -6811,7 +7141,504 @@
      "url": "https://ohws.prospective.ch/public/v1/jobs/1f0870ff-7dfa-4b66-94f3-a548320950f5"
     }
    ]
-  }
+  },
+  "skill_companies": {
+   "Security": [
+    {
+     "company": "Schweizer Armee - Kommando Cyber Kdo Cy",
+     "ads": 37
+    },
+    {
+     "company": "Bundesamt für Informatik und Telekommunikation BIT",
+     "ads": 28
+    },
+    {
+     "company": "Consult & Pepper AG",
+     "ads": 24
+    },
+    {
+     "company": "RUAG AG",
+     "ads": 24
+    }
+   ],
+   "Cloud": [
+    {
+     "company": "MTF Solutions AG",
+     "ads": 20
+    },
+    {
+     "company": "Bundesamt für Informatik und Telekommunikation BIT",
+     "ads": 11
+    },
+    {
+     "company": "EPAM Systems (Switzerland) GmbH",
+     "ads": 10
+    },
+    {
+     "company": "ti&m AG",
+     "ads": 10
+    }
+   ],
+   "Networking": [
+    {
+     "company": "Mettler Toledo",
+     "ads": 20
+    },
+    {
+     "company": "Schweizer Armee - Kommando Cyber Kdo Cy",
+     "ads": 20
+    },
+    {
+     "company": "Sonic Suisse Labs SA",
+     "ads": 16
+    },
+    {
+     "company": "Bundesamt für Informatik und Telekommunikation BIT",
+     "ads": 13
+    }
+   ],
+   "Scrum/Agile": [
+    {
+     "company": "Schweizer Armee - Kommando Cyber Kdo Cy",
+     "ads": 36
+    },
+    {
+     "company": "Bundesamt für Informatik und Telekommunikation BIT",
+     "ads": 32
+    },
+    {
+     "company": "MTF Solutions AG",
+     "ads": 20
+    },
+    {
+     "company": "Brack.Alltron AG",
+     "ads": 18
+    }
+   ],
+   "Windows": [
+    {
+     "company": "MTF Solutions AG",
+     "ads": 15
+    },
+    {
+     "company": "Schweizer Armee - Kommando Cyber Kdo Cy",
+     "ads": 10
+    },
+    {
+     "company": "Bechtle Suisse SA",
+     "ads": 9
+    },
+    {
+     "company": "Raiffeisen Schweiz",
+     "ads": 8
+    }
+   ],
+   "Microsoft 365": [
+    {
+     "company": "MTF Solutions AG",
+     "ads": 16
+    },
+    {
+     "company": "Swiss Life AG",
+     "ads": 7
+    },
+    {
+     "company": "UMB AG, Zweigniederlassung Volketswil",
+     "ads": 7
+    },
+    {
+     "company": "Beltronic IT AG",
+     "ads": 6
+    }
+   ]
+  },
+  "skills_monthly": [
+   {
+    "skill": "Security",
+    "points": [
+     {
+      "month": "2025-12",
+      "count": 0,
+      "share": 0,
+      "partial": false
+     },
+     {
+      "month": "2026-01",
+      "count": 0,
+      "share": 0,
+      "partial": false
+     },
+     {
+      "month": "2026-02",
+      "count": 0,
+      "share": 0,
+      "partial": false
+     },
+     {
+      "month": "2026-03",
+      "count": 0,
+      "share": 0,
+      "partial": false
+     },
+     {
+      "month": "2026-04",
+      "count": 0,
+      "share": 0,
+      "partial": false
+     },
+     {
+      "month": "2026-05",
+      "count": 0,
+      "share": 0,
+      "partial": false
+     },
+     {
+      "month": "2026-06",
+      "count": 0,
+      "share": 0,
+      "partial": false
+     },
+     {
+      "month": "2026-07",
+      "count": 0,
+      "share": 0,
+      "partial": false
+     },
+     {
+      "month": "2026-08",
+      "count": 0,
+      "share": 0,
+      "partial": false
+     },
+     {
+      "month": "2026-09",
+      "count": 49,
+      "share": 0.434,
+      "partial": false
+     },
+     {
+      "month": "2026-10",
+      "count": 338,
+      "share": 0.45,
+      "partial": false
+     },
+     {
+      "month": "2026-11",
+      "count": 824,
+      "share": 0.428,
+      "partial": true
+     }
+    ]
+   },
+   {
+    "skill": "Cloud",
+    "points": [
+     {
+      "month": "2025-12",
+      "count": 0,
+      "share": 0,
+      "partial": false
+     },
+     {
+      "month": "2026-01",
+      "count": 0,
+      "share": 0,
+      "partial": false
+     },
+     {
+      "month": "2026-02",
+      "count": 0,
+      "share": 0,
+      "partial": false
+     },
+     {
+      "month": "2026-03",
+      "count": 0,
+      "share": 0,
+      "partial": false
+     },
+     {
+      "month": "2026-04",
+      "count": 0,
+      "share": 0,
+      "partial": false
+     },
+     {
+      "month": "2026-05",
+      "count": 0,
+      "share": 0,
+      "partial": false
+     },
+     {
+      "month": "2026-06",
+      "count": 0,
+      "share": 0,
+      "partial": false
+     },
+     {
+      "month": "2026-07",
+      "count": 0,
+      "share": 0,
+      "partial": false
+     },
+     {
+      "month": "2026-08",
+      "count": 0,
+      "share": 0,
+      "partial": false
+     },
+     {
+      "month": "2026-09",
+      "count": 48,
+      "share": 0.425,
+      "partial": false
+     },
+     {
+      "month": "2026-10",
+      "count": 240,
+      "share": 0.32,
+      "partial": false
+     },
+     {
+      "month": "2026-11",
+      "count": 597,
+      "share": 0.31,
+      "partial": true
+     }
+    ]
+   },
+   {
+    "skill": "Networking",
+    "points": [
+     {
+      "month": "2025-12",
+      "count": 0,
+      "share": 0,
+      "partial": false
+     },
+     {
+      "month": "2026-01",
+      "count": 0,
+      "share": 0,
+      "partial": false
+     },
+     {
+      "month": "2026-02",
+      "count": 0,
+      "share": 0,
+      "partial": false
+     },
+     {
+      "month": "2026-03",
+      "count": 0,
+      "share": 0,
+      "partial": false
+     },
+     {
+      "month": "2026-04",
+      "count": 0,
+      "share": 0,
+      "partial": false
+     },
+     {
+      "month": "2026-05",
+      "count": 0,
+      "share": 0,
+      "partial": false
+     },
+     {
+      "month": "2026-06",
+      "count": 0,
+      "share": 0,
+      "partial": false
+     },
+     {
+      "month": "2026-07",
+      "count": 0,
+      "share": 0,
+      "partial": false
+     },
+     {
+      "month": "2026-08",
+      "count": 0,
+      "share": 0,
+      "partial": false
+     },
+     {
+      "month": "2026-09",
+      "count": 33,
+      "share": 0.292,
+      "partial": false
+     },
+     {
+      "month": "2026-10",
+      "count": 245,
+      "share": 0.326,
+      "partial": false
+     },
+     {
+      "month": "2026-11",
+      "count": 581,
+      "share": 0.302,
+      "partial": true
+     }
+    ]
+   },
+   {
+    "skill": "Scrum/Agile",
+    "points": [
+     {
+      "month": "2025-12",
+      "count": 0,
+      "share": 0,
+      "partial": false
+     },
+     {
+      "month": "2026-01",
+      "count": 0,
+      "share": 0,
+      "partial": false
+     },
+     {
+      "month": "2026-02",
+      "count": 0,
+      "share": 0,
+      "partial": false
+     },
+     {
+      "month": "2026-03",
+      "count": 0,
+      "share": 0,
+      "partial": false
+     },
+     {
+      "month": "2026-04",
+      "count": 0,
+      "share": 0,
+      "partial": false
+     },
+     {
+      "month": "2026-05",
+      "count": 0,
+      "share": 0,
+      "partial": false
+     },
+     {
+      "month": "2026-06",
+      "count": 0,
+      "share": 0,
+      "partial": false
+     },
+     {
+      "month": "2026-07",
+      "count": 0,
+      "share": 0,
+      "partial": false
+     },
+     {
+      "month": "2026-08",
+      "count": 0,
+      "share": 0,
+      "partial": false
+     },
+     {
+      "month": "2026-09",
+      "count": 19,
+      "share": 0.168,
+      "partial": false
+     },
+     {
+      "month": "2026-10",
+      "count": 149,
+      "share": 0.198,
+      "partial": false
+     },
+     {
+      "month": "2026-11",
+      "count": 459,
+      "share": 0.238,
+      "partial": true
+     }
+    ]
+   },
+   {
+    "skill": "Windows",
+    "points": [
+     {
+      "month": "2025-12",
+      "count": 0,
+      "share": 0,
+      "partial": false
+     },
+     {
+      "month": "2026-01",
+      "count": 0,
+      "share": 0,
+      "partial": false
+     },
+     {
+      "month": "2026-02",
+      "count": 0,
+      "share": 0,
+      "partial": false
+     },
+     {
+      "month": "2026-03",
+      "count": 0,
+      "share": 0,
+      "partial": false
+     },
+     {
+      "month": "2026-04",
+      "count": 0,
+      "share": 0,
+      "partial": false
+     },
+     {
+      "month": "2026-05",
+      "count": 0,
+      "share": 0,
+      "partial": false
+     },
+     {
+      "month": "2026-06",
+      "count": 0,
+      "share": 0,
+      "partial": false
+     },
+     {
+      "month": "2026-07",
+      "count": 0,
+      "share": 0,
+      "partial": false
+     },
+     {
+      "month": "2026-08",
+      "count": 0,
+      "share": 0,
+      "partial": false
+     },
+     {
+      "month": "2026-09",
+      "count": 20,
+      "share": 0.177,
+      "partial": false
+     },
+     {
+      "month": "2026-10",
+      "count": 172,
+      "share": 0.229,
+      "partial": false
+     },
+     {
+      "month": "2026-11",
+      "count": 400,
+      "share": 0.208,
+      "partial": true
+     }
+    ]
+   }
+  ]
  },
  "digest": {
   "from": "2026-11-07",
