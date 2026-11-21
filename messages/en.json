@@ -38,7 +38,17 @@
   "roles": {
     "web": "Web developer",
     "support": "IT support",
-    "data": "Data analyst"
+    "data": "Data analyst",
+    "devops": "DevOps / Cloud engineer",
+    "sysadmin": "System engineer / administrator",
+    "network": "Network engineer",
+    "security": "IT security",
+    "dataeng": "Data engineer / Data scientist",
+    "qa": "Software tester / QA",
+    "itpm": "IT project manager",
+    "business": "Business analyst",
+    "ux": "UX / UI designer",
+    "erp": "SAP / ERP consultant"
   },
   "dash": {
     "title": "What the IT market is looking for",

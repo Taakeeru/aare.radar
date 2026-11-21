@@ -49,6 +49,15 @@ class DigestTest(unittest.TestCase):
         self.assertTrue(d["subject"].startswith("AareRadar: neue Stellen von 7. November 2026 bis"))
         self.assertNotIn("ß", d["text"] + d["subject"])
 
+    def test_only_the_three_chosen_categories(self):
+        add(self.c, "g", "Cloud", ["devops"], "2026-11-15", "2026-12-05")
+        t = build_digest(self.c, TODAY)["text"]
+        self.assertIn("Web developer (3)", t)
+        self.assertIn("IT support (1)", t)
+        self.assertIn("Data analyst (0)", t)
+        self.assertNotIn("DevOps", t)
+        self.assertNotIn("Cloud, Acme", t)
+
 
 if __name__ == "__main__":
     unittest.main()
