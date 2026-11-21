@@ -1372,3 +1372,13 @@ html[data-light="true"] {
   border-radius: 4px;
   font-size: 14px;
 }
+
+/* Page heads: the tab icon instead of the letters A to E (team, 21.11.2026). */
+.eyebrow--icon {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+.question__letter .nav__icon {
+  display: block;
+}

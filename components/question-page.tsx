@@ -1,4 +1,5 @@
 import type { ReactNode } from "react";
+import { PageIcon } from "@/components/page-icon";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { RoleSwitch } from "@/components/role-switch";
 import { toLocale } from "@/i18n/routing";
@@ -66,6 +67,10 @@ export function QuestionPageHead({ ctx, letter, base }: { ctx: Loaded; letter: "
   const { t, q, data, role, roleName, age } = ctx;
   return (
     <header className="page-head">
+      <p className="eyebrow eyebrow--icon">
+        <PageIcon name={letter === "B" ? "skills" : letter === "C" ? "employers" : "demand"} />
+        {q(`${letter}.title`)}
+      </p>
       <h1 className="page__title" id={`q-${letter.toLowerCase()}`}>
         {q(`${letter}.title`)}
       </h1>
