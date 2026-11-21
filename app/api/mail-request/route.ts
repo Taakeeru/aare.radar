@@ -15,7 +15,8 @@ export async function POST(req: NextRequest) {
   if (!isSameOrigin(req)) return new NextResponse(null, { status: 403 });
   const form = await req.formData().catch(() => null);
   const locale = form?.get("locale") === "de" ? "de" : "en";
-  const back = (status: string) => NextResponse.redirect(new URL(`/${locale}/email?mail=${status}#send`, req.url), 303);
+  // a RELATIVE Location: behind the proxy an absolute one came out as https://0.0.0.0:3000/... (live check)
+  const back = (status: string) => new NextResponse(null, { status: 303, headers: { Location: `/${locale}/email?mail=${status}#send` } });
   if (!mailRequestsEnabled()) return back("off");
   if (!form) return back("bad");
   const key = `mailreq:ip:${clientKeyFrom(req.headers, process.env.TRUST_PROXY)}`;
