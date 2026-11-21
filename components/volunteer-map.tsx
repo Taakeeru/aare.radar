@@ -2,7 +2,11 @@
 
 import { useMemo, useState } from "react";
 import { useTranslations } from "next-intl";
+import { Avatar } from "@/components/avatar";
 import { CH_OUTLINE, VOLUNTEERS, project, type Volunteer } from "@/lib/volunteers-mockup";
+
+// Where a city's name goes so neighbours do not overlap (Zürich, Zug, Winterthur, Luzern sit close together).
+const LABEL: Record<string, "above" | "below" | "right" | "left"> = { Zug: "below", Luzern: "left", Winterthur: "right", Fribourg: "left", Bern: "right" };
 
 const W = 640;
 const H = 420;
@@ -71,7 +75,13 @@ export function VolunteerMap() {
                 <text x={x} y={y + 4} textAnchor="middle" aria-hidden="true">
                   {list.length}
                 </text>
-                <text className="vol__city" x={x} y={y - r - 6} textAnchor="middle" aria-hidden="true">
+                <text
+                  className="vol__city"
+                  x={LABEL[c] === "right" ? x + r + 4 : LABEL[c] === "left" ? x - r - 4 : x}
+                  y={LABEL[c] === "below" ? y + r + 14 : LABEL[c] === "right" || LABEL[c] === "left" ? y + 4 : y - r - 6}
+                  textAnchor={LABEL[c] === "right" ? "start" : LABEL[c] === "left" ? "end" : "middle"}
+                  aria-hidden="true"
+                >
                   {c}
                 </text>
               </g>
@@ -93,6 +103,8 @@ export function VolunteerMap() {
           <ul className="vol__cards">
             {selected.map((v) => (
               <li key={v.id} className="vol__card">
+                <Avatar id={v.id} label={t("avatar", { name: v.name })} />
+                <div className="vol__info">
                 <p className="vol__name">{v.name}</p>
                 <p className="vol__meta">
                   {v.city} · {t("offers", { offer: v.offer })}
@@ -104,6 +116,7 @@ export function VolunteerMap() {
                     </span>
                   ))}
                 </p>
+                </div>
               </li>
             ))}
           </ul>
