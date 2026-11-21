@@ -38,7 +38,7 @@ The site keeps running with the data it has; only new changes, fresh data and th
 
 - **Notes and requests** you would send in the panel: open a GitHub issue in this repo with the label `note`. One issue
   per change, in plain words.
-- **Code changes:** one branch per person (`yourname/what`), a pull request against `main`. Lior merges.
+- **Code changes:** one branch per person (`yourname/what`), a pull request against `main`. Seckin or Isabella merges it once `npm test` passes.
 - **Rules that still apply:** every number names its source with a link and the date of its data; aggregate data only;
   no scraping where a site's terms forbid it; colours only from `lib/design-tokens.ts`.
 - `npm test` and `npm run typecheck` before you push. The tests guard the data rules and the colours.
