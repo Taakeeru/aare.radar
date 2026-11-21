@@ -1097,3 +1097,13 @@ html[data-light="true"] {
   margin: 0 0 8px;
   font-weight: 700;
 }
+
+/* Page icons in the main navigation (components/site-nav.tsx), Aare turquoise, line only. */
+.nav__icon {
+  flex: none;
+  fill: none;
+  stroke: var(--radar-accent);
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
