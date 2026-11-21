@@ -69,7 +69,7 @@ BARRIERS = {
     "english_ok": re.compile(r"english|englisch|anglais", re.I),
     # not a barrier but the opposite: the ad says it is open to beginners (question A: entry-level and junior roles)
     "entry_level": re.compile(
-        r"\bjunior|einsteiger|berufseinst|quereinst|career chang|trainee|praktik|internship|\bintern\b"
+        r"\bjunior|einsteiger|berufseinst|quereinst|career chang|trainee|praktikum|praktikant|internship|\bintern\b"
         r"|stagiaire|\bstage\b|lehrabgänger|young professional|graduate|débutant", re.I),
 }
 
@@ -86,3 +86,18 @@ AGENCY = re.compile(
     r"|robert walters|kelly services|universal.?job|interiman|coople|careerplus|gi group|experis|page personnel|nemensis"
     r"|it-recruit|recruit|staffing|personal(?:beratung|dienst|vermittlung)?\s+ag|personal\b|stellenvermittlung"
     r"|unternehmensberatung|personalberatung|coopers group|nonstop consulting|headhunt|executive search|talent", re.I)
+
+
+# An ad is open to beginners when its text says so (BARRIERS["entry_level"]) or job-room's experience field says none
+# or under a year, AND its title is not a senior one: requirement lists mention «graduate» or «Praktikum» in senior
+# ads too (21.11.2026: «Senior Cyber Security Engineer» was counted). Used by the export and the summary email.
+ENTRY_EXPERIENCE = {"NO_EXPERIENCE", "LESS_THAN_1_YEAR"}
+SENIOR_TITLE = re.compile(
+    r"\b(?:senior|sr\.|lead|leiter\w*|leitung|head|principal|chef|cheffe|manager\w*|expert\w*|architekt\w*|architect"
+    r"|director|direktor\w*|responsable)\b|projektleit|teamleit|bereichsleit|gesamtleit|chef de projet", re.I)
+
+
+def is_entry_ad(title, tags, experience):
+    if SENIOR_TITLE.search(title or ""):
+        return False
+    return "entry_level" in (tags or []) or experience in ENTRY_EXPERIENCE
