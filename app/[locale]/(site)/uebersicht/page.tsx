@@ -4,6 +4,8 @@ import { BarList, type BarRow } from "@/components/bar-list";
 import { Donut, type Slice } from "@/components/donut";
 import { PageIcon } from "@/components/page-icon";
 import { Panel } from "@/components/panel";
+import { RoleSwitch } from "@/components/role-switch";
+import { PROGRAMS } from "@/lib/courses";
 import type { SourceRef } from "@/components/source-line";
 import { toLocale } from "@/i18n/routing";
 import { loadRadar } from "@/lib/radar";
@@ -17,11 +19,13 @@ export async function generateMetadata(): Promise<Metadata> {
 const REQS = ["senior_experience", "degree_required", "german_required", "french_required"] as const;
 
 /** «Overview» (Seckin, panel thread 58, 21.11.2026): six cards from his sketch, in the site's design, from our data. */
-export default async function OverviewPage({ params }: { params: Promise<{ locale: string }> }) {
+export default async function OverviewPage({ params, searchParams }: { params: Promise<{ locale: string }>; searchParams: Promise<{ role?: string | string[] }> }) {
   const locale = toLocale((await params).locale);
   setRequestLocale(locale);
   const t = await getTranslations("overview");
   const d = await getTranslations("dash");
+  const rolesT = await getTranslations("roles");
+  const sp = await searchParams;
   const c = await getTranslations("common");
   const result = loadRadar();
   const it = result.ok ? result.data.it_market : undefined;
@@ -37,30 +41,49 @@ export default async function OverviewPage({ params }: { params: Promise<{ local
   const data = result.data;
   const fmt = (n: number) => formatInt(n, locale);
   const jobroom = pickSources(data, ["jobroom"]);
+  const today0 = data.generated_at.slice(0, 10);
   const courseSrc: SourceRef[] = [{ id: "courses", name: d("teach.source"), url: "https://powercoders.org/programs/", updated: "2026-11-21" }];
 
+  // The dashboard follows the role chosen above, with the same numbers as Demand, Skills and Employers
+  // (Seckin, thread 61); «all» = every IT ad (job-room IT occupation codes).
+  const wanted = typeof sp.role === "string" ? sp.role : "all";
+  const role = data.roles.find((r) => r.id === wanted) ?? null;
+  const roleName = (r: { id: string; label: string }) => (rolesT.has(r.id) ? rolesT(r.id) : r.label);
+  const skillsAll = role ? role.skills : (it.skills ?? []);
+  const entrySkills = role ? (role.entry_skills ?? []) : ov.entry_skills;
+  const entryBasis = role ? (role.entry_ads ?? 0) : ov.entry_basis;
+  const req: Record<string, number> = role ? (role.barriers as unknown as Record<string, number>) : ov.requirements;
+  const cantonList = role ? role.cantons : it.cantons;
+  const newest = role
+    ? role.examples.slice(0, 4).map((e) => ({ title: e.title, company: e.company, city: e.city, published: e.published ?? today0, url: e.url }))
+    : ov.newest_entry;
+  const totalAds = role ? role.ads : it.ads;
+  const totalEntry = role ? (role.entry_ads ?? Math.round(role.entry_level_share * role.ads)) : (it.entry_ads ?? 0);
+  // what Powercoders teaches: the skills named on its program pages (content/courses.json, links checked)
+  const taught = new Set(PROGRAMS.flatMap((p) => p.skills.map((k) => k.toLowerCase())));
+  const isTaught = (k: string) => taught.has(k.toLowerCase());
+
   // 1 and 2: donuts, slices = share of the mentions among the six skills shown (an ad names several skills)
-  const sk = (it.skills ?? []).slice(0, 6);
-  const skillSlices: Slice[] = sk.map((s) => ({ key: s.skill, label: s.skill, value: s.count }));
-  const es = ov.entry_skills.slice(0, 6);
-  const teachSlices: Slice[] = es.map((s) => ({ key: s.skill, label: s.skill, value: s.count }));
-  // 3: skills by number of ads (the window), bars
-  const top5 = (it.skills ?? []).slice(0, 5);
+  const skillSlices: Slice[] = skillsAll.slice(0, 6).map((s) => ({ key: s.skill, label: s.skill, value: s.count }));
+  const es = entrySkills.slice(0, 6);
+  const teachSlices: Slice[] = es.map((s) => ({ key: s.skill, label: s.skill, value: s.count, tag: isTaught(s.skill) ? t("teach.taught") : t("teach.gap") }));
+  const gaps = es.filter((s) => !isTaught(s.skill)).map((s) => s.skill);
+  // 3: skills by number of ads, bars
+  const top5 = skillsAll.slice(0, 5);
   const evoRows: BarRow[] = top5.map((s) => ({ key: s.skill, label: s.skill, fraction: s.count / Math.max(1, top5[0]!.count), value: c("ads", { count: s.count }) }));
   // 4: entry requirements
   const reqRows: BarRow[] = REQS.map((k) => ({
     key: k,
     label: t(`req.${k}`),
-    fraction: ov.requirements[k] ?? 0,
-    value: c("ofHundred", { count: outOf100(ov.requirements[k] ?? 0) }),
+    fraction: req[k] ?? 0,
+    value: c("ofHundred", { count: outOf100(req[k] ?? 0) }),
   }));
   // 5: cantons
-  const cantons = it.cantons.slice(0, 5);
+  const cantons = cantonList.slice(0, 5);
   const cantonRows: BarRow[] = cantons.map((x) => ({ key: x.canton, label: cantonName(x.canton, locale), fraction: x.count / Math.max(1, cantons[0]!.count), value: c("ads", { count: x.count }) }));
-  // 6: newest beginner ads
-  const today = data.generated_at.slice(0, 10);
+  // 6: newest ads
   const ago = (iso: string) => {
-    const days = Math.max(0, Math.round((Date.parse(`${today}T00:00:00Z`) - Date.parse(`${iso}T00:00:00Z`)) / 86400000));
+    const days = Math.max(0, Math.round((Date.parse(`${today0}T00:00:00Z`) - Date.parse(`${iso}T00:00:00Z`)) / 86400000));
     return days === 0 ? t("today") : days === 1 ? t("yesterday") : t("daysAgo", { n: days });
   };
 
@@ -71,17 +94,20 @@ export default async function OverviewPage({ params }: { params: Promise<{ local
           <PageIcon name="overview" />
           {t("eyebrow")}
         </p>
-        <h1 className="page__title">{t("title")}</h1>
-        <p className="page__lead">{t("lead", { ads: fmt(it.ads), entry: fmt(it.entry_ads ?? 0) })}</p>
+        <h1 className="page__title">{role ? `${t("title")}: ${roleName(role)}` : t("title")}</h1>
+        <p className="page__lead">{t("lead", { ads: fmt(totalAds), entry: fmt(totalEntry) })}</p>
+        <RoleSwitch base="/uebersicht" roles={data.roles.map((r) => ({ id: r.id, label: roleName(r) }))} current={role ? role.id : "all"} label={d("roleLabel")} all={t("allJobs")} />
       </header>
       <div className="grid">
         <Panel id="o-skills" title={t("skills.title")} intro={t("skills.intro")} span={4} sources={jobroom}>
           <span className="tag-chip">{t("skills.chip")}</span>
           <Donut slices={skillSlices} label={t("skills.title")} center="100%" />
         </Panel>
-        <Panel id="o-teach" title={t("teach.title")} intro={t("teach.intro", { n: fmt(ov.entry_basis) })} span={4} sources={[...courseSrc, ...jobroom]}>
+        <Panel id="o-teach" title={t("teach.title")} intro={t("teach.intro", { n: fmt(entryBasis) })} span={4} sources={[...courseSrc, ...jobroom]}>
           <span className="tag-chip">{t("teach.chip")}</span>
-          <Donut slices={teachSlices} label={t("teach.title")} center="100%" />
+          {teachSlices.length > 0 ? <Donut slices={teachSlices} label={t("teach.title")} center="100%" /> : <p>{c("noData")}</p>}
+          <p className="note">{gaps.length > 0 ? t("teach.gaps", { list: gaps.join(", ") }) : t("teach.noGaps")}</p>
+          <p className="note">{t("teach.how")}</p>
           <p className="note">
             <a href={`/${locale}/faehigkeiten`}>{t("teach.link")}</a>
           </p>
@@ -100,10 +126,10 @@ export default async function OverviewPage({ params }: { params: Promise<{ local
           <span className="tag-chip">{t("where.chip")}</span>
           <BarList rows={cantonRows} label={t("where.title")} />
         </Panel>
-        <Panel id="o-newest" title={t("newest.title")} span={4} sources={jobroom}>
+        <Panel id="o-newest" title={role ? t("newest.titleRole") : t("newest.title")} span={4} sources={jobroom}>
           <span className="tag-chip tag-chip--live">{t("newest.chip")}</span>
           <ul className="newest">
-            {ov.newest_entry.map((a) => {
+            {newest.map((a) => {
               const url = safeHttpUrl(a.url);
               return (
                 <li key={a.url} className="newest__card">

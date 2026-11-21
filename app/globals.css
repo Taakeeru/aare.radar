@@ -1520,3 +1520,12 @@ html[data-light="true"] {
 .vol__info {
   min-width: 0;
 }
+
+.donut__tag {
+  padding: 0 6px;
+  border: 1px solid var(--radar-border);
+  border-radius: 4px;
+  color: var(--radar-text2);
+  font-size: 12px;
+  white-space: nowrap;
+}

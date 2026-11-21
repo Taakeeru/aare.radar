@@ -3,7 +3,7 @@
  * what), colours from the CHART tokens in order; every slice has its label and percent written in the legend, so the
  * colour is never the only carrier.
  */
-export type Slice = { key: string; label: string; value: number };
+export type Slice = { key: string; label: string; value: number; tag?: string };
 
 export function Donut({ slices, label, center }: { slices: Slice[]; label: string; center: string }) {
   const total = slices.reduce((n, s) => n + s.value, 0) || 1;
@@ -41,6 +41,7 @@ export function Donut({ slices, label, center }: { slices: Slice[]; label: strin
           <li key={s.key}>
             <span className="donut__dot" style={{ background: `var(--radar-chart-${Math.min(i + 1, 6)})` }} aria-hidden="true" />
             <span className="donut__label">{s.label}</span>
+            {s.tag ? <span className="donut__tag">{s.tag}</span> : null}
             <span className="donut__pct">{Math.round((s.value / total) * 100)}%</span>
           </li>
         ))}
