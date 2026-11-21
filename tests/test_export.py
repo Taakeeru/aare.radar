@@ -153,5 +153,53 @@ class MonthlyTest(unittest.TestCase):
         self.assertEqual(m[-1], {"month": "2026-11", "new_ads": 1, "partial": True})
 
 
+class EntrySkillsTest(unittest.TestCase):
+    TODAY = dt.date(2026, 11, 20)
+
+    def export(self, ads):
+        """ads: [(id, published, skills_json, barriers_json)], all role web, full text -> exported doc."""
+        with tempfile.TemporaryDirectory() as tmp:
+            path = Path(tmp) / "radar.db"
+            c = db.connect(path)
+            for i, pub, skills, barriers in ads:
+                c.execute("""INSERT INTO ads(id,title,company,canton,city,published,reporting_obligation,url,roles,skills,
+                             barriers,first_seen,last_seen,tagged) VALUES(?,?,?,?,?,?,0,?,'["web"]',?,?,?,?,1)""",
+                          (i, "T", "C", "ZH", "Zürich", pub, "https://x/" + i, skills, barriers, "2026-11-01", "2026-11-20"))
+            c.commit()
+            c.close()
+            return export.main(Path(tmp) / "radar.json", db=path, today=self.TODAY)
+
+    def test_entry_ad_counts_and_senior_ad_does_not(self):
+        doc = self.export([("a", "2026-11-10", '["Python", "SQL"]', '["entry_level"]'),
+                           ("b", "2026-11-11", '["Python", "Java"]', '["senior_experience"]')])
+        web = doc["roles"][0]
+        self.assertEqual(web["entry_ads"], 1)
+        got = {s["skill"]: s for s in web["entry_skills"]}
+        self.assertEqual(set(got), {"Python", "SQL"})
+        self.assertEqual(got["Python"]["count"], 1)
+        self.assertEqual(got["Python"]["share"], 1.0)
+        self.assertEqual({s["skill"] for s in web["skills"]}, {"Python", "SQL", "Java"})
+
+    def test_role_without_entry_ads_gives_empty_list_and_zero(self):
+        doc = self.export([("b", "2026-11-11", '["Python"]', '["senior_experience"]')])
+        self.assertEqual(doc["roles"][0]["entry_skills"], [])
+        self.assertEqual(doc["roles"][0]["entry_ads"], 0)
+
+    def test_skills_monthly_twelve_points_zero_month_and_partial_current(self):
+        doc = self.export([("a", "2026-08-10", '["Python"]', '[]'), ("b", "2026-08-12", '["SQL"]', '[]'),
+                           ("c", "2026-11-02", '["Python"]', '[]')])
+        series = {s["skill"]: s["points"] for s in doc["roles"][0]["skills_monthly"]}
+        self.assertEqual(set(series), {"Python", "SQL"})
+        py = series["Python"]
+        self.assertEqual(len(py), 12)
+        self.assertEqual(py[0]["month"], "2025-12")
+        self.assertEqual(py[-1], {"month": "2026-11", "count": 1, "share": 1.0, "partial": True})
+        self.assertEqual([p["partial"] for p in py], [False] * 11 + [True])
+        aug = next(p for p in py if p["month"] == "2026-08")
+        self.assertEqual((aug["count"], aug["share"]), (1, 0.5))
+        sep = next(p for p in py if p["month"] == "2026-09")
+        self.assertEqual((sep["count"], sep["share"]), (0, 0))
+
+
 if __name__ == "__main__":
     unittest.main()

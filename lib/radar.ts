@@ -17,6 +17,9 @@ export type MonthlyPoint = { month: string; new_ads: number; partial: boolean };
 /** The whole IT market (export field `market`): distinct ads in the window, monthly history, roles by ads. */
 export type Market = { ads: number; monthly: MonthlyPoint[]; roles: { id: string; ads: number }[] };
 export type SkillShare = { skill: string; count: number; share: number };
+/** One month of one skill (export field `skills_monthly`); `partial` marks the current, unfinished month. */
+export type SkillMonthPoint = { month: string; count: number; share: number; partial: boolean };
+export type SkillSeries = { skill: string; points: SkillMonthPoint[] };
 export type CantonCount = { canton: string; count: number };
 export type ExampleAd = { title: string; company: string | null; city: string | null; published: string | null; url: string };
 export type CompanyCount = { company: string; ads: number };
@@ -35,6 +38,12 @@ export type RadarRole = {
   /** Optional: the role's ads by published month over the whole history, at most 24 months, oldest first. */
   monthly?: MonthlyPoint[];
   skills: SkillShare[];
+  /** Optional: number of the role's full-text ads in the window that say entry level (basis of entry_skills). */
+  entry_ads?: number;
+  /** Optional: like skills, counted only over the entry-level ads, top 15. */
+  entry_skills?: SkillShare[];
+  /** Optional: month by month history of the role's top 8 skills, last 12 months, oldest first. */
+  skills_monthly?: SkillSeries[];
   barriers: RoleBarriers;
   /** Share of ads that say junior / career changer / trainee / internship (question A, good news, apart from the barriers). */
   entry_level_share: number;
@@ -115,7 +124,11 @@ const isStrOrNull = (v: unknown) => v === null || v === undefined || isStr(v);
 const isCompanyCount = (c: unknown) => isObj(c) && isStr(c.company) && isNum(c.ads);
 const isArr = (v: unknown, each: (x: unknown) => boolean): boolean => Array.isArray(v) && v.every(each);
 
-const isMonthly = (m: unknown) => isObj(m) && isStr(m.month) && /^\d{4}-(0[1-9]|1[0-2])$/.test(m.month) && isNum(m.new_ads) && typeof m.partial === "boolean";
+const MONTH = /^\d{4}-(0[1-9]|1[0-2])$/;
+const isMonthly = (m: unknown) => isObj(m) && isStr(m.month) && MONTH.test(m.month) && isNum(m.new_ads) && typeof m.partial === "boolean";
+const isSkillShare = (s: unknown) => isObj(s) && isStr(s.skill) && isNum(s.count) && isNum(s.share);
+const isSkillMonth = (m: unknown) => isObj(m) && isStr(m.month) && MONTH.test(m.month) && isNum(m.count) && isNum(m.share) && typeof m.partial === "boolean";
+const isSkillSeries = (s: unknown) => isObj(s) && isStr(s.skill) && isArr(s.points, isSkillMonth);
 
 /** Throws a readable Error when the document does not have the shape of the contract. */
 export function parseRadar(text: string): Radar {
@@ -142,7 +155,10 @@ export function parseRadar(text: string): Radar {
         isNum(r.ads) &&
         isArr(r.weekly, (w) => isObj(w) && isStr(w.week) && /^\d{4}-W\d{2}$/.test(w.week) && isNum(w.new_ads)) &&
         (r.monthly === undefined || isArr(r.monthly, isMonthly)) &&
-        isArr(r.skills, (s) => isObj(s) && isStr(s.skill) && isNum(s.count) && isNum(s.share)) &&
+        isArr(r.skills, isSkillShare) &&
+        (r.entry_ads === undefined || isNum(r.entry_ads)) &&
+        (r.entry_skills === undefined || isArr(r.entry_skills, isSkillShare)) &&
+        (r.skills_monthly === undefined || isArr(r.skills_monthly, isSkillSeries)) &&
         isObj(r.barriers) &&
         BARRIER_KEYS.every((k) => isNum((r.barriers as Record<string, unknown>)[k])) &&
         isNum(r.entry_level_share) &&
