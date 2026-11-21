@@ -1,59 +1,66 @@
-# Plan B: when the panel or the server is down
+# Plan B: when a server is down
 
-The normal way to work is the Pandora panel (send a note, the project coordinator builds it). If the panel, the
-coordinator or the server behind them stops answering during the hackathon, keep working directly in this repository.
-Nothing below needs the server.
+Two servers run AareRadar during the hackathon:
 
-## 1. Get the app running (5 minutes)
+- **The site server** (radar.gnamak.ch) runs the app.
+- **The Pandora server** runs the panel, the project coordinator, the daily data collection, the automatic deploys and
+  the summary email.
 
-The dashboard lives on the branch `feat/dashboard-v1` until pull request #1 is merged; after that, use `main`.
+If one of them stops answering, keep working and present from GitHub and a laptop. Nothing below needs either server.
 
-**In the browser, no installs (recommended):** on GitHub, open the branch, click **Code → Codespaces → Create
-codespace**. In its terminal:
+## If the site (radar.gnamak.ch) is down
+
+The quickest way back is the same app on a laptop or in a Codespace, with today's real data.
+
+**In the browser, no installs:** on GitHub open `main`, click **Code → Codespaces → Create codespace**. In its terminal:
 
     npm ci
-    npm run dev
+    RADAR_DATA=snapshots/radar-latest.json npm run dev
 
 Codespaces offers to open port 3000; add `/en` (English) or `/de` (German) to the address.
 
-**On your laptop:** Node 22 (see `.nvmrc`) and git, then:
+**On a laptop:** Node 22 (see `.nvmrc`) and git, then:
 
     git clone https://github.com/7heM4ster/powercoders-radar.git
-    cd powercoders-radar && git checkout feat/dashboard-v1
-    npm ci && npm run dev        # http://localhost:3000/en
+    cd powercoders-radar
+    npm ci
+    RADAR_DATA=snapshots/radar-latest.json npm run dev        # http://localhost:3000/en
 
-The app starts with real numbers: `fixtures/radar.sample.json` is a snapshot of the live data (job-room.ch, BFS,
-Parliament, Fedlex), dated in the file. No database server is needed; sign-in accounts use a local SQLite file.
+`snapshots/radar-latest.json` is a copy of the live data (all IT jobs, the beginner ranking, the summary email,
+federal statistics, parliament), dated inside the file (`generated_at`). Without `RADAR_DATA` the app starts with the
+smaller test data in `fixtures/`.
 
-## 2. Fresher data (optional)
+For the demo, a production build is smoother than `dev`: `npm run build && RADAR_DATA=snapshots/radar-latest.json npm start`.
 
-The collector is plain Python 3.10+, no packages. Run it on a laptop on the venue Wi-Fi, NOT in a Codespace (job-room.ch
-is meant to be used from normal internet connections, not from data centres):
+## If the Pandora server is down
 
-    python3 -m collector.collect          # about 10 minutes, writes data/radar.db
-    python3 -m collector.export           # writes data/radar.json
-    RADAR_DATA=data/radar.json npm run dev
+The site keeps running with the data it has; only new changes, fresh data and the panel stop.
 
-To share fresher numbers with the team, copy `data/radar.json` over `fixtures/radar.sample.json` in a pull request.
-Only aggregate numbers end up in that file; never add anything about a person.
-
-## 3. How we work without the panel
-
-- **Notes and requests** that you would have sent in the panel: open a GitHub issue in this repo with the label
-  `note`. One issue per change, in plain words, like a panel note.
-- **Code changes:** one branch per person (`yourname/what`), open a pull request against `feat/dashboard-v1`
-  (or `main` once #1 is merged). Lior merges.
-- **Rules that still apply:** every number names its source with a link and the date of the last update; aggregate data
-  only; no scraping where a site's terms forbid it; colours only from `lib/design-tokens.ts`.
+- **Notes and requests** you would send in the panel: open a GitHub issue in this repo with the label `note`. One issue
+  per change, in plain words.
+- **Code changes:** one branch per person (`yourname/what`), a pull request against `main`. Lior merges.
+- **Rules that still apply:** every number names its source with a link and the date of its data; aggregate data only;
+  no scraping where a site's terms forbid it; colours only from `lib/design-tokens.ts`.
 - `npm test` and `npm run typecheck` before you push. The tests guard the data rules and the colours.
 
-## 4. Showing the result
+## Fresher data by hand (optional)
 
-If the test site is not reachable at demo time, present from a laptop: `npm run build && npm start`, then open
-http://localhost:3000/en. A Codespace works too (port 3000, set to public only for the demo).
+The collector is plain Python 3.10+, no packages. Run it on a laptop on the venue Wi-Fi, not in a Codespace
+(job-room.ch is meant for normal internet connections):
 
-## 5. For Lior (when the server comes back)
+    python3 -m collector.collect jobroom   # about 20 minutes the first time (every IT ad is read once)
+    python3 -m collector.export            # writes data/radar.json
+    RADAR_DATA=data/radar.json npm run dev
 
-- Check the hackathon mode with `~/hack-mode/hack_mode.sh status` on the server; between 09:00 and 18:00 it should be
-  on, after 18:00 off.
+Only aggregate numbers and public ad facts end up in that file; never add anything about a person.
+
+## The video
+
+Record the 3-minute video as early as the content is stable, and keep the file. A recording made in time does not
+depend on any server at the end of the day. The script and a 90-second demo path are in the panel's reference tab.
+
+## For Lior (when a server comes back)
+
+- Hackathon mode: `~/hack-mode/hack_mode.sh status` on the Pandora server; on between 09:00 and 18:00, off after.
 - Copy the `note` issues into the panel or let the coordinator work from them, then close them.
+- Refresh the snapshot after a good data run: copy `data/radar.json` to `snapshots/radar-latest.json` in a pull request.
