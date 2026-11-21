@@ -6745,8 +6745,8 @@
   "from": "2026-11-07",
   "to": "2026-11-21",
   "days": 14,
-  "ads": 3257,
-  "entry_ads": 223,
+  "ads": 3686,
+  "entry_ads": 246,
   "fields": [
    {
     "group": "251",
@@ -6775,21 +6775,12 @@
       "city": "Genève",
       "ends": "2026-11-26",
       "url": "https://www.job-room.ch/job-search/f1009fae-232b-4a42-b6bf-191c29010b18"
-     },
-     {
-      "title": "DevSecOps ICT Ingenieur/-in Junior",
-      "company": "Schweizer Armee - Kommando Cyber Kdo Cy",
-      "city": "Payerne",
-      "ends": "2026-11-26",
-      "url": "https://www.job-room.ch/job-search/99190f4a-7321-4807-aded-4ef35d892491"
-     },
-     {
-      "title": "System Test Engineer",
-      "company": "Stadler Signalling AG",
-      "city": "Wallisellen",
-      "ends": "2026-11-26",
-      "url": "https://www.job-room.ch/job-search/cfa3b466-d5a9-4796-b6be-b066bafa6331"
      }
+    ],
+    "skills": [
+     "Security",
+     "Cloud",
+     "Scrum/Agile"
     ]
    },
    {
@@ -6819,21 +6810,12 @@
       "city": "Kreuzlingen",
       "ends": "2026-12-06",
       "url": "https://www.job-room.ch/job-search/ad8e09c7-15e1-4034-a787-55669746043f"
-     },
-     {
-      "title": "Junior Floorwalker Mobile (iOS/Android) 80-100%",
-      "company": "Kidston People GmbH",
-      "city": "Aarau",
-      "ends": "2026-12-06",
-      "url": "https://www.job-room.ch/job-search/f106b2e8-9407-4291-be02-a7ab09e29af6"
-     },
-     {
-      "title": "Onsite Support Engineer (m/w/d) 100%",
-      "company": "EPAM Systems (Switzerland) GmbH",
-      "city": "Aarau",
-      "ends": "2026-12-06",
-      "url": "https://www.job-room.ch/job-search/076addc2-6764-49ab-adc0-e22061fcfeca"
      }
+    ],
+    "skills": [
+     "Windows",
+     "Microsoft 365",
+     "Networking"
     ]
    },
    {
@@ -6863,21 +6845,12 @@
       "city": "Thun",
       "ends": "2026-11-30",
       "url": "https://www.job-room.ch/job-search/bffc8339-fd52-434f-9f4c-21d833c7720c"
-     },
-     {
-      "title": "Security Operations Engineer DevSecOps (a) 80 - 100%",
-      "company": "cyberunity",
-      "city": "Dättwil AG",
-      "ends": "2026-11-30",
-      "url": "https://www.job-room.ch/job-search/91db8ecc-8636-494e-85a0-8b9fe4131a72"
-     },
-     {
-      "title": "ICT System Specialist C5I",
-      "company": "C5I",
-      "city": "Thun",
-      "ends": "2026-12-03",
-      "url": "https://www.job-room.ch/job-search/0e2a5e9b-5d74-4fe8-b81e-d69920598fff"
      }
+    ],
+    "skills": [
+     "Security",
+     "Networking",
+     "Scrum/Agile"
     ]
    },
    {
@@ -6907,21 +6880,12 @@
       "city": "Ostermundigen",
       "ends": "2026-11-29",
       "url": "https://www.job-room.ch/job-search/03dd64a3-0edd-4a73-ab70-8c87948905c5"
-     },
-     {
-      "title": "Lehrstelle als Informatiker mit Schwerpunkt Plattformentwicklung",
-      "company": "LGT",
-      "city": "Haag (Rheintal)",
-      "ends": "2026-11-29",
-      "url": "https://www.job-room.ch/job-search/0dadede8-0cae-4f2c-ad5c-6f96f9f759c1"
-     },
-     {
-      "title": "Schülerpraktikum: Fachinformatiker mit dualem Studium (m/w/d) - 19.07.2027 - 23.07.2027",
-      "company": "MAN Energy Solutions",
-      "city": "Augsburg",
-      "ends": "2026-11-29",
-      "url": "https://www.job-room.ch/job-search/ec16940c-a3e0-4ede-8016-13b52f2297f2"
      }
+    ],
+    "skills": [
+     "Security",
+     "Networking",
+     "Scrum/Agile"
     ]
    },
    {
@@ -6938,14 +6902,17 @@
       "ends": "2026-12-04",
       "url": "https://www.job-room.ch/job-search/13b26571-cfc9-4486-b752-29c9c0a127b4"
      }
+    ],
+    "skills": [
+     "Networking"
     ]
    },
    {
     "group": "other",
     "label_en": "Other IT-related roles",
     "label_de": "Weitere IT-nahe Rollen",
-    "ads": 164,
-    "entry_ads": 10,
+    "ads": 593,
+    "entry_ads": 33,
     "items": [
      {
       "title": "Spezialist/in Energiedaten und Auswertungen 80 - 100%",
@@ -6962,26 +6929,17 @@
       "url": "https://www.job-room.ch/job-search/a37309e2-c7a0-4de2-bb08-951c9f4c5d38"
      },
      {
-      "title": "Sachbearbeiterin / Sachbearbeiter Service Desk Fakturierung (a) 100%",
-      "company": "Hirslanden AG",
-      "city": "Bern",
-      "ends": "2026-12-09",
-      "url": "https://www.job-room.ch/job-search/009a3b5f-a37d-4c00-9b39-5dcb430d1917"
-     },
-     {
-      "title": "JUN. 2ND LEVEL SUPPORTER (M/W/D) Eschen",
-      "company": "Rent a Person Personalberatungs AG",
-      "city": "Eschen",
-      "ends": "2026-12-15",
-      "url": "https://www.job-room.ch/job-search/5f501744-7cff-47be-b27d-91a918a6c9aa"
-     },
-     {
-      "title": "Ecommerce and Web Operations Internship",
-      "company": "Salt Mobile SA",
-      "city": "Prilly",
-      "ends": "2026-12-20",
-      "url": "https://www.job-room.ch/job-search/43ef9205-0ae9-446c-a707-61b6acc62eb7"
+      "title": "Business Analyst Rechnungswegsen, Buchungssystem & Kontoabschluss (all) 100%",
+      "company": "Finnova AG Bankware",
+      "city": "lenzburg",
+      "ends": "2026-12-06",
+      "url": "https://www.job-room.ch/job-search/4a00a10e-3845-4e2f-997e-5163be2efaf1"
      }
+    ],
+    "skills": [
+     "Networking",
+     "Excel",
+     "API/REST"
     ]
    }
   ]
