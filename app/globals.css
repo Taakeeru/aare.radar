@@ -90,7 +90,7 @@ a:hover {
   text-decoration-thickness: 2px;
 }
 :focus-visible {
-  outline: 2px solid var(--radar-link);
+  outline: 2px solid var(--radar-accent);
   outline-offset: 2px;
 }
 .sr-only {
@@ -175,11 +175,11 @@ a:hover {
 }
 .brand__ring {
   fill: none;
-  stroke: var(--radar-link);
+  stroke: var(--radar-accent);
   stroke-width: 1.5;
 }
 .brand__dot {
-  fill: var(--radar-link);
+  fill: var(--radar-accent);
 }
 .brand__name {
   font-weight: 700;
@@ -189,6 +189,22 @@ a:hover {
 .brand__sub {
   color: var(--radar-text2);
   font-weight: 700;
+}
+/* Wordmark options (lib/design-tokens.ts MARKS): one shows, chosen by html[data-mark]. Braces and dot
+   in the accent; default D is the wordmark as it was. */
+.brand__name[data-mark] {
+  display: none;
+}
+html:not([data-mark]) .brand__name[data-mark="d"],
+html[data-mark="a"] .brand__name[data-mark="a"],
+html[data-mark="b"] .brand__name[data-mark="b"],
+html[data-mark="c"] .brand__name[data-mark="c"],
+html[data-mark="d"] .brand__name[data-mark="d"] {
+  display: inline;
+}
+.brand__brace,
+.brand__punct {
+  color: var(--radar-accent);
 }
 
 .nav ul {
@@ -253,7 +269,7 @@ a:hover {
 .lang__link[aria-current="true"] {
   color: var(--radar-text);
   background: var(--radar-raised);
-  border-color: var(--radar-link);
+  border-color: var(--radar-accent);
 }
 
 .site-footer {
@@ -355,7 +371,7 @@ a:hover {
 .roles__link[aria-current="true"] {
   background: var(--radar-raised);
   color: var(--radar-text);
-  border-color: var(--radar-link);
+  border-color: var(--radar-accent);
 }
 
 /* ── Panels ────────────────────────────────────────────────────────────── */
@@ -515,7 +531,7 @@ a:hover {
 .rank__fill {
   height: 100%;
   border-radius: 5px;
-  background: var(--radar-link);
+  background: var(--radar-accent);
 }
 .rank__fill--healthy { background: var(--radar-healthy); }
 .rank__fill--warning { background: var(--radar-warning); }
@@ -536,7 +552,7 @@ a:hover {
   width: 8px;
   height: 8px;
   border-radius: 50%;
-  background: var(--radar-link);
+  background: var(--radar-accent);
 }
 .tag--healthy .tag__dot { background: var(--radar-healthy); }
 .tag--warning .tag__dot { background: var(--radar-warning); }
@@ -615,12 +631,12 @@ a:hover {
   width: 100%;
   max-width: 40px;
   min-height: 1px;
-  background: var(--radar-link);
+  background: var(--radar-accent);
   border-radius: 4px 4px 0 0;
 }
 .chart__bar--partial {
   background: var(--radar-surface);
-  border: 1px dashed var(--radar-link);
+  border: 1px dashed var(--radar-accent);
   border-bottom: 0;
 }
 .chart__x {
@@ -759,9 +775,9 @@ a:hover {
   cursor: pointer;
 }
 .btn--primary {
-  background: var(--radar-link);
-  color: var(--radar-root);
-  border-color: var(--radar-link);
+  background: var(--radar-accent);
+  color: var(--radar-on-accent);
+  border-color: var(--radar-accent);
 }
 .btn--primary:hover,
 .btn--primary:active {
@@ -826,7 +842,7 @@ a:hover {
   font: inherit;
 }
 .field input:focus-visible {
-  outline: 2px solid var(--radar-link);
+  outline: 2px solid var(--radar-accent);
 }
 .form-error {
   padding: 12px 16px;
@@ -920,4 +936,96 @@ a:hover {
   .nav__letter {
     display: none;
   }
+}
+
+/* ── Design options switcher (components/design-switcher.tsx) ─────────── */
+html[data-light="true"] {
+  color-scheme: light;
+}
+.design-fab {
+  position: fixed;
+  right: 16px;
+  bottom: 16px;
+  z-index: 50;
+  min-height: 44px;
+  padding: 0 16px;
+  border-radius: 8px;
+  border: 2px solid var(--radar-border);
+  background: var(--radar-surface);
+  color: var(--radar-text);
+  font: inherit;
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+}
+.design-fab:focus-visible,
+.design-sheet button:focus-visible,
+.design-sheet a:focus-visible {
+  outline: 2px solid var(--radar-accent);
+  outline-offset: 2px;
+}
+.design-sheet {
+  position: fixed;
+  right: 16px;
+  bottom: 72px;
+  z-index: 50;
+  width: min(360px, calc(100vw - 32px));
+  max-height: calc(100vh - 96px);
+  overflow-y: auto;
+  padding: 16px;
+  border-radius: 6px;
+  border: 1px solid var(--radar-border);
+  background: var(--radar-surface);
+  color: var(--radar-text);
+}
+.design-sheet h2 {
+  margin: 0 0 4px;
+  font-size: 17px;
+}
+.design-sheet__hint {
+  margin: 0 0 12px;
+  color: var(--radar-text2);
+  font-size: 14px;
+}
+.design-sheet fieldset {
+  margin: 0 0 12px;
+  padding: 0;
+  border: 0;
+}
+.design-sheet legend {
+  margin-bottom: 6px;
+  font-size: 14px;
+  font-weight: 700;
+}
+.design-sheet__opts {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.design-opt {
+  min-height: 40px;
+  padding: 0 12px;
+  border-radius: 4px;
+  border: 2px solid var(--radar-border);
+  background: var(--radar-root);
+  color: var(--radar-text);
+  font: inherit;
+  font-size: 14px;
+  cursor: pointer;
+}
+.design-opt[aria-pressed="true"] {
+  border-color: var(--radar-accent);
+  font-weight: 700;
+}
+.design-sheet__actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px 20px;
+  margin-top: 4px;
+}
+.design-sheet__status {
+  margin: 8px 0 0;
+  font-size: 14px;
+  color: var(--radar-text2);
 }

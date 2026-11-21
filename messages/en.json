@@ -470,5 +470,44 @@
     },
     "laterTitle": "Coming later",
     "later": "Countries of origin will be shown in a later version."
+  },
+  "design": {
+    "open": "Design options",
+    "title": "Design options",
+    "hint": "Try a look on the real pages. Your choice stays in this browser and in the link, so you can send it to the team.",
+    "group": {
+      "bg": "Background",
+      "accent": "Accent colour",
+      "font": "Font",
+      "mark": "Name"
+    },
+    "opt": {
+      "bg": {
+        "dark": "Dark (now)",
+        "grey": "Light grey",
+        "white": "White",
+        "sand": "Light sand"
+      },
+      "accent": {
+        "link": "Link blue (now)",
+        "aare": "Aare turquoise",
+        "blue": "Blue"
+      },
+      "font": {
+        "system": "System (now)",
+        "ubuntu": "Ubuntu",
+        "atkinson": "Atkinson Hyperlegible",
+        "plex": "IBM Plex Sans"
+      },
+      "mark": {
+        "a": "'{' Aare.Radar '}'",
+        "b": "'{' AARE.RADAR '}'",
+        "c": "'{' aare.radar '}'",
+        "d": "AareRadar (now)"
+      }
+    },
+    "copy": "Copy link",
+    "copied": "Link copied. Paste it into the panel or a message.",
+    "reset": "Back to the current look"
   }
 }

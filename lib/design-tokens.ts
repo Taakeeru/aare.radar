@@ -59,5 +59,97 @@ export function tokenStyle(): Record<string, string> {
     style[`--radar-gradient-${i + 1}`] = value;
   });
   style["--radar-font"] = FONT.sans;
+  // The accent fills, lines, dots, chart marks and the wordmark's braces; --radar-link stays the TEXT
+  // colour of links. By default both are the link blue, exactly as before the design options.
+  style["--radar-accent"] = COLOR.link;
+  style["--radar-on-accent"] = COLOR.root;
   return style;
+}
+
+/*
+ * DESIGN OPTIONS (21.11.2026, owner: «add many options so the site will be exactly as we like … also with
+ * the font»). The team tries them on the live site (components/design-switcher.tsx) and votes; the default
+ * above stays until then. White, light sand and Aare turquoise were added to the charter palette as options
+ * (Aare turquoise sampled from the team's photo of the Aare in Bern). Rules kept by the guard
+ * lib/__tests__/design-options.test.ts: every value is in OPTION_PALETTE, and on a light background no
+ * text or link colour is an accent (the accent is a fill, line, dot or mark only).
+ */
+export const OPTION_PALETTE = [
+  ...Object.values(COLOR),
+  ...GRADIENT,
+  "#ffffff",
+  "#f6f1e7",
+  "#3eafaf",
+] as const;
+
+type Surface = Record<"root" | "surface" | "raised" | "hairline" | "border" | "text" | "text2" | "text3" | "link", string>;
+
+const LIGHT_TEXT = { text: "#101317", text2: "#22272e", text3: "#2c333c", link: "#101317" } as const;
+
+export const BACKGROUNDS: Record<string, { light: boolean; colors: Surface }> = {
+  dark: {
+    light: false,
+    colors: {
+      root: COLOR.root, surface: COLOR.surface, raised: COLOR.raised, hairline: COLOR.hairline, border: COLOR.border,
+      text: COLOR.text, text2: COLOR.text2, text3: COLOR.text3, link: COLOR.link,
+    },
+  },
+  grey: {
+    light: true,
+    colors: { root: "#eceef1", surface: "#ffffff", raised: "#eceef1", hairline: "#eceef1", border: "#b6bdc7", ...LIGHT_TEXT },
+  },
+  white: {
+    light: true,
+    colors: { root: "#ffffff", surface: "#ffffff", raised: "#eceef1", hairline: "#eceef1", border: "#b6bdc7", ...LIGHT_TEXT },
+  },
+  sand: {
+    light: true,
+    colors: { root: "#f6f1e7", surface: "#ffffff", raised: "#f6f1e7", hairline: "#eceef1", border: "#b6bdc7", ...LIGHT_TEXT },
+  },
+};
+
+export const ACCENTS: Record<string, string> = {
+  link: COLOR.link,
+  aare: "#3eafaf",
+  blue: "#60a5fa",
+};
+
+/** Text on an accent fill (the primary button): always the darkest ink. */
+export const ON_ACCENT = COLOR.root;
+
+export const FONTS: Record<string, string> = {
+  system: FONT.sans,
+  ubuntu: '"Ubuntu", ' + FONT.sans,
+  atkinson: '"Atkinson Hyperlegible", ' + FONT.sans,
+  plex: '"IBM Plex Sans", ' + FONT.sans,
+};
+
+/** Wordmarks: A { Aare.Radar } · B { AARE.RADAR } · C { aare.radar } · D AareRadar (as now). */
+export const MARKS = ["a", "b", "c", "d"] as const;
+
+export type DesignChoice = { bg: string; accent: string; font: string; mark: string };
+
+export const DESIGN_DEFAULT: DesignChoice = { bg: "dark", accent: "link", font: "system", mark: "d" };
+
+/** The CSS variables for one combination (written onto <html> by the switcher). */
+export function designStyle(choice: DesignChoice): Record<string, string> {
+  const bg = BACKGROUNDS[choice.bg] ?? BACKGROUNDS[DESIGN_DEFAULT.bg]!;
+  const accent = ACCENTS[choice.accent] ?? ACCENTS[DESIGN_DEFAULT.accent]!;
+  const style: Record<string, string> = {};
+  for (const [name, value] of Object.entries(bg.colors)) style[`--radar-${name}`] = value;
+  style["--radar-accent"] = accent;
+  style["--radar-on-accent"] = ON_ACCENT;
+  style["--radar-font"] = FONTS[choice.font] ?? FONTS[DESIGN_DEFAULT.font]!;
+  return style;
+}
+
+/** A known value of each group, else the default (URL and browser storage are untrusted input). */
+export function cleanChoice(raw: Partial<Record<keyof DesignChoice, string | null | undefined>>): DesignChoice {
+  const pick = (v: string | null | undefined, ok: readonly string[], d: string) => (v && ok.includes(v) ? v : d);
+  return {
+    bg: pick(raw.bg, Object.keys(BACKGROUNDS), DESIGN_DEFAULT.bg),
+    accent: pick(raw.accent, Object.keys(ACCENTS), DESIGN_DEFAULT.accent),
+    font: pick(raw.font, Object.keys(FONTS), DESIGN_DEFAULT.font),
+    mark: pick(raw.mark, MARKS, DESIGN_DEFAULT.mark),
+  };
 }
