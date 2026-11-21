@@ -54,6 +54,7 @@ export async function loadQuestionPage(params: Promise<{ locale: string }>, sear
     data,
     role,
     roleName,
+    chosen: wanted !== undefined,
     fmt: (n: number) => formatInt(n, locale),
     jobroom: pickSources(data, ["jobroom"]),
     age: ageInDays(data.generated_at),
@@ -64,7 +65,7 @@ type Loaded = Extract<Awaited<ReturnType<typeof loadQuestionPage>>, { fail: null
 
 /** Page head of a question page: the question title as h1, the question, the role switch on top of the section. */
 export function QuestionPageHead({ ctx, letter, base }: { ctx: Loaded; letter: "A" | "B" | "C"; base: string }) {
-  const { t, q, data, role, roleName, age } = ctx;
+  const { t, q, data, role, roleName, age, chosen } = ctx;
   return (
     <header className="page-head">
       <p className="eyebrow eyebrow--icon">
@@ -75,7 +76,7 @@ export function QuestionPageHead({ ctx, letter, base }: { ctx: Loaded; letter: "
         {q(`${letter}.title`)}
       </h1>
       <p className="page__lead">{q(`${letter}.question`)}</p>
-      <RoleSwitch base={base} roles={data.roles.map((r) => ({ id: r.id, label: roleName(r) }))} current={role.id} label={t("roleLabel")} />
+      <RoleSwitch base={base} roles={data.roles.map((r) => ({ id: r.id, label: roleName(r) }))} current={role.id} label={t("roleLabel")} placeholder={t("rolePlaceholder")} chosen={chosen} />
       {age !== null && age >= 3 ? <p className="notice">{t("dataStale", { days: age })}</p> : null}
     </header>
   );

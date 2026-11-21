@@ -172,7 +172,7 @@ export default async function DashboardPage({
       <header className="page-head">
         <h1 className="page__title">{t("title")}</h1>
         <p className="page__lead">{t("lead")}</p>
-        <RoleSwitch base="/nachfrage" roles={data.roles.map((r) => ({ id: r.id, label: roleName(r) }))} current={role.id} label={t("roleLabel")} />
+        <RoleSwitch base="/nachfrage" roles={data.roles.map((r) => ({ id: r.id, label: roleName(r) }))} current={role.id} label={t("roleLabel")} placeholder={t("rolePlaceholder")} chosen={wanted !== undefined} />
         {age !== null && age >= 3 ? <p className="notice">{t("dataStale", { days: age })}</p> : null}
       </header>
 

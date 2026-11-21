@@ -69,7 +69,7 @@ export default async function HomePage({ params, searchParams }: { params: Promi
     <header className="page-head">
       <h1 className="page__title">{job ? name(job) : t("title")}</h1>
       <p className="page__lead">{job ? t("jobLead", { days: data.window_days }) : t("lead")}</p>
-      <JobSelect jobs={jobs.map((j) => ({ code: j.code, label: `${name(j)} (${fmt(j.ads)})` }))} current={job?.code ?? ""} label={t("pick")} all={t("all")} show={t("show")} />
+      <JobSelect jobs={jobs.map((j) => ({ code: j.code, label: `${name(j)} (${fmt(j.ads)})` }))} current={job?.code ?? ""} label={t("pick")} all={t("all")} show={t("show")} placeholder={t("pickPlaceholder")} />
     </header>
   );
 

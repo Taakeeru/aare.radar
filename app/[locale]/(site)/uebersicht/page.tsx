@@ -98,7 +98,7 @@ export default async function OverviewPage({ params, searchParams }: { params: P
         </p>
         <h1 className="page__title">{role ? `${t("title")}: ${roleName(role)}` : t("title")}</h1>
         <p className="page__lead">{t("lead", { ads: fmt(totalAds), entry: fmt(totalEntry) })}</p>
-        <RoleSwitch base="/uebersicht" roles={data.roles.map((r) => ({ id: r.id, label: roleName(r) }))} current={role ? role.id : "all"} label={d("roleLabel")} all={t("allJobs")} />
+        <RoleSwitch base="/uebersicht" roles={data.roles.map((r) => ({ id: r.id, label: roleName(r) }))} current={role ? role.id : "all"} label={d("roleLabel")} all={t("allJobs")} placeholder={d("rolePlaceholder")} chosen={typeof sp.role === "string"} />
       </header>
       <div className="grid">
         <Panel id="o-skills" title={t("skills.title")} intro={role ? t("skills.introRole") : t("skills.intro")} span={6} sources={jobroom}>

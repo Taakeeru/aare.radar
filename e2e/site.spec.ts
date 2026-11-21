@@ -27,7 +27,7 @@ test("@ci the start page is the market at a glance, and the job list opens one j
   await expect(page.locator("h1")).toHaveText("Der Schweizer IT-Stellenmarkt auf einen Blick");
   await expect(page.getByRole("heading", { name: "Offene IT-Stellen in der Schweiz" })).toBeVisible();
   const select = page.getByLabel("IT-Beruf wählen");
-  const first = await select.locator("option").nth(1).getAttribute("value");
+  const first = await select.locator("option").nth(2).getAttribute("value");
   await select.selectOption(first!);
   await expect(page).toHaveURL(new RegExp(`/de\\?job=${first}$`));
   await expect(page.getByRole("heading", { name: "Gefragte Fähigkeiten" })).toBeVisible();
@@ -47,7 +47,7 @@ test("@ci the Dashboard shows its six cards and follows the role", async ({ page
 test("@ci the role switcher changes the whole screen", async ({ page }) => {
   await page.goto("/de/nachfrage");
   const select = page.getByLabel("Beruf wählen");
-  await expect(select).toHaveValue("web");
+  await expect(select).toHaveValue("");
   const web = await page.locator(".stat__n").first().innerText();
   await select.selectOption("support");
   await expect(page).toHaveURL(/\/de\/nachfrage\?role=support$/);
@@ -99,7 +99,7 @@ test("@ci the five questions are the navigation", async ({ page }) => {
 test("@ci role switch stays on the skills page", async ({ page }) => {
   await page.goto("/de/faehigkeiten");
   const select = page.getByLabel(/Beruf|Rolle/i);
-  const second = await select.locator("option").nth(1).getAttribute("value");
+  const second = await select.locator("option").nth(2).getAttribute("value");
   await select.selectOption(second!);
   await expect(page).toHaveURL(/\/de\/faehigkeiten\?role=/);
 });
