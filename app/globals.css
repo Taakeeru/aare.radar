@@ -181,6 +181,51 @@ a:hover {
 .brand__dot {
   fill: var(--radar-accent);
 }
+/* The radar sign moves (owner 21.11.2026, like the client panels' sonar): the arm turns once in 4 s and a
+   ring spreads from the centre and thins out to nothing as it reaches the outer ring (stroke width, not
+   opacity). Transform only; nothing moves for a person who asked for reduced motion. */
+.brand__arm {
+  fill: none;
+  stroke: var(--radar-accent);
+  stroke-width: 1.5;
+  stroke-linecap: round;
+  transform-box: view-box;
+  transform-origin: 12px 12px;
+  animation: brand-turn 4s linear infinite;
+}
+.brand__ping {
+  fill: none;
+  stroke: var(--radar-accent);
+  transform-box: view-box;
+  transform-origin: 12px 12px;
+  animation: brand-ping 2.4s ease-out infinite;
+}
+@keyframes brand-turn {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+@keyframes brand-ping {
+  0% {
+    transform: scale(0.2);
+    stroke-width: 3;
+  }
+  100% {
+    transform: scale(1);
+    stroke-width: 0;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .brand__arm {
+    animation: none;
+  }
+  .brand__ping {
+    display: none;
+  }
+}
 .brand__name {
   font-weight: 700;
   font-size: 18px;
