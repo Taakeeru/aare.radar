@@ -71,4 +71,14 @@ describe("design options", () => {
     expect(css).not.toMatch(/https?:\/\//);
     for (const f of ["ubuntu", "atkinson-hyperlegible", "ibm-plex-sans"]) expect(css).toContain(`/fonts/${f}-latin-400-normal.woff2`);
   });
+
+  it("the logo's radar motion stops for reduced motion and never fades by opacity", () => {
+    const css = read("app/globals.css").replace(/\/\*[\s\S]*?\*\//g, "");
+    const brand = read("components/brand.tsx");
+    expect(brand).toContain('className="brand__arm"');
+    expect(brand).toContain('className="brand__ping"');
+    const reduced = css.slice(css.indexOf("@media (prefers-reduced-motion: reduce)"));
+    expect(reduced).toMatch(/\.brand__arm\s*\{\s*animation:\s*none/);
+    expect(reduced).toMatch(/\.brand__ping\s*\{\s*display:\s*none/);
+  });
 });
