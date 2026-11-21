@@ -142,6 +142,17 @@
       "sentence": "{count} in 100 ads come from recruiting agencies.",
       "intro": "Agencies advertise jobs for other companies. The company behind the job is often not named in the ad. That is why they are listed apart from the employers.",
       "empty": "No recruiting agencies in this period."
+    },
+    "allIt": {
+      "title": "All IT jobs, not only the three roles",
+      "intro": "Every ad on job-room.ch in an IT occupation",
+      "caption": "IT ads in the last {days} days, in {jobs} IT occupations",
+      "groups": "IT ads by field",
+      "meaning": "The three roles above have {roles} of them. Most IT ads are in {group}.",
+      "jobsTitle": "Which IT jobs have the most ads",
+      "jobsMeaning": "Most ads are for {first}, {second} and {third}.",
+      "jobsMeaningShort": "These are the IT occupations with the most ads.",
+      "note": "Occupation as the employer chose it on job-room.ch (SECO). IT occupations are those the Swiss occupation list files under ICT professionals and ICT technicians."
     }
   },
   "policy": {

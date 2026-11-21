@@ -47,6 +47,18 @@ export type Series = { label: string; unit: string; dimension: string | null; po
 /** One source's time series for one question (export field `series`, keyed by question letter). */
 export type SeriesBlock = { source: string; name: string; url: string; updated: string | null; series: Series[] };
 export type PolicyItem = { source: string; title: string; date: string | null; status: string | null; url: string | null; matched: string | null };
+/** Every IT ad by job-room occupation code (export field `it_market`, 21.11.2026). */
+export type ItGroup = { group: string; label_en: string; label_de: string; ads: number };
+export type ItOccupation = { code: string; label_en: string; label_de: string; group: string; ads: number; entry_level_share: number };
+export type ItMarket = {
+  ads: number;
+  entry_level_share: number;
+  reporting_obligation_share: number;
+  weekly: WeeklyPoint[];
+  groups: ItGroup[];
+  occupations: ItOccupation[];
+  cantons: CantonCount[];
+};
 export type Radar = {
   generated_at: string;
   window_days: number;
@@ -56,6 +68,8 @@ export type Radar = {
   policy: PolicyItem[];
   /** Optional (added with sources-as-config): time series per question letter. */
   series?: Record<string, SeriesBlock[]>;
+  /** Optional (21.11.2026): every IT ad, not only the three roles. */
+  it_market?: ItMarket;
 };
 
 export type RadarResult = { ok: true; data: Radar; file: string } | { ok: false; error: string };
@@ -129,6 +143,19 @@ export function parseRadar(text: string): Radar {
     const isSeries = (x: unknown) => isObj(x) && isStr(x.label) && isStr(x.unit) && isStrOrNull(x.dimension) && isArr(x.points, isPoint);
     const isBlock = (b: unknown) => isObj(b) && isStr(b.source) && isStr(b.name) && isStr(b.url) && isStrOrNull(b.updated) && isArr(b.series, isSeries);
     if (!isObj(raw.series) || !Object.values(raw.series).every((v) => isArr(v, isBlock))) bad("series");
+  }
+  if (raw.it_market !== undefined) {
+    const m = raw.it_market;
+    const ok =
+      isObj(m) &&
+      isNum(m.ads) &&
+      isNum(m.entry_level_share) &&
+      isNum(m.reporting_obligation_share) &&
+      isArr(m.weekly, (w) => isObj(w) && isStr(w.week) && /^\d{4}-W\d{2}$/.test(w.week) && isNum(w.new_ads)) &&
+      isArr(m.groups, (g) => isObj(g) && isStr(g.group) && isStr(g.label_en) && isStr(g.label_de) && isNum(g.ads)) &&
+      isArr(m.occupations, (o) => isObj(o) && isStr(o.code) && isStr(o.label_en) && isStr(o.label_de) && isStr(o.group) && isNum(o.ads) && isNum(o.entry_level_share)) &&
+      isArr(m.cantons, (c) => isObj(c) && isStr(c.canton) && isNum(c.count));
+    if (!ok) bad("it_market");
   }
   return raw as unknown as Radar;
 }

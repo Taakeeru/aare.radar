@@ -9,9 +9,12 @@ import datetime as dt
 import html
 import json
 import re
+from pathlib import Path
 
 from .. import net
 from ..roles import BARRIERS, IT_GUARD, ROLES, SKILLS, classify
+
+IT_FILE = Path(__file__).resolve().parent.parent / "it_occupations.json"
 
 REQUIRED = []
 SEARCH = "https://www.job-room.ch/jobadservice/api/jobAdvertisements/_search?page={p}&size={size}&sort=date_desc"
@@ -37,6 +40,23 @@ def run(c, entry):
     for rid, (_, keywords, _) in ROLES.items():
         for p in range(0, int(entry.get("max_pages", 25))):
             raw, hdr = net.fetch(SEARCH.format(p=p, size=size), {"keywords": keywords, "onlineSince": since})
+            page = json.loads(raw)
+            for item in page:
+                ad = item["jobAdvertisement"]
+                if ad["id"] in seen:
+                    continue
+                seen.add(ad["id"])
+                kept += store_ad(c, ad, today)
+            total = int(hdr.get("x-total-count") or hdr.get("X-Total-Count") or 0)
+            if len(page) < size or (p + 1) * size >= total:
+                break
+    # Every IT ad, not only the three roles' search words (21.11.2026): one search by the IT occupation codes
+    # of collector/it_occupations.json. Stored like any ad (the role match still comes from the title).
+    if entry.get("all_it", True):
+        codes = list(it_occupations()["occupations"])
+        body = {"onlineSince": since, "professionCodes": [{"type": "AVAM", "value": k} for k in codes]}
+        for p in range(0, int(entry.get("max_pages_all_it", 40))):
+            raw, hdr = net.fetch(SEARCH.format(p=p, size=size), body)
             page = json.loads(raw)
             for item in page:
                 ad = item["jobAdvertisement"]
@@ -78,6 +98,11 @@ def fetch_full_text(c, everything=False):
             c.commit()
             print(f"  full text {i}/{len(todo)}")
     c.commit()
+
+
+def it_occupations():
+    """collector/it_occupations.json: {"groups": {isco3: {en, de}}, "occupations": {avam: {group, en, de}}}."""
+    return json.loads(IT_FILE.read_text())
 
 
 def store_ad(c, ad, today):

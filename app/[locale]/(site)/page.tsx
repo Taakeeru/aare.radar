@@ -145,6 +145,24 @@ export default async function DashboardPage({
     return { key: p.period, value: p.value, label: quarter === 1 ? String(year) : "", description: `${year} Q${quarter}` };
   });
 
+  // A: every IT ad (job-room occupation codes), not only the three roles
+  const it = data.it_market && data.it_market.ads > 0 ? data.it_market : null;
+  const itLabel = (x: { label_en: string; label_de: string }) => (locale === "de" ? x.label_de : x.label_en);
+  const roleAds = data.roles.reduce((n, r) => n + r.ads, 0);
+  const itGroupRows: BarRow[] = (it?.groups ?? []).map((g) => ({
+    key: g.group,
+    label: itLabel(g),
+    fraction: g.ads / Math.max(1, it!.groups[0]!.ads),
+    value: c("ads", { count: g.ads }),
+  }));
+  const itTop = (it?.occupations ?? []).slice(0, 12);
+  const itJobRows: BarRow[] = itTop.map((o) => ({
+    key: o.code,
+    label: itLabel(o),
+    fraction: o.ads / Math.max(1, itTop[0]!.ads),
+    value: c("ads", { count: o.ads }),
+  }));
+
   // B: skills
   const skills = role.skills.slice(0, 10);
   const skillRows: BarRow[] = skills.map((s) => ({
@@ -282,6 +300,39 @@ export default async function DashboardPage({
               <p>{t("sector.empty")}</p>
             )}
           </Panel>
+
+          {it ? (
+            <>
+              <Panel
+                id="p-allit"
+                title={t("allIt.title")}
+                intro={t("allIt.intro")}
+                span={5}
+                sources={jobroom}
+                meaning={t("allIt.meaning", { roles: fmt(roleAds), group: itLabel(it.groups[0]!) })}
+              >
+                <p className="stat">
+                  <span className="stat__n">{fmt(it.ads)}</span>
+                  <span className="stat__c">{t("allIt.caption", { days: data.window_days, jobs: it.occupations.length })}</span>
+                </p>
+                <BarList rows={itGroupRows} label={t("allIt.groups")} />
+              </Panel>
+              <Panel
+                id="p-allit-jobs"
+                title={t("allIt.jobsTitle")}
+                span={7}
+                sources={jobroom}
+                meaning={
+                  itTop.length >= 3
+                    ? t("allIt.jobsMeaning", { first: itLabel(itTop[0]!), second: itLabel(itTop[1]!), third: itLabel(itTop[2]!) })
+                    : t("allIt.jobsMeaningShort")
+                }
+              >
+                <BarList rows={itJobRows} label={t("allIt.jobsTitle")} />
+                <p className="note">{t("allIt.note")}</p>
+              </Panel>
+            </>
+          ) : null}
         </div>
       </section>
 

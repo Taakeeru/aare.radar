@@ -25,6 +25,13 @@ Contract (keep in step with lib/radar.ts in the app):
      "reporting_obligation_share": share,         # occupations under the Swiss job-reporting duty
      "examples": [{"title","company","city","published","url"}]   # newest 8
   }],
+  "it_market": {                                # NEW 21.11.: EVERY IT ad (job-room occupation codes, collector/it_occupations.json)
+     "ads", "entry_level_share", "reporting_obligation_share",   # entry_level_share: only role ads are read in full, so it undercounts
+     "weekly": [{"week", "new_ads"}],
+     "groups": [{"group", "label_en", "label_de", "ads"}],              # CH-ISCO 250/251/252/351/352
+     "occupations": [{"code", "label_en", "label_de", "group", "ads", "entry_level_share"}],   # all with 1+ ad, most first
+     "cantons": [{"canton", "count"}]
+  },
   "sector": [{"series", "period", "value"}],     # BFS JOBSTAT, quarterly (the source flagged "sector" in sources.json)
   "series": {                                    # NEW: every numeric source, grouped by question letter
      "D": [{"source": id, "name", "url", "updated",
@@ -121,6 +128,7 @@ def main(out: Path, db=None, entries=None, esco_path=None):
             "reporting_obligation_share": round(sum(r[9] for r in R) / max(n, 1), 3),
             "examples": [{"title": r[0], "company": r[1], "city": r[2], "published": r[4], "url": r[5]} for r in R[:8]],
         })
+    it_market = build_it_market(c, since)
     sector_id = next((e["id"] for e in entries if e.get("sector")), "bfs")
     sector = [{"series": s, "period": p, "value": v} for s, p, v in
               c.execute("SELECT series, period, value FROM stats WHERE source=? ORDER BY period", (sector_id,))]
@@ -140,12 +148,45 @@ def main(out: Path, db=None, entries=None, esco_path=None):
                         "status": ("reference" if e["type"] == "link" else run[2] if run else "never"),
                         "latest_period": latest})
     doc = {"generated_at": dt.datetime.now(dt.timezone.utc).isoformat(timespec="seconds"), "window_days": WINDOW,
-           "questions": config.QUESTIONS, "sources": sources, "roles": roles, "sector": sector, "policy": policy,
+           "questions": config.QUESTIONS, "sources": sources, "roles": roles, "it_market": it_market, "sector": sector, "policy": policy,
            "series": build_series(c, entries)}
     out.parent.mkdir(parents=True, exist_ok=True)
     out.write_text(json.dumps(doc, ensure_ascii=False, indent=1))
     print(f"wrote {out} ({out.stat().st_size // 1024} KB): " + ", ".join(f"{r['id']} {r['ads']}" for r in roles))
     return doc
+
+
+def build_it_market(c, since):
+    """Every ad whose job-room occupation code is an IT occupation (collector/it_occupations.json), in the window."""
+    from .types.jobroom_search import it_occupations
+    it = it_occupations()
+    occ, groups = it["occupations"], it["groups"]
+    marks = ",".join("?" * len(occ)) or "''"
+    rows = c.execute(f"""SELECT occupation, published, canton, barriers, reporting_obligation FROM ads
+                         WHERE occupation IN ({marks}) AND published >= ?""", (*occ, since)).fetchall()
+    n = len(rows)
+    weekly = collections.Counter()
+    for r in rows:
+        if r[1]:
+            y, w, _ = dt.date.fromisoformat(r[1][:10]).isocalendar()
+            weekly[f"{y}-W{w:02d}"] += 1
+    by_occ = collections.defaultdict(list)
+    for r in rows:
+        by_occ[r[0]].append(r)
+    entry = lambda R: round(sum(1 for r in R if "entry_level" in json.loads(r[3] or "[]")) / max(len(R), 1), 3)  # noqa: E731
+    by_group = collections.Counter(occ[r[0]]["group"] for r in rows)
+    return {
+        "ads": n,
+        "entry_level_share": entry(rows),
+        "reporting_obligation_share": round(sum(r[4] or 0 for r in rows) / max(n, 1), 3),
+        "weekly": [{"week": k, "new_ads": v} for k, v in sorted(weekly.items())],
+        "groups": [{"group": g, "label_en": groups[g]["en"], "label_de": groups[g]["de"], "ads": by_group[g]}
+                   for g in sorted(groups, key=lambda g: -by_group[g]) if by_group[g]],
+        "occupations": [{"code": k, "label_en": occ[k]["en"], "label_de": occ[k]["de"], "group": occ[k]["group"],
+                         "ads": len(R), "entry_level_share": entry(R)}
+                        for k, R in sorted(by_occ.items(), key=lambda kv: -len(kv[1]))],
+        "cantons": [{"canton": k, "count": v} for k, v in collections.Counter(r[2] for r in rows if r[2]).most_common()],
+    }
 
 
 def _esco(esco, skill):

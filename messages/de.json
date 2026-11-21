@@ -142,6 +142,17 @@
       "sentence": "{count} von 100 Inseraten stammen von Personalvermittlern.",
       "intro": "Vermittler schreiben Stellen für andere Firmen aus. Die Firma dahinter ist im Inserat oft nicht genannt. Darum stehen sie getrennt von den Arbeitgebern.",
       "empty": "Keine Personalvermittler in diesem Zeitraum."
+    },
+    "allIt": {
+      "title": "Alle IT-Stellen, nicht nur die drei Berufe",
+      "intro": "Jedes Inserat auf job-room.ch in einem IT-Beruf",
+      "caption": "IT-Inserate in den letzten {days} Tagen, in {jobs} IT-Berufen",
+      "groups": "IT-Inserate nach Bereich",
+      "meaning": "Davon gehören {roles} zu den drei Berufen oben. Die meisten IT-Inserate sind im Bereich {group}.",
+      "jobsTitle": "Welche IT-Berufe die meisten Inserate haben",
+      "jobsMeaning": "Die meisten Inserate gibt es für {first}, {second} und {third}.",
+      "jobsMeaningShort": "Das sind die IT-Berufe mit den meisten Inseraten.",
+      "note": "Beruf so, wie ihn der Arbeitgeber auf job-room.ch (SECO) gewählt hat. IT-Berufe sind die, die das Schweizer Berufsverzeichnis bei den ICT-Fachleuten und ICT-Technikern führt."
     }
   },
   "policy": {
