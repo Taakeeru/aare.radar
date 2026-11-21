@@ -5,7 +5,7 @@ import { read } from "./support/files";
 
 describe("page icons instead of letters", () => {
   it("every navigation tab has an icon", () => {
-    for (const k of ["demand", "skills", "employers", "target", "policy", "volunteers", "sources"]) expect(ICONS[k], k).toBeTruthy();
+    for (const k of ["overview", "demand", "skills", "employers", "target", "policy", "volunteers", "sources"]) expect(ICONS[k], k).toBeTruthy();
   });
   it("no page head writes «Question D/E» or a letter badge", () => {
     for (const f of ["app/[locale]/(site)/zielgruppe/page.tsx", "app/[locale]/(site)/politik/page.tsx"]) {

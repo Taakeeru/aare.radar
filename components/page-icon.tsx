@@ -1,6 +1,7 @@
 /** The page icons (Aare turquoise, line only), shared by the main navigation and the page heads (team, 21.11.2026). */
 // One icon per page in Aare turquoise instead of the letters A to E (team, 21.11.2026). Paths in a 24 box, stroke only.
 export const ICONS: Record<string, string> = {
+  overview: "M4 4h7v7H4zM13 4h7v4h-7zM13 10h7v10h-7zM4 13h7v7H4z",
   demand: "M4 20V10M10 20V4M16 20v-7M22 20H2",
   skills: "M9 18h6M10 21h4M12 3a6 6 0 0 0-3.5 10.9c.6.4 1 1.1 1 1.8V16h5v-.3c0-.7.4-1.4 1-1.8A6 6 0 0 0 12 3z",
   employers: "M3 21h18M5 21V5h9v16M14 9h5v12M8 9h2M8 13h2M8 17h2",

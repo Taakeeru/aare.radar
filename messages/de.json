@@ -15,7 +15,8 @@
     "skills": "Fähigkeiten",
     "employers": "Arbeitgeber",
     "target": "Zielgruppe",
-    "volunteers": "Freiwillige"
+    "volunteers": "Freiwillige",
+    "overview": "Übersicht"
   },
   "footer": {
     "note": "Ein Werkzeug für das Team von Powercoders. Die Zahlen stammen aus öffentlichen Quellen.",
@@ -656,5 +657,50 @@
     "inCity": "{n} in {city}",
     "offers": "bietet {offer}",
     "none": "Keine Fachperson passt zu diesen Filtern."
+  },
+  "overview": {
+    "eyebrow": "Übersicht",
+    "title": "Der IT-Markt auf einen Blick für Powercoders",
+    "lead": "{ads} IT-Inserate in den letzten 60 Tagen, {entry} davon offen für Einsteigende: was sie verlangen, wo sie sind und die neuesten.",
+    "skills": {
+      "title": "Fähigkeiten, die Firmen suchen",
+      "intro": "Anteil an den Nennungen unter den sechs meistgefragten Fähigkeiten in allen IT-Inseraten.",
+      "chip": "Nachfrage"
+    },
+    "teach": {
+      "title": "Fähigkeiten zum Unterrichten",
+      "intro": "Die Fähigkeiten, die Einsteiger-Inserate verlangen ({n} ganz gelesene Inserate), Anteil an den Nennungen.",
+      "chip": "Lücke in der Ausbildung",
+      "link": "Kurse und Powercoders-Programme zu diesen Fähigkeiten"
+    },
+    "evo": {
+      "title": "Entwicklung der Fähigkeiten",
+      "intro": "Anzahl IT-Inserate, die die Fähigkeit nennen, letzte {days} Tage.",
+      "chip": "Anzahl Inserate",
+      "yAxis": "Inserate",
+      "xAxis": "Fähigkeit",
+      "note": "Ein Verlauf Monat für Monat entsteht, während der Radar täglich sammelt; job-room zeigt nur die letzten 60 Tage."
+    },
+    "req": {
+      "title": "Entry requirements",
+      "intro": "Wie oft IT-Inserate das verlangen.",
+      "chip": "% der Inserate",
+      "note": "Zertifikate und Portfolios misst der Radar noch nicht.",
+      "senior_experience": "Mehrere Jahre Erfahrung",
+      "degree_required": "Ein Abschluss",
+      "german_required": "Sehr gutes Deutsch",
+      "french_required": "Sehr gutes Französisch"
+    },
+    "where": {
+      "title": "Wo die Stellen sind",
+      "chip": "Zentren"
+    },
+    "newest": {
+      "title": "Neueste Einsteiger-Inserate",
+      "chip": "Live"
+    },
+    "today": "heute",
+    "yesterday": "gestern",
+    "daysAgo": "vor {n} Tagen"
   }
 }

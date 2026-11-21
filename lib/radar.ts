@@ -73,8 +73,16 @@ export type ItDetail = {
   entry_employers?: CompanyCount[];
 };
 export type ItOccupation = ItDetail & { code: string; label_en: string; label_de: string; group: string; ads: number; entry_ads?: number; entry_level_share: number };
+/** The Overview page (21.11.2026). */
+export type ItOverview = {
+  entry_skills: SkillShare[];
+  entry_basis: number;
+  requirements: Record<string, number>;
+  newest_entry: { title: string; company: string | null; city: string | null; published: string; url: string }[];
+};
 export type ItMarket = ItDetail & {
   ads: number;
+  overview?: ItOverview;
   /** Ads open to beginners: the full text says junior / trainee / career changer / internship, or job-room's experience field says none or under a year. */
   entry_ads?: number;
   read_in_full?: number;
