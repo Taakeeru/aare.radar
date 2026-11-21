@@ -39,7 +39,22 @@
   "roles": {
     "web": "Web-Entwicklung",
     "support": "IT-Support",
-    "data": "Datenanalyse"
+    "data": "Datenanalyse",
+    "devops": "DevOps / Cloud Engineer",
+    "sysadmin": "Systemtechnik / Systemadministration",
+    "network": "Netzwerktechnik",
+    "security": "IT-Sicherheit",
+    "dataeng": "Data Engineer / Data Scientist",
+    "qa": "Softwaretest / QA",
+    "itpm": "IT-Projektleitung",
+    "business": "Business Analyst",
+    "ux": "UX / UI Design",
+    "erp": "SAP / ERP Beratung",
+    "people": "People Analyst / HR-Tech",
+    "product": "Product Manager",
+    "marketing": "Digitales Marketing / Web Analytics",
+    "techsales": "IT-Verkauf / Customer Success",
+    "recruiting": "Tech-Recruiter"
   },
   "dash": {
     "title": "Das sucht der IT-Markt",

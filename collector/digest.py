@@ -14,6 +14,8 @@ import sys
 
 from .roles import ROLES, is_entry_ad
 
+# The summary email keeps the three categories the team chose, whatever the radar tracks.
+DIGEST_ROLES = ("web", "support", "data")
 DE_LABELS = {"web": "Webentwicklung", "support": "IT-Support", "data": "Datenanalyse"}
 MONTHS = {
     "en": ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October",
@@ -47,7 +49,7 @@ def build_digest(c, today, days=14, locale="en"):
     t = T[locale]
     start = today - dt.timedelta(days=days)
     a, b = _fmt(start, locale), _fmt(today, locale)
-    per_role = {rid: [] for rid in ROLES}
+    per_role = {rid: [] for rid in DIGEST_ROLES}
     for title, company, city, ends, url, roles, first_seen in c.execute(
             "SELECT title, company, city, ends, url, roles, first_seen FROM ads WHERE roles != '[]'"):
         seen = _date(first_seen)
@@ -62,7 +64,8 @@ def build_digest(c, today, days=14, locale="en"):
             if rid in per_role:
                 per_role[rid].append((end, title, company, city, url))
     lines = [t["period"].format(a=a, b=b), ""]
-    for rid, (label, _, _) in ROLES.items():
+    for rid in DIGEST_ROLES:
+        label = ROLES[rid][0]
         if locale == "de":
             label = DE_LABELS.get(rid, label)
         ads = sorted(per_role[rid], key=lambda x: (x[0] is None, x[0] or dt.date.max))
