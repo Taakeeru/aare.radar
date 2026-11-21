@@ -1,0 +1,337 @@
+{
+ "_about": "IT occupations of job-room.ch (AVAM codes) whose CH-ISCO-19 group is 25 (ICT professionals) or 35 (ICT technicians), from job-room's own reference service (referenceservice/api/_search/occupations/label, field mappings.CHISCO3), 21.11.2026. Sound and video technicians (ISCO 352, broadcasting) are left out. Edit this list to follow more or fewer occupations; the collector reads it on its next run.",
+ "groups": {
+  "250": {
+   "en": "IT in general",
+   "de": "Informatik allgemein"
+  },
+  "251": {
+   "en": "Software and applications",
+   "de": "Software und Anwendungen"
+  },
+  "252": {
+   "en": "Databases, networks and security",
+   "de": "Datenbanken, Netzwerke und Sicherheit"
+  },
+  "351": {
+   "en": "IT operations and user support",
+   "de": "Betrieb und Anwendersupport"
+  },
+  "352": {
+   "en": "Telecommunications",
+   "de": "Telekommunikation"
+  }
+ },
+ "occupations": {
+  "101341": {
+   "group": "250",
+   "en": "Information Technologist",
+   "de": "Informatiker/in"
+  },
+  "101342": {
+   "group": "251",
+   "en": "Information Technology Engineer",
+   "de": "Informatikingenieur/in"
+  },
+  "101343": {
+   "group": "251",
+   "en": "ICT Controller",
+   "de": "ICT Controller"
+  },
+  "101344": {
+   "group": "251",
+   "en": "ICT Architect",
+   "de": "ICT Architect"
+  },
+  "101345": {
+   "group": "251",
+   "en": "ICT Business Analyst",
+   "de": "ICT Business Analyst"
+  },
+  "101346": {
+   "group": "251",
+   "en": "ICT Auditor",
+   "de": "ICT Auditor"
+  },
+  "101347": {
+   "group": "251",
+   "en": "ICT Requirements Engineer",
+   "de": "ICT Requirements Engineer"
+  },
+  "101348": {
+   "group": "251",
+   "en": "ICT Sourcing Manager",
+   "de": "ICT Sourcing Manager"
+  },
+  "101349": {
+   "group": "251",
+   "en": "ICT Consultant",
+   "de": "ICT Consultant"
+  },
+  "101350": {
+   "group": "251",
+   "en": "Software Engineer",
+   "de": "Software Engineer"
+  },
+  "101351": {
+   "group": "251",
+   "en": "ICT User Experience Architect",
+   "de": "ICT User Experience Architect"
+  },
+  "101352": {
+   "group": "251",
+   "en": "Business Data Processing Specialist",
+   "de": "Wirtschaftsinformatiker/in"
+  },
+  "101353": {
+   "group": "251",
+   "en": "ICT System Engineer",
+   "de": "ICT System Engineer"
+  },
+  "101354": {
+   "group": "251",
+   "en": "ICT Program Manager",
+   "de": "ICT Program Manager"
+  },
+  "101355": {
+   "group": "251",
+   "en": "ICT Project Manager",
+   "de": "ICT Project Manager"
+  },
+  "101356": {
+   "group": "251",
+   "en": "ICT Project Management Officer",
+   "de": "ICT Project Management Officer"
+  },
+  "101357": {
+   "group": "251",
+   "en": "Mediamatics Technician",
+   "de": "Mediamatiker/in"
+  },
+  "101358": {
+   "group": "251",
+   "en": "ICT Application Engineer",
+   "de": "ICT Application Engineer"
+  },
+  "101359": {
+   "group": "251",
+   "en": "ICT Quality Manager",
+   "de": "ICT Quality Manager"
+  },
+  "101360": {
+   "group": "251",
+   "en": "ICT Test Engineer",
+   "de": "ICT Test Engineer"
+  },
+  "101361": {
+   "group": "251",
+   "en": "ICT Test Manager",
+   "de": "ICT Test Manager"
+  },
+  "101362": {
+   "group": "252",
+   "en": "Database Administrator",
+   "de": "Database Administrator"
+  },
+  "101363": {
+   "group": "252",
+   "en": "Database Engineer",
+   "de": "Database Engineer"
+  },
+  "101364": {
+   "group": "252",
+   "en": "ICT System Administrator",
+   "de": "ICT System Administrator"
+  },
+  "101365": {
+   "group": "252",
+   "en": "ICT System Specialist",
+   "de": "ICT System Specialist"
+  },
+  "101366": {
+   "group": "252",
+   "en": "Computer Network Specialist",
+   "de": "Computernetzwerk-Spezialist/in"
+  },
+  "101367": {
+   "group": "252",
+   "en": "Network Administrator",
+   "de": "Network Administrator"
+  },
+  "101368": {
+   "group": "252",
+   "en": "Network Engineer",
+   "de": "Network Engineer"
+  },
+  "101369": {
+   "group": "252",
+   "en": "ICT Security Expert",
+   "de": "ICT Security Expert"
+  },
+  "101370": {
+   "group": "252",
+   "en": "Cyber Security Specialist",
+   "de": "Cyber Security Specialist"
+  },
+  "101371": {
+   "group": "252",
+   "en": "ICT Security Operations Manager",
+   "de": "ICT Security Operations Manager"
+  },
+  "101372": {
+   "group": "252",
+   "en": "ICT Security Officer",
+   "de": "ICT Security Officer"
+  },
+  "101652": {
+   "group": "251",
+   "en": "Medical Informatics Specialist",
+   "de": "Medizininformatiker/in"
+  },
+  "101777": {
+   "group": "351",
+   "en": "ICT Operator",
+   "de": "ICT Operator"
+  },
+  "101778": {
+   "group": "351",
+   "en": "ICT System Controller",
+   "de": "ICT System Controller"
+  },
+  "101779": {
+   "group": "351",
+   "en": "ICT Application Manager",
+   "de": "ICT Application Manager"
+  },
+  "101780": {
+   "group": "351",
+   "en": "ICT Change Coordinator",
+   "de": "ICT Change Coordinator"
+  },
+  "101781": {
+   "group": "351",
+   "en": "ICT Production Planner",
+   "de": "ICT Production Planner"
+  },
+  "101782": {
+   "group": "351",
+   "en": "ICT Supporter",
+   "de": "ICT Supporter"
+  },
+  "101783": {
+   "group": "351",
+   "en": "ICT Service Manager",
+   "de": "ICT Service Manager"
+  },
+  "101784": {
+   "group": "351",
+   "en": "ICT Helpdesk Staff",
+   "de": "ICT Helpdesk Staff"
+  },
+  "101785": {
+   "group": "351",
+   "en": "ICT Technician",
+   "de": "ICT Technician"
+  },
+  "101786": {
+   "group": "351",
+   "en": "Telematics Engineer",
+   "de": "Telematiker/in"
+  },
+  "101787": {
+   "group": "351",
+   "en": "ICT Network Technician",
+   "de": "ICT Network Technician"
+  },
+  "101788": {
+   "group": "351",
+   "en": "Webmaster",
+   "de": "Webmaster/Webmistress"
+  },
+  "101798": {
+   "group": "352",
+   "en": "Telecommunications Technician",
+   "de": "Techniker/in, Telekommunikation"
+  },
+  "104020": {
+   "group": "251",
+   "en": "ICT Application Development Specialist",
+   "de": "ICT Application Development Specialist"
+  },
+  "104021": {
+   "group": "252",
+   "en": "ICT Platform Development Specialist",
+   "de": "ICT Platform Development Specialist"
+  },
+  "104030": {
+   "group": "252",
+   "en": "Information Security Manager",
+   "de": "Information Security Manager"
+  },
+  "104034": {
+   "group": "351",
+   "en": "ICT Fachmann/frau",
+   "de": "ICT Fachmann/frau"
+  },
+  "104036": {
+   "group": "352",
+   "en": "Building Informatics Technician",
+   "de": "Gebäudeinformatiker/in"
+  },
+  "104037": {
+   "group": "351",
+   "en": "ICT Change Manager",
+   "de": "ICT Change Manager"
+  },
+  "104038": {
+   "group": "252",
+   "en": "Database Specialist",
+   "de": "Database Specialist"
+  },
+  "104039": {
+   "group": "252",
+   "en": "ICT Security Specialist",
+   "de": "ICT Security Specialist"
+  },
+  "104040": {
+   "group": "351",
+   "en": "Network Specialist",
+   "de": "Network Specialist"
+  },
+  "104041": {
+   "group": "251",
+   "en": "Business Information Specialist",
+   "de": "Business Information Specialist"
+  },
+  "104042": {
+   "group": "251",
+   "en": "ICT Project Head",
+   "de": "ICT Project Head"
+  },
+  "104043": {
+   "group": "251",
+   "en": "ICT Organizational Manager",
+   "de": "ICT Organizational Manager"
+  },
+  "104046": {
+   "group": "251",
+   "en": "Release Train Engineer",
+   "de": "Release Train Engineer"
+  },
+  "104047": {
+   "group": "251",
+   "en": "Scrum Master",
+   "de": "Scrum Master"
+  },
+  "104048": {
+   "group": "251",
+   "en": "DevOps Engineer",
+   "de": "DevOps Engineer"
+  },
+  "105004": {
+   "group": "251",
+   "en": "Business AI Specialist",
+   "de": "Business AI Specialist"
+  }
+ }
+}
