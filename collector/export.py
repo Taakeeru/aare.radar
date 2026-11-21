@@ -38,6 +38,9 @@ Contract (keep in step with lib/radar.ts in the app):
   "market": {"ads": n,                           # NEW: distinct ads of any role in the window
              "monthly": [{"month", "new_ads", "partial"}],   # all IT ads together, an ad in two roles counts once
              "roles": [{"id", "ads"}]},          # the roles by ads in the window, most first
+  "digest": {"from", "to", "days", "ads", "entry_ads",   # NEW 21.11.: the two-weekly summary email (collector/digest.py v2)
+             "fields": [{"group", "label_en", "label_de", "ads", "entry_ads",
+                         "items": [{"title", "company", "city", "ends", "url"}]}]},
   "sector": [{"series", "period", "value"}],     # BFS JOBSTAT, quarterly (the source flagged "sector" in sources.json)
   "series": {                                    # NEW: every numeric source, grouped by question letter
      "D": [{"source": id, "name", "url", "updated",
@@ -54,7 +57,7 @@ import sys
 from pathlib import Path
 
 from . import config
-from .roles import AGENCY, BARRIERS, ROLES
+from .roles import AGENCY, BARRIERS, ROLES, is_entry_ad
 
 ROOT = Path(__file__).resolve().parent.parent
 DB = ROOT / "data" / "radar.db"
@@ -155,6 +158,8 @@ def main(out: Path, db=None, entries=None, esco_path=None, today=None):
             "examples": [{"title": r[0], "company": r[1], "city": r[2], "published": r[4], "url": r[5]} for r in R[:8]],
         })
     it_market = build_it_market(c, since)
+    from .digest import build_digest_v2
+    digest = build_digest_v2(c, dt.date.today())
     market = {"ads": len(rows), "monthly": monthly([h[0] for h in history], today),
               "roles": sorted(({"id": r["id"], "ads": r["ads"]} for r in roles), key=lambda r: -r["ads"])}
     sector_id = next((e["id"] for e in entries if e.get("sector")), "bfs")
@@ -176,16 +181,13 @@ def main(out: Path, db=None, entries=None, esco_path=None, today=None):
                         "status": ("reference" if e["type"] == "link" else run[2] if run else "never"),
                         "latest_period": latest})
     doc = {"generated_at": dt.datetime.now(dt.timezone.utc).isoformat(timespec="seconds"), "window_days": WINDOW,
-           "questions": config.QUESTIONS, "sources": sources, "roles": roles, "market": market, "it_market": it_market,
+           "questions": config.QUESTIONS, "sources": sources, "roles": roles, "market": market, "it_market": it_market, "digest": digest,
            "sector": sector, "policy": policy,
            "series": build_series(c, entries)}
     out.parent.mkdir(parents=True, exist_ok=True)
     out.write_text(json.dumps(doc, ensure_ascii=False, indent=1))
     print(f"wrote {out} ({out.stat().st_size // 1024} KB): " + ", ".join(f"{r['id']} {r['ads']}" for r in roles))
     return doc
-
-
-ENTRY_EXPERIENCE = {"NO_EXPERIENCE", "LESS_THAN_1_YEAR"}
 
 
 def build_it_market(c, since):
@@ -196,7 +198,8 @@ def build_it_market(c, since):
     marks = ",".join("?" * len(occ)) or "''"
     cols = {r[1] for r in c.execute("PRAGMA table_info(ads)")}
     exp_col = "experience" if "experience" in cols else "NULL"
-    rows = c.execute(f"""SELECT occupation, published, canton, barriers, reporting_obligation, tagged, {exp_col} FROM ads
+    rows = c.execute(f"""SELECT occupation, published, canton, barriers, reporting_obligation, tagged, {exp_col}, title,
+                                company, skills FROM ads
                          WHERE occupation IN ({marks}) AND published >= ?""", (*occ, since)).fetchall()
     n = len(rows)
     weekly = collections.Counter()
@@ -209,21 +212,43 @@ def build_it_market(c, since):
         by_occ[r[0]].append(r)
     # Entry level: the ad's full text speaks to beginners (junior, trainee, career changer, internship ...) OR the
     # employer set job-room's experience field to none / under a year.
-    is_entry = lambda r: "entry_level" in json.loads(r[3] or "[]") or r[6] in ENTRY_EXPERIENCE  # noqa: E731
+    is_entry = lambda r: is_entry_ad(r[7], json.loads(r[3] or "[]"), r[6])  # noqa: E731
     entry_n = lambda R: sum(1 for r in R if is_entry(r))  # noqa: E731
     entry = lambda R: round(entry_n(R) / max(len(R), 1), 3)  # noqa: E731
     by_group = collections.Counter(occ[r[0]]["group"] for r in rows)
+
+    def weeks(R):
+        w = collections.Counter()
+        for r in R:
+            if r[1]:
+                y, k, _ = dt.date.fromisoformat(r[1][:10]).isocalendar()
+                w[f"{y}-W{k:02d}"] += 1
+        return [{"week": k, "new_ads": v} for k, v in sorted(w.items())]
+
+    def skills(R, top=10):
+        full = [r for r in R if r[5]]
+        cnt = collections.Counter(s for r in full for s in json.loads(r[9] or "[]"))
+        return [{"skill": k, "count": v, "share": round(v / max(len(full), 1), 3)} for k, v in cnt.most_common(top)], len(full)
+
+    def employers(R, top=8):
+        cnt = collections.Counter(r[8] for r in R if r[8] and not AGENCY.search(r[8]))
+        return [{"company": k, "ads": v} for k, v in cnt.most_common(top)]
+
+    def detail(R):
+        sk, nf = skills(R)
+        return {"weekly": weeks(R), "skills": sk, "skills_basis": nf, "employers": employers(R),
+                "entry_employers": employers([r for r in R if is_entry(r)], 6)}
     return {
         "ads": n,
         "read_in_full": sum(1 for r in rows if r[5]),
         "entry_ads": entry_n(rows),
         "entry_level_share": entry(rows),
         "reporting_obligation_share": round(sum(r[4] or 0 for r in rows) / max(n, 1), 3),
-        "weekly": [{"week": k, "new_ads": v} for k, v in sorted(weekly.items())],
+        **detail(rows),
         "groups": [{"group": g, "label_en": groups[g]["en"], "label_de": groups[g]["de"], "ads": by_group[g]}
                    for g in sorted(groups, key=lambda g: -by_group[g]) if by_group[g]],
         "occupations": [{"code": k, "label_en": occ[k]["en"], "label_de": occ[k]["de"], "group": occ[k]["group"],
-                         "ads": len(R), "entry_ads": entry_n(R), "entry_level_share": entry(R)}
+                         "ads": len(R), "entry_ads": entry_n(R), "entry_level_share": entry(R), **detail(R)}
                         for k, R in sorted(by_occ.items(), key=lambda kv: -len(kv[1]))],
         "cantons": [{"canton": k, "count": v} for k, v in collections.Counter(r[2] for r in rows if r[2]).most_common()],
     }
