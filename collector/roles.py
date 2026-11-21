@@ -93,13 +93,44 @@ ROLES = {
          "Consultant SAP"],
         r"\bsap\b|\berp\b|dynamics.?(?:365|ax|nav)|abap|s/4",
     ),
+    "people": (
+        "People analyst / HR tech",
+        ["People Analyst", "People Analytics", "HR Analyst", "HR Data Analyst", "HRIS", "HR-Informatik",
+         "HR Systems Specialist", "Analyste RH"],
+        r"people.?analy|\bhris\b|hr.?(?:data|analyst|informatik|system|tech)|analyste.?rh",
+    ),
+    "product": (
+        "Product manager",
+        ["Product Manager", "Produktmanager Digital", "Digital Product Manager", "Chef de produit digital"],
+        r"product.?manag|produkt.?manag|chef.?de.?produit",
+    ),
+    "marketing": (
+        "Digital marketing / web analytics",
+        ["Online Marketing", "Digital Marketing", "SEO", "SEA", "Web Analytics", "Performance Marketing",
+         "Marketing digital"],
+        r"online.?marketing|digital.?marketing|marketing.?digital|\bseo\b|\bsea\b|web.?analytic|performance.?marketing",
+    ),
+    "techsales": (
+        "IT sales / customer success",
+        ["Customer Success Manager", "IT Sales", "Pre-Sales", "Solution Consultant", "Account Manager IT",
+         "Ingénieur commercial IT"],
+        r"customer.?success|pre.?sales|solution.?consultant|\b(?:it|ict|tech)\b.?(?:sales|vertrieb|verkauf)"
+        r"|account.?manager.{0,12}\b(?:it|ict)\b|\b(?:it|ict)\b.{0,12}account.?manager",
+    ),
+    "recruiting": (
+        "Tech recruiter",
+        ["IT Recruiter", "Tech Recruiter", "ICT Recruiter"],
+        r"\b(?:it|ict|tech)\b.?recruit",
+    ),
 }
 
 # Ads must also look like IT at all (the job-room keyword search is loose: "Support" matches nursing jobs).
 IT_GUARD = re.compile(
     r"informati|développ|ingénieur.{0,10}(?:logiciel|système)|\bit\b|\bict\b|software|web|daten|data|system|netzwerk|network|cloud|digital|developer|entwickl"
     r"|support|helpdesk|service.?desk|bi\b|analyst|sql|python|javascript"
-    r"|devops|\bux\b|\bui\b|\bsap\b|\berp\b|security|sicherheit|cyber", re.I)
+    r"|devops|\bux\b|\bui\b|\bsap\b|\berp\b|security|sicherheit|cyber"
+    r"|people.?analy|\bhris\b|hr.?(?:data|analyst)|product.?manag|produkt.?manag|digital.?marketing|online.?marketing"
+    r"|web.?analyt|customer.?success|pre.?sales|\b(?:it|ict|tech).?(?:sales|recruit)", re.I)
 
 # skill id -> regex (matched on lowercased title + description)
 SKILLS = {

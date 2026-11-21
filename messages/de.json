@@ -48,7 +48,12 @@
     "itpm": "IT-Projektleitung",
     "business": "Business Analyst",
     "ux": "UX / UI Design",
-    "erp": "SAP / ERP Beratung"
+    "erp": "SAP / ERP Beratung",
+    "people": "People Analyst / HR-Tech",
+    "product": "Product Manager",
+    "marketing": "Digitales Marketing / Web Analytics",
+    "techsales": "IT-Verkauf / Customer Success",
+    "recruiting": "Tech-Recruiter"
   },
   "dash": {
     "title": "Das sucht der IT-Markt",

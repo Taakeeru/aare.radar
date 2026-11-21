@@ -48,7 +48,12 @@
     "itpm": "IT project manager",
     "business": "Business analyst",
     "ux": "UX / UI designer",
-    "erp": "SAP / ERP consultant"
+    "erp": "SAP / ERP consultant",
+    "people": "People analyst / HR tech",
+    "product": "Product manager",
+    "marketing": "Digital marketing / web analytics",
+    "techsales": "IT sales / customer success",
+    "recruiting": "Tech recruiter"
   },
   "dash": {
     "title": "What the IT market is looking for",

@@ -67,6 +67,15 @@ class CollectTest(unittest.TestCase):
             self.assertTrue(IT_GUARD.search(title), title)
         self.assertNotIn("data", classify("Cyber Security Analyst"))
 
+    def test_non_programming_tech_roles_by_title(self):
+        for title, role in [("People Analyst (m/w/d)", "people"), ("Digital Product Manager", "product"),
+                            ("Online Marketing Manager SEO", "marketing"),
+                            ("Customer Success Manager SaaS", "techsales"), ("IT Recruiter 80-100%", "recruiting")]:
+            self.assertIn(role, classify(title), title)
+            self.assertTrue(IT_GUARD.search(title), title)
+        self.assertFalse(IT_GUARD.search("Pflegefachperson Station"))
+        self.assertFalse(IT_GUARD.search("Verkaufsberater Detailhandel"))
+
     def test_old_roles_keep_their_titles(self):
         self.assertIn("web", classify("Web Developer"))
         self.assertIn("support", classify("IT Supporter"))
