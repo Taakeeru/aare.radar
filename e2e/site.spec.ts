@@ -11,7 +11,7 @@ import { expect, test } from "@playwright/test";
 import { COLOR, GRADIENT } from "../lib/design-tokens";
 
 test("@ci dashboard renders: one screen per role, the big number, the favicon", async ({ page }) => {
-  const res = await page.goto("/de");
+  const res = await page.goto("/de/nachfrage");
   expect(res?.status()).toBe(200);
   await expect(page.locator("h1")).toHaveText("Das sucht der IT-Markt");
   await expect(page.locator("html")).toHaveAttribute("lang", "de");
@@ -22,20 +22,32 @@ test("@ci dashboard renders: one screen per role, the big number, the favicon", 
   expect(favicon).toBe(200);
 });
 
-test("@ci the role switcher changes the whole screen", async ({ page }) => {
+test("@ci the start page is the market at a glance, and the job list opens one job's dashboard", async ({ page }) => {
   await page.goto("/de");
+  await expect(page.locator("h1")).toHaveText("Der Schweizer IT-Stellenmarkt auf einen Blick");
+  await expect(page.getByRole("heading", { name: "Offene IT-Stellen in der Schweiz" })).toBeVisible();
+  const select = page.getByLabel("IT-Beruf wählen");
+  const first = await select.locator("option").nth(1).getAttribute("value");
+  await select.selectOption(first!);
+  await expect(page).toHaveURL(new RegExp(`/de\\?job=${first}$`));
+  await expect(page.getByRole("heading", { name: "Gefragte Fähigkeiten" })).toBeVisible();
+  await expect(page.getByRole("heading", { name: "Neue Inserate pro Woche" })).toBeVisible();
+});
+
+test("@ci the role switcher changes the whole screen", async ({ page }) => {
+  await page.goto("/de/nachfrage");
   const nav = page.getByRole("navigation", { name: "Beruf wählen" });
   await expect(nav.getByRole("link", { name: "Web-Entwicklung" })).toHaveAttribute("aria-current", "true");
   const web = await page.locator(".stat__n").first().innerText();
   await nav.getByRole("link", { name: "IT-Support" }).click();
-  await expect(page).toHaveURL(/\/de\?role=support$/);
+  await expect(page).toHaveURL(/\/de\/nachfrage\?role=support$/);
   await expect(nav.getByRole("link", { name: "IT-Support" })).toHaveAttribute("aria-current", "true");
   expect(await page.locator(".stat__n").first().innerText()).not.toBe(web);
 });
 
 test("@ci every number names its source with a link and a date", async ({ page }) => {
   let n = 0;
-  for (const path of ["/de", "/de/faehigkeiten", "/de/arbeitgeber"]) {
+  for (const path of ["/de", "/de/nachfrage", "/de/faehigkeiten", "/de/arbeitgeber"]) {
     await page.goto(path);
     const panels = page.locator("section.panel");
     const count = await panels.count();
@@ -210,7 +222,7 @@ test("@ci English pages hold no German", async ({ page }) => {
   const check = async (path: string) => {
     await page.goto(path);
     const text = await page.evaluate(() => {
-      document.querySelectorAll<HTMLElement>(".ads, .policy__title, .policy__status, section[aria-labelledby=p-employers] .rank, section[aria-labelledby=p-agencies] .rank").forEach((n) => (n.style.display = "none"));
+      document.querySelectorAll<HTMLElement>(".ads, .policy__title, .policy__status, section[aria-labelledby=p-employers] .rank, section[aria-labelledby=p-agencies] .rank, section[aria-labelledby=p-glance-employers] .rank, section[aria-labelledby=p-job-employers] .rank").forEach((n) => (n.style.display = "none"));
       return document.body.innerText;
     });
     const hit = text.split("\n").filter((l) => GERMAN.test(l));

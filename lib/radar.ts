@@ -55,15 +55,22 @@ export type SeriesBlock = { source: string; name: string; url: string; updated: 
 export type PolicyItem = { source: string; title: string; date: string | null; status: string | null; url: string | null; matched: string | null };
 /** Every IT ad by job-room occupation code (export field `it_market`, 21.11.2026). */
 export type ItGroup = { group: string; label_en: string; label_de: string; ads: number };
-export type ItOccupation = { code: string; label_en: string; label_de: string; group: string; ads: number; entry_ads?: number; entry_level_share: number };
-export type ItMarket = {
+/** Per job (and for all IT together): weekly new ads, skills (share of ads read in full), companies (no agencies). */
+export type ItDetail = {
+  weekly?: WeeklyPoint[];
+  skills?: SkillShare[];
+  skills_basis?: number;
+  employers?: CompanyCount[];
+  entry_employers?: CompanyCount[];
+};
+export type ItOccupation = ItDetail & { code: string; label_en: string; label_de: string; group: string; ads: number; entry_ads?: number; entry_level_share: number };
+export type ItMarket = ItDetail & {
   ads: number;
   /** Ads open to beginners: the full text says junior / trainee / career changer / internship, or job-room's experience field says none or under a year. */
   entry_ads?: number;
   read_in_full?: number;
   entry_level_share: number;
   reporting_obligation_share: number;
-  weekly: WeeklyPoint[];
   groups: ItGroup[];
   occupations: ItOccupation[];
   cantons: CantonCount[];
@@ -176,7 +183,7 @@ export function parseRadar(text: string): Radar {
       (m.entry_ads === undefined || isNum(m.entry_ads)) &&
       isNum(m.entry_level_share) &&
       isNum(m.reporting_obligation_share) &&
-      isArr(m.weekly, (w) => isObj(w) && isStr(w.week) && /^\d{4}-W\d{2}$/.test(w.week) && isNum(w.new_ads)) &&
+      (m.weekly === undefined || isArr(m.weekly, (w) => isObj(w) && isStr(w.week) && /^\d{4}-W\d{2}$/.test(w.week) && isNum(w.new_ads))) &&
       isArr(m.groups, (g) => isObj(g) && isStr(g.group) && isStr(g.label_en) && isStr(g.label_de) && isNum(g.ads)) &&
       isArr(m.occupations, (o) => isObj(o) && isStr(o.code) && isStr(o.label_en) && isStr(o.label_de) && isStr(o.group) && isNum(o.ads) && isNum(o.entry_level_share) && (o.entry_ads === undefined || isNum(o.entry_ads))) &&
       isArr(m.cantons, (c) => isObj(c) && isStr(c.canton) && isNum(c.count));

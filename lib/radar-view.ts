@@ -200,3 +200,23 @@ export function pickSources(data: Radar, ids: string[]): { id: string; name: str
     return s ? { id, name: s.name, url: safeHttpUrl(s.url), updated: s.updated } : { id, name: id, url: null, updated: null };
   });
 }
+
+
+/**
+ * A simple estimate for the next quarter (21.11.2026, the team asked for a forecast): the same quarter one year
+ * earlier, times the change of the last four quarters against the four before. Null without two full years.
+ * It is an estimate, drawn as an outline and said so in words.
+ */
+export function nextQuarterEstimate(points: SectorPoint[]): { period: string; value: number } | null {
+  if (points.length < 8) return null;
+  const last = points[points.length - 1]!;
+  const { year, quarter } = parsePeriod(last.period);
+  const next = quarter === 4 ? { year: year + 1, quarter: 1 } : { year, quarter: quarter + 1 };
+  const base = points.find((p) => p.period === `${next.year - 1}Q${next.quarter}`);
+  if (!base) return null;
+  const sum = (a: SectorPoint[]) => a.reduce((n, p) => n + p.value, 0);
+  const recent = sum(points.slice(-4));
+  const before = sum(points.slice(-8, -4));
+  if (before <= 0) return null;
+  return { period: `${next.year}Q${next.quarter}`, value: Math.round(base.value * (recent / before)) };
+}

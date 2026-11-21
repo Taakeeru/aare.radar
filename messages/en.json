@@ -541,5 +541,55 @@
     "noEnd": "no deadline given",
     "foot": "Source: job-room.ch (SECO), ads published in Switzerland. Counts only, no personal data.",
     "empty": "There is no summary yet. It appears after the next data update."
+  },
+  "home": {
+    "title": "The Swiss IT job market at a glance",
+    "lead": "Open IT positions in Switzerland, the jobs that are open to beginners, the skills they ask for and the companies that hire. Choose a job to see its own dashboard.",
+    "jobLead": "Open ads in the last {days} days, demand per week, the skills asked for and the companies hiring.",
+    "pick": "Choose an IT job",
+    "all": "All IT jobs (market at a glance)",
+    "show": "Show",
+    "glance": {
+      "title": "Open IT positions in Switzerland",
+      "intro": "Open positions in IT services, per quarter, with an estimate for the next quarter",
+      "meaning": "{now} open positions now, {before} a year earlier ({percent} percent).",
+      "estimate": "Our estimate for quarter {quarter} of {year}: about {value}.",
+      "estimateHow": "The outlined last bar is an estimate, not a count: the same quarter a year earlier, times the change of the last four quarters.",
+      "estimateWord": "estimate"
+    },
+    "ads": {
+      "title": "IT job ads right now",
+      "meaning": "{entry} of the {ads} IT ads are open to beginners.",
+      "entryCaption": "of them open to beginners"
+    },
+    "open": {
+      "title": "Open ads",
+      "caption": "ads in the last {days} days",
+      "entry": "{entry} of them open to beginners.",
+      "meaning": "{ads} ads in total, {entry} of them open to beginners."
+    },
+    "trend": {
+      "title": "New ads per week",
+      "yAxis": "New ads",
+      "xAxis": "Calendar week",
+      "meaning": "How many new ads for this job appeared each week.",
+      "caveat": "job-room shows ads of the last 60 days, so older weeks look smaller than they were. The current week is not over yet (outlined)."
+    },
+    "skills": {
+      "title": "Required skills",
+      "titleAll": "Skills asked for in IT ads",
+      "intro": "How often a skill appears in the text of the ads, most asked first.",
+      "meaning": "Most asked for this job: {first}, {second} and {third}.",
+      "meaningAll": "Most asked across all IT ads: {first}, {second} and {third}.",
+      "meaningShort": "Too few ads to rank the skills.",
+      "basis": "Basis: {n} ads read in full."
+    },
+    "employers": {
+      "title": "Companies hiring",
+      "titleAll": "Companies with the most IT ads",
+      "meaning": "{first} has the most ads. Recruiting agencies are left out.",
+      "none": "No company with more than one ad.",
+      "entry": "With beginner ads: {list}."
+    }
   }
 }

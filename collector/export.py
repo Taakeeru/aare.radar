@@ -198,7 +198,8 @@ def build_it_market(c, since):
     marks = ",".join("?" * len(occ)) or "''"
     cols = {r[1] for r in c.execute("PRAGMA table_info(ads)")}
     exp_col = "experience" if "experience" in cols else "NULL"
-    rows = c.execute(f"""SELECT occupation, published, canton, barriers, reporting_obligation, tagged, {exp_col}, title FROM ads
+    rows = c.execute(f"""SELECT occupation, published, canton, barriers, reporting_obligation, tagged, {exp_col}, title,
+                                company, skills FROM ads
                          WHERE occupation IN ({marks}) AND published >= ?""", (*occ, since)).fetchall()
     n = len(rows)
     weekly = collections.Counter()
@@ -215,17 +216,39 @@ def build_it_market(c, since):
     entry_n = lambda R: sum(1 for r in R if is_entry(r))  # noqa: E731
     entry = lambda R: round(entry_n(R) / max(len(R), 1), 3)  # noqa: E731
     by_group = collections.Counter(occ[r[0]]["group"] for r in rows)
+
+    def weeks(R):
+        w = collections.Counter()
+        for r in R:
+            if r[1]:
+                y, k, _ = dt.date.fromisoformat(r[1][:10]).isocalendar()
+                w[f"{y}-W{k:02d}"] += 1
+        return [{"week": k, "new_ads": v} for k, v in sorted(w.items())]
+
+    def skills(R, top=10):
+        full = [r for r in R if r[5]]
+        cnt = collections.Counter(s for r in full for s in json.loads(r[9] or "[]"))
+        return [{"skill": k, "count": v, "share": round(v / max(len(full), 1), 3)} for k, v in cnt.most_common(top)], len(full)
+
+    def employers(R, top=8):
+        cnt = collections.Counter(r[8] for r in R if r[8] and not AGENCY.search(r[8]))
+        return [{"company": k, "ads": v} for k, v in cnt.most_common(top)]
+
+    def detail(R):
+        sk, nf = skills(R)
+        return {"weekly": weeks(R), "skills": sk, "skills_basis": nf, "employers": employers(R),
+                "entry_employers": employers([r for r in R if is_entry(r)], 6)}
     return {
         "ads": n,
         "read_in_full": sum(1 for r in rows if r[5]),
         "entry_ads": entry_n(rows),
         "entry_level_share": entry(rows),
         "reporting_obligation_share": round(sum(r[4] or 0 for r in rows) / max(n, 1), 3),
-        "weekly": [{"week": k, "new_ads": v} for k, v in sorted(weekly.items())],
+        **detail(rows),
         "groups": [{"group": g, "label_en": groups[g]["en"], "label_de": groups[g]["de"], "ads": by_group[g]}
                    for g in sorted(groups, key=lambda g: -by_group[g]) if by_group[g]],
         "occupations": [{"code": k, "label_en": occ[k]["en"], "label_de": occ[k]["de"], "group": occ[k]["group"],
-                         "ads": len(R), "entry_ads": entry_n(R), "entry_level_share": entry(R)}
+                         "ads": len(R), "entry_ads": entry_n(R), "entry_level_share": entry(R), **detail(R)}
                         for k, R in sorted(by_occ.items(), key=lambda kv: -len(kv[1]))],
         "cantons": [{"canton": k, "count": v} for k, v in collections.Counter(r[2] for r in rows if r[2]).most_common()],
     }

@@ -541,5 +541,55 @@
     "noEnd": "kein Enddatum angegeben",
     "foot": "Quelle: job-room.ch (SECO), in der Schweiz ausgeschriebene Inserate. Nur Zahlen, keine Personendaten.",
     "empty": "Noch keine Zusammenfassung. Die Vorschau erscheint nach dem nächsten Daten-Update."
+  },
+  "home": {
+    "title": "Der Schweizer IT-Stellenmarkt auf einen Blick",
+    "lead": "Offene IT-Stellen in der Schweiz, die Berufe mit Einstiegsstellen, die gefragten Fähigkeiten und die Firmen, die einstellen. Wähl einen Beruf für sein eigenes Dashboard.",
+    "jobLead": "Offene Inserate der letzten {days} Tage, Nachfrage pro Woche, gefragte Fähigkeiten und die Firmen, die einstellen.",
+    "pick": "IT-Beruf wählen",
+    "all": "Alle IT-Berufe (Markt auf einen Blick)",
+    "show": "Anzeigen",
+    "glance": {
+      "title": "Offene IT-Stellen in der Schweiz",
+      "intro": "Offene Stellen in IT-Dienstleistungen, pro Quartal, mit einer Schätzung für das nächste Quartal",
+      "meaning": "Jetzt {now} offene Stellen, vor einem Jahr {before} ({percent} Prozent).",
+      "estimate": "Unsere Schätzung für Quartal {quarter} {year}: etwa {value}.",
+      "estimateHow": "Der umrandete letzte Balken ist eine Schätzung, keine Zählung: dasselbe Quartal ein Jahr früher, mal die Veränderung der letzten vier Quartale.",
+      "estimateWord": "Schätzung"
+    },
+    "ads": {
+      "title": "IT-Inserate im Moment",
+      "meaning": "{entry} der {ads} IT-Inserate stehen Einsteigenden offen.",
+      "entryCaption": "davon offen für Einsteigende"
+    },
+    "open": {
+      "title": "Offene Inserate",
+      "caption": "Inserate in den letzten {days} Tagen",
+      "entry": "{entry} davon offen für Einsteigende.",
+      "meaning": "{ads} Inserate insgesamt, {entry} davon offen für Einsteigende."
+    },
+    "trend": {
+      "title": "Neue Inserate pro Woche",
+      "yAxis": "Neue Inserate",
+      "xAxis": "Kalenderwoche",
+      "meaning": "So viele neue Inserate für diesen Beruf kamen jede Woche dazu.",
+      "caveat": "job-room zeigt Inserate der letzten 60 Tage, ältere Wochen wirken deshalb kleiner, als sie waren. Die laufende Woche ist noch nicht vorbei (umrandet)."
+    },
+    "skills": {
+      "title": "Gefragte Fähigkeiten",
+      "titleAll": "Gefragte Fähigkeiten in IT-Inseraten",
+      "intro": "Wie oft eine Fähigkeit im Text der Inserate vorkommt, die meistgefragte zuerst.",
+      "meaning": "Für diesen Beruf am meisten gefragt: {first}, {second} und {third}.",
+      "meaningAll": "Über alle IT-Inserate am meisten gefragt: {first}, {second} und {third}.",
+      "meaningShort": "Zu wenige Inserate für eine Rangliste.",
+      "basis": "Grundlage: {n} ganz gelesene Inserate."
+    },
+    "employers": {
+      "title": "Firmen, die einstellen",
+      "titleAll": "Firmen mit den meisten IT-Inseraten",
+      "meaning": "{first} hat die meisten Inserate. Personalvermittler sind ausgelassen.",
+      "none": "Keine Firma mit mehr als einem Inserat.",
+      "entry": "Mit Einsteiger-Inseraten: {list}."
+    }
   }
 }
