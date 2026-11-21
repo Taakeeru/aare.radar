@@ -6,7 +6,7 @@ import { requireAdminOrRedirect } from "@/lib/admin-guard";
 import { dataFilePath, loadRadar } from "@/lib/radar";
 import { ageInDays, formatDate, formatDateTime, formatInt, freshness, safeHttpUrl, sectorSeries } from "@/lib/radar-view";
 import { logoutAction } from "../login/actions";
-import { ADMIN_AREAS } from "./areas";
+import { adminAreas } from "./areas";
 
 export async function generateMetadata(): Promise<Metadata> {
   const t = await getTranslations("admin");
@@ -173,7 +173,7 @@ export default async function AdminPage({ params }: { params: Promise<{ locale: 
           {t("areas")}
         </h2>
         <ul className="admin-links">
-          {ADMIN_AREAS.map((a) => (
+          {adminAreas().map((a) => (
             <li key={a.href}>
               <Link href={a.href}>{t(a.label)}</Link>
             </li>

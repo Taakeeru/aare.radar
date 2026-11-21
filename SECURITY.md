@@ -54,6 +54,8 @@ aggregate data only and need no sign-in.
   (`route-origin-ratchet.test.ts`).
 - Links from the data file (ads, policy items, sources) become links only when they are http(s) addresses
   (`safeHttpUrl` in `lib/radar-view.ts`) and open with `rel="noopener noreferrer"`.
+- Admin «Settings» (`lib/admin-settings.ts`): every change is one audit row; a reader's address appears there only
+  masked (`a***@example.org`). The read API for the sender is GET only, token-gated, `Cache-Control: no-store`.
 - Logs: errors through `logError` (addresses removed); never a password, token, cookie or reset link.
 
 ## Deployment settings (the server refuses to start without them)
@@ -67,6 +69,8 @@ Production = `APP_ENV=production` without `DEMO_INSTANCE=1` (`lib/boot-guards.ts
 | no secret under `NEXT_PUBLIC_*` | it would be compiled into the browser bundle |
 | `SMTP_HOST`, `SMTP_PORT`, `SMTP_USER`, `SMTP_PASS`, `MAIL_FROM` | reset mails |
 | `ADMIN_TOTP_REQUIRED=1` | second factor mandatory |
+| `ADMIN_SETTINGS=1` (optional, off by default) | the admin «Settings» area and `GET /api/digest-config`; off = both 404 |
+| `DIGEST_CONFIG_TOKEN` (32+ chars, optional) | bearer token of `GET /api/digest-config` (constant-time compare, 10 wrong tokens per address in 15 minutes, then 429; unset = 404) |
 
 ```caddy
 reverse_proxy radar:3000 {

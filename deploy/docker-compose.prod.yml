@@ -46,6 +46,9 @@ services:
       - NEXT_PUBLIC_APP_URL=${NEXT_PUBLIC_APP_URL:-https://radar.gnamak.ch}
       - AUTH_SECRET=${AUTH_SECRET:-}
       - ADMIN_TOTP_REQUIRED=${ADMIN_TOTP_REQUIRED:-}
+      # Admin «Settings» and GET /api/digest-config: off unless ADMIN_SETTINGS=1; the API also needs the token.
+      - ADMIN_SETTINGS=${ADMIN_SETTINGS:-}
+      - DIGEST_CONFIG_TOKEN=${DIGEST_CONFIG_TOKEN:-}
       - SMTP_HOST=${SMTP_HOST:-}
       - SMTP_PORT=${SMTP_PORT:-465}
       - SMTP_USER=${SMTP_USER:-}

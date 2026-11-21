@@ -65,7 +65,7 @@ describe("Content-Security-Policy (middleware.ts, per request)", () => {
 });
 
 describe("admin and sign-in pages", () => {
-  for (const p of ["/de/admin", "/de/admin/sicherheit", "/de/login", "/de/auth/2fa", "/de/auth/passwort-neu?t=x", "/de/passwort-vergessen"]) {
+  for (const p of ["/de/admin", "/de/admin/sicherheit", "/de/admin/einstellungen", "/de/login", "/de/auth/2fa", "/de/auth/passwort-neu?t=x", "/de/passwort-vergessen"]) {
     it(`${p}: not indexed, not cached`, () => {
       const res = get(p);
       expect(res.headers.get("x-robots-tag")).toBe("noindex, nofollow");
