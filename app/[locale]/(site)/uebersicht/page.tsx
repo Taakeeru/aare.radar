@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
-import { BarChart, type ChartBar } from "@/components/bar-chart";
 import { BarList, type BarRow } from "@/components/bar-list";
 import { Donut, type Slice } from "@/components/donut";
 import { PageIcon } from "@/components/page-icon";
@@ -46,7 +45,8 @@ export default async function OverviewPage({ params }: { params: Promise<{ local
   const es = ov.entry_skills.slice(0, 6);
   const teachSlices: Slice[] = es.map((s) => ({ key: s.skill, label: s.skill, value: s.count }));
   // 3: skills by number of ads (the window), bars
-  const evo: ChartBar[] = (it.skills ?? []).slice(0, 5).map((s) => ({ key: s.skill, value: s.count, label: s.skill, description: s.skill }));
+  const top5 = (it.skills ?? []).slice(0, 5);
+  const evoRows: BarRow[] = top5.map((s) => ({ key: s.skill, label: s.skill, fraction: s.count / Math.max(1, top5[0]!.count), value: c("ads", { count: s.count }) }));
   // 4: entry requirements
   const reqRows: BarRow[] = REQS.map((k) => ({
     key: k,
@@ -88,7 +88,7 @@ export default async function OverviewPage({ params }: { params: Promise<{ local
         </Panel>
         <Panel id="o-evo" title={t("evo.title")} intro={t("evo.intro", { days: data.window_days })} span={4} sources={jobroom}>
           <span className="tag-chip">{t("evo.chip")}</span>
-          <BarChart bars={evo} yTitle={t("evo.yAxis")} xTitle={t("evo.xAxis")} caption={t("evo.title")} showValues format={fmt} />
+          <BarList rows={evoRows} label={t("evo.title")} />
           <p className="note">{t("evo.note")}</p>
         </Panel>
         <Panel id="o-req" title={t("req.title")} intro={t("req.intro")} span={4} sources={jobroom}>
