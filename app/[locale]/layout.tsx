@@ -8,7 +8,8 @@ import { COLOR, tokenStyle } from "@/lib/design-tokens";
 import { SITE_ICONS, SITE_URL } from "@/lib/site-meta";
 import { isTestSite } from "@/lib/site-env";
 
-// Pages read the session: render on request, never at build time.
+// Pages read the data file (lib/radar.ts, cached for 10 minutes on the server) and the
+// session: render on request, never at build time.
 export const dynamic = "force-dynamic";
 
 export async function generateMetadata({ params }: { params: Promise<{ locale: string }> }): Promise<Metadata> {

@@ -37,6 +37,9 @@ services:
       - PORT=3000
       - HOSTNAME=0.0.0.0
       - DATABASE_URL=/app/data/local.db
+      # The data file the dashboard reads (collector/export.py writes it). Lives on the data volume; the app reads it
+      # at most every 10 minutes, so replacing the file is enough, no restart.
+      - RADAR_DATA=${RADAR_DATA:-/app/data/radar.json}
       # Behind our Caddy, which replaces X-Real-IP with the address it saw (deploy/Caddyfile). The app refuses
       # to start in production without it.
       - TRUST_PROXY=true

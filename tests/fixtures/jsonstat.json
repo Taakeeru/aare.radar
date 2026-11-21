@@ -1,0 +1,5 @@
+{"version": "2.0", "class": "dataset", "id": ["geo", "indic", "time"], "size": [1, 2, 3],
+ "dimension": {"geo": {"category": {"index": {"CH": 0}, "label": {"CH": "Switzerland"}}},
+               "indic": {"category": {"index": {"JVR": 0, "JOBVAC": 1}, "label": {"JVR": "Job vacancy rate", "JOBVAC": "Job vacancies"}}},
+               "time": {"category": {"index": {"2025-Q1": 0, "2025-Q2": 1, "2025-Q3": 2}, "label": {"2025-Q1": "2025-Q1", "2025-Q2": "2025-Q2", "2025-Q3": "2025-Q3"}}}},
+ "value": {"0": 2.1, "1": 2.2, "2": 2.3, "3": 5000, "5": 5200}}

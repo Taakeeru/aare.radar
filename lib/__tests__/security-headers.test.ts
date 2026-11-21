@@ -73,7 +73,7 @@ describe("admin and sign-in pages", () => {
     });
   }
   it("public pages are not marked", () => {
-    expect(get("/de/info").headers.get("x-robots-tag")).toBeNull();
+    expect(get("/de/politik").headers.get("x-robots-tag")).toBeNull();
   });
 });
 

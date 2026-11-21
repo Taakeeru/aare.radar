@@ -12,7 +12,7 @@ export default function RootNotFound() {
         <main className="wrap main app-frame">
           <h1>Seite nicht gefunden / Page not found</h1>
           <p>
-            <a href="/de">Zur Startseite</a> · <a href="/en">To the home page</a>
+            <a href="/de">Zum Dashboard</a> · <a href="/en">To the dashboard</a>
           </p>
         </main>
       </body>

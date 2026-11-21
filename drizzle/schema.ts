@@ -1,6 +1,6 @@
 /**
  * The app's database (SQLite, better-sqlite3): admin accounts, the sign-in security tables and the
- * audit log.
+ * audit log. The dashboard itself reads ONE JSON file (lib/radar.ts), never this database.
  * Migrations: `npm run db:generate` after a change here, applied at boot by lib/db.ts.
  */
 import { sqliteTable, text, integer, index } from "drizzle-orm/sqlite-core";

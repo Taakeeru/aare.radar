@@ -1,6 +1,7 @@
 /**
- * The stub home page and the team's sign-in, against the PRODUCTION build and the
- * demo admin (scripts/demo/seed_demo.mjs). Tagged @ci: Pandora's client CI runs these.
+ * The public dashboard and the team's sign-in, against the PRODUCTION build with
+ * the sample data (fixtures/radar.sample.json) and the demo admin
+ * (scripts/demo/seed_demo.mjs). Tagged @ci: Pandora's client CI runs these.
  *
  * Every HTTP check goes through the browser (page.goto, or fetch inside
  * page.evaluate), never page.request: in Pandora's CI the runner is a separate
@@ -9,38 +10,97 @@
 import { expect, test } from "@playwright/test";
 import { COLOR, GRADIENT } from "../lib/design-tokens";
 
-const QUESTIONS = {
-  de: ["Nachfrage", "Fähigkeiten", "Arbeitgeber", "Zielgruppe", "Politik"],
-  en: ["Demand", "Skills", "Employers", "Target group", "Policy"],
-} as const;
-
-test("@ci stub home page (DE and EN): name, one line, five questions, no data, no links", async ({ page }) => {
-  const lines = { de: "Ein Marktradar für das Powercoders-Team. Im Aufbau.", en: "A market radar for the Powercoders team. Work in progress." };
-  for (const l of ["de", "en"] as const) {
-    const res = await page.goto(`/${l}`);
-    expect(res?.status()).toBe(200);
-    await expect(page.locator("html")).toHaveAttribute("lang", l);
-    await expect(page.locator("h1")).toHaveText("Powercoders Job Radar");
-    await expect(page.locator("main")).toContainText(lines[l]);
-    const items = page.locator("main ul li");
-    await expect(items).toHaveCount(5);
-    for (const [i, name] of QUESTIONS[l].entries()) {
-      await expect(items.nth(i)).toContainText(name);
-      await expect(items.nth(i)).toContainText("ABCDE"[i]!);
-    }
-    await expect(page.locator("main a")).toHaveCount(0);
-    await expect(page.locator("main img, main canvas, main svg, main table")).toHaveCount(0);
-  }
-  await page.goto("/de");
+test("@ci dashboard renders: one screen per role, the big number, the favicon", async ({ page }) => {
+  const res = await page.goto("/de");
+  expect(res?.status()).toBe(200);
+  await expect(page.locator("h1")).toHaveText("Das sucht der IT-Markt");
+  await expect(page.locator("html")).toHaveAttribute("lang", "de");
   await expect(page.locator('link[rel="icon"][href="/favicon.svg"]')).toHaveCount(1);
+  await expect(page.getByRole("heading", { name: "Offene Inserate" })).toBeVisible();
+  await expect(page.locator(".stat__n").first()).toHaveText(/\d/);
   const favicon = await page.evaluate(async () => (await fetch("/favicon.ico")).status);
   expect(favicon).toBe(200);
-  await expect(page.getByRole("link", { name: "Anmelden für das Team" })).toHaveAttribute("href", "/de/login");
+});
+
+test("@ci the role switcher changes the whole screen", async ({ page }) => {
+  await page.goto("/de");
+  const nav = page.getByRole("navigation", { name: "Beruf wählen" });
+  await expect(nav.getByRole("link", { name: "Web-Entwicklung" })).toHaveAttribute("aria-current", "true");
+  const web = await page.locator(".stat__n").first().innerText();
+  await nav.getByRole("link", { name: "IT-Support" }).click();
+  await expect(page).toHaveURL(/\/de\?role=support$/);
+  await expect(nav.getByRole("link", { name: "IT-Support" })).toHaveAttribute("aria-current", "true");
+  expect(await page.locator(".stat__n").first().innerText()).not.toBe(web);
+});
+
+test("@ci every number names its source with a link and a date", async ({ page }) => {
+  await page.goto("/de");
+  const panels = page.locator("section.panel");
+  const n = await panels.count();
+  expect(n).toBeGreaterThanOrEqual(8);
+  for (let i = 0; i < n; i++) {
+    const src = panels.nth(i).locator("p.source");
+    await expect(src).toContainText("Quelle:");
+    await expect(src).toContainText(/Stand \d{2}\.\d{2}\.\d{4}/);
+    await expect(src.locator("a[href^='http']").first()).toBeVisible();
+  }
+});
+
+test("@ci the five questions are the navigation", async ({ page }) => {
+  await page.setViewportSize({ width: 1280, height: 900 });
+  await page.goto("/de");
+  const nav = page.getByRole("navigation", { name: "Hauptnavigation" });
+  for (const [name, path, h1] of [
+    ["Zielgruppe", "/de/zielgruppe", "Für wen bilden wir aus?"],
+    ["Politik", "/de/politik", "Was könnte uns zwingen, das Programm anzupassen?"],
+    ["Quellen", "/de/quellen", "Quellen"],
+  ] as const) {
+    await page.goto("/de");
+    await nav.getByRole("link", { name }).click();
+    await expect(page).toHaveURL(new RegExp(`${path}$`));
+    await expect(page.locator("h1")).toHaveText(h1);
+  }
+  await page.goto("/de");
+  for (const [name, id] of [["Nachfrage", "nachfrage"], ["Fähigkeiten", "faehigkeiten"], ["Arbeitgeber", "arbeitgeber"]] as const) {
+    await expect(nav.getByRole("link", { name })).toHaveAttribute("href", new RegExp(`#${id}$`));
+    await expect(page.locator(`#${id}`)).toHaveCount(1);
+  }
+});
+
+test("@ci policy list and sources page", async ({ page }) => {
+  await page.goto("/de/politik");
+  await expect(page.locator("ul.policy li").first()).toBeVisible();
+  await expect(page.locator("ul.policy li .tag").first()).toContainText(/Parlament|Bundesrecht|Stichwort/);
+  await page.goto("/de/quellen");
+  await expect(page.getByRole("heading", { name: "Das verwenden wir nicht" })).toBeVisible();
+  for (const name of ["LinkedIn", "jobs.ch", "Adzuna"]) await expect(page.getByRole("heading", { name })).toBeVisible();
+});
+
+test("@ci target group (D) shows the SEM figures with source and date", async ({ page }) => {
+  await page.goto("/de/zielgruppe");
+  for (const id of ["d-people", "d-work", "d-cantons"]) {
+    const panel = page.locator(`section[aria-labelledby=${id}]`);
+    await expect(panel.locator(".rank__row").first()).toBeVisible();
+    await expect(panel.locator(".source a").first()).toHaveAttribute("href", /^https:\/\/www\.sem\.admin\.ch\//);
+    await expect(panel.locator(".source")).toContainText("Stand");
+  }
+  await expect(page.locator("section[aria-labelledby=d-people]")).toContainText(/74.937/);
+  await expect(page.locator("section[aria-labelledby=d-work]")).toContainText("47 von 100");
+  await page.goto("/en/zielgruppe");
+  await expect(page.locator("section[aria-labelledby=d-work]")).toContainText("47 out of 100");
+});
+
+test("@ci English pages", async ({ page }) => {
+  await page.goto("/en");
+  await expect(page.locator("html")).toHaveAttribute("lang", "en");
+  await expect(page.locator("h1")).toHaveText("What the IT market is looking for");
+  await page.goto("/en/politik");
+  await expect(page.locator("h1")).toHaveText("What could force us to change the programme?");
 });
 
 test("@ci phone width: no horizontal scroll on any public page", async ({ page }) => {
   await page.setViewportSize({ width: 390, height: 844 });
-  for (const p of ["/de", "/en", "/de/login", "/en/login", "/de/passwort-vergessen", "/de/nonexistent-page"]) {
+  for (const p of ["/de", "/de?role=data", "/de/politik", "/de/quellen", "/de/zielgruppe", "/de/login", "/en"]) {
     await page.goto(p);
     const over = await page.evaluate(() => document.documentElement.scrollWidth - window.innerWidth);
     expect(over, `${p} overflows by ${over}px`).toBeLessThanOrEqual(0);
@@ -53,7 +113,7 @@ test("@ci nothing is loaded from another site", async ({ page }) => {
     const host = new URL(r.url()).hostname;
     if (host !== "localhost") external.push(host);
   });
-  for (const p of ["/de", "/en", "/de/login"]) await page.goto(p);
+  for (const p of ["/de", "/de/politik", "/de/quellen"]) await page.goto(p);
   expect(external, "no request may leave the site").toEqual([]);
 });
 
@@ -71,6 +131,8 @@ test("@ci admin: signed out goes to the sign-in, the demo admin gets in and out"
   await page.locator("form:has(#pw-password) button[type=submit]").click();
   await expect(page).toHaveURL(/\/de\/admin$/);
   await expect(page.locator("h1")).toHaveText("Verwaltung");
+  await expect(page.getByRole("heading", { name: "Datenstand" })).toBeVisible();
+  await expect(page.getByText("Datei erzeugt")).toBeVisible();
   await page.getByRole("button", { name: "Abmelden" }).click();
   await expect(page).toHaveURL(/\/de\/login\?loggedout=1$/);
   await page.goto("/de/admin");
@@ -101,7 +163,7 @@ test("@ci security headers on the admin sign-in", async ({ page }) => {
 test("@ci rendered colours are only the palette", async ({ page }) => {
   const hex = (h: string) => `rgb(${parseInt(h.slice(1, 3), 16)}, ${parseInt(h.slice(3, 5), 16)}, ${parseInt(h.slice(5, 7), 16)})`;
   const allowed = new Set([...Object.values(COLOR), ...GRADIENT].map(hex));
-  for (const [w, p] of [[1280, "/de"], [390, "/de"], [1280, "/en"], [1280, "/de/login"], [390, "/de/login"]] as const) {
+  for (const [w, p] of [[1280, "/de"], [390, "/de?role=data"], [1280, "/de/politik"], [1280, "/de/quellen"], [1280, "/de/zielgruppe"], [1280, "/de/login"]] as const) {
     await page.setViewportSize({ width: w, height: 900 });
     await page.goto(p);
     const found = await page.evaluate(() => {
@@ -126,18 +188,21 @@ test("@ci rendered colours are only the palette", async ({ page }) => {
   }
 });
 
-/** English is complete: no German left on the English pages. */
+/** English is complete: no German left on the English pages (data from the sources, such as ad titles and policy titles, is in its original language and is left out). */
 test("@ci English pages hold no German", async ({ page }) => {
   const email = process.env.CI_DEMO_ADMIN_EMAIL ?? process.env.E2E_ADMIN_EMAIL ?? "cto-demo@demo.invalid";
   const password = process.env.CI_DEMO_ADMIN_PASSWORD ?? process.env.E2E_ADMIN_PASSWORD ?? "";
-  const GERMAN = /\b(und|der|die|das|nicht|für|mit|von|ist|sind|Stand|Zielgruppe|Daten|Verwaltung|Anmelden|Abmelden|Passwort|Fähigkeiten|Arbeitgeber|Politik|Nachfrage|Zum|Zur)\b/;
+  const GERMAN = /\b(und|der|die|das|nicht|für|mit|von|ist|sind|Inserate?n?|Stand|Quelle|Hürden?|Zielgruppe|Daten|Verwaltung|Anmelden|Abmelden|Passwort|Beruf|Woche|Fähigkeiten|Arbeitgeber|Politik|Quellen|Zum|Zur)\b/;
   const check = async (path: string) => {
     await page.goto(path);
-    const text = await page.evaluate(() => document.body.innerText);
+    const text = await page.evaluate(() => {
+      document.querySelectorAll<HTMLElement>(".ads, .policy__title, .policy__status, section[aria-labelledby=p-employers] .rank, section[aria-labelledby=p-agencies] .rank").forEach((n) => (n.style.display = "none"));
+      return document.body.innerText;
+    });
     const hit = text.split("\n").filter((l) => GERMAN.test(l));
     expect(hit, `${path}: German text on an English page`).toEqual([]);
   };
-  for (const p of ["/en", "/en/login", "/en/passwort-vergessen", "/en/nonexistent-page"]) await check(p);
+  for (const p of ["/en", "/en?role=support", "/en?role=data", "/en/politik", "/en/quellen", "/en/zielgruppe", "/en/login", "/en/passwort-vergessen", "/en/nonexistent-page"]) await check(p);
   test.skip(!password, "no demo admin password given (CI_DEMO_ADMIN_PASSWORD)");
   await page.goto("/en/admin");
   await expect(page).toHaveURL(/\/en\/login\?next=%2Fen%2Fadmin$/);
@@ -145,14 +210,14 @@ test("@ci English pages hold no German", async ({ page }) => {
   await page.fill("#pw-password", password);
   await page.locator("form:has(#pw-password) button[type=submit]").click();
   await expect(page).toHaveURL(/\/en\/admin$/);
-  for (const p of ["/en/admin", "/en/admin/sicherheit", "/en/admin/protokoll"]) await check(p);
+  for (const p of ["/en/admin", "/en/admin/sicherheit", "/en/admin/berichte", "/en/admin/protokoll"]) await check(p);
 });
 
 test("@ci the language picker is on every page and keeps the page", async ({ page }) => {
   const email = process.env.CI_DEMO_ADMIN_EMAIL ?? process.env.E2E_ADMIN_EMAIL ?? "cto-demo@demo.invalid";
   const password = process.env.CI_DEMO_ADMIN_PASSWORD ?? process.env.E2E_ADMIN_PASSWORD ?? "";
   const pick = page.getByRole("list", { name: /Sprache|Language/ });
-  for (const [from, to] of [["/de", "/en"], ["/de/login", "/en/login"], ["/de/passwort-vergessen", "/en/passwort-vergessen"]]) {
+  for (const [from, to] of [["/de", "/en"], ["/de?role=data", "/en?role=data"], ["/de/politik?source=federal", "/en/politik?source=federal"], ["/de/quellen", "/en/quellen"], ["/de/zielgruppe", "/en/zielgruppe"], ["/de/login", "/en/login"]]) {
     await page.goto(from);
     await expect(pick.getByRole("link", { name: "Deutsch" })).toBeVisible();
     await pick.getByRole("link", { name: "English" }).click();
