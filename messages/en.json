@@ -152,6 +152,22 @@
       "sentence": "{count} in 100 ads come from recruiting agencies.",
       "intro": "Agencies advertise jobs for other companies. The company behind the job is often not named in the ad. That is why they are listed apart from the employers.",
       "empty": "No recruiting agencies in this period."
+    },
+    "allIt": {
+      "title": "All IT jobs, not only the three roles",
+      "intro": "Every ad on job-room.ch in an IT occupation",
+      "caption": "IT ads in the last {days} days, in {jobs} IT occupations",
+      "groups": "IT ads by field",
+      "entryTotal": "{entry} of these {ads} ads are open to beginners.",
+      "meaning": "The three roles above have {roles} of them. Most IT ads are for {first}, {second} and {third}.",
+      "meaningShort": "The three roles above have {roles} of them.",
+      "jobsTitle": "Which IT jobs are open to beginners",
+      "entryOf": "{entry} of {ads} ads",
+      "jobsMeaning": "Most beginner ads are for {first} ({firstN}), then {second}. These are the IT jobs where a Powercoders graduate has the best chance to start.",
+      "jobsMeaningShort": "Very few IT ads speak to beginners at the moment.",
+      "jobsEmpty": "No IT ad in this period speaks to beginners.",
+      "entryHow": "Open to beginners: the ad says junior, trainee, career changer, internship or similar, or the employer marked no experience or less than a year.",
+      "note": "Occupation as the employer chose it on job-room.ch (SECO). IT occupations are those the Swiss occupation list files under ICT professionals and ICT technicians."
     }
   },
   "policy": {

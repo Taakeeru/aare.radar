@@ -307,6 +307,68 @@
      "new_ads": 37
     }
    ],
+   "monthly": [
+    {
+     "month": "2025-12",
+     "new_ads": 38,
+     "partial": false
+    },
+    {
+     "month": "2026-01",
+     "new_ads": 42,
+     "partial": false
+    },
+    {
+     "month": "2026-02",
+     "new_ads": 49,
+     "partial": false
+    },
+    {
+     "month": "2026-03",
+     "new_ads": 52,
+     "partial": false
+    },
+    {
+     "month": "2026-04",
+     "new_ads": 56,
+     "partial": false
+    },
+    {
+     "month": "2026-05",
+     "new_ads": 63,
+     "partial": false
+    },
+    {
+     "month": "2026-06",
+     "new_ads": 60,
+     "partial": false
+    },
+    {
+     "month": "2026-07",
+     "new_ads": 56,
+     "partial": false
+    },
+    {
+     "month": "2026-08",
+     "new_ads": 66,
+     "partial": false
+    },
+    {
+     "month": "2026-09",
+     "new_ads": 70,
+     "partial": false
+    },
+    {
+     "month": "2026-10",
+     "new_ads": 74,
+     "partial": false
+    },
+    {
+     "month": "2026-11",
+     "new_ads": 56,
+     "partial": true
+    }
+   ],
    "skills": [
     {
      "skill": "Scrum/Agile",
@@ -465,6 +527,68 @@
      "new_ads": 80
     }
    ],
+   "monthly": [
+    {
+     "month": "2025-12",
+     "new_ads": 82,
+     "partial": false
+    },
+    {
+     "month": "2026-01",
+     "new_ads": 90,
+     "partial": false
+    },
+    {
+     "month": "2026-02",
+     "new_ads": 105,
+     "partial": false
+    },
+    {
+     "month": "2026-03",
+     "new_ads": 112,
+     "partial": false
+    },
+    {
+     "month": "2026-04",
+     "new_ads": 120,
+     "partial": false
+    },
+    {
+     "month": "2026-05",
+     "new_ads": 135,
+     "partial": false
+    },
+    {
+     "month": "2026-06",
+     "new_ads": 128,
+     "partial": false
+    },
+    {
+     "month": "2026-07",
+     "new_ads": 120,
+     "partial": false
+    },
+    {
+     "month": "2026-08",
+     "new_ads": 142,
+     "partial": false
+    },
+    {
+     "month": "2026-09",
+     "new_ads": 150,
+     "partial": false
+    },
+    {
+     "month": "2026-10",
+     "new_ads": 158,
+     "partial": false
+    },
+    {
+     "month": "2026-11",
+     "new_ads": 120,
+     "partial": true
+    }
+   ],
    "skills": [
     {
      "skill": "Microsoft 365",
@@ -620,6 +744,68 @@
      "new_ads": 45
     }
    ],
+   "monthly": [
+    {
+     "month": "2025-12",
+     "new_ads": 52,
+     "partial": false
+    },
+    {
+     "month": "2026-01",
+     "new_ads": 57,
+     "partial": false
+    },
+    {
+     "month": "2026-02",
+     "new_ads": 66,
+     "partial": false
+    },
+    {
+     "month": "2026-03",
+     "new_ads": 71,
+     "partial": false
+    },
+    {
+     "month": "2026-04",
+     "new_ads": 76,
+     "partial": false
+    },
+    {
+     "month": "2026-05",
+     "new_ads": 86,
+     "partial": false
+    },
+    {
+     "month": "2026-06",
+     "new_ads": 81,
+     "partial": false
+    },
+    {
+     "month": "2026-07",
+     "new_ads": 76,
+     "partial": false
+    },
+    {
+     "month": "2026-08",
+     "new_ads": 90,
+     "partial": false
+    },
+    {
+     "month": "2026-09",
+     "new_ads": 95,
+     "partial": false
+    },
+    {
+     "month": "2026-10",
+     "new_ads": 100,
+     "partial": false
+    },
+    {
+     "month": "2026-11",
+     "new_ads": 76,
+     "partial": true
+    }
+   ],
    "skills": [
     {
      "skill": "SQL",
@@ -744,6 +930,85 @@
    ]
   }
  ],
+ "market": {
+  "ads": 630,
+  "monthly": [
+   {
+    "month": "2025-12",
+    "new_ads": 158,
+    "partial": false
+   },
+   {
+    "month": "2026-01",
+    "new_ads": 174,
+    "partial": false
+   },
+   {
+    "month": "2026-02",
+    "new_ads": 202,
+    "partial": false
+   },
+   {
+    "month": "2026-03",
+    "new_ads": 216,
+    "partial": false
+   },
+   {
+    "month": "2026-04",
+    "new_ads": 232,
+    "partial": false
+   },
+   {
+    "month": "2026-05",
+    "new_ads": 261,
+    "partial": false
+   },
+   {
+    "month": "2026-06",
+    "new_ads": 247,
+    "partial": false
+   },
+   {
+    "month": "2026-07",
+    "new_ads": 232,
+    "partial": false
+   },
+   {
+    "month": "2026-08",
+    "new_ads": 274,
+    "partial": false
+   },
+   {
+    "month": "2026-09",
+    "new_ads": 290,
+    "partial": false
+   },
+   {
+    "month": "2026-10",
+    "new_ads": 305,
+    "partial": false
+   },
+   {
+    "month": "2026-11",
+    "new_ads": 232,
+    "partial": true
+   }
+  ],
+  "roles": [
+   {
+    "id": "support",
+    "ads": 330
+   },
+   {
+    "id": "data",
+    "ads": 202
+   },
+   {
+    "id": "web",
+    "ads": 153
+   }
+  ]
+ },
  "sector": [
   {
    "series": "Job vacancies - total / 58-63 IT and communications",
@@ -1846,6 +2111,307 @@
       ]
      }
     ]
+   }
+  ]
+ },
+ "it_market": {
+  "ads": 3147,
+  "read_in_full": 933,
+  "entry_ads": 332,
+  "entry_level_share": 0.105,
+  "reporting_obligation_share": 0.002,
+  "weekly": [
+   {
+    "week": "2026-W39",
+    "new_ads": 74
+   },
+   {
+    "week": "2026-W40",
+    "new_ads": 108
+   },
+   {
+    "week": "2026-W41",
+    "new_ads": 77
+   },
+   {
+    "week": "2026-W42",
+    "new_ads": 98
+   },
+   {
+    "week": "2026-W43",
+    "new_ads": 228
+   },
+   {
+    "week": "2026-W44",
+    "new_ads": 399
+   },
+   {
+    "week": "2026-W45",
+    "new_ads": 565
+   },
+   {
+    "week": "2026-W46",
+    "new_ads": 721
+   },
+   {
+    "week": "2026-W47",
+    "new_ads": 877
+   }
+  ],
+  "groups": [
+   {
+    "group": "251",
+    "label_en": "Software and applications",
+    "label_de": "Software und Anwendungen",
+    "ads": 1998
+   },
+   {
+    "group": "252",
+    "label_en": "Databases, networks and security",
+    "label_de": "Datenbanken, Netzwerke und Sicherheit",
+    "ads": 484
+   },
+   {
+    "group": "351",
+    "label_en": "IT operations and user support",
+    "label_de": "Betrieb und Anwendersupport",
+    "ads": 363
+   },
+   {
+    "group": "250",
+    "label_en": "IT in general",
+    "label_de": "Informatik allgemein",
+    "ads": 278
+   },
+   {
+    "group": "352",
+    "label_en": "Telecommunications",
+    "label_de": "Telekommunikation",
+    "ads": 24
+   }
+  ],
+  "occupations": [
+   {
+    "code": "101350",
+    "label_en": "Software Engineer",
+    "label_de": "Software Engineer",
+    "group": "251",
+    "ads": 565,
+    "entry_ads": 45,
+    "entry_level_share": 0.08
+   },
+   {
+    "code": "101353",
+    "label_en": "ICT System Engineer",
+    "label_de": "ICT System Engineer",
+    "group": "251",
+    "ads": 537,
+    "entry_ads": 54,
+    "entry_level_share": 0.101
+   },
+   {
+    "code": "101341",
+    "label_en": "Information Technologist",
+    "label_de": "Informatiker/in",
+    "group": "250",
+    "ads": 278,
+    "entry_ads": 32,
+    "entry_level_share": 0.115
+   },
+   {
+    "code": "101782",
+    "label_en": "ICT Supporter",
+    "label_de": "ICT Supporter",
+    "group": "351",
+    "ads": 223,
+    "entry_ads": 29,
+    "entry_level_share": 0.13
+   },
+   {
+    "code": "101358",
+    "label_en": "ICT Application Engineer",
+    "label_de": "ICT Application Engineer",
+    "group": "251",
+    "ads": 158,
+    "entry_ads": 15,
+    "entry_level_share": 0.095
+   },
+   {
+    "code": "101349",
+    "label_en": "ICT Consultant",
+    "label_de": "ICT Consultant",
+    "group": "251",
+    "ads": 157,
+    "entry_ads": 16,
+    "entry_level_share": 0.102
+   },
+   {
+    "code": "101355",
+    "label_en": "ICT Project Manager",
+    "label_de": "ICT Project Manager",
+    "group": "251",
+    "ads": 150,
+    "entry_ads": 15,
+    "entry_level_share": 0.1
+   },
+   {
+    "code": "101364",
+    "label_en": "ICT System Administrator",
+    "label_de": "ICT System Administrator",
+    "group": "252",
+    "ads": 87,
+    "entry_ads": 6,
+    "entry_level_share": 0.069
+   },
+   {
+    "code": "101344",
+    "label_en": "ICT Architect",
+    "label_de": "ICT Architect",
+    "group": "251",
+    "ads": 84,
+    "entry_ads": 7,
+    "entry_level_share": 0.083
+   },
+   {
+    "code": "101363",
+    "label_en": "Database Engineer",
+    "label_de": "Database Engineer",
+    "group": "252",
+    "ads": 73,
+    "entry_ads": 5,
+    "entry_level_share": 0.068
+   },
+   {
+    "code": "101345",
+    "label_en": "ICT Business Analyst",
+    "label_de": "ICT Business Analyst",
+    "group": "251",
+    "ads": 71,
+    "entry_ads": 4,
+    "entry_level_share": 0.056
+   },
+   {
+    "code": "104048",
+    "label_en": "DevOps Engineer",
+    "label_de": "DevOps Engineer",
+    "group": "251",
+    "ads": 64,
+    "entry_ads": 9,
+    "entry_level_share": 0.141
+   },
+   {
+    "code": "101779",
+    "label_en": "ICT Application Manager",
+    "label_de": "ICT Application Manager",
+    "group": "351",
+    "ads": 62,
+    "entry_ads": 7,
+    "entry_level_share": 0.113
+   },
+   {
+    "code": "101362",
+    "label_en": "Database Administrator",
+    "label_de": "Database Administrator",
+    "group": "252",
+    "ads": 60,
+    "entry_ads": 4,
+    "entry_level_share": 0.067
+   },
+   {
+    "code": "101368",
+    "label_en": "Network Engineer",
+    "label_de": "Network Engineer",
+    "group": "252",
+    "ads": 54,
+    "entry_ads": 5,
+    "entry_level_share": 0.093
+   },
+   {
+    "code": "101369",
+    "label_en": "ICT Security Expert",
+    "label_de": "ICT Security Expert",
+    "group": "252",
+    "ads": 53,
+    "entry_ads": 3,
+    "entry_level_share": 0.057
+   },
+   {
+    "code": "104030",
+    "label_en": "Information Security Manager",
+    "label_de": "Information Security Manager",
+    "group": "252",
+    "ads": 47,
+    "entry_ads": 6,
+    "entry_level_share": 0.128
+   },
+   {
+    "code": "101370",
+    "label_en": "Cyber Security Specialist",
+    "label_de": "Cyber Security Specialist",
+    "group": "252",
+    "ads": 44,
+    "entry_ads": 5,
+    "entry_level_share": 0.114
+   },
+   {
+    "code": "105004",
+    "label_en": "Business AI Specialist",
+    "label_de": "Business AI Specialist",
+    "group": "251",
+    "ads": 43,
+    "entry_ads": 14,
+    "entry_level_share": 0.326
+   },
+   {
+    "code": "101352",
+    "label_en": "Business Data Processing Specialist",
+    "label_de": "Wirtschaftsinformatiker/in",
+    "group": "251",
+    "ads": 35,
+    "entry_ads": 7,
+    "entry_level_share": 0.2
+   }
+  ],
+  "cantons": [
+   {
+    "canton": "ZH",
+    "count": 822
+   },
+   {
+    "canton": "BE",
+    "count": 637
+   },
+   {
+    "canton": "AG",
+    "count": 259
+   },
+   {
+    "canton": "LU",
+    "count": 198
+   },
+   {
+    "canton": "SG",
+    "count": 160
+   },
+   {
+    "canton": "VD",
+    "count": 144
+   },
+   {
+    "canton": "GE",
+    "count": 102
+   },
+   {
+    "canton": "SO",
+    "count": 78
+   },
+   {
+    "canton": "BS",
+    "count": 72
+   },
+   {
+    "canton": "ZG",
+    "count": 72
    }
   ]
  }

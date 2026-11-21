@@ -51,6 +51,37 @@ describe("the data contract (collector/export.py)", () => {
   });
 });
 
+describe("monthly history and market totals", () => {
+  it("a file without monthly and market still loads", () => {
+    const d = JSON.parse(text());
+    delete d.market;
+    for (const r of d.roles) delete r.monthly;
+    const out = parseRadar(JSON.stringify(d));
+    expect(out.market).toBeUndefined();
+    expect(out.roles[0]!.monthly).toBeUndefined();
+  });
+
+  it("the fixture carries 12 months per role and a market block", () => {
+    const d = parseRadar(text());
+    for (const r of d.roles) {
+      expect(r.monthly).toHaveLength(12);
+      expect(r.monthly!.filter((m) => m.partial)).toHaveLength(1);
+    }
+    expect(d.market!.monthly).toHaveLength(12);
+    expect(d.market!.roles.map((r) => r.id)).toEqual(["support", "data", "web"]);
+    expect(d.market!.ads).toBeGreaterThanOrEqual(Math.max(...d.roles.map((r) => r.ads)));
+  });
+
+  it("rejects a market with a non-number ads and a role with a wrong monthly shape", () => {
+    const d = JSON.parse(text());
+    d.market.ads = "630";
+    expect(() => parseRadar(JSON.stringify(d))).toThrow(/market/);
+    const e = JSON.parse(text());
+    e.roles[0].monthly[0].new_ads = "5";
+    expect(() => parseRadar(JSON.stringify(e))).toThrow(/roles/);
+  });
+});
+
 describe("loading and the 10 minute cache", () => {
   it("RADAR_DATA picks the file; the default is the sample fixture", () => {
     expect(dataFilePath({})).toBe(FIXTURE);

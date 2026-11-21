@@ -14,6 +14,9 @@ Contract (keep in step with lib/radar.ts in the app):
   "roles": [{
      "id", "label", "ads",                       # ads matched in the window
      "weekly": [{"week": "2026-W44", "new_ads": n}],   # by publication date
+     "monthly": [{"month": "2026-11", "new_ads": n, "partial": bool}],   # NEW: the role's ads by published month over the
+                                                 # WHOLE ads table (not only the window), last 24 months, oldest first,
+                                                 # empty months 0, the current month partial
      "skills": [{"skill", "count", "share",     # share of the role's ads with full text, 0..1, top 15
                  "esco_uri", "esco_label", "esco_match"}],   # NEW, only when ESCO has a concept ("exact" | "broader")
      "barriers": {"german_required": share, ...},
@@ -25,6 +28,16 @@ Contract (keep in step with lib/radar.ts in the app):
      "reporting_obligation_share": share,         # occupations under the Swiss job-reporting duty
      "examples": [{"title","company","city","published","url"}]   # newest 8
   }],
+  "it_market": {                                # NEW 21.11.: EVERY IT ad (job-room occupation codes, collector/it_occupations.json)
+     "ads", "read_in_full", "entry_ads", "entry_level_share", "reporting_obligation_share",   # entry: text OR experience field
+     "weekly": [{"week", "new_ads"}],
+     "groups": [{"group", "label_en", "label_de", "ads"}],              # CH-ISCO 250/251/252/351/352
+     "occupations": [{"code", "label_en", "label_de", "group", "ads", "entry_ads", "entry_level_share"}],   # all with 1+ ad, most first
+     "cantons": [{"canton", "count"}]
+  },
+  "market": {"ads": n,                           # NEW: distinct ads of any role in the window
+             "monthly": [{"month", "new_ads", "partial"}],   # all IT ads together, an ad in two roles counts once
+             "roles": [{"id", "ads"}]},          # the roles by ads in the window, most first
   "sector": [{"series", "period", "value"}],     # BFS JOBSTAT, quarterly (the source flagged "sector" in sources.json)
   "series": {                                    # NEW: every numeric source, grouped by question letter
      "D": [{"source": id, "name", "url", "updated",
@@ -47,12 +60,29 @@ ROOT = Path(__file__).resolve().parent.parent
 DB = ROOT / "data" / "radar.db"
 ESCO = Path(__file__).resolve().parent / "esco_skills.json"
 WINDOW = 60
+MAX_MONTHS = 24   # monthly history per role and for the market
 MAX_SERIES = 60   # per source and dimension; override with "export_max_series" in the source entry
 
 
 
 def _latest(v):
     return v if v is not None else -1e18
+
+
+def monthly(dates, today, months=MAX_MONTHS):
+    """Published dates (YYYY-MM-DD...) -> [{"month", "new_ads", "partial"}], oldest first, at most `months` months
+    ending with the current one, months without ads in between 0. Dates after today are ignored; no ads -> []."""
+    this = today.year * 12 + today.month - 1
+    count = collections.Counter()
+    for d in dates:
+        if d and len(d) >= 7 and d[:4].isdigit() and d[5:7].isdigit():
+            m = int(d[:4]) * 12 + int(d[5:7]) - 1
+            if this - months < m <= this:
+                count[m] += 1
+    if not count:
+        return []
+    return [{"month": f"{m // 12}-{m % 12 + 1:02d}", "new_ads": count[m], "partial": m == this}
+            for m in range(min(count), this + 1)]
 
 
 def build_series(c, entries):
@@ -83,14 +113,16 @@ def build_series(c, entries):
     return dict(sorted(by_q.items()))
 
 
-def main(out: Path, db=None, entries=None, esco_path=None):
+def main(out: Path, db=None, entries=None, esco_path=None, today=None):
     c = sqlite3.connect(f"file:{db or DB}?mode=ro", uri=True)
     entries = entries if entries is not None else config.load()
     esco = json.loads(Path(esco_path or ESCO).read_text()) if Path(esco_path or ESCO).exists() else {}
-    since = (dt.date.today() - dt.timedelta(days=WINDOW)).isoformat()
+    today = today or dt.date.today()
+    since = (today - dt.timedelta(days=WINDOW)).isoformat()
     rows = c.execute("""SELECT title, company, city, canton, published, url, roles, skills, barriers,
                                reporting_obligation, tagged IS NOT NULL
                         FROM ads WHERE roles != '[]' AND published >= ? ORDER BY published DESC""", (since,)).fetchall()
+    history = c.execute("SELECT published, roles FROM ads WHERE roles != '[]' AND published IS NOT NULL").fetchall()
     roles = []
     for rid, (label, _, _) in ROLES.items():
         R = [r for r in rows if rid in json.loads(r[6])]
@@ -106,6 +138,7 @@ def main(out: Path, db=None, entries=None, esco_path=None):
         roles.append({
             "id": rid, "label": label, "ads": n,
             "weekly": [{"week": k, "new_ads": v} for k, v in sorted(weekly.items())],
+            "monthly": monthly([h[0] for h in history if rid in json.loads(h[1])], today),
             "skills": [dict({"skill": k, "count": v, "share": round(v / nf, 3)}, **_esco(esco, k))
                        for k, v in skills.most_common(15)],
             "barriers": {k: round(barriers[k] / nf, 3) for k in BARRIERS if k != "entry_level"},
@@ -121,6 +154,9 @@ def main(out: Path, db=None, entries=None, esco_path=None):
             "reporting_obligation_share": round(sum(r[9] for r in R) / max(n, 1), 3),
             "examples": [{"title": r[0], "company": r[1], "city": r[2], "published": r[4], "url": r[5]} for r in R[:8]],
         })
+    it_market = build_it_market(c, since)
+    market = {"ads": len(rows), "monthly": monthly([h[0] for h in history], today),
+              "roles": sorted(({"id": r["id"], "ads": r["ads"]} for r in roles), key=lambda r: -r["ads"])}
     sector_id = next((e["id"] for e in entries if e.get("sector")), "bfs")
     sector = [{"series": s, "period": p, "value": v} for s, p, v in
               c.execute("SELECT series, period, value FROM stats WHERE source=? ORDER BY period", (sector_id,))]
@@ -140,12 +176,57 @@ def main(out: Path, db=None, entries=None, esco_path=None):
                         "status": ("reference" if e["type"] == "link" else run[2] if run else "never"),
                         "latest_period": latest})
     doc = {"generated_at": dt.datetime.now(dt.timezone.utc).isoformat(timespec="seconds"), "window_days": WINDOW,
-           "questions": config.QUESTIONS, "sources": sources, "roles": roles, "sector": sector, "policy": policy,
+           "questions": config.QUESTIONS, "sources": sources, "roles": roles, "market": market, "it_market": it_market,
+           "sector": sector, "policy": policy,
            "series": build_series(c, entries)}
     out.parent.mkdir(parents=True, exist_ok=True)
     out.write_text(json.dumps(doc, ensure_ascii=False, indent=1))
     print(f"wrote {out} ({out.stat().st_size // 1024} KB): " + ", ".join(f"{r['id']} {r['ads']}" for r in roles))
     return doc
+
+
+ENTRY_EXPERIENCE = {"NO_EXPERIENCE", "LESS_THAN_1_YEAR"}
+
+
+def build_it_market(c, since):
+    """Every ad whose job-room occupation code is an IT occupation (collector/it_occupations.json), in the window."""
+    from .types.jobroom_search import it_occupations
+    it = it_occupations()
+    occ, groups = it["occupations"], it["groups"]
+    marks = ",".join("?" * len(occ)) or "''"
+    cols = {r[1] for r in c.execute("PRAGMA table_info(ads)")}
+    exp_col = "experience" if "experience" in cols else "NULL"
+    rows = c.execute(f"""SELECT occupation, published, canton, barriers, reporting_obligation, tagged, {exp_col} FROM ads
+                         WHERE occupation IN ({marks}) AND published >= ?""", (*occ, since)).fetchall()
+    n = len(rows)
+    weekly = collections.Counter()
+    for r in rows:
+        if r[1]:
+            y, w, _ = dt.date.fromisoformat(r[1][:10]).isocalendar()
+            weekly[f"{y}-W{w:02d}"] += 1
+    by_occ = collections.defaultdict(list)
+    for r in rows:
+        by_occ[r[0]].append(r)
+    # Entry level: the ad's full text speaks to beginners (junior, trainee, career changer, internship ...) OR the
+    # employer set job-room's experience field to none / under a year.
+    is_entry = lambda r: "entry_level" in json.loads(r[3] or "[]") or r[6] in ENTRY_EXPERIENCE  # noqa: E731
+    entry_n = lambda R: sum(1 for r in R if is_entry(r))  # noqa: E731
+    entry = lambda R: round(entry_n(R) / max(len(R), 1), 3)  # noqa: E731
+    by_group = collections.Counter(occ[r[0]]["group"] for r in rows)
+    return {
+        "ads": n,
+        "read_in_full": sum(1 for r in rows if r[5]),
+        "entry_ads": entry_n(rows),
+        "entry_level_share": entry(rows),
+        "reporting_obligation_share": round(sum(r[4] or 0 for r in rows) / max(n, 1), 3),
+        "weekly": [{"week": k, "new_ads": v} for k, v in sorted(weekly.items())],
+        "groups": [{"group": g, "label_en": groups[g]["en"], "label_de": groups[g]["de"], "ads": by_group[g]}
+                   for g in sorted(groups, key=lambda g: -by_group[g]) if by_group[g]],
+        "occupations": [{"code": k, "label_en": occ[k]["en"], "label_de": occ[k]["de"], "group": occ[k]["group"],
+                         "ads": len(R), "entry_ads": entry_n(R), "entry_level_share": entry(R)}
+                        for k, R in sorted(by_occ.items(), key=lambda kv: -len(kv[1]))],
+        "cantons": [{"canton": k, "count": v} for k, v in collections.Counter(r[2] for r in rows if r[2]).most_common()],
+    }
 
 
 def _esco(esco, skill):

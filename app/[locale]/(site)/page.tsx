@@ -9,7 +9,6 @@ import { loadRadar, type Radar, type RadarRole } from "@/lib/radar";
 import {
   ageInDays,
   cantonName,
-  formatDate,
   formatInt,
   hurdleLevel,
   outOf10,
@@ -19,7 +18,6 @@ import {
   parsePeriod,
   recentVersusBefore,
   roleById,
-  safeHttpUrl,
   sectorSeries,
   topCantonShare,
   weekNumber,
@@ -145,20 +143,26 @@ export default async function DashboardPage({
     return { key: p.period, value: p.value, label: quarter === 1 ? String(year) : "", description: `${year} Q${quarter}` };
   });
 
-  // B: skills
-  const skills = role.skills.slice(0, 10);
-  const skillRows: BarRow[] = skills.map((s) => ({
-    key: s.skill,
-    label: s.skill,
-    fraction: s.share,
-    value: c("ofHundred", { count: outOf100(s.share) }),
+  // A: every IT ad (job-room occupation codes), not only the three roles
+  const it = data.it_market && data.it_market.ads > 0 ? data.it_market : null;
+  const itLabel = (x: { label_en: string; label_de: string }) => (locale === "de" ? x.label_de : x.label_en);
+  const roleAds = data.roles.reduce((n, r) => n + r.ads, 0);
+  const itGroupRows: BarRow[] = (it?.groups ?? []).map((g) => ({
+    key: g.group,
+    label: itLabel(g),
+    fraction: g.ads / Math.max(1, it!.groups[0]!.ads),
+    value: c("ads", { count: g.ads }),
   }));
-
-  // C: employers
-  const maxEmp = Math.max(1, ...role.employers.map((e) => e.ads));
-  const employerRows: BarRow[] = role.employers.map((e) => ({ key: e.company, label: e.company, fraction: e.ads / maxEmp, value: c("ads", { count: e.ads }) }));
-  const maxAg = Math.max(1, ...role.agencies.map((e) => e.ads));
-  const agencyRows: BarRow[] = role.agencies.map((e) => ({ key: e.company, label: e.company, fraction: e.ads / maxAg, value: c("ads", { count: e.ads }) }));
+  const itTop = (it?.occupations ?? []).slice(0, 3);
+  // Entry level is what Powercoders looks for: IT occupations ranked by their beginner ads.
+  const itEntry = [...(it?.occupations ?? [])].filter((o) => (o.entry_ads ?? 0) > 0).sort((a, b) => (b.entry_ads ?? 0) - (a.entry_ads ?? 0)).slice(0, 12);
+  const itJobRows: BarRow[] = itEntry.map((o) => ({
+    key: o.code,
+    label: itLabel(o),
+    fraction: (o.entry_ads ?? 0) / Math.max(1, itEntry[0]!.entry_ads ?? 0),
+    value: t("allIt.entryOf", { entry: fmt(o.entry_ads ?? 0), ads: fmt(o.ads) }),
+    tone: "healthy",
+  }));
 
   return (
     <div className="page">
@@ -282,82 +286,45 @@ export default async function DashboardPage({
               <p>{t("sector.empty")}</p>
             )}
           </Panel>
-        </div>
-      </section>
 
-      <section id="faehigkeiten" className="question-section" aria-labelledby="q-b">
-        <QuestionHead id="q-b" letter="B" title={q("B.title")} question={q("B.question")} label={label("B")} />
-        <div className="grid">
-          <Panel
-            id="p-skills"
-            title={t("skills.title")}
-            intro={t("skills.intro")}
-            span={12}
-            sources={jobroom}
-            meaning={
-              skills.length >= 3
-                ? t("skills.meaning", { first: skills[0]!.skill, second: skills[1]!.skill, third: skills[2]!.skill })
-                : skills.length === 2
-                  ? t("skills.meaningTwo", { first: skills[0]!.skill, second: skills[1]!.skill })
-                  : skills.length === 1
-                    ? t("skills.meaningOne", { first: skills[0]!.skill })
-                    : c("noData")
-            }
-          >
-            <BarList rows={skillRows} label={t("skills.title")} />
-            <p className="note">{t("skills.basis")}</p>
-          </Panel>
-        </div>
-      </section>
-
-      <section id="arbeitgeber" className="question-section" aria-labelledby="q-c">
-        <QuestionHead id="q-c" letter="C" title={q("C.title")} question={q("C.question")} label={label("C")} />
-        <div className="grid">
-          <Panel
-            id="p-employers"
-            title={t("employers.title")}
-            intro={t("employers.intro", { role: roleName(role) })}
-            span={6}
-            sources={jobroom}
-            meaning={
-              role.employers.length > 1
-                ? t("employers.meaning", { first: role.employers[0]!.company, count: role.employers[0]!.ads })
-                : role.employers.length === 1
-                  ? t("employers.meaningOne", { first: role.employers[0]!.company })
-                  : t("employers.empty")
-            }
-          >
-            {employerRows.length > 0 ? <BarList rows={employerRows} label={t("employers.title")} /> : <p>{t("employers.empty")}</p>}
-          </Panel>
-
-          <Panel id="p-agencies" title={t("agencies.title")} intro={t("agencies.intro")} span={6} sources={jobroom} meaning={t("agencies.sentence", { count: outOf100(role.agency_share) })}>
-            {agencyRows.length > 0 ? <BarList rows={agencyRows} label={t("agencies.title")} /> : <p>{t("agencies.empty")}</p>}
-          </Panel>
-
-          <Panel id="p-examples" title={t("examples.title")} intro={t("examples.intro")} span={12} sources={jobroom} meaning={t("examples.meaning", { role: roleName(role) })}>
-            {role.examples.length > 0 ? (
-              <ul className="ads">
-                {role.examples.map((e) => {
-                  const url = safeHttpUrl(e.url);
-                  return (
-                    <li key={e.url} className="ads__item">
-                      {url ? (
-                        <a href={url} target="_blank" rel="noopener noreferrer" className="ads__title">
-                          {e.title}
-                          <span className="sr-only"> ({c("opensNewTab")})</span>
-                        </a>
-                      ) : (
-                        <span className="ads__title">{e.title}</span>
-                      )}
-                      <span className="ads__meta">{[e.company, e.city, e.published ? formatDate(e.published, locale) : ""].filter(Boolean).join(" · ")}</span>
-                    </li>
-                  );
-                })}
-              </ul>
-            ) : (
-              <p>{t("examples.empty")}</p>
-            )}
-          </Panel>
+          {it ? (
+            <>
+              <Panel
+                id="p-allit"
+                title={t("allIt.title")}
+                intro={t("allIt.intro")}
+                span={5}
+                sources={jobroom}
+                meaning={
+                  itTop.length >= 3
+                    ? t("allIt.meaning", { roles: fmt(roleAds), first: itLabel(itTop[0]!), second: itLabel(itTop[1]!), third: itLabel(itTop[2]!) })
+                    : t("allIt.meaningShort", { roles: fmt(roleAds) })
+                }
+              >
+                <p className="stat">
+                  <span className="stat__n">{fmt(it.ads)}</span>
+                  <span className="stat__c">{t("allIt.caption", { days: data.window_days, jobs: it.occupations.length })}</span>
+                </p>
+                {it.entry_ads !== undefined ? <p className="note">{t("allIt.entryTotal", { entry: fmt(it.entry_ads), ads: fmt(it.ads) })}</p> : null}
+                <BarList rows={itGroupRows} label={t("allIt.groups")} />
+              </Panel>
+              <Panel
+                id="p-allit-jobs"
+                title={t("allIt.jobsTitle")}
+                span={7}
+                sources={jobroom}
+                meaning={
+                  itEntry.length >= 2
+                    ? t("allIt.jobsMeaning", { first: itLabel(itEntry[0]!), firstN: fmt(itEntry[0]!.entry_ads ?? 0), second: itLabel(itEntry[1]!) })
+                    : t("allIt.jobsMeaningShort")
+                }
+              >
+                {itJobRows.length > 0 ? <BarList rows={itJobRows} label={t("allIt.jobsTitle")} /> : <p>{t("allIt.jobsEmpty")}</p>}
+                <p className="note">{t("allIt.entryHow")}</p>
+                <p className="note">{t("allIt.note")}</p>
+              </Panel>
+            </>
+          ) : null}
         </div>
       </section>
     </div>
