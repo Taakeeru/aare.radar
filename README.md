@@ -73,7 +73,8 @@ next to it; aggregate data only, never anything about a person; example ads show
 | Path | What |
 |---|---|
 | `app/[locale]/(site)/` | dashboard (`page.tsx`), `politik/`, `quellen/`, `zielgruppe/` |
-| `app/[locale]/(admin)/` | `/de/login`, `/de/auth/2fa`, `/de/passwort-vergessen`, `/de/auth/passwort-neu`, `/de/admin` (Datenstand), `/de/admin/sicherheit`, `/de/admin/protokoll`, `/de/admin/berichte` (placeholder for the planned email summaries; new areas are one line in `admin/areas.ts`) |
+| `app/[locale]/(admin)/` | `/de/login`, `/de/auth/2fa`, `/de/passwort-vergessen`, `/de/auth/passwort-neu`, `/de/admin` (Datenstand), `/de/admin/sicherheit`, `/de/admin/protokoll`, `/de/admin/berichte` (placeholder for the planned email summaries; new areas are one line in `admin/areas.ts`), `/de/admin/einstellungen` (summary email on/off, sending weeks, readers; only with `ADMIN_SETTINGS=1`, else 404) |
+| `app/api/digest-config/` | read API for the summary email sender: `GET` with `Authorization: Bearer $DIGEST_CONFIG_TOKEN` → `{"enabled", "weeks", "readers": [{"email", "lang", "fields", "active"}]}`; 404 while `ADMIN_SETTINGS` is off or the token is unset |
 | `lib/radar.ts`, `lib/radar-view.ts` | the data contract and cache; plain-language numbers, dates, chart scales |
 | `lib/design-tokens.ts` | the ONLY place colours and the font are defined (Pandora palette; `lib/__tests__/design-tokens.test.ts` fails on any other colour value) |
 | `messages/de.json`, `en.json` | all texts. German: du, no ß, no dashes as sentence punctuation (`copy.test.ts`; also run through `~/.claude/sops/copy_rules.py`) |
@@ -83,7 +84,8 @@ next to it; aggregate data only, never anything about a person; example ads show
 | `SECURITY.md`, `deploy/` | the security layer and the deployment |
 
 Environment: `RADAR_DATA`, `DATABASE_URL` (SQLite, default `./data/local.db`; accounts and audit log only), `AUTH_SECRET`,
-`TRUST_PROXY`, `SMTP_*`, `MAIL_FROM`, `ADMIN_TOTP_REQUIRED`, `DEMO_INSTANCE` (CI only), `NEXT_PUBLIC_APP_URL`
+`TRUST_PROXY`, `SMTP_*`, `MAIL_FROM`, `ADMIN_TOTP_REQUIRED`, `ADMIN_SETTINGS` and `DIGEST_CONFIG_TOKEN` (admin
+settings and their read API, off by default), `DEMO_INSTANCE` (CI only), `NEXT_PUBLIC_APP_URL`
 (default `https://radar.gnamak.ch`). Full list: `deploy/.env.example`.
 
 Run (never `next dev` on a production host; use a container):

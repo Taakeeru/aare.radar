@@ -8,6 +8,13 @@
       "when": 1795204519001,
       "tag": "0000_parched_scarlet_witch",
       "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "6",
+      "when": 1795262561127,
+      "tag": "0001_steady_aare_digest",
+      "breakpoints": true
     }
   ]
 }

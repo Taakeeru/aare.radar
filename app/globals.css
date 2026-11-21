@@ -1107,3 +1107,138 @@ html[data-light="true"] {
   stroke-linecap: round;
   stroke-linejoin: round;
 }
+
+/* ── Admin settings (/admin/einstellungen): switch, choices, reader cards ── */
+.choices {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.choices legend {
+  margin-bottom: 6px;
+  padding: 0;
+  font-weight: 700;
+  font-size: 15px;
+}
+.choices__hint {
+  margin: 4px 0 0;
+  color: var(--radar-text3);
+  font-size: 14px;
+}
+.choice {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 44px;
+  cursor: pointer;
+}
+.choice input {
+  flex: none;
+  width: 20px;
+  height: 20px;
+  margin: 0;
+  accent-color: var(--radar-accent);
+}
+.choice--all {
+  font-weight: 700;
+}
+.switch {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-height: 44px;
+  font-weight: 700;
+  cursor: pointer;
+}
+.switch input {
+  appearance: none;
+  -webkit-appearance: none;
+  flex: none;
+  position: relative;
+  width: 44px;
+  height: 24px;
+  margin: 0;
+  border: 1px solid var(--radar-border);
+  border-radius: 999px;
+  background: var(--radar-raised);
+  cursor: pointer;
+}
+.switch input::before {
+  content: "";
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: var(--radar-text3);
+  transition: transform 0.15s ease;
+}
+.switch input:checked {
+  background: var(--radar-accent);
+  border-color: var(--radar-accent);
+}
+.switch input:checked::before {
+  transform: translateX(20px);
+  background: var(--radar-on-accent);
+}
+.switch input:focus-visible,
+.choice input:focus-visible {
+  outline: 2px solid var(--radar-accent);
+  outline-offset: 2px;
+}
+@media (prefers-reduced-motion: reduce) {
+  .switch input::before {
+    transition: none;
+  }
+}
+.readers {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.reader {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 16px;
+  border: 1px solid var(--radar-border);
+  border-radius: 8px;
+  background: var(--radar-surface);
+}
+.reader__head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+.reader__email {
+  font-weight: 700;
+  overflow-wrap: anywhere;
+  min-width: 0;
+}
+.reader__meta {
+  margin: 0;
+  color: var(--radar-text2);
+  font-size: 14px;
+}
+.reader__actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px 20px;
+}
+.reader-confirm {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.tag--paused .tag__dot { background: var(--radar-text3); }
