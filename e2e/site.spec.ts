@@ -34,14 +34,19 @@ test("@ci the start page is the market at a glance, and the job list opens one j
   await expect(page.getByRole("heading", { name: "Neue Inserate pro Woche" })).toBeVisible();
 });
 
-test("@ci the Dashboard shows its six cards and follows the role", async ({ page }) => {
+test("@ci the Dashboard shows the start page until a role is chosen, then its six cards", async ({ page }) => {
   await page.goto("/de/uebersicht");
-  await expect(page.locator("h1")).toHaveText("Dashboard");
-  await expect(page.locator("section.panel")).toHaveCount(6);
-  await expect(page.getByRole("heading", { name: "Einstiegsanforderungen" })).toBeVisible();
-  await page.getByLabel("Beruf wählen").selectOption("support");
+  const pick = page.getByLabel("Wähl einen Beruf, um sein Dashboard zu sehen");
+  await expect(pick).toHaveValue("");
+  await expect(page.locator("#o-skills")).toHaveCount(0); // the start page, not yet the Dashboard cards
+  await pick.selectOption("support");
   await expect(page).toHaveURL(/\/de\/uebersicht\?role=support$/);
   await expect(page.locator("h1")).toContainText("Dashboard:");
+  await expect(page.locator("section.panel")).toHaveCount(6);
+  await expect(page.locator("#o-skills")).toHaveCount(1);
+  await expect(page.getByRole("heading", { name: "Einstiegsanforderungen" })).toBeVisible();
+  await page.goto("/de/uebersicht?role=all");
+  await expect(page.locator("h1")).toHaveText("Dashboard");
 });
 
 test("@ci the role switcher changes the whole screen", async ({ page }) => {

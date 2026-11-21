@@ -190,7 +190,8 @@
       "certificate": "certificate",
       "note": "Costs and certificates as the provider pages showed them on the day the links were checked. Coursera courses are marked paid; many offer a free trial or financial aid."
     },
-    "rolePlaceholder": "Select a role…"
+    "rolePlaceholder": "Select a role…",
+    "pickToStart": "Choose a role to see its dashboard"
   },
   "policy": {
     "title": "Policy",

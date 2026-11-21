@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { BarList, type BarRow } from "@/components/bar-list";
 import { CantonMap } from "@/components/canton-map";
+import HomePage from "../page";
 import { Donut, type Slice } from "@/components/donut";
 import { LineChart, type Line } from "@/components/line-chart";
 import { SkillCompanies } from "@/components/skill-companies";
@@ -51,6 +52,18 @@ export default async function OverviewPage({ params, searchParams }: { params: P
   const wanted = typeof sp.role === "string" ? sp.role : "all";
   const role = data.roles.find((r) => r.id === wanted) ?? null;
   const roleName = (r: { id: string; label: string }) => (rolesT.has(r.id) ? rolesT(r.id) : r.label);
+  // Isabella (thread 67): until a role is chosen, the Dashboard shows the start page with the drop-down on top;
+  // choosing a role (or «All IT jobs») shows the charts.
+  if (typeof sp.role !== "string") {
+    return (
+      <>
+        <div className="page dash-start">
+          <RoleSwitch base="/uebersicht" roles={data.roles.map((r) => ({ id: r.id, label: roleName(r) }))} current="all" label={d("pickToStart")} all={t("allJobs")} placeholder={d("rolePlaceholder")} chosen={false} />
+        </div>
+        <HomePage params={params} searchParams={Promise.resolve({})} />
+      </>
+    );
+  }
   const skillsAll = role ? role.skills : (it.skills ?? []);
   const entrySkills = role ? (role.entry_skills ?? []) : ov.entry_skills;
   const entryBasis = role ? (role.entry_ads ?? 0) : ov.entry_basis;

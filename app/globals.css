@@ -1681,3 +1681,8 @@ html[data-light="true"] {
   margin: 0 0 8px;
   font-size: 16px;
 }
+
+/* Dashboard before a role is chosen (Isabella, 21.11.2026): the drop-down above the start page */
+.dash-start {
+  padding-bottom: 0;
+}
