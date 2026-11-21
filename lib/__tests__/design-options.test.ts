@@ -8,7 +8,6 @@ import {
   ACCENTS,
   BACKGROUNDS,
   DESIGN_DEFAULT,
-  FONTS,
   MARKS,
   ON_ACCENT,
   OPTION_PALETTE,
@@ -49,15 +48,9 @@ describe("design options", () => {
     expect(cleanChoice({ bg: "sand", accent: "aare", font: "ubuntu", mark: "b" })).toEqual({ bg: "sand", accent: "aare", font: "ubuntu", mark: "b" });
   });
 
-  it("every option has a label in both languages and every wordmark is in the header", () => {
-    const de = JSON.parse(read("messages/de.json"));
-    const en = JSON.parse(read("messages/en.json"));
-    const groups = { bg: Object.keys(BACKGROUNDS), accent: Object.keys(ACCENTS), font: Object.keys(FONTS), mark: [...MARKS] };
-    for (const [g, values] of Object.entries(groups))
-      for (const v of values) {
-        expect(de.design.opt[g][v], `de ${g}.${v}`).toBeTruthy();
-        expect(en.design.opt[g][v], `en ${g}.${v}`).toBeTruthy();
-      }
+  it("the look is settled: no design switcher on the page, the chosen wordmark is in the header", () => {
+    expect(read("app/[locale]/layout.tsx")).not.toMatch(/DesignSwitcher|design-switcher/);
+    expect(read("app/globals.css")).not.toMatch(/design-fab|design-sheet/);
     const brand = read("components/brand.tsx");
     for (const m of MARKS) expect(brand).toContain(`data-mark="${m}"`);
   });

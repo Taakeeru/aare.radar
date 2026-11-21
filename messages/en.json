@@ -503,45 +503,6 @@
     "laterTitle": "Coming later",
     "later": "Countries of origin will be shown in a later version."
   },
-  "design": {
-    "open": "Design options",
-    "title": "Design options",
-    "hint": "Try a look on the real pages. Your choice stays in this browser and in the link, so you can send it to the team.",
-    "group": {
-      "bg": "Background",
-      "accent": "Accent colour",
-      "font": "Font",
-      "mark": "Name"
-    },
-    "opt": {
-      "bg": {
-        "dark": "Dark",
-        "grey": "Light grey",
-        "white": "White",
-        "sand": "Light sand (chosen)"
-      },
-      "accent": {
-        "link": "Link blue",
-        "aare": "Aare turquoise (chosen)",
-        "blue": "Blue"
-      },
-      "font": {
-        "system": "System",
-        "ubuntu": "Ubuntu",
-        "atkinson": "Atkinson Hyperlegible (chosen)",
-        "plex": "IBM Plex Sans"
-      },
-      "mark": {
-        "a": "'{' Aare.Radar '}'",
-        "b": "'{' AARE.RADAR '}' (chosen)",
-        "c": "'{' aare.radar '}'",
-        "d": "AareRadar"
-      }
-    },
-    "copy": "Copy link",
-    "copied": "Link copied. Paste it into the panel or a message.",
-    "reset": "Back to the chosen look"
-  },
   "email": {
     "title": "Summary email: preview",
     "lead": "This is the email the team gets every two weeks: new IT jobs open to beginners, by field, the soonest deadline first.",
