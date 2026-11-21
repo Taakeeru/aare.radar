@@ -192,7 +192,8 @@
     },
     "rolePlaceholder": "Beruf auswählen…",
     "pickToStart": "Wähl einen Beruf, um sein Dashboard zu sehen",
-    "pickJob": "Wähl einen IT-Beruf"
+    "pickJob": "Wähl einen IT-Beruf",
+    "jobPlaceholder": "IT-Beruf auswählen…"
   },
   "policy": {
     "title": "Politik",

@@ -192,7 +192,8 @@
     },
     "rolePlaceholder": "Select a role…",
     "pickToStart": "Choose a role to see its dashboard",
-    "pickJob": "Choose an IT job"
+    "pickJob": "Choose an IT job",
+    "jobPlaceholder": "Select an IT job…"
   },
   "policy": {
     "title": "Policy",
