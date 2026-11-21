@@ -68,6 +68,10 @@ export type ItMarket = {
   occupations: ItOccupation[];
   cantons: CantonCount[];
 };
+/** The two-weekly summary email (export field `digest`, 21.11.2026). */
+export type DigestItem = { title: string; company: string | null; city: string | null; ends: string | null; url: string };
+export type DigestField = { group: string; label_en: string; label_de: string; ads: number; entry_ads: number; items: DigestItem[] };
+export type Digest = { from: string; to: string; days: number; ads: number; entry_ads: number; fields: DigestField[] };
 export type Radar = {
   generated_at: string;
   window_days: number;
@@ -81,6 +85,8 @@ export type Radar = {
   series?: Record<string, SeriesBlock[]>;
   /** Optional (21.11.2026): every IT ad, not only the three roles. */
   it_market?: ItMarket;
+  /** Optional (21.11.2026): the summary email preview. */
+  digest?: Digest;
 };
 
 export type RadarResult = { ok: true; data: Radar; file: string } | { ok: false; error: string };
@@ -175,6 +181,13 @@ export function parseRadar(text: string): Radar {
       isArr(m.occupations, (o) => isObj(o) && isStr(o.code) && isStr(o.label_en) && isStr(o.label_de) && isStr(o.group) && isNum(o.ads) && isNum(o.entry_level_share) && (o.entry_ads === undefined || isNum(o.entry_ads))) &&
       isArr(m.cantons, (c) => isObj(c) && isStr(c.canton) && isNum(c.count));
     if (!ok) bad("it_market");
+  }
+  if (raw.digest !== undefined) {
+    const g = raw.digest;
+    const isItem = (i: unknown) => isObj(i) && isStr(i.title) && isStr(i.url) && isStrOrNull(i.company) && isStrOrNull(i.city) && isStrOrNull(i.ends);
+    const isField = (f: unknown) =>
+      isObj(f) && isStr(f.group) && isStr(f.label_en) && isStr(f.label_de) && isNum(f.ads) && isNum(f.entry_ads) && isArr(f.items, isItem);
+    if (!(isObj(g) && isStr(g.from) && isStr(g.to) && isNum(g.days) && isNum(g.ads) && isNum(g.entry_ads) && isArr(g.fields, isField))) bad("digest");
   }
   return raw as unknown as Radar;
 }

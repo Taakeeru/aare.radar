@@ -32,6 +32,9 @@ export async function SiteChrome({ children }: { children: React.ReactNode }) {
               <Link href="/quellen">{f("sources")}</Link>
             </li>
             <li>
+              <Link href="/email">{f("email")}</Link>
+            </li>
+            <li>
               <Link href="/login">{f("login")}</Link>
             </li>
           </ul>

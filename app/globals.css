@@ -1074,3 +1074,50 @@ html[data-light="true"] {
   font-size: 14px;
   color: var(--radar-text2);
 }
+
+/* ── Summary email preview (app/[locale]/(site)/email) ─────────────────── */
+.mail {
+  max-width: 720px;
+  border: 1px solid var(--radar-border);
+  border-radius: 6px;
+  background: var(--radar-surface);
+}
+.mail__head {
+  display: grid;
+  grid-template-columns: max-content 1fr;
+  gap: 4px 16px;
+  margin: 0;
+  padding: 16px 24px;
+  border-bottom: 1px solid var(--radar-border);
+  font-size: 15px;
+}
+.mail__head dt {
+  color: var(--radar-text3);
+}
+.mail__head dd {
+  margin: 0;
+  font-weight: 700;
+}
+.mail__body {
+  padding: 16px 24px 24px;
+}
+.mail__field h2 {
+  margin: 24px 0 8px;
+  font-size: 18px;
+}
+.mail__field ul {
+  margin: 0;
+  padding-left: 20px;
+}
+.mail__field li {
+  margin: 0 0 12px;
+}
+.mail__meta {
+  color: var(--radar-text2);
+  font-size: 15px;
+}
+.mail__foot {
+  margin-top: 24px;
+  color: var(--radar-text3);
+  font-size: 14px;
+}

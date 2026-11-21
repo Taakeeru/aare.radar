@@ -19,7 +19,8 @@
   "footer": {
     "note": "A tool for the Powercoders team. The numbers come from public sources.",
     "login": "Team sign-in",
-    "sources": "Where the numbers come from"
+    "sources": "Where the numbers come from",
+    "email": "Summary email"
   },
   "common": {
     "source": "Source",
@@ -525,5 +526,20 @@
     "copy": "Copy link",
     "copied": "Link copied. Paste it into the panel or a message.",
     "reset": "Back to the current look"
+  },
+  "email": {
+    "title": "Summary email: preview",
+    "lead": "This is the email the team gets every two weeks: new IT jobs open to beginners, by field, the soonest deadline first.",
+    "fromLabel": "From",
+    "subjectLabel": "Subject",
+    "subject": "AareRadar: {n} IT jobs open to beginners, {from} to {to}",
+    "intro": "New IT job ads in Switzerland from {from} to {to}: {total} in all, {entry} of them open to beginners (junior, trainee, internship, career changer, or no experience needed).",
+    "field": "{label}: {n} new ads, {e} open to beginners",
+    "none": "No beginner ad in this field in these two weeks.",
+    "more": "{k} more beginner ads in this field on the radar.",
+    "until": "apply until {date}",
+    "noEnd": "no deadline given",
+    "foot": "Source: job-room.ch (SECO), ads published in Switzerland. Counts only, no personal data.",
+    "empty": "There is no summary yet. It appears after the next data update."
   }
 }

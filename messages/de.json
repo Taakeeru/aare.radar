@@ -19,7 +19,8 @@
   "footer": {
     "note": "Ein Werkzeug für das Team von Powercoders. Die Zahlen stammen aus öffentlichen Quellen.",
     "login": "Anmelden für das Team",
-    "sources": "Woher die Zahlen kommen"
+    "sources": "Woher die Zahlen kommen",
+    "email": "Zusammenfassung per Mail"
   },
   "common": {
     "source": "Quelle",
@@ -525,5 +526,20 @@
     "copy": "Link kopieren",
     "copied": "Link kopiert. Füg ihn im Panel oder in einer Nachricht ein.",
     "reset": "Zurück zum jetzigen Look"
+  },
+  "email": {
+    "title": "Zusammenfassung per Mail: Vorschau",
+    "lead": "Diese Mail bekommt das Team alle zwei Wochen: neue IT-Stellen für Einsteigende, nach Bereich, die nächste Frist zuerst.",
+    "fromLabel": "Von",
+    "subjectLabel": "Betreff",
+    "subject": "AareRadar: {n} IT-Stellen für Einsteigende, {from} bis {to}",
+    "intro": "Neue IT-Inserate in der Schweiz vom {from} bis {to}: {total} insgesamt, {entry} davon offen für Einsteigende (Junior, Trainee, Praktikum, Quereinstieg oder ohne Erfahrung).",
+    "field": "{label}: {n} neue Inserate, {e} offen für Einsteigende",
+    "none": "In diesem Bereich gab es in diesen zwei Wochen kein Einsteiger-Inserat.",
+    "more": "{k} weitere Einsteiger-Inserate in diesem Bereich auf dem Radar.",
+    "until": "Bewerbung bis {date}",
+    "noEnd": "kein Enddatum angegeben",
+    "foot": "Quelle: job-room.ch (SECO), in der Schweiz ausgeschriebene Inserate. Nur Zahlen, keine Personendaten.",
+    "empty": "Noch keine Zusammenfassung. Sie erscheint nach dem nächsten Daten-Update."
   }
 }
