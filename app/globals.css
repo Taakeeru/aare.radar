@@ -1621,4 +1621,50 @@ html[data-light="true"] {
 }
 .mail-send .btn {
   justify-self: start;
+/* Dashboard round 4 (Isabella, 21.11.2026): clickable donuts, canton map, button to the courses */
+.donut__row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+  min-height: 32px;
+  padding: 2px 6px;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  background: none;
+  color: var(--radar-text);
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
+}
+.donut__row[aria-pressed="true"] {
+  border-color: var(--radar-accent);
+  font-weight: 700;
+}
+.donut__sub {
+  fill: var(--radar-text2);
+  font-size: 11px;
+}
+.teach-cta {
+  margin: 20px 0 0;
+}
+.cmap {
+  width: 100%;
+  height: auto;
+  margin-bottom: 12px;
+}
+.cmap__bubble circle {
+  fill: var(--radar-accent);
+  stroke: var(--radar-surface);
+  stroke-width: 1.5;
+}
+.cmap__n {
+  fill: var(--radar-on-accent);
+  font-size: 13px;
+  font-weight: 700;
+}
+.cmap__name {
+  fill: var(--radar-text);
+  font-size: 12px;
+  font-weight: 700;
 }

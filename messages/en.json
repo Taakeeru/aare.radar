@@ -707,10 +707,10 @@
       "noCompanies": "No company with an ad for this skill."
     },
     "teach": {
-      "title": "Skills to teach",
+      "title": "Skills to Teach",
       "intro": "The skills asked for in beginner ads ({n} ads read in full), share of the mentions.",
       "chip": "Training gap",
-      "link": "Courses and Powercoders programs for these skills",
+      "link": "See the courses for these skills",
       "taught": "taught at Powercoders",
       "gap": "not yet taught",
       "gaps": "Not yet in Powercoders' courses: {list}.",
@@ -742,7 +742,8 @@
     },
     "where": {
       "title": "Where the jobs are",
-      "chip": "Hubs"
+      "chip": "Hubs",
+      "mapLabel": "Map of Switzerland: ads per canton, the larger the bubble the more ads"
     },
     "newest": {
       "title": "Newest beginner ads",

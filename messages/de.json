@@ -710,7 +710,7 @@
       "title": "Fähigkeiten zum Unterrichten",
       "intro": "Die Fähigkeiten, die Einsteiger-Inserate verlangen ({n} ganz gelesene Inserate), Anteil an den Nennungen.",
       "chip": "Lücke in der Ausbildung",
-      "link": "Kurse und Powercoders-Programme zu diesen Fähigkeiten",
+      "link": "Zu den Kursen für diese Fähigkeiten",
       "taught": "bei Powercoders",
       "gap": "noch nicht unterrichtet",
       "gaps": "Noch nicht in den Kursen von Powercoders: {list}.",
@@ -742,7 +742,8 @@
     },
     "where": {
       "title": "Wo die Stellen sind",
-      "chip": "Zentren"
+      "chip": "Zentren",
+      "mapLabel": "Karte der Schweiz: Inserate pro Kanton, je grösser der Kreis, desto mehr Inserate"
     },
     "newest": {
       "title": "Neueste Einsteiger-Inserate",

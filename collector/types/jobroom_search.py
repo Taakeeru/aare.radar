@@ -12,7 +12,7 @@ import re
 from pathlib import Path
 
 from .. import net
-from ..roles import BARRIERS, IT_GUARD, ROLES, SKILLS, classify
+from ..roles import BARRIERS, IT_GUARD, ROLES, SKILLS, classify, requirement_tags
 
 IT_FILE = Path(__file__).resolve().parent.parent / "it_occupations.json"
 
@@ -94,9 +94,10 @@ def fetch_full_text(c, everything=False):
             continue
         desc = strip((d["jobContent"].get("jobDescriptions") or [{}])[0].get("description"))
         text = f"{title} {desc}".lower()
-        c.execute("UPDATE ads SET tagged=1, skills=?, barriers=? WHERE id=?",
+        c.execute("UPDATE ads SET tagged=1, skills=?, barriers=?, reqs=? WHERE id=?",
                   (json.dumps([k for k, rx in SKILLS.items() if rx.search(text)]),
-                   json.dumps([k for k, rx in BARRIERS.items() if rx.search(text)]), aid))
+                   json.dumps([k for k, rx in BARRIERS.items() if rx.search(text)]),
+                   json.dumps(requirement_tags(f"{title} {desc}")), aid))
         if i % 50 == 0:
             c.commit()
             print(f"  full text {i}/{len(todo)}")

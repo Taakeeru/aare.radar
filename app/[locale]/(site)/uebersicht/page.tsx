@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { BarList, type BarRow } from "@/components/bar-list";
+import { CantonMap } from "@/components/canton-map";
 import { Donut, type Slice } from "@/components/donut";
 import { LineChart, type Line } from "@/components/line-chart";
 import { SkillCompanies } from "@/components/skill-companies";
@@ -112,9 +113,11 @@ export default async function OverviewPage({ params, searchParams }: { params: P
           />
         </Panel>
         <Panel id="o-teach" title={t("teach.title")} intro={t("teach.intro", { n: fmt(entryBasis) })} span={6} sources={jobroom}>
-          {teachSlices.length > 0 ? <Donut slices={teachSlices} label={t("teach.title")} center="100%" size="large" /> : <p>{c("noData")}</p>}
-          <p className="note">
-            <a href={`/${locale}/faehigkeiten${role ? `?role=${role.id}` : ""}`}>{t("teach.link")}</a>
+          {teachSlices.length > 0 ? <Donut slices={teachSlices} label={t("teach.title")} center="100%" size="large" unit={t("skills.adsWord")} /> : <p>{c("noData")}</p>}
+          <p className="teach-cta">
+            <a className="btn btn--primary" href={`/${locale}/faehigkeiten${role ? `?role=${role.id}` : ""}`}>
+              {t("teach.link")} ›
+            </a>
           </p>
         </Panel>
         <Panel id="o-evo" title={t("evo.title")} intro={role ? t("evo.introLineRole") : t("evo.introLine")} span={12} sources={jobroom}>
@@ -126,6 +129,7 @@ export default async function OverviewPage({ params, searchParams }: { params: P
           <p className="note">{t("req.note")}</p>
         </Panel>
         <Panel id="o-where" title={t("where.title")} span={4} sources={jobroom}>
+          <CantonMap cantons={cantonList} label={t("where.mapLabel")} name={(code) => cantonName(code, locale)} />
           <BarList rows={cantonRows} label={t("where.title")} />
         </Panel>
         <Panel id="o-newest" title={role ? t("newest.titleRole") : t("newest.title")} span={4} sources={jobroom}>
