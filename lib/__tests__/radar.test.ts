@@ -82,6 +82,38 @@ describe("monthly history and market totals", () => {
   });
 });
 
+describe("entry-level skills and monthly skill history", () => {
+  it("a file without the new fields still validates", () => {
+    const d = JSON.parse(text());
+    for (const r of d.roles) {
+      delete r.entry_ads;
+      delete r.entry_skills;
+      delete r.skills_monthly;
+    }
+    const out = parseRadar(JSON.stringify(d));
+    expect(out.roles[0]!.entry_skills).toBeUndefined();
+    expect(out.roles[0]!.skills_monthly).toBeUndefined();
+  });
+
+  it("the fixture carries both fields for every role, 12 months per series", () => {
+    const d = parseRadar(text());
+    for (const r of d.roles) {
+      expect(typeof r.entry_ads).toBe("number");
+      expect(r.entry_skills!.length).toBeGreaterThan(0);
+      for (const s of r.skills_monthly!) expect(s.points).toHaveLength(12);
+    }
+  });
+
+  it("refuses a bad month and a bad entry skill", () => {
+    const d = JSON.parse(text());
+    d.roles[0].skills_monthly[0].points[0].month = "2026-13";
+    expect(() => parseRadar(JSON.stringify(d))).toThrow(/roles/);
+    const e = JSON.parse(text());
+    e.roles[0].entry_skills[0].count = "5";
+    expect(() => parseRadar(JSON.stringify(e))).toThrow(/roles/);
+  });
+});
+
 describe("loading and the 10 minute cache", () => {
   it("RADAR_DATA picks the file; the default is the sample fixture", () => {
     expect(dataFilePath({})).toBe(FIXTURE);

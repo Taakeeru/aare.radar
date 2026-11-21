@@ -19,6 +19,13 @@ Contract (keep in step with lib/radar.ts in the app):
                                                  # empty months 0, the current month partial
      "skills": [{"skill", "count", "share",     # share of the role's ads with full text, 0..1, top 15
                  "esco_uri", "esco_label", "esco_match"}],   # NEW, only when ESCO has a concept ("exact" | "broader")
+     "entry_ads": n,                             # NEW: the role's full-text ads in the window whose barriers hold "entry_level"
+     "entry_skills": [{"skill", "count", "share",   # NEW: like skills, counted only over those entry-level ads, top 15,
+                       "esco_uri", "esco_label", "esco_match"}],   # share = count / entry_ads; no such ads -> [] and 0
+     "skills_monthly": [{"skill",                # NEW: one series for each of the role's top 8 skills, WHOLE ads table,
+                         "points": [{"month": "2026-11", "count", "share", "partial"}]}],   # last 12 months, oldest first,
+                                                 # empty months 0, current month partial; share = ads with the skill /
+                                                 # the role's ads with skills data in that month
      "barriers": {"german_required": share, ...},
      "entry_level_share": share,                 # ads that say junior / career changer / trainee / internship
      "employers": [{"company", "ads"}],          # direct employers with 2+ ads for the role (question C), top 15
@@ -54,7 +61,8 @@ DB = ROOT / "data" / "radar.db"
 ESCO = Path(__file__).resolve().parent / "esco_skills.json"
 WINDOW = 60
 MAX_MONTHS = 24   # monthly history per role and for the market
-MAX_SERIES = 60   # per source and dimension; override with "export_max_series" in the source entry
+SKILL_MONTHS = 12   # skills_monthly history per role
+MAX_SERIES = 60  # per source and dimension; override with "export_max_series" in the source entry
 
 
 
@@ -76,6 +84,25 @@ def monthly(dates, today, months=MAX_MONTHS):
         return []
     return [{"month": f"{m // 12}-{m % 12 + 1:02d}", "new_ads": count[m], "partial": m == this}
             for m in range(min(count), this + 1)]
+
+
+def skills_monthly(ads, skills, today, months=SKILL_MONTHS):
+    """ads: [(published, [skills])] of one role -> one series per skill over the last `months` months (oldest first,
+    ending with the current one). share = ads with the skill / ads with skills data that month; empty months 0."""
+    this = today.year * 12 + today.month - 1
+    total = collections.Counter()
+    have = collections.Counter()
+    for d, sk in ads:
+        if sk and d and len(d) >= 7 and d[:4].isdigit() and d[5:7].isdigit():
+            m = int(d[:4]) * 12 + int(d[5:7]) - 1
+            if this - months < m <= this:
+                total[m] += 1
+                for s in set(sk):
+                    have[(s, m)] += 1
+    return [{"skill": s, "points": [
+        {"month": f"{m // 12}-{m % 12 + 1:02d}", "count": have[(s, m)],
+         "share": round(have[(s, m)] / total[m], 3) if total[m] else 0, "partial": m == this}
+        for m in range(this - months + 1, this + 1)]} for s in skills]
 
 
 def build_series(c, entries):
@@ -115,7 +142,7 @@ def main(out: Path, db=None, entries=None, esco_path=None, today=None):
     rows = c.execute("""SELECT title, company, city, canton, published, url, roles, skills, barriers,
                                reporting_obligation, tagged IS NOT NULL
                         FROM ads WHERE roles != '[]' AND published >= ? ORDER BY published DESC""", (since,)).fetchall()
-    history = c.execute("SELECT published, roles FROM ads WHERE roles != '[]' AND published IS NOT NULL").fetchall()
+    history = c.execute("SELECT published, roles, skills FROM ads WHERE roles != '[]' AND published IS NOT NULL").fetchall()
     roles = []
     for rid, (label, _, _) in ROLES.items():
         R = [r for r in rows if rid in json.loads(r[6])]
@@ -128,12 +155,20 @@ def main(out: Path, db=None, entries=None, esco_path=None, today=None):
                 weekly[f"{y}-W{w:02d}"] += 1
         skills = collections.Counter(s for r in full for s in json.loads(r[7]))
         barriers = collections.Counter(b for r in full for b in json.loads(r[8]))
+        entry = [r for r in R if r[10] and "entry_level" in json.loads(r[8])]
+        entry_skills = collections.Counter(s for r in entry for s in json.loads(r[7]))
+        top = [dict({"skill": k, "count": v, "share": round(v / nf, 3)}, **_esco(esco, k))
+               for k, v in skills.most_common(15)]
         roles.append({
             "id": rid, "label": label, "ads": n,
             "weekly": [{"week": k, "new_ads": v} for k, v in sorted(weekly.items())],
             "monthly": monthly([h[0] for h in history if rid in json.loads(h[1])], today),
-            "skills": [dict({"skill": k, "count": v, "share": round(v / nf, 3)}, **_esco(esco, k))
-                       for k, v in skills.most_common(15)],
+            "skills": top,
+            "entry_ads": len(entry),
+            "entry_skills": [dict({"skill": k, "count": v, "share": round(v / len(entry), 3)}, **_esco(esco, k))
+                             for k, v in entry_skills.most_common(15)],
+            "skills_monthly": skills_monthly([(h[0], json.loads(h[2])) for h in history if rid in json.loads(h[1])],
+                                             [s["skill"] for s in top[:8]], today),
             "barriers": {k: round(barriers[k] / nf, 3) for k in BARRIERS if k != "entry_level"},
             "entry_level_share": round(barriers["entry_level"] / nf, 3),
             "employers": [{"company": k, "ads": v} for k, v in
