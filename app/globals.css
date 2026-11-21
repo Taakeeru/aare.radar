@@ -1400,6 +1400,7 @@ html[data-light="true"] {
 }
 .teach__courses li {
   margin: 2px 0;
+}
 /* Page heads: the tab icon instead of the letters A to E (team, 21.11.2026). */
 .eyebrow--icon {
   display: inline-flex;
