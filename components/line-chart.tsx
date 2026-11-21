@@ -10,7 +10,7 @@ export function LineChart({ lines, xLabels, label, format = String }: { lines: L
   const L = 48;
   const B = 28;
   const max = Math.max(1, ...lines.flatMap((l) => l.points.map((p) => p.y)));
-  const step = xLabels.length > 1 ? (W - L - 16) / (xLabels.length - 1) : 0;
+  const step = xLabels.length > 1 ? (W - L - 44) / (xLabels.length - 1) : 0;
   const x = (i: number) => L + i * step;
   const y = (v: number) => 12 + (H - B - 12) * (1 - v / max);
   const ticks = [0, 0.5, 1].map((f) => Math.round(max * f));

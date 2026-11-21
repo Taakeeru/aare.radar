@@ -1559,6 +1559,7 @@ html[data-light="true"] {
 }
 .linechart__svg {
   width: 100%;
+  max-width: 820px;
   height: auto;
 }
 .linechart__grid {
