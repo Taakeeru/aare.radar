@@ -2,7 +2,7 @@ import "./globals.css";
 import { tokenStyle } from "@/lib/design-tokens";
 import { SITE_ICONS } from "@/lib/site-meta";
 
-export const metadata = { title: "Seite nicht gefunden / Page not found | Powercoders Job Radar", icons: SITE_ICONS };
+export const metadata = { title: "Seite nicht gefunden / Page not found | AareRadar", icons: SITE_ICONS };
 
 /** Requests outside a language prefix that matched nothing (rare: middleware sends / to /de). */
 export default function RootNotFound() {

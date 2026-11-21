@@ -11,7 +11,7 @@ export async function SiteChrome({ children }: { children: React.ReactNode }) {
     <>
       <header className="site-header">
         <div className="site-header__row wrap">
-          <Link href="/" className="site-header__home" aria-label="Powercoders Job Radar">
+          <Link href="/" className="site-header__home" aria-label="AareRadar">
             <Brand />
           </Link>
           <LocaleSwitch />

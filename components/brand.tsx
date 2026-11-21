@@ -8,7 +8,7 @@ export function Brand() {
         <circle className="brand__dot" cx="12" cy="12" r="2" />
       </svg>
       <span className="brand__name">
-        Powercoders <span className="brand__sub">Job Radar</span>
+        Aare<span className="brand__sub">Radar</span>
       </span>
     </span>
   );

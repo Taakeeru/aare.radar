@@ -57,7 +57,7 @@ export default async function SecurityPage({
       {pendingSecret ? (
         <section className="prose" aria-label={t("start")}>
           <p>{t("scan")}</p>
-          <QrCode value={otpauthUri({ secretBase32: pendingSecret, account: user.email, issuer: "Powercoders Job Radar" })} label={t("qrLabel")} />
+          <QrCode value={otpauthUri({ secretBase32: pendingSecret, account: user.email, issuer: "AareRadar" })} label={t("qrLabel")} />
           <p>
             {t("secretLabel")}: <span className="secret">{formatSecret(pendingSecret)}</span>
           </p>
