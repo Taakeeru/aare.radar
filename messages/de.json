@@ -719,7 +719,30 @@
       "degree_required": "Ein Abschluss",
       "german_required": "Sehr gutes Deutsch",
       "french_required": "Sehr gutes Französisch",
-      "introRole": "Wie oft die Inserate dieses Berufs das verlangen."
+      "introRole": "Wie oft die Inserate dieses Berufs das verlangen.",
+      "summary": "Auf einen Blick",
+      "languages": "Verlangtes Sprachniveau",
+      "degrees": "Verlangter Abschluss",
+      "experience": "Verlangte Jahre Erfahrung",
+      "langLevel": "{lang} {level}",
+      "lang": {
+        "de": "Deutsch",
+        "en": "Englisch",
+        "fr": "Französisch"
+      },
+      "degree": {
+        "vocational": "Lehre (EFZ)",
+        "bachelor": "Bachelor, FH oder HF",
+        "master": "Master oder Universität",
+        "phd": "Doktorat"
+      },
+      "years": {
+        "1": "1 Jahr",
+        "2": "2 Jahre",
+        "3-4": "3 bis 4 Jahre",
+        "5+": "5 Jahre oder mehr"
+      },
+      "noteDetail": "Aus den {n} vollständig gelesenen Inseraten. Ein Inserat kann mehrere Abschlüsse nennen; Inserate ohne Niveau oder Zahl zählen nicht. Zertifikate und Portfolios werden noch nicht gemessen."
     },
     "where": {
       "title": "Wo die Stellen sind",

@@ -81,6 +81,20 @@ export default async function OverviewPage({ params, searchParams }: { params: P
     fraction: req[k] ?? 0,
     value: c("ofHundred", { count: outOf100(req[k] ?? 0) }),
   }));
+  // 4b: requirement details (Isabella, thread 65): language level per language, degree type, years of experience
+  const rd = role ? role.requirements_detail : it.requirements_detail;
+  const pct = (f: number) => c("ofHundred", { count: outOf100(f) });
+  const langRows: BarRow[] = rd
+    ? (["de", "en", "fr"] as const).flatMap((lang) =>
+        Object.entries(rd.languages[lang] ?? {})
+          .filter(([, f]) => (f ?? 0) > 0)
+          .map(([lv, f]) => ({ key: `${lang}-${lv}`, label: t("req.langLevel", { lang: t(`req.lang.${lang}`), level: lv }), fraction: f ?? 0, value: pct(f ?? 0) })),
+      )
+        .sort((a, b) => b.fraction - a.fraction)
+        .slice(0, 6)
+    : [];
+  const degreeRows: BarRow[] = rd ? (["vocational", "bachelor", "master", "phd"] as const).map((k) => ({ key: k, label: t(`req.degree.${k}`), fraction: rd.degrees[k] ?? 0, value: pct(rd.degrees[k] ?? 0) })) : [];
+  const expRows: BarRow[] = rd ? (["1", "2", "3-4", "5+"] as const).map((k) => ({ key: k, label: t(`req.years.${k}`), fraction: rd.experience[k] ?? 0, value: pct(rd.experience[k] ?? 0) })) : [];
   // 5: cantons
   const cantons = cantonList.slice(0, 5);
   const cantonRows: BarRow[] = cantons.map((x) => ({ key: x.canton, label: cantonName(x.canton, locale), fraction: x.count / Math.max(1, cantons[0]!.count), value: c("ads", { count: x.count }) }));
@@ -124,9 +138,30 @@ export default async function OverviewPage({ params, searchParams }: { params: P
           {lines.length > 0 ? <LineChart lines={lines} xLabels={months} label={t("evo.title")} format={fmt} /> : <p>{c("noData")}</p>}
           <p className="note">{t("evo.noteLine")}</p>
         </Panel>
-        <Panel id="o-req" title={t("req.title")} intro={role ? t("req.introRole") : t("req.intro")} span={4} sources={jobroom}>
-          <BarList rows={reqRows} label={t("req.title")} />
-          <p className="note">{t("req.note")}</p>
+        <Panel id="o-req" title={t("req.title")} intro={role ? t("req.introRole") : t("req.intro")} span={12} sources={jobroom}>
+          <div className="reqd">
+            <div>
+              <h3 className="reqd__h">{t("req.summary")}</h3>
+              <BarList rows={reqRows} label={t("req.summary")} />
+            </div>
+            {rd && rd.basis > 0 ? (
+              <>
+                <div>
+                  <h3 className="reqd__h">{t("req.languages")}</h3>
+                  <BarList rows={langRows} label={t("req.languages")} />
+                </div>
+                <div>
+                  <h3 className="reqd__h">{t("req.degrees")}</h3>
+                  <BarList rows={degreeRows} label={t("req.degrees")} />
+                </div>
+                <div>
+                  <h3 className="reqd__h">{t("req.experience")}</h3>
+                  <BarList rows={expRows} label={t("req.experience")} />
+                </div>
+              </>
+            ) : null}
+          </div>
+          <p className="note">{rd && rd.basis > 0 ? t("req.noteDetail", { n: fmt(rd.basis) }) : t("req.note")}</p>
         </Panel>
         <Panel id="o-where" title={t("where.title")} span={4} sources={jobroom}>
           <CantonMap cantons={cantonList} label={t("where.mapLabel")} name={(code) => cantonName(code, locale)} />

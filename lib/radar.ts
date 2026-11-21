@@ -23,6 +23,14 @@ export type SkillSeries = { skill: string; points: SkillMonthPoint[] };
 export type CantonCount = { canton: string; count: number };
 export type ExampleAd = { title: string; company: string | null; city: string | null; published: string | null; url: string };
 export type CompanyCount = { company: string; ads: number };
+/** Requirement details (21.11.2026, collector/export.py req_details): shares 0..1 of the ads read in full. */
+export type RequirementsDetail = {
+  basis: number;
+  languages: Record<"de" | "en" | "fr", Partial<Record<"A1" | "A2" | "B1" | "B2" | "C1" | "C2", number>>>;
+  degrees: Record<"vocational" | "bachelor" | "master" | "phd", number>;
+  experience: Record<"1" | "2" | "3-4" | "5+", number>;
+};
+
 export type RoleBarriers = {
   german_required: number;
   french_required: number;
@@ -46,6 +54,7 @@ export type RadarRole = {
   skills_monthly?: SkillSeries[];
   /** Optional (21.11.2026): the companies asking most for each of the role's top skills, no agencies. */
   skill_companies?: Record<string, CompanyCount[]>;
+  requirements_detail?: RequirementsDetail;
   barriers: RoleBarriers;
   /** Share of ads that say junior / career changer / trainee / internship (question A, good news, apart from the barriers). */
   entry_level_share: number;
@@ -86,6 +95,7 @@ export type ItMarket = ItDetail & {
   ads: number;
   skill_companies?: Record<string, CompanyCount[]>;
   skills_monthly?: SkillSeries[];
+  requirements_detail?: RequirementsDetail;
   overview?: ItOverview;
   /** Ads open to beginners: the full text says junior / trainee / career changer / internship, or job-room's experience field says none or under a year. */
   entry_ads?: number;

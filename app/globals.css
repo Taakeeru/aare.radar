@@ -1627,3 +1627,14 @@ html[data-light="true"] {
   font-size: 12px;
   font-weight: 700;
 }
+
+/* Entry requirements in detail (Isabella, 21.11.2026) */
+.reqd {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 24px 32px;
+}
+.reqd__h {
+  margin: 0 0 8px;
+  font-size: 16px;
+}
