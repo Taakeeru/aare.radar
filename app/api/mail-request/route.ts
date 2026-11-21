@@ -3,6 +3,7 @@ import { createMailRequest, mailRequestsEnabled } from "@/lib/mail-requests";
 import { clientKeyFrom } from "@/lib/get-client-ip";
 import { checkRateLimit } from "@/lib/rate-limit";
 import { isSameOrigin } from "@/lib/same-origin";
+import { SITE_URL } from "@/lib/site-meta";
 
 export const dynamic = "force-dynamic";
 export const runtime = "nodejs";
@@ -15,7 +16,8 @@ export async function POST(req: NextRequest) {
   if (!isSameOrigin(req)) return new NextResponse(null, { status: 403 });
   const form = await req.formData().catch(() => null);
   const locale = form?.get("locale") === "de" ? "de" : "en";
-  const back = (status: string) => NextResponse.redirect(new URL(`/${locale}/email?mail=${status}#send`, req.url), 303);
+  // relative to the public address: behind the proxy req.url is the container's own (0.0.0.0:3000)
+  const back = (status: string) => NextResponse.redirect(new URL(`/${locale}/email?mail=${status}#send`, SITE_URL), 303);
   if (!mailRequestsEnabled()) return back("off");
   if (!form) return back("bad");
   const key = `mailreq:ip:${clientKeyFrom(req.headers, process.env.TRUST_PROXY)}`;
