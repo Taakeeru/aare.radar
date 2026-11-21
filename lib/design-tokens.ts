@@ -68,7 +68,7 @@ export function tokenStyle(): Record<string, string> {
 
 /*
  * DESIGN OPTIONS (21.11.2026, owner: «add many options so the site will be exactly as we like … also with
- * the font»). The team tries them on the live site (components/design-switcher.tsx) and votes; the default
+ * the font»). The team tried them on the live site (a switcher, removed after the vote on 21.11.) and voted; the default
  * above stays until then. White, light sand and Aare turquoise were added to the charter palette as options
  * (Aare turquoise sampled from the team's photo of the Aare in Bern). Rules kept by the guard
  * lib/__tests__/design-options.test.ts: every value is in OPTION_PALETTE, and on a light background no

@@ -4,7 +4,6 @@ import { notFound } from "next/navigation";
 import { NextIntlClientProvider, hasLocale } from "next-intl";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { routing } from "@/i18n/routing";
-import { DesignSwitcher } from "@/components/design-switcher";
 import { BACKGROUNDS, DESIGN_DEFAULT, designStyle, tokenStyle } from "@/lib/design-tokens";
 import { SITE_ICONS, SITE_URL } from "@/lib/site-meta";
 import { isTestSite } from "@/lib/site-env";
@@ -62,10 +61,7 @@ export default async function LocaleLayout({
             {t("testBanner")}
           </p>
         ) : null}
-        <NextIntlClientProvider>
-          {children}
-          <DesignSwitcher />
-        </NextIntlClientProvider>
+        <NextIntlClientProvider>{children}</NextIntlClientProvider>
       </body>
     </html>
   );
