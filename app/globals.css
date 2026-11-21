@@ -1682,9 +1682,16 @@ html[data-light="true"] {
   font-size: 16px;
 }
 
-/* Dashboard before a role is chosen (Isabella, 21.11.2026): the drop-down above the start page */
-.dash-start {
-  padding-bottom: 0;
+/* Dashboard before a role is chosen (Isabella, threads 67 and 69): the title, the drop-down to its right */
+.page-head__row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 16px 32px;
+}
+.page-head__row .page__title {
+  margin-bottom: 0;
 }
 
 /* Companies per skill as a bulleted list with links (Isabella, thread 68) */
