@@ -470,5 +470,44 @@
     },
     "laterTitle": "Kommt später",
     "later": "Herkunftsländer zeigt diese Seite in einer nächsten Version."
+  },
+  "design": {
+    "open": "Design-Optionen",
+    "title": "Design-Optionen",
+    "hint": "Probier einen Look auf den echten Seiten aus. Deine Wahl bleibt in diesem Browser und im Link, so kannst du sie dem Team schicken.",
+    "group": {
+      "bg": "Hintergrund",
+      "accent": "Akzentfarbe",
+      "font": "Schrift",
+      "mark": "Name"
+    },
+    "opt": {
+      "bg": {
+        "dark": "Dunkel (jetzt)",
+        "grey": "Hellgrau",
+        "white": "Weiss",
+        "sand": "Hellsand"
+      },
+      "accent": {
+        "link": "Linkblau (jetzt)",
+        "aare": "Aare-Türkis",
+        "blue": "Blau"
+      },
+      "font": {
+        "system": "System (jetzt)",
+        "ubuntu": "Ubuntu",
+        "atkinson": "Atkinson Hyperlegible",
+        "plex": "IBM Plex Sans"
+      },
+      "mark": {
+        "a": "'{' Aare.Radar '}'",
+        "b": "'{' AARE.RADAR '}'",
+        "c": "'{' aare.radar '}'",
+        "d": "AareRadar (jetzt)"
+      }
+    },
+    "copy": "Link kopieren",
+    "copied": "Link kopiert. Füg ihn im Panel oder in einer Nachricht ein.",
+    "reset": "Zurück zum jetzigen Look"
   }
 }

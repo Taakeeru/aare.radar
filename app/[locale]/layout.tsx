@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 import { NextIntlClientProvider, hasLocale } from "next-intl";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { routing } from "@/i18n/routing";
+import { DesignSwitcher } from "@/components/design-switcher";
 import { COLOR, tokenStyle } from "@/lib/design-tokens";
 import { SITE_ICONS, SITE_URL } from "@/lib/site-meta";
 import { isTestSite } from "@/lib/site-env";
@@ -43,6 +44,10 @@ export default async function LocaleLayout({
   const t = await getTranslations({ locale, namespace: "meta" });
   return (
     <html lang={locale} style={tokenStyle() as React.CSSProperties}>
+      <head>
+        {/* Self-hosted faces for the design options; a face downloads only when it is chosen. */}
+        <link rel="stylesheet" href="/fonts/fonts.css" />
+      </head>
       <body>
         <a className="skip-link" href="#inhalt">
           {t("skip")}
@@ -52,7 +57,10 @@ export default async function LocaleLayout({
             {t("testBanner")}
           </p>
         ) : null}
-        <NextIntlClientProvider>{children}</NextIntlClientProvider>
+        <NextIntlClientProvider>
+          {children}
+          <DesignSwitcher />
+        </NextIntlClientProvider>
       </body>
     </html>
   );
