@@ -185,6 +185,7 @@ a:hover {
    ring spreads from the centre and thins out to nothing as it reaches the outer ring (stroke width, not
    opacity). Transform only; nothing moves for a person who asked for reduced motion. */
 .brand__arm {
+  fill: none;
   stroke: var(--radar-accent);
   stroke-width: 1.5;
   stroke-linecap: round;
