@@ -227,9 +227,20 @@ a:hover {
   }
 }
 .brand__name {
-  font-weight: 700;
-  font-size: 18px;
-  letter-spacing: -0.02em;
+  font-weight: 800;
+  font-size: 26px;
+  letter-spacing: 0.01em;
+}
+@media (max-width: 479px) {
+  .brand__name {
+    font-size: 21px;
+  }
+}
+.brand__wave {
+  fill: none;
+  stroke: var(--radar-accent);
+  stroke-width: 2.2;
+  stroke-linecap: round;
 }
 .brand__sub {
   color: var(--radar-text2);

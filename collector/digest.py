@@ -205,7 +205,7 @@ def render_v2(d, locale="en", fields=None):
     body = "".join(hp)
     html_doc = (f'<!doctype html><html lang="{locale}"><body style="margin:0;padding:24px;background:{GROUND};color:{INK};'
                 f'font-family:Helvetica,Arial,sans-serif;font-size:16px;line-height:1.5"><div style="max-width:640px;margin:0 auto">'
-                f'<p style="font-size:22px;font-weight:700;margin:0 0 16px">{WORDMARK_HTML}</p>{body}</div></body></html>')
+                f'<p style="font-size:34px;font-weight:800;letter-spacing:0.02em;margin:0 0 20px">{WORDMARK_HTML}</p>{body}</div></body></html>')
     return {"subject": t["subject"].format(n=entry_total, a=a, b=b), "text": "\n".join(lines) + "\n", "html": html_doc}
 
 
