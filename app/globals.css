@@ -1,5 +1,5 @@
 /*
- * Powercoders Job Radar. Colours and the font come ONLY from the token
+ * AareRadar. Colours and the font come ONLY from the token
  * variables that app/[locale]/layout.tsx writes onto <html> from
  * lib/design-tokens.ts (--radar-root, --radar-surface, ..., --radar-font).
  * No colour value is written in this file, and no rgba, opacity or colour-mix

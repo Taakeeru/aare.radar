@@ -15,7 +15,7 @@ export default async function AdminLayout({ children, params }: { children: Reac
     <>
       <header className="site-header site-header--app">
         <div className="site-header__row wrap">
-          <Link href="/" className="site-header__home" aria-label="Powercoders Job Radar">
+          <Link href="/" className="site-header__home" aria-label="AareRadar">
             <Brand />
           </Link>
           <LocaleSwitch />

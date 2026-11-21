@@ -1,6 +1,6 @@
 {
-  "name": "Powercoders Job Radar",
-  "short_name": "Job Radar",
+  "name": "AareRadar",
+  "short_name": "AareRadar",
   "start_url": "/de",
   "display": "browser",
   "background_color": "#101317",
