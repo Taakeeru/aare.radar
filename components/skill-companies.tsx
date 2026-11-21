@@ -4,8 +4,8 @@ import { useState } from "react";
 import { Donut, type Slice } from "@/components/donut";
 
 /**
- * «Skills companies seek», interactive (Seckin, 21.11.2026: «which companies?»): pick a skill (legend buttons) to see
- * the companies that ask for it most (no recruiting agencies).
+ * «Skills companies seek», interactive (Seckin, Isabella, 21.11.2026): click a skill (slice, legend row or chip) to
+ * highlight it and see the companies that ask for it most (no recruiting agencies).
  */
 export function SkillCompanies({ slices, companies, label, pick, adsWord, none }: {
   slices: Slice[];
@@ -19,15 +19,8 @@ export function SkillCompanies({ slices, companies, label, pick, adsWord, none }
   const list = companies[sel] ?? [];
   return (
     <div>
-      <Donut slices={slices} label={label} center="100%" size="large" />
+      <Donut slices={slices} label={label} center="100%" size="large" selected={sel} onSelect={(k) => setSel(k || sel)} unit={adsWord} />
       <p className="skillco__pick">{pick}</p>
-      <div className="skillco__chips" role="group" aria-label={pick}>
-        {slices.map((s) => (
-          <button key={s.key} type="button" className="vol__chip" aria-pressed={sel === s.key} onClick={() => setSel(s.key)}>
-            {s.label}
-          </button>
-        ))}
-      </div>
       {list.length > 0 ? (
         <ol className="skillco__list">
           {list.map((c) => (
