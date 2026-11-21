@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { PageIcon } from "@/components/page-icon";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { SourceLine } from "@/components/source-line";
 import { Link } from "@/i18n/navigation";
@@ -44,8 +45,9 @@ export default async function PolicyPage({ params, searchParams }: { params: Pro
   return (
     <div className="page">
       <header className="page-head">
-        <p className="eyebrow">
-          {c("sectionOf", { letter: "E" })}: {q("E.title")}
+        <p className="eyebrow eyebrow--icon">
+          <PageIcon name="policy" />
+            {q("E.title")}
         </p>
         <h1 className="page__title">{q("E.question")}</h1>
         <p className="page__lead">{t("lead")}</p>
