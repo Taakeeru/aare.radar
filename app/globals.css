@@ -1662,12 +1662,12 @@ html[data-light="true"] {
 }
 .cmap__n {
   fill: var(--radar-on-accent);
-  font-size: 13px;
+  font-size: 17px;
   font-weight: 700;
 }
 .cmap__name {
   fill: var(--radar-text);
-  font-size: 12px;
+  font-size: 17px;
   font-weight: 700;
 }
 
@@ -1691,7 +1691,18 @@ html[data-light="true"] {
   gap: 16px 32px;
 }
 .page-head__row .page__title {
+  flex: 1 1 0;
+  min-width: 0;
   margin-bottom: 0;
+}
+@media (min-width: 900px) {
+  .page-head__row {
+    flex-wrap: nowrap;
+  }
+  .page-head__row .role-switch,
+  .page-head__row form {
+    flex: 0 0 auto;
+  }
 }
 
 /* Companies per skill as a bulleted list with links (Isabella, thread 68) */

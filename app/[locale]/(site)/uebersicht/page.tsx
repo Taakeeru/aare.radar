@@ -60,7 +60,7 @@ export default async function OverviewPage({ params, searchParams }: { params: P
       <HomeView
         params={params}
         searchParams={Promise.resolve({})}
-        pick={<RoleSwitch base="/uebersicht" roles={data.roles.map((r) => ({ id: r.id, label: roleName(r) }))} current="all" label={d("pickJob")} all={t("allJobs")} placeholder={d("rolePlaceholder")} chosen={false} />}
+        pick={<RoleSwitch base="/uebersicht" roles={data.roles.map((r) => ({ id: r.id, label: roleName(r) }))} current="all" label={d("pickJob")} all={t("allJobs")} placeholder={d("jobPlaceholder")} chosen={false} />}
       />
     );
   }
@@ -176,11 +176,11 @@ export default async function OverviewPage({ params, searchParams }: { params: P
           </div>
           <p className="note">{rd && rd.basis > 0 ? t("req.noteDetail", { n: fmt(rd.basis) }) : t("req.note")}</p>
         </Panel>
-        <Panel id="o-where" title={t("where.title")} span={4} sources={jobroom}>
+        <Panel id="o-where" title={t("where.title")} span={6} sources={jobroom}>
           <CantonMap cantons={cantonList} label={t("where.mapLabel")} name={(code) => cantonName(code, locale)} />
           <BarList rows={cantonRows} label={t("where.title")} />
         </Panel>
-        <Panel id="o-newest" title={role ? t("newest.titleRole") : t("newest.title")} span={4} sources={jobroom}>
+        <Panel id="o-newest" title={role ? t("newest.titleRole") : t("newest.title")} span={6} sources={jobroom}>
           <ul className="newest">
             {newest.map((a) => {
               const url = safeHttpUrl(a.url);
