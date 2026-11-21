@@ -11,6 +11,7 @@ the soonest deadline first (at most 5), each with a short job-room link. Only co
 """
 import datetime as dt
 import json
+import re
 import sys
 
 from .roles import ROLES, is_entry_ad
@@ -129,8 +130,8 @@ def safe_url(u):
     return p.geturl() if p.scheme in ("http", "https") and p.netloc else None
 
 
-def build_digest_v2(c, today, days=14, per_field=3, skills_per_field=3):
-    """Language-neutral structure: {from, to, days, ads, entry_ads, fields: [{group, label_en, label_de, ads,
+def build_digest_v2(c, today, days=14, per_field=3, skills_per_field=3, canton=None):
+    """canton: only ads in that canton (two letters, e.g. "BE"; a reader's region, 21.11.2026). Language-neutral structure: {from, to, days, ads, entry_ads, fields: [{group, label_en, label_de, ads,
     entry_ads, items: [{title, company, city, ends, url}]}]} (items = beginner ads, soonest deadline first)."""
     from .types.jobroom_search import it_occupations
     it = it_occupations()
@@ -141,7 +142,8 @@ def build_digest_v2(c, today, days=14, per_field=3, skills_per_field=3):
     exp = "experience" if "experience" in cols else "NULL"
     fields, dup = {}, set()
     for aid, title, company, city, ends, roles, barriers, first_seen, code, x, skills in c.execute(
-            f"SELECT id, title, company, city, ends, roles, barriers, first_seen, occupation, {exp}, skills FROM ads"):
+            f"SELECT id, title, company, city, ends, roles, barriers, first_seen, occupation, {exp}, skills FROM ads"
+            + (" WHERE canton = ?" if canton else ""), (canton.upper(),) if canton else ()):
         seen = _date(first_seen)
         if seen is None or not start <= seen <= today:
             continue
@@ -185,7 +187,7 @@ def build_digest_v2(c, today, days=14, per_field=3, skills_per_field=3):
                       (pol_from,))]
     except Exception:  # noqa: BLE001 (an old database without the table: no section)
         policy = []
-    return {"from": start.isoformat(), "to": today.isoformat(), "days": days, "policy": policy,
+    return {"from": start.isoformat(), "to": today.isoformat(), "days": days, "policy": policy, "canton": canton.upper() if canton else None,
             "policy_days": POLICY_DAYS,
             "ads": sum(f["ads"] for f in out), "entry_ads": sum(f["entry_ads"] for f in out), "fields": out}
 
@@ -201,6 +203,9 @@ def render_v2(d, locale="en", fields=None, scheduled=False):
     chosen = [f for f in d["fields"] if fields is None or f["group"] in fields]
     entry_total = sum(f["entry_ads"] for f in chosen)
     lines = [t["intro"].format(a=a, b=b, total=d["ads"], entry=entry_total), ""]
+    if d.get("canton"):  # a reader's region: «in the canton of BE» instead of «in Switzerland»
+        lines[0] = lines[0].replace(" in Switzerland ", f" in the canton of {d['canton']} ").replace(
+            " in der Schweiz ", f" im Kanton {d['canton']} ")
     hp = [f'<p style="margin:0 0 16px">{h.escape(lines[0])}</p>']
     for f in chosen:
         head = t["field"].format(label=lab(f), n=f["ads"], e=f["entry_ads"])
@@ -262,9 +267,15 @@ def main(argv):
         if "--fields" in argv:
             fields = [f for f in argv[argv.index("--fields") + 1].split(",") if f]
             argv = argv[:argv.index("--fields")] + argv[argv.index("--fields") + 2:]
+        canton = None
+        if "--canton" in argv:  # --canton BE  (one reader's region; omitted = all of Switzerland)
+            canton = argv[argv.index("--canton") + 1]
+            argv = argv[:argv.index("--canton")] + argv[argv.index("--canton") + 2:]
+            if not re.fullmatch(r"[A-Za-z]{2}", canton):
+                raise SystemExit("--canton takes a two-letter canton code")
         rest = [x for x in argv if not x.startswith("--")]
         c = db.connect(rest[0] if rest else None)
-        r = render_v2(build_digest_v2(c, dt.date.today()), rest[1] if len(rest) > 1 else "en", fields=fields,
+        r = render_v2(build_digest_v2(c, dt.date.today(), canton=canton), rest[1] if len(rest) > 1 else "en", fields=fields,
                       scheduled="--scheduled" in argv)
         if "--json" in argv:
             print(json.dumps(r, ensure_ascii=False))

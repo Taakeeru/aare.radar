@@ -15,6 +15,13 @@
       "when": 1795262561127,
       "tag": "0001_steady_aare_digest",
       "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "6",
+      "when": 1795278000000,
+      "tag": "0002_mail_requests",
+      "breakpoints": true
     }
   ]
 }
