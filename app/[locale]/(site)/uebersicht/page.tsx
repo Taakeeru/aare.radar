@@ -2,10 +2,11 @@ import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import { BarList, type BarRow } from "@/components/bar-list";
 import { Donut, type Slice } from "@/components/donut";
+import { LineChart, type Line } from "@/components/line-chart";
+import { SkillCompanies } from "@/components/skill-companies";
 import { PageIcon } from "@/components/page-icon";
 import { Panel } from "@/components/panel";
 import { RoleSwitch } from "@/components/role-switch";
-import { PROGRAMS } from "@/lib/courses";
 import type { SourceRef } from "@/components/source-line";
 import { toLocale } from "@/i18n/routing";
 import { loadRadar } from "@/lib/radar";
@@ -59,18 +60,19 @@ export default async function OverviewPage({ params, searchParams }: { params: P
     : ov.newest_entry;
   const totalAds = role ? role.ads : it.ads;
   const totalEntry = role ? (role.entry_ads ?? Math.round(role.entry_level_share * role.ads)) : (it.entry_ads ?? 0);
-  // what Powercoders teaches: the skills named on its program pages (content/courses.json, links checked)
-  const taught = new Set(PROGRAMS.flatMap((p) => p.skills.map((k) => k.toLowerCase())));
-  const isTaught = (k: string) => taught.has(k.toLowerCase());
 
   // 1 and 2: donuts, slices = share of the mentions among the six skills shown (an ad names several skills)
   const skillSlices: Slice[] = skillsAll.slice(0, 6).map((s) => ({ key: s.skill, label: s.skill, value: s.count }));
   const es = entrySkills.slice(0, 6);
-  const teachSlices: Slice[] = es.map((s) => ({ key: s.skill, label: s.skill, value: s.count, tag: isTaught(s.skill) ? t("teach.taught") : t("teach.gap") }));
-  const gaps = es.filter((s) => !isTaught(s.skill)).map((s) => s.skill);
-  // 3: skills by number of ads, bars
-  const top5 = skillsAll.slice(0, 5);
-  const evoRows: BarRow[] = top5.map((s) => ({ key: s.skill, label: s.skill, fraction: s.count / Math.max(1, top5[0]!.count), value: c("ads", { count: s.count }) }));
+  const teachSlices: Slice[] = es.map((s) => ({ key: s.skill, label: s.skill, value: s.count }));
+  // 3: evolution as lines (Seckin): monthly ads per skill, from the first month with data (job-room keeps 60 days)
+  const series = ((role ? role.skills_monthly : it.skills_monthly) ?? []).slice(0, 5);
+  const firstIdx = Math.max(0, Math.min(...series.map((x) => { const i = x.points.findIndex((p) => p.count > 0); return i < 0 ? 99 : i; })));
+  const months = (series[0]?.points ?? []).slice(firstIdx).map((p) => {
+    const [yy, mm] = p.month.split("-");
+    return new Intl.DateTimeFormat(locale === "de" ? "de-CH" : "en-GB", { month: "short", year: "2-digit", timeZone: "UTC" }).format(new Date(Date.UTC(Number(yy), Number(mm) - 1, 1)));
+  });
+  const lines: Line[] = series.map((x) => ({ key: x.skill, label: x.skill, points: x.points.slice(firstIdx).map((p) => ({ x: p.month, y: p.count })) }));
   // 4: entry requirements
   const reqRows: BarRow[] = REQS.map((k) => ({
     key: k,
@@ -99,35 +101,34 @@ export default async function OverviewPage({ params, searchParams }: { params: P
         <RoleSwitch base="/uebersicht" roles={data.roles.map((r) => ({ id: r.id, label: roleName(r) }))} current={role ? role.id : "all"} label={d("roleLabel")} all={t("allJobs")} />
       </header>
       <div className="grid">
-        <Panel id="o-skills" title={t("skills.title")} intro={role ? t("skills.introRole") : t("skills.intro")} span={4} sources={jobroom}>
-          <span className="tag-chip">{t("skills.chip")}</span>
-          <Donut slices={skillSlices} label={t("skills.title")} center="100%" />
+        <Panel id="o-skills" title={t("skills.title")} intro={role ? t("skills.introRole") : t("skills.intro")} span={6} sources={jobroom}>
+          <SkillCompanies
+            slices={skillSlices}
+            companies={(role ? role.skill_companies : it.skill_companies) ?? {}}
+            label={t("skills.title")}
+            pick={t("skills.pick")}
+            adsWord={t("skills.adsWord")}
+            none={t("skills.noCompanies")}
+          />
         </Panel>
-        <Panel id="o-teach" title={t("teach.title")} intro={t("teach.intro", { n: fmt(entryBasis) })} span={4} sources={[...courseSrc, ...jobroom]}>
-          <span className="tag-chip">{t("teach.chip")}</span>
-          {teachSlices.length > 0 ? <Donut slices={teachSlices} label={t("teach.title")} center="100%" /> : <p>{c("noData")}</p>}
-          <p className="note">{gaps.length > 0 ? t("teach.gaps", { list: gaps.join(", ") }) : t("teach.noGaps")}</p>
-          <p className="note">{t("teach.how")}</p>
+        <Panel id="o-teach" title={t("teach.title")} intro={t("teach.intro", { n: fmt(entryBasis) })} span={6} sources={jobroom}>
+          {teachSlices.length > 0 ? <Donut slices={teachSlices} label={t("teach.title")} center="100%" size="large" /> : <p>{c("noData")}</p>}
           <p className="note">
-            <a href={`/${locale}/faehigkeiten`}>{t("teach.link")}</a>
+            <a href={`/${locale}/faehigkeiten${role ? `?role=${role.id}` : ""}`}>{t("teach.link")}</a>
           </p>
         </Panel>
-        <Panel id="o-evo" title={t("evo.title")} intro={role ? t("evo.introRole", { days: data.window_days }) : t("evo.intro", { days: data.window_days })} span={4} sources={jobroom}>
-          <span className="tag-chip">{t("evo.chip")}</span>
-          <BarList rows={evoRows} label={t("evo.title")} />
-          <p className="note">{t("evo.note")}</p>
+        <Panel id="o-evo" title={t("evo.title")} intro={role ? t("evo.introLineRole") : t("evo.introLine")} span={12} sources={jobroom}>
+          {lines.length > 0 ? <LineChart lines={lines} xLabels={months} label={t("evo.title")} format={fmt} /> : <p>{c("noData")}</p>}
+          <p className="note">{t("evo.noteLine")}</p>
         </Panel>
         <Panel id="o-req" title={t("req.title")} intro={role ? t("req.introRole") : t("req.intro")} span={4} sources={jobroom}>
-          <span className="tag-chip">{t("req.chip")}</span>
           <BarList rows={reqRows} label={t("req.title")} />
           <p className="note">{t("req.note")}</p>
         </Panel>
         <Panel id="o-where" title={t("where.title")} span={4} sources={jobroom}>
-          <span className="tag-chip">{t("where.chip")}</span>
           <BarList rows={cantonRows} label={t("where.title")} />
         </Panel>
         <Panel id="o-newest" title={role ? t("newest.titleRole") : t("newest.title")} span={4} sources={jobroom}>
-          <span className="tag-chip tag-chip--live">{t("newest.chip")}</span>
           <ul className="newest">
             {newest.map((a) => {
               const url = safeHttpUrl(a.url);

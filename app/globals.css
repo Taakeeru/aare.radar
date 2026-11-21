@@ -1529,3 +1529,52 @@ html[data-light="true"] {
   font-size: 12px;
   white-space: nowrap;
 }
+
+.donut--large .donut__chart {
+  width: 220px;
+  height: 220px;
+}
+.donut--large .donut__legend {
+  font-size: 15px;
+}
+.skillco__pick {
+  margin: 16px 0 8px;
+  font-weight: 700;
+}
+.skillco__chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.skillco__list {
+  margin: 12px 0 0;
+  padding-left: 20px;
+}
+.skillco__list li {
+  margin: 4px 0;
+}
+.skillco__n {
+  color: var(--radar-text2);
+  font-size: 15px;
+}
+.linechart__svg {
+  width: 100%;
+  height: auto;
+}
+.linechart__grid {
+  stroke: var(--radar-hairline);
+  stroke-width: 1;
+}
+.linechart__tick {
+  fill: var(--radar-text3);
+  font-size: 12px;
+}
+.linechart__line {
+  fill: none;
+  stroke-width: 2.5;
+}
+.linechart__legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 24px;
+}

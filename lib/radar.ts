@@ -44,6 +44,8 @@ export type RadarRole = {
   entry_skills?: SkillShare[];
   /** Optional: month by month history of the role's top 8 skills, last 12 months, oldest first. */
   skills_monthly?: SkillSeries[];
+  /** Optional (21.11.2026): the companies asking most for each of the role's top skills, no agencies. */
+  skill_companies?: Record<string, CompanyCount[]>;
   barriers: RoleBarriers;
   /** Share of ads that say junior / career changer / trainee / internship (question A, good news, apart from the barriers). */
   entry_level_share: number;
@@ -82,6 +84,8 @@ export type ItOverview = {
 };
 export type ItMarket = ItDetail & {
   ads: number;
+  skill_companies?: Record<string, CompanyCount[]>;
+  skills_monthly?: SkillSeries[];
   overview?: ItOverview;
   /** Ads open to beginners: the full text says junior / trainee / career changer / internship, or job-room's experience field says none or under a year. */
   entry_ads?: number;

@@ -179,6 +179,10 @@ def main(out: Path, db=None, entries=None, esco_path=None, today=None):
                              for k, v in entry_skills.most_common(15)],
             "skills_monthly": skills_monthly([(h[0], json.loads(h[2])) for h in history if rid in json.loads(h[1])],
                                              [s["skill"] for s in top[:8]], today),
+            # which companies ask for each of the role's top skills (Dashboard, Seckin 21.11.2026), no agencies
+            "skill_companies": {s["skill"]: [{"company": k, "ads": v} for k, v in collections.Counter(
+                r[1] for r in full if r[1] and not AGENCY.search(r[1]) and s["skill"] in json.loads(r[7] or "[]")
+            ).most_common(4)] for s in top[:6]},
             "barriers": {k: round(barriers[k] / nf, 3) for k in BARRIERS if k != "entry_level"},
             "entry_level_share": round(barriers["entry_level"] / nf, 3),
             "employers": [{"company": k, "ads": v} for k, v in
@@ -192,7 +196,7 @@ def main(out: Path, db=None, entries=None, esco_path=None, today=None):
             "reporting_obligation_share": round(sum(r[9] for r in R) / max(n, 1), 3),
             "examples": [{"title": r[0], "company": r[1], "city": r[2], "published": r[4], "url": r[5]} for r in R[:8]],
         })
-    it_market = build_it_market(c, since)
+    it_market = build_it_market(c, since, today)
     from .digest import build_digest_v2
     digest = build_digest_v2(c, dt.date.today())
     market = {"ads": len(rows), "monthly": monthly([h[0] for h in history], today),
@@ -225,7 +229,7 @@ def main(out: Path, db=None, entries=None, esco_path=None, today=None):
     return doc
 
 
-def build_it_market(c, since):
+def build_it_market(c, since, today=None):
     """Every ad whose job-room occupation code is an IT occupation (collector/it_occupations.json), in the window."""
     from .types.jobroom_search import it_occupations
     it = it_occupations()
@@ -273,6 +277,12 @@ def build_it_market(c, since):
         sk, nf = skills(R)
         return {"weekly": weeks(R), "skills": sk, "skills_basis": nf, "employers": employers(R),
                 "entry_employers": employers([r for r in R if is_entry(r)], 6)}
+    def skill_companies(skills_top):
+        full = [r for r in rows if r[5]]
+        return {k: [{"company": c, "ads": v} for c, v in collections.Counter(
+            r[8] for r in full if r[8] and not AGENCY.search(r[8]) and k in json.loads(r[9] or "[]")).most_common(4)]
+            for k in skills_top}
+
     def overview():
         """The «Overview» page (Seckin, 21.11.2026): skills in beginner ads, entry requirements and the newest
         beginner ads (skill counts over the whole window are it_market.skills; a month-by-month trend needs more history:
@@ -294,6 +304,9 @@ def build_it_market(c, since):
     return {
         "ads": n,
         "overview": overview(),
+        "skill_companies": skill_companies([x["skill"] for x in detail(rows)["skills"][:6]]),
+        "skills_monthly": skills_monthly([(r[1], json.loads(r[9] or "[]")) for r in rows if r[5]],
+                                         [x["skill"] for x in detail(rows)["skills"][:5]], today or dt.date.today()),
         "read_in_full": sum(1 for r in rows if r[5]),
         "entry_ads": entry_n(rows),
         "entry_level_share": entry(rows),

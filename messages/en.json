@@ -680,7 +680,10 @@
       "title": "Skills companies seek",
       "intro": "Share of the mentions among the six most asked skills in all IT ads.",
       "chip": "Demand",
-      "introRole": "Share of the mentions among the six most asked skills in this role's ads."
+      "introRole": "Share of the mentions among the six most asked skills in this role's ads.",
+      "pick": "Choose a skill to see which companies ask for it:",
+      "adsWord": "ads",
+      "noCompanies": "No company with an ad for this skill."
     },
     "teach": {
       "title": "Skills to teach",
@@ -700,7 +703,10 @@
       "yAxis": "Ads",
       "xAxis": "Skill",
       "note": "A month-by-month trend appears as the radar keeps collecting every day; job-room only keeps the last 60 days.",
-      "introRole": "Number of this role's ads that name the skill, last {days} days."
+      "introRole": "Number of this role's ads that name the skill, last {days} days.",
+      "introLine": "IT ads per month that name the skill.",
+      "introLineRole": "This role's ads per month that name the skill.",
+      "noteLine": "Earlier months look smaller: job-room keeps ads for 60 days only, so the lines become a real trend as the radar collects every day. The current month is not over yet."
     },
     "req": {
       "title": "Entry requirements",
