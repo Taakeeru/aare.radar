@@ -54,6 +54,9 @@ class DigestV2Test(unittest.TestCase):
             self.assertIn("New in parliament", digest.render_v2(g, "en")["text"])
             self.assertNotIn("New in parliament", digest.render_v2(g, "en", fields=["351"])["text"])
             self.assertIn("stop", digest.render_v2(g, "en", scheduled=True)["text"])
+            self.assertIsNone(digest.safe_url("javascript:alert(1)"))
+            self.assertIsNone(digest.safe_url("data:text/html,x"))
+            self.assertEqual(digest.safe_url("https://www.parlament.ch/x"), "https://www.parlament.ch/x")
 
 
 if __name__ == "__main__":

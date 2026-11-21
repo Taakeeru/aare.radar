@@ -119,6 +119,16 @@ REPLY_TO = "secretary@pandora-ai.ch"
 JOBROOM_AD = "https://www.job-room.ch/job-search/{id}"
 
 
+def safe_url(u):
+    """The link only when it is plain http(s) with a host (feeds are outside data: no javascript:, data: ...), else None."""
+    from urllib.parse import urlsplit
+    try:
+        p = urlsplit(str(u or "").strip())
+    except ValueError:
+        return None
+    return p.geturl() if p.scheme in ("http", "https") and p.netloc else None
+
+
 def build_digest_v2(c, today, days=14, per_field=3, skills_per_field=3):
     """Language-neutral structure: {from, to, days, ads, entry_ads, fields: [{group, label_en, label_de, ads,
     entry_ads, items: [{title, company, city, ends, url}]}]} (items = beginner ads, soonest deadline first)."""
@@ -169,7 +179,7 @@ def build_digest_v2(c, today, days=14, per_field=3, skills_per_field=3):
     # Policy watch (question E): the newest parliament and federal-law items of the last POLICY_DAYS, at most 3.
     pol_from = (today - dt.timedelta(days=POLICY_DAYS)).isoformat()
     try:
-        policy = [{"title": t, "source": src, "date": (d or "")[:10] or None, "status": st, "url": u}
+        policy = [{"title": t, "source": src, "date": (d or "")[:10] or None, "status": st, "url": safe_url(u)}
                   for src, t, d, st, u in c.execute(
                       "SELECT source, title, date, status, url FROM policy WHERE date >= ? ORDER BY date DESC LIMIT 3",
                       (pol_from,))]
