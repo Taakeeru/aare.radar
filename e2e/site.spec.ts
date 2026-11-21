@@ -119,7 +119,7 @@ test("@ci target group (D) shows the SEM figures with source and date", async ({
 test("@ci English pages", async ({ page }) => {
   await page.goto("/en");
   await expect(page.locator("html")).toHaveAttribute("lang", "en");
-  await expect(page.locator("h1")).toHaveText("What the IT market is looking for");
+  await expect(page.locator("h1")).toHaveText("The Swiss IT job market at a glance");
   await page.goto("/en/politik");
   await expect(page.locator("h1")).toHaveText("What could force us to change the programme?");
 });
