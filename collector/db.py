@@ -28,6 +28,8 @@ def connect(path=None):
     cols = [r[1] for r in c.execute("PRAGMA table_info(ads)")]
     if "tagged" not in cols:
         c.execute("ALTER TABLE ads ADD COLUMN tagged INT")
+    if "reqs" not in cols:  # requirement details (language levels, degree, years), 21.11.2026
+        c.execute("ALTER TABLE ads ADD COLUMN reqs TEXT")
     if "experience" not in cols:  # job-room's own field (NO_EXPERIENCE, LESS_THAN_1_YEAR, ...), 21.11.2026
         c.execute("ALTER TABLE ads ADD COLUMN experience TEXT")
     if "full_text" in cols:  # earlier prototype stored ad text; it may name recruiters, so it goes
