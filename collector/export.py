@@ -149,8 +149,10 @@ def main(out: Path, db=None, entries=None, esco_path=None, today=None):
     esco = json.loads(Path(esco_path or ESCO).read_text()) if Path(esco_path or ESCO).exists() else {}
     today = today or dt.date.today()
     since = (today - dt.timedelta(days=WINDOW)).isoformat()
-    rows = c.execute("""SELECT title, company, city, canton, published, url, roles, skills, barriers,
-                               reporting_obligation, tagged IS NOT NULL
+    acols = {r[1] for r in c.execute("PRAGMA table_info(ads)")}
+    reqs_col = "reqs" if "reqs" in acols else "NULL"
+    rows = c.execute(f"""SELECT title, company, city, canton, published, url, roles, skills, barriers,
+                               reporting_obligation, tagged IS NOT NULL, {reqs_col}
                         FROM ads WHERE roles != '[]' AND published >= ? ORDER BY published DESC""", (since,)).fetchall()
     history = c.execute("SELECT published, roles, skills FROM ads WHERE roles != '[]' AND published IS NOT NULL").fetchall()
     roles = []
@@ -183,6 +185,7 @@ def main(out: Path, db=None, entries=None, esco_path=None, today=None):
             "skill_companies": {s["skill"]: [{"company": k, "ads": v} for k, v in collections.Counter(
                 r[1] for r in full if r[1] and not AGENCY.search(r[1]) and s["skill"] in json.loads(r[7] or "[]")
             ).most_common(4)] for s in top[:6]},
+            "requirements_detail": req_details([r[11] for r in R]),
             "barriers": {k: round(barriers[k] / nf, 3) for k in BARRIERS if k != "entry_level"},
             "entry_level_share": round(barriers["entry_level"] / nf, 3),
             "employers": [{"company": k, "ads": v} for k, v in
@@ -229,6 +232,30 @@ def main(out: Path, db=None, entries=None, esco_path=None, today=None):
     return doc
 
 
+def req_details(reqs):
+    """Requirement details over the ads read with the detail tags (roles.requirement_tags), as shares 0..1:
+    languages {de|en|fr: {level: share}}, degrees {vocational|bachelor|master|phd: share},
+    experience {"1": share (1 year), "2", "3-4", "5+"}; basis = ads read. Shares of the same group can overlap."""
+    read = [json.loads(x) for x in reqs if x]
+    n = max(len(read), 1)
+    cnt = collections.Counter(t for tags in read for t in tags)
+
+    def years(tags):
+        ys = [int(t.split(":")[1]) for t in tags if t.startswith("exp:")]
+        if not ys:
+            return None
+        y = min(ys)
+        return "1" if y <= 1 else "2" if y == 2 else "3-4" if y <= 4 else "5+"
+    exp = collections.Counter(b for b in (years(t) for t in read) if b)
+    return {
+        "basis": len(read),
+        "languages": {lang: {lv: round(cnt[f"lang:{lang}:{lv}"] / n, 3) for lv in ("A1", "A2", "B1", "B2", "C1", "C2")
+                             if cnt[f"lang:{lang}:{lv}"]} for lang in ("de", "en", "fr")},
+        "degrees": {d: round(cnt[f"degree:{d}"] / n, 3) for d in ("vocational", "bachelor", "master", "phd")},
+        "experience": {b: round(exp[b] / n, 3) for b in ("1", "2", "3-4", "5+")},
+    }
+
+
 def build_it_market(c, since, today=None):
     """Every ad whose job-room occupation code is an IT occupation (collector/it_occupations.json), in the window."""
     from .types.jobroom_search import it_occupations
@@ -237,8 +264,9 @@ def build_it_market(c, since, today=None):
     marks = ",".join("?" * len(occ)) or "''"
     cols = {r[1] for r in c.execute("PRAGMA table_info(ads)")}
     exp_col = "experience" if "experience" in cols else "NULL"
+    reqs_col = "reqs" if "reqs" in cols else "NULL"
     rows = c.execute(f"""SELECT occupation, published, canton, barriers, reporting_obligation, tagged, {exp_col}, title,
-                                company, skills, id, url, city FROM ads
+                                company, skills, id, url, city, {reqs_col} FROM ads
                          WHERE occupation IN ({marks}) AND published >= ?""", (*occ, since)).fetchall()
     n = len(rows)
     weekly = collections.Counter()
@@ -304,6 +332,7 @@ def build_it_market(c, since, today=None):
     return {
         "ads": n,
         "overview": overview(),
+        "requirements_detail": req_details([r[13] for r in rows]),
         "skill_companies": skill_companies([x["skill"] for x in detail(rows)["skills"][:6]]),
         "skills_monthly": skills_monthly([(r[1], json.loads(r[9] or "[]")) for r in rows if r[5]],
                                          [x["skill"] for x in detail(rows)["skills"][:5]], today or dt.date.today()),
