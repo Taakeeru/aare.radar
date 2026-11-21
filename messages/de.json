@@ -679,7 +679,8 @@
     "skills": {
       "title": "Fähigkeiten, die Firmen suchen",
       "intro": "Anteil an den Nennungen unter den sechs meistgefragten Fähigkeiten in allen IT-Inseraten.",
-      "chip": "Nachfrage"
+      "chip": "Nachfrage",
+      "introRole": "Anteil an den Nennungen unter den sechs meistgefragten Fähigkeiten in den Inseraten dieses Berufs."
     },
     "teach": {
       "title": "Fähigkeiten zum Unterrichten",
@@ -698,7 +699,8 @@
       "chip": "Anzahl Inserate",
       "yAxis": "Inserate",
       "xAxis": "Fähigkeit",
-      "note": "Ein Verlauf Monat für Monat entsteht, während der Radar täglich sammelt; job-room zeigt nur die letzten 60 Tage."
+      "note": "Ein Verlauf Monat für Monat entsteht, während der Radar täglich sammelt; job-room zeigt nur die letzten 60 Tage.",
+      "introRole": "Anzahl Inserate dieses Berufs, die die Fähigkeit nennen, letzte {days} Tage."
     },
     "req": {
       "title": "Einstiegsanforderungen",
@@ -708,7 +710,8 @@
       "senior_experience": "Mehrere Jahre Erfahrung",
       "degree_required": "Ein Abschluss",
       "german_required": "Sehr gutes Deutsch",
-      "french_required": "Sehr gutes Französisch"
+      "french_required": "Sehr gutes Französisch",
+      "introRole": "Wie oft die Inserate dieses Berufs das verlangen."
     },
     "where": {
       "title": "Wo die Stellen sind",
