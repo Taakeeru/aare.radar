@@ -155,12 +155,15 @@ export default async function DashboardPage({
     fraction: g.ads / Math.max(1, it!.groups[0]!.ads),
     value: c("ads", { count: g.ads }),
   }));
-  const itTop = (it?.occupations ?? []).slice(0, 12);
-  const itJobRows: BarRow[] = itTop.map((o) => ({
+  const itTop = (it?.occupations ?? []).slice(0, 3);
+  // Entry level is what Powercoders looks for: IT occupations ranked by their beginner ads.
+  const itEntry = [...(it?.occupations ?? [])].filter((o) => (o.entry_ads ?? 0) > 0).sort((a, b) => (b.entry_ads ?? 0) - (a.entry_ads ?? 0)).slice(0, 12);
+  const itJobRows: BarRow[] = itEntry.map((o) => ({
     key: o.code,
     label: itLabel(o),
-    fraction: o.ads / Math.max(1, itTop[0]!.ads),
-    value: c("ads", { count: o.ads }),
+    fraction: (o.entry_ads ?? 0) / Math.max(1, itEntry[0]!.entry_ads ?? 0),
+    value: t("allIt.entryOf", { entry: fmt(o.entry_ads ?? 0), ads: fmt(o.ads) }),
+    tone: "healthy",
   }));
 
   // B: skills
@@ -309,12 +312,17 @@ export default async function DashboardPage({
                 intro={t("allIt.intro")}
                 span={5}
                 sources={jobroom}
-                meaning={t("allIt.meaning", { roles: fmt(roleAds), group: itLabel(it.groups[0]!) })}
+                meaning={
+                  itTop.length >= 3
+                    ? t("allIt.meaning", { roles: fmt(roleAds), first: itLabel(itTop[0]!), second: itLabel(itTop[1]!), third: itLabel(itTop[2]!) })
+                    : t("allIt.meaningShort", { roles: fmt(roleAds) })
+                }
               >
                 <p className="stat">
                   <span className="stat__n">{fmt(it.ads)}</span>
                   <span className="stat__c">{t("allIt.caption", { days: data.window_days, jobs: it.occupations.length })}</span>
                 </p>
+                {it.entry_ads !== undefined ? <p className="note">{t("allIt.entryTotal", { entry: fmt(it.entry_ads), ads: fmt(it.ads) })}</p> : null}
                 <BarList rows={itGroupRows} label={t("allIt.groups")} />
               </Panel>
               <Panel
@@ -323,12 +331,13 @@ export default async function DashboardPage({
                 span={7}
                 sources={jobroom}
                 meaning={
-                  itTop.length >= 3
-                    ? t("allIt.jobsMeaning", { first: itLabel(itTop[0]!), second: itLabel(itTop[1]!), third: itLabel(itTop[2]!) })
+                  itEntry.length >= 2
+                    ? t("allIt.jobsMeaning", { first: itLabel(itEntry[0]!), firstN: fmt(itEntry[0]!.entry_ads ?? 0), second: itLabel(itEntry[1]!) })
                     : t("allIt.jobsMeaningShort")
                 }
               >
-                <BarList rows={itJobRows} label={t("allIt.jobsTitle")} />
+                {itJobRows.length > 0 ? <BarList rows={itJobRows} label={t("allIt.jobsTitle")} /> : <p>{t("allIt.jobsEmpty")}</p>}
+                <p className="note">{t("allIt.entryHow")}</p>
                 <p className="note">{t("allIt.note")}</p>
               </Panel>
             </>

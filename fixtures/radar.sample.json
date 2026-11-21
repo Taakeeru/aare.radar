@@ -1850,8 +1850,10 @@
   ]
  },
  "it_market": {
-  "ads": 3150,
-  "entry_level_share": 0.075,
+  "ads": 3147,
+  "read_in_full": 933,
+  "entry_ads": 332,
+  "entry_level_share": 0.105,
   "reporting_obligation_share": 0.002,
   "weekly": [
    {
@@ -1888,7 +1890,7 @@
    },
    {
     "week": "2026-W47",
-    "new_ads": 880
+    "new_ads": 877
    }
   ],
   "groups": [
@@ -1896,13 +1898,13 @@
     "group": "251",
     "label_en": "Software and applications",
     "label_de": "Software und Anwendungen",
-    "ads": 2000
+    "ads": 1998
    },
    {
     "group": "252",
     "label_en": "Databases, networks and security",
     "label_de": "Datenbanken, Netzwerke und Sicherheit",
-    "ads": 485
+    "ads": 484
    },
    {
     "group": "351",
@@ -1930,7 +1932,8 @@
     "label_de": "Software Engineer",
     "group": "251",
     "ads": 565,
-    "entry_level_share": 0.069
+    "entry_ads": 45,
+    "entry_level_share": 0.08
    },
    {
     "code": "101353",
@@ -1938,7 +1941,8 @@
     "label_de": "ICT System Engineer",
     "group": "251",
     "ads": 537,
-    "entry_level_share": 0.056
+    "entry_ads": 54,
+    "entry_level_share": 0.101
    },
    {
     "code": "101341",
@@ -1946,7 +1950,8 @@
     "label_de": "Informatiker/in",
     "group": "250",
     "ads": 278,
-    "entry_level_share": 0.076
+    "entry_ads": 32,
+    "entry_level_share": 0.115
    },
    {
     "code": "101782",
@@ -1954,7 +1959,8 @@
     "label_de": "ICT Supporter",
     "group": "351",
     "ads": 223,
-    "entry_level_share": 0.103
+    "entry_ads": 29,
+    "entry_level_share": 0.13
    },
    {
     "code": "101358",
@@ -1962,15 +1968,17 @@
     "label_de": "ICT Application Engineer",
     "group": "251",
     "ads": 158,
-    "entry_level_share": 0.063
+    "entry_ads": 15,
+    "entry_level_share": 0.095
    },
    {
     "code": "101349",
     "label_en": "ICT Consultant",
     "label_de": "ICT Consultant",
     "group": "251",
-    "ads": 158,
-    "entry_level_share": 0.07
+    "ads": 157,
+    "entry_ads": 16,
+    "entry_level_share": 0.102
    },
    {
     "code": "101355",
@@ -1978,6 +1986,7 @@
     "label_de": "ICT Project Manager",
     "group": "251",
     "ads": 150,
+    "entry_ads": 15,
     "entry_level_share": 0.1
    },
    {
@@ -1986,6 +1995,7 @@
     "label_de": "ICT System Administrator",
     "group": "252",
     "ads": 87,
+    "entry_ads": 6,
     "entry_level_share": 0.069
    },
    {
@@ -1994,7 +2004,8 @@
     "label_de": "ICT Architect",
     "group": "251",
     "ads": 84,
-    "entry_level_share": 0.048
+    "entry_ads": 7,
+    "entry_level_share": 0.083
    },
    {
     "code": "101363",
@@ -2002,7 +2013,8 @@
     "label_de": "Database Engineer",
     "group": "252",
     "ads": 73,
-    "entry_level_share": 0.055
+    "entry_ads": 5,
+    "entry_level_share": 0.068
    },
    {
     "code": "101345",
@@ -2010,7 +2022,8 @@
     "label_de": "ICT Business Analyst",
     "group": "251",
     "ads": 71,
-    "entry_level_share": 0.042
+    "entry_ads": 4,
+    "entry_level_share": 0.056
    },
    {
     "code": "104048",
@@ -2018,7 +2031,8 @@
     "label_de": "DevOps Engineer",
     "group": "251",
     "ads": 64,
-    "entry_level_share": 0.078
+    "entry_ads": 9,
+    "entry_level_share": 0.141
    },
    {
     "code": "101779",
@@ -2026,7 +2040,8 @@
     "label_de": "ICT Application Manager",
     "group": "351",
     "ads": 62,
-    "entry_level_share": 0.065
+    "entry_ads": 7,
+    "entry_level_share": 0.113
    },
    {
     "code": "101362",
@@ -2034,6 +2049,7 @@
     "label_de": "Database Administrator",
     "group": "252",
     "ads": 60,
+    "entry_ads": 4,
     "entry_level_share": 0.067
    },
    {
@@ -2041,8 +2057,9 @@
     "label_en": "Network Engineer",
     "label_de": "Network Engineer",
     "group": "252",
-    "ads": 55,
-    "entry_level_share": 0.055
+    "ads": 54,
+    "entry_ads": 5,
+    "entry_level_share": 0.093
    },
    {
     "code": "101369",
@@ -2050,6 +2067,7 @@
     "label_de": "ICT Security Expert",
     "group": "252",
     "ads": 53,
+    "entry_ads": 3,
     "entry_level_share": 0.057
    },
    {
@@ -2058,15 +2076,8 @@
     "label_de": "Information Security Manager",
     "group": "252",
     "ads": 47,
-    "entry_level_share": 0.064
-   },
-   {
-    "code": "105004",
-    "label_en": "Business AI Specialist",
-    "label_de": "Business AI Specialist",
-    "group": "251",
-    "ads": 44,
-    "entry_level_share": 0.205
+    "entry_ads": 6,
+    "entry_level_share": 0.128
    },
    {
     "code": "101370",
@@ -2074,7 +2085,17 @@
     "label_de": "Cyber Security Specialist",
     "group": "252",
     "ads": 44,
-    "entry_level_share": 0.045
+    "entry_ads": 5,
+    "entry_level_share": 0.114
+   },
+   {
+    "code": "105004",
+    "label_en": "Business AI Specialist",
+    "label_de": "Business AI Specialist",
+    "group": "251",
+    "ads": 43,
+    "entry_ads": 14,
+    "entry_level_share": 0.326
    },
    {
     "code": "101352",
@@ -2082,13 +2103,14 @@
     "label_de": "Wirtschaftsinformatiker/in",
     "group": "251",
     "ads": 35,
-    "entry_level_share": 0.057
+    "entry_ads": 7,
+    "entry_level_share": 0.2
    }
   ],
   "cantons": [
    {
     "canton": "ZH",
-    "count": 825
+    "count": 822
    },
    {
     "canton": "BE",

@@ -81,8 +81,11 @@ def run(c, entry):
 def fetch_full_text(c, everything=False):
     """The text is read, tagged and DROPPED: only the derived tags are stored. Job ads name recruiters (names, mails,
     phones) and the challenge rules allow aggregate data only. `everything` re-reads all matched ads (retag)."""
-    where = "roles!='[]'" + ("" if everything else " AND tagged IS NULL")
-    todo = c.execute(f"SELECT id, title FROM ads WHERE {where}").fetchall()
+    # role ads AND every IT ad (21.11.2026: the team looks at entry-level IT jobs, so all IT ads are read in full)
+    codes = list(it_occupations()["occupations"])
+    marks = ",".join("?" * len(codes))
+    where = f"(roles!='[]' OR occupation IN ({marks}))" + ("" if everything else " AND tagged IS NULL")
+    todo = c.execute(f"SELECT id, title FROM ads WHERE {where}", codes).fetchall()
     for i, (aid, title) in enumerate(todo):
         try:
             d = json.loads(net.fetch(DETAIL.format(id=aid))[0])
@@ -115,18 +118,20 @@ def store_ad(c, ad, today):
     barriers = [k for k, rx in BARRIERS.items() if rx.search(text)]
     loc, emp, pub = jc.get("location") or {}, jc.get("employment") or {}, ad.get("publication") or {}
     occ = (jc.get("occupations") or [{}])[0].get("avamOccupationCode")
+    exp = (jc.get("occupations") or [{}])[0].get("workExperience")
     url = jc.get("externalUrl") or f"https://www.job-room.ch/job-search/{ad['id']}"
     if url and not url.startswith("http"):
         url = "https://" + url
     # skills/barriers from the snippet are only a placeholder until fetch_full_text fills the whole ad
     c.execute("""INSERT INTO ads(id, title, company, canton, city, published, ends, reporting_obligation, occupation,
-        workload_min, workload_max, lang, url, roles, skills, barriers, first_seen, last_seen)
-      VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)
-      ON CONFLICT(id) DO UPDATE SET last_seen=excluded.last_seen, roles=excluded.roles, ends=excluded.ends""",
+        workload_min, workload_max, lang, url, roles, skills, barriers, first_seen, last_seen, experience)
+      VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)
+      ON CONFLICT(id) DO UPDATE SET last_seen=excluded.last_seen, roles=excluded.roles, ends=excluded.ends,
+        occupation=excluded.occupation, experience=excluded.experience""",
               (ad["id"], title, (jc.get("company") or {}).get("name"), loc.get("cantonCode"), loc.get("city"),
                pub.get("startDate"), pub.get("endDate"), int(bool(ad.get("reportingObligation"))), occ,
                _int(emp.get("workloadPercentageMin")), _int(emp.get("workloadPercentageMax")),
-               d.get("languageIsoCode"), url, json.dumps(roles), json.dumps(skills), json.dumps(barriers), today, today))
+               d.get("languageIsoCode"), url, json.dumps(roles), json.dumps(skills), json.dumps(barriers), today, today, exp))
     return 1 if roles else 0
 
 
