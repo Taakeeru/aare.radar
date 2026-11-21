@@ -1,5 +1,7 @@
 # AareRadar
 
+**Emergency (server down, Lior away):** see [EMERGENCY.md](EMERGENCY.md).
+
 Shows a non-technical team where the Swiss IT job market is heading for the roles Powercoders graduates go into
 (web developer, IT support, data analyst): demand, most requested skills, entry barriers, and policy changes.
 
