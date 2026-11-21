@@ -89,7 +89,7 @@
       "basis": "Grundlage: die Inserate, deren ganzer Text vorliegt."
     },
     "barriers": {
-      "title": "Hürden beim Einstieg",
+      "title": "Einstiegsanforderungen",
       "intro": "Was die Inserate von Bewerbenden verlangen.",
       "german_required": "{count} von 10 Inseraten verlangen sehr gutes Deutsch.",
       "french_required": "{count} von 10 Inseraten verlangen sehr gutes Französisch.",
