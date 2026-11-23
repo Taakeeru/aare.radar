@@ -4,8 +4,8 @@
  *
  * The app never runs Python and never reads the collector's SQLite file. The file
  * is read on the server only: its path comes from the environment variable
- * RADAR_DATA (default fixtures/radar.sample.json, relative to the working
- * directory) and the parsed result is cached for 10 minutes.
+ * RADAR_DATA (default fixtures/radar.sample.json, on Vercel snapshots/radar-latest.json,
+ * relative to the working directory) and the parsed result is cached for 10 minutes.
  */
 import * as fs from "node:fs";
 import * as path from "node:path";
@@ -133,9 +133,11 @@ export type RadarResult = { ok: true; data: Radar; file: string } | { ok: false;
 export const BARRIER_KEYS = ["german_required", "french_required", "degree_required", "senior_experience", "english_ok"] as const;
 export const CACHE_MS = 10 * 60 * 1000;
 export const DEFAULT_DATA_FILE = "fixtures/radar.sample.json";
+/** Export from the hackathon (21.11.2026). Vercel has no collector, so the public pages read this file. */
+export const VERCEL_DATA_FILE = "snapshots/radar-latest.json";
 
 export function dataFilePath(env: Record<string, string | undefined> = process.env): string {
-  const p = (env.RADAR_DATA ?? "").trim() || DEFAULT_DATA_FILE;
+  const p = (env.RADAR_DATA ?? "").trim() || (env.VERCEL ? VERCEL_DATA_FILE : DEFAULT_DATA_FILE);
   // The path is decided at run time (RADAR_DATA); the bundler must not try to trace it.
   return path.isAbsolute(p) ? p : path.join(/*turbopackIgnore: true*/ process.cwd(), p);
 }

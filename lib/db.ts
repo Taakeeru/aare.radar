@@ -2,8 +2,10 @@
  * SQLite via better-sqlite3 + drizzle, opened LAZILY on the first query (the
  * build imports route modules and must not open a database).
  *
- * Path: DATABASE_URL (a file path), else ./data/local.db. The folder is made
- * when missing. On open the migrations in drizzle/migrations are applied
+ * Path: DATABASE_URL (a file path), else ./data/local.db. On Vercel the
+ * filesystem is read-only except /tmp, so the file lives there (it only holds
+ * accounts, and this deploy does not use them). The folder is made when
+ * missing. On open the migrations in drizzle/migrations are applied
  * (idempotent, so every start is the same).
  */
 import * as fs from "node:fs";
@@ -24,7 +26,9 @@ export function databasePath(): string {
   if (url && /^(libsql|https?|wss?):/i.test(url)) {
     throw new Error("DATABASE_URL must be a local SQLite file path");
   }
-  return url || path.join(process.cwd(), "data", "local.db");
+  if (url) return url;
+  if (process.env.VERCEL) return path.join("/tmp", "radar.db");
+  return path.join(process.cwd(), "data", "local.db");
 }
 
 function open(): { sqlite: Database.Database; db: Db } {

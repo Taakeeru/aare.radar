@@ -24,12 +24,14 @@ const nextConfig: NextConfig = {
   poweredByHeader: false,
   // SQLite via better-sqlite3 needs the Node runtime and its native module.
   serverExternalPackages: ["better-sqlite3"],
-  // Self-contained server bundle for the Docker image (Dockerfile, runner stage).
-  output: "standalone",
-  // The migration SQL files (lib/db.ts) and the sample data file (lib/radar.ts, the
-  // default of RADAR_DATA) are read at runtime: trace them into the bundle.
+  // Docker image (Dockerfile) needs the standalone server. Vercel builds its own
+  // output and ignores this mode; setting it there produces the wrong artefact.
+  ...(process.env.VERCEL ? {} : { output: "standalone" as const }),
+  // Migration SQL, the sample fixture, and the hackathon snapshot (lib/radar.ts
+  // reads one of them at runtime; the path is chosen from the environment, so
+  // the bundler does not trace it on its own).
   outputFileTracingIncludes: {
-    "/**": ["./drizzle/migrations/**/*", "./fixtures/**/*"],
+    "/**": ["./drizzle/migrations/**/*", "./fixtures/**/*", "./snapshots/**/*"],
   },
   images: {
     // The app shows no photos.

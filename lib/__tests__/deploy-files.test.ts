@@ -161,7 +161,8 @@ describe(".env.example", () => {
 
   // Set by Next itself, by the build, or deliberately NOT set on the server (see the compose file).
   // SITE_ENV: only the test environment's compose file sets it (deploy/test/, lib/__tests__/test-env.test.ts).
-  const NOT_FOR_THE_SERVER = new Set(["NEXT_PHASE", "NEXT_RUNTIME", "DEMO_INSTANCE", "EMAIL_STUB", "SITE_ENV"]);
+  // VERCEL is set by Vercel's build and runtime, never on the Docker server.
+  const NOT_FOR_THE_SERVER = new Set(["NEXT_PHASE", "NEXT_RUNTIME", "DEMO_INSTANCE", "EMAIL_STUB", "SITE_ENV", "VERCEL"]);
 
   it("covers every variable the app reads: in the compose environment or in this file", () => {
     const missing = [...appEnvNames()].filter(

@@ -117,6 +117,8 @@ describe("entry-level skills and monthly skill history", () => {
 describe("loading and the 10 minute cache", () => {
   it("RADAR_DATA picks the file; the default is the sample fixture", () => {
     expect(dataFilePath({})).toBe(FIXTURE);
+    expect(dataFilePath({ VERCEL: "1" })).toBe(path.join(process.cwd(), "snapshots/radar-latest.json"));
+    expect(dataFilePath({ VERCEL: "1", RADAR_DATA: "/srv/radar.json" })).toBe("/srv/radar.json");
     expect(dataFilePath({ RADAR_DATA: "/srv/radar.json" })).toBe("/srv/radar.json");
     expect(dataFilePath({ RADAR_DATA: "data/x.json" })).toBe(path.join(process.cwd(), "data/x.json"));
   });
